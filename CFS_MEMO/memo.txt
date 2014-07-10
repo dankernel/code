@@ -50,3 +50,27 @@ SCHED_LOAD_SCALE = 1 << 20 = 1024 * 1024(D)
 NICE_0_LOAD = 1024(D) * 1024(D)
 
 
+sched_slice()
+  1. __sched_period()
+    1-1. set period (=6000000ULL)
+    1.2. set latency
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
