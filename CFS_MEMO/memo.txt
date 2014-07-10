@@ -91,11 +91,11 @@ __calc_delta(); //delta_exec * weight / lw.weight..//
     2-4. case2 : (w == 0) ? inv = WMULT_CONST (WMULT_CONST = ~0U)
     2-5. case3 : else ? inv = WMULT_CONST / w (WMULT_CONST = ~0U)
 
-  4.case : (fact >> 32) ? goto(5.) : goto(6.)
-
-  5. fact = fact * inv_weight (= 1024 * inv)
-  6. case : (1<<32 < weight) ? fact >>=1, shift-- 
-  7. return (delta * fact) >> shift
+  4. case : (fact >> 32) ? goto(5.) : goto(6.)
+  5. fact >> 1, shift--;
+  6. fact = fact * inv_weight (= 1024 * inv)
+  7. case : (1<<32 < weight) ? fact >>=1, shift-- 
+  8. return (delta * fact) >> shift
 
 case 32 bit : 
 SCHED_LOAD_RESOLUTION = 0
