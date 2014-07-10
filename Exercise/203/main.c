@@ -28,11 +28,12 @@ int htoi(char *get){
   int tmp_i;
   char tmp_c = '\0';
 
+  //exception..//
   if (!get)
     return -1;
 
+  //first pic and loop..//
   tmp_c = *(get + i);
-  printf("%c \n", tmp_c);
   while (tmp_c != '\n') {
 
     if ('0' <= tmp_c && tmp_c <= '9')
@@ -44,19 +45,19 @@ int htoi(char *get){
     else
       return -2;
 
-    ret <<=1;
-    ret += tmp_i;
-    printf("ret1 : %d \n", ret);
+    //XXX : shift and bit-or..//
+    ret <<=4;
+    ret |= tmp_i;
+    printf("debug : %d \n", ret);
 
+    //next..//
     i++;
     tmp_c = *(get + i);
   }
 
-  
+  //over..// 
   if (INT_MAX <= ret)
     return -3;
-
-  ret >>= 1;
 
   return ret;
 }
@@ -69,11 +70,6 @@ int main(int argc, char* argv[]) {
 
   ret = htoi(str);
   printf("%d \n", ret);
-
-
-
-
-
 
   return 0;
 }
