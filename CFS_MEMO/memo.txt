@@ -6,7 +6,6 @@ Kernel 2.6.23 버전부터 CFS가 적용되었다.
 
 
 2.6.2
-
 update_curr();  //update time..//
   1. get delta_exec (= delta time, now - curr->exec_start)
   2. set exec_time (= sched_entity->exec_start)
@@ -38,15 +37,11 @@ update_curr();  //update time..//
   7. set min vruntime
   8. case : (curr->my_q is NULL) ? //XXX I don't know my_q..//
 
-    
-
-
 case 32 bit : 
 SCHED_LOAD_RESOLUTION = 0
 SCHED_LOAD_SHIFT = 10(D)
 SCHED_LOAD_SCALE = 10000000000(B) = 1024(D)
 NICE_0_LOAD = 1024(D)
-
 
 case 64 bit : 
 SCHED_LOAD_RESOLUTION = 10
