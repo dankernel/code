@@ -74,22 +74,41 @@ sched_slice()
 
 
 
+/* ........ */
 
 __calc_delta(); //delta_exec * weight / lw.weight..//
-  1. get fact (= weight, = NICE_0_LOAD, =1024)
+  1. get fact 
+    1-1. case 32bit ? fact = (weight)
+    1-2. case 64bit ? fact = (weight >> 10)
+  2. get shift (=32. defind)
 
-  2. __update_inv_weight() //inv oper.., (~0U * (1/n)), ~0U is prevent point.
-    2-1. (inv_weight == 0) ? return //inv_weight = 1 / weight ..//
-    2-2. (inv_weight != 0) ? return //else..//
-    2-3. get weight (load_weight->weight)
-    2-4. case1 : (w == WMULT_CONST) ? inv = 1
-    2-5. case2 : (w == 0) ? inv = WMULT_CONST
-    2-6. case3 : else ? inv = WMULT_CONST / w
+  3. set update inv_weight. (strut load_weight)
 
-  3.case : (1<<32 < weight) ? ....
-  4. fact = fact * inv_weight (= 1024 * inv)
-  5. case : (1<<32 < weight) ? fact >>=1, shift-- 
-  6. return (delta * fact) >> shift
+    __update_inv_weight() //inv oper.., (~0U * (1/n)), ~0U is prevent point.
+    2-1. (inv_weight == NULL) ? return : goto (2-2.)
+    2-2. get weight (load_weight->weight)
+    2-3. case1 : (w == WMULT_CONST) ? inv = 1 (WMULT_CONST = ~0U)
+    2-4. case2 : (w == 0) ? inv = WMULT_CONST (WMULT_CONST = ~0U)
+    2-5. case3 : else ? inv = WMULT_CONST / w (WMULT_CONST = ~0U)
+
+  4.case : (1<<32 < weight) ? ....
+  5. fact = fact * inv_weight (= 1024 * inv)
+  6. case : (1<<32 < weight) ? fact >>=1, shift-- 
+  7. return (delta * fact) >> shift
+
+case 32 bit : 
+SCHED_LOAD_RESOLUTION = 0
+SCHED_LOAD_SHIFT = 10(D)
+SCHED_LOAD_SCALE = 10000000000(B) = 1024(D)
+NICE_0_LOAD = 1024(D)
+
+case 64 bit : 
+SCHED_LOAD_RESOLUTION = 10
+SCHED_LOAD_SHIFT = 20(D)
+SCHED_LOAD_SCALE = 1 << 20 = 1024 * 1024(D)
+NICE_0_LOAD = 1024(D) * 1024(D)
+
+/* ........ */
 
 
 sched_vslice();
