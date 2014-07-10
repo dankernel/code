@@ -69,22 +69,38 @@ sched_slice()
   8. load(4.) = lw(6.)
   9. goto (2.) loop
 
+  10. set slice. 
+  11. __calc_delta();
 
 
 
 
+__calc_delta(); //delta_exec * weight / lw.weight..//
+  1. get fact (= weight, = NICE_0_LOAD, =1024)
+
+  2. __update_inv_weight() //inv oper.., (~0U * (1/n)), ~0U is prevent point.
+    2-1. (inv_weight == 0) ? return //inv_weight = 1 / weight ..//
+    2-2. (inv_weight != 0) ? return //else..//
+    2-3. get weight (load_weight->weight)
+    2-4. case1 : (w == WMULT_CONST) ? inv = 1
+    2-5. case2 : (w == 0) ? inv = WMULT_CONST
+    2-6. case3 : else ? inv = WMULT_CONST / w
+
+  3.case : (1<<32 < weight) ? ....
+  4. fact = fact * inv_weight (= 1024 * inv)
+  5. case : (1<<32 < weight) ? fact >>=1, shift-- 
+  6. return (delta * fact) >> shift
 
 
 
+      
+      
+      
+      
+      
+      
+      
 
-
-
-
-
-
-
-
-
-
-
-
+      
+      
+      
