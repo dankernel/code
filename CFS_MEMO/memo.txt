@@ -57,9 +57,11 @@ sched_slice()
     1-1. set period (=6000000ULL)
     1.2. set latency (=8)
 
-  2. case : (next parent == NULL) ? return slice
-  3. case : (next parent != NULL) ? next code //(=4.)
-  4. 
+  2. case : (se->parent == NULL) ? return slice : goto (4.)
+  4. get load (se->sfs_rq->load)
+  5. case : (se->on_rq == NULL) 
+
+  .. goto (2.) loop
 
 
 
