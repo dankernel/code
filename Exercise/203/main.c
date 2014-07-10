@@ -18,10 +18,14 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+#define MAX 1024
+
 int main(int argc, char* argv[]) {
 
-  char str[2014];
-  htoi()
+  char str[MAX];
+  fgets(str, MAX, stdin);
+
+
 
 
   return 0;
