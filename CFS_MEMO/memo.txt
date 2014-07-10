@@ -19,7 +19,7 @@ update_curr();  //update time..//
 
       __calc_delta(); //delta_exec * weight / lw.weight..//
       6-1-1. get fact (= weight, = NICE_0_LOAD, =1024)
-      6-1-2. __update_inv_weigth() //inv oper.., (~0U * (1/n)), ~0U is prevent point.
+      6-1-2. __update_inv_weight() //inv oper.., (~0U * (1/n)), ~0U is prevent point.
         6-1-2-1. (inv_weight == 0) ? return //inv_weight = 1 / weight ..//
         6-1-2-2. (inv_weight != 0) ? return //else..//
         6-1-2-3. get weight (load_weight->weight)
@@ -59,9 +59,11 @@ sched_slice()
 
   2. case : (se->parent == NULL) ? return slice : goto (4.)
   4. get load (se->sfs_rq->load)
-  5. case : (se->on_rq == NULL) 
-
-  .. goto (2.) loop
+  5. case : (se->on_rq == NULL) ? goto(6.)
+  6. get lw (cfs_rq->load) 
+  7. update_load_add. (lw->weight) += se->load.weight
+  8. load(4.) = lw(6.)
+  9. goto (2.) loop
 
 
 
