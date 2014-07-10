@@ -92,6 +92,10 @@ __calc_delta(); //delta_exec * weight / lw.weight..//
   6. return (delta * fact) >> shift
 
 
+sched_vslice();
+  1. calc_delta_fair();
+    1-1. __calc_delta();
+
 
       
       
