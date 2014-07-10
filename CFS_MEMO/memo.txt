@@ -1,0 +1,57 @@
+/*
+ * 출처 : core.c에 주석으로 표기된 내용과 검색
+ */
+2007-05-06  Mike Galbraith에 CFS가 상호작용을 개선했다.
+Kernel 2.6.23 버전부터 CFS가 적용되었다.
+
+
+2.6.2
+
+update_curr();  //update time..//
+  1. get delta_exec (= delta time, now - curr->exec_start)
+  2. set exec_time (= sched_entity->exec_start)
+  3. set exec_max (= max exec time)
+  4. set sum_exec_runtime (= sum exec time += delta time(1.))
+  5. cfs->exec_clock += delta_execl (like (4.))
+  6. set vruntime (by calc_delta_fair())
+
+    calc_delta_fair();  //get vruntime..//
+    6-1. case1 : (se->load.weight != 0) ? __calc_delta()
+
+      __calc_delta(); //delta_exec * weight / lw.weight..//
+      6-1-1. get fact (= weight, = NICE_0_LOAD, =1024)
+      6-1-2. __update_inv_weigth() //inv oper.., (~0U * (1/n)), ~0U is prevent point.
+        6-1-2-1. (inv_weight == 0) ? return //inv_weight = 1 / weight ..//
+        6-1-2-2. (inv_weight != 0) ? return //else..//
+        6-1-2-3. get weight (load_weight->weight)
+        6-1-2-4. case1 : (w == WMULT_CONST) ? inv = 1
+        6-1-2-5. case2 : (w == 0) ? inv = WMULT_CONST
+        6-1-2-6. case3 : else ? inv = WMULT_CONST / w
+      6-1-3. case : (1<<32 < weight) ? ....
+
+      6-1-4. fact = fact * inv_weight (= 1024 * inv)
+      6-1-5. case : (1<<32 < weight) ? fact >>=1, shift-- 
+      6-1-5. return (delta * fact) >> shift
+
+
+    6-2. case2 : (se->load.weight == 0) ? return delta
+  7. set min vruntime
+  8. case : (curr->my_q is NULL) ? //XXX I don't know my_q..//
+
+    
+
+
+case 32 bit : 
+SCHED_LOAD_RESOLUTION = 0
+SCHED_LOAD_SHIFT = 10(D)
+SCHED_LOAD_SCALE = 10000000000(B) = 1024(D)
+NICE_0_LOAD = 1024(D)
+
+
+case 64 bit : 
+SCHED_LOAD_RESOLUTION = 10
+SCHED_LOAD_SHIFT = 20(D)
+SCHED_LOAD_SCALE = 1 << 20 = 1024 * 1024(D)
+NICE_0_LOAD = 1024(D) * 1024(D)
+
+
