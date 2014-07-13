@@ -23,8 +23,15 @@ int setbit(int x, int p, int n, int y)
   int ret = 0;
   int bit = 0;
 
-  bit = y & ( (1<<n-p) - 1 );
+  //get  bit..//
+  bit = y & ( (1<<n-p+1) - 1 );
   printf("%d \n", bit);
+
+  x &= ((1<<n-p+1) - 1) << (n-p+1);
+  printf("%d \n", x);
+
+  x |= bit;
+  printf("%d \n", x);
 
   return ret;
 
@@ -32,7 +39,7 @@ int setbit(int x, int p, int n, int y)
 
 int main(int argc, char* argv[]) {
 
-  setbit(1, 1, 2, 10);
+  setbit(9, 1, 3, 11);
 
   return 0;
 }
