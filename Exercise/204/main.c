@@ -43,10 +43,8 @@ char* shift(char *str, int c)
     i++;
   }
 
-  printf("ret : %s \n", new);
-  memcpy(str, new, strlen(new));
-  printf("ret : %s \n", new);
-  return str;
+  printf("new : %s \n", new);
+  return new;
 }
 
 char* squeeze(char *str1, char *str2)
@@ -54,8 +52,7 @@ char* squeeze(char *str1, char *str2)
   int len1 = strlen(str1);
   int len2 = strlen(str2);
   int i = 0, j = 0;
-  int ret_i = 0;
-  char ret[100];
+  char *ret = NULL;
 
   if (!str1 || !str2)
     return NULL;
@@ -72,9 +69,10 @@ char* squeeze(char *str1, char *str2)
     }
 
     printf("%d %d \n", i, j);
-    shift(str2, j);
+    ret =  shift(str2, j);
+    printf("ret : %s \n", ret);
 
-    printf("%s\n", ret);
+    printf("str2 : %s\n", str2);
   }
 
   return str2;
