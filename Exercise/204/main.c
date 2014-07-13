@@ -19,6 +19,22 @@
 #include <stdio.h>
 #include <string.h>
 
+char* my_strstr(char *str1, char *str2)
+{
+  int len1 = strlen(str1);
+  int len2 = strlen(str2);
+  int i = 0, j = 0;
+  char *ret = NULL;
+
+  return ret;
+}
+
+char* shift(char *str, int c)
+{
+
+  return str;
+}
+
 char* squeeze(char *str1, char *str2)
 {
   int len1 = strlen(str1);
@@ -31,6 +47,10 @@ char* squeeze(char *str1, char *str2)
     return NULL;
 
   while (*(str2 + j) != '\0') {
+
+    j = 0;
+    i = 0;
+
     while (*(str1 + i) == *(str2 + j)) {
       i++;
       j++;
@@ -38,10 +58,9 @@ char* squeeze(char *str1, char *str2)
     }
 
     printf("%d %d \n", i, j);
-    memcpy(&str2, (&str2 + j), len2 - j - 4);
+    *str2 <<= 1;
 
-    j = 0;
-    i = 0;
+    printf("%s\n", ret);
   }
 
   return str2;
