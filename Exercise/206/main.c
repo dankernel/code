@@ -28,11 +28,11 @@ int setbit(int x, int p, int n, int y)
   printf("%d \n", bit);
 
   //make 0 ..//
-  x |= ~( ((1<<n-p+1) - 1) << (n-p+1) );
-  printf("%du \n", x);
+  x &= ~( ((1<<n-p+1) - 1) << (n-p+1));
+  printf("%d \n", x);
 
   x |= (bit << (n-p+1));
-  printf("%du \n", x);
+  printf("%d \n", x);
 
   return ret;
 
@@ -40,7 +40,7 @@ int setbit(int x, int p, int n, int y)
 
 int main(int argc, char* argv[]) {
 
-  setbit(9, 1, 3, 11);
+  setbit(33, 1, 3, 7);
 
   return 0;
 }
