@@ -18,10 +18,17 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+int invert(int num, int bitp, int bitn)
+{
+  int tmp_bit = 0;
+
+  tmp_bit = ((1<<bitn) - 1) << bitp;
+  printf("%d \n", tmp_bit);
+}
+
 int main(int argc, char* argv[]) {
 
-
-
+  invert(31, 3, 2);
 
 
 
