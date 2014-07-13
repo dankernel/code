@@ -32,7 +32,10 @@ int invert(int num, int bitp, int bitn)
   printf("num : %d \n", num);
   print_bin(num);
 
-  num = num & tmp_bit;
+  num = num & ((1<<bitn) - 1);
+  print_bin(num);
+
+  num = (((1<<bitn) - 1) << bitp-bitn);
   printf("num : %d \n", num);
 
 }
@@ -47,6 +50,7 @@ void print_bin(unsigned int num)
 
 int main(int argc, char* argv[]) {
 
+  print_bin(21);
   invert(21, 3, 2);
 
 
