@@ -22,10 +22,17 @@ int invert(int num, int bitp, int bitn)
 {
   int tmp_bit = 0;
 
+  //get bit ..//
   tmp_bit = ~num & (((1<<bitn) - 1) << bitp-bitn);
   printf("bit : %d \n", tmp_bit);
-  num &= ~num & (((1<<bitn) - 1) << bitp-bitn);
+
+  //set 0 ..//
+  num = num & ~(((1<<bitn) - 1) << bitp-bitn);
   printf("num : %d \n", num);
+
+  num = num & tmp_bit;
+  printf("num : %d \n", num);
+
 }
 
 int main(int argc, char* argv[]) {
