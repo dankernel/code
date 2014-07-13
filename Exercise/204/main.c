@@ -33,10 +33,9 @@ char* squeeze(char *str1, char *str2)
     while (*(str1 + i) == *(str2 + j))
       i = ++j;
 
-    printf("%s\n", *(str1+i-1));
-    printf("%s\n", *(str2+j-1));
-
-    memcpy(str2, str2 + j, len2 - j);
+    printf("1\n");
+    memcpy(&str2, (&str2 + j), len2 - j - 1);
+    printf("2\n");
     j++;
     i = 0;
   }
