@@ -35,23 +35,27 @@ char* squeeze(char *str1, char *str2)
 
     printf("A : %s \n", str2);
     printf("B : %s \n", str1);
+    printf("i : %d \n", i);
+    printf("j : %d \n", j);
     while (*(str1 + i) == *(str2 + j)) {
       i++;
       j++;
       printf("loop\n");
     }
     
-    if (j == len1) {
+    if (i == len1) {
       printf("ok \n");
     } else {
       printf("no \n");
-      ret[inf++] = *(str1 + j);
+      ret[ind++] = *(str2 + j);
+      printf("__ret : %s \n", ret);
+      j++;
     }
 
-    j++;
     i = 0;
 
- }
+  }
+  printf("ret : %s \n", ret);
 
   return str2;
 }
@@ -60,7 +64,7 @@ int main(int argc, char* argv[]) {
 
   char *ret = NULL;
 
-  ret = squeeze("ab", "ab1a2ab3");
+  ret = squeeze("ab", "ab1ab2ab3a4");
   printf("%s \n", ret);
 
   return 0;
