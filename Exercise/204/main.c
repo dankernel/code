@@ -17,10 +17,24 @@
  */
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
-char squeeze(char *str1, char str2)
+char* squeeze(char *str1, char str2)
 {
-  char ret = NULL;
+  int len1 = strle(str1);
+  int len2 = strle(str2);
+  int i = 0, j = 0;
+  char ret[len2];
+
+  if (!str1 || !str2)
+    return NULL;
+
+  while (j < len2) {
+    while (*(str1 + i) == *(str2 + j))
+      i = ++j;
+    memcpy(ret, str2 + j, len1);
+    i = 0;
+  }
 
   return ret;
 }
