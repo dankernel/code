@@ -27,11 +27,12 @@ int setbit(int x, int p, int n, int y)
   bit = y & ( (1<<n-p+1) - 1 );
   printf("%d \n", bit);
 
-  x &= ((1<<n-p+1) - 1) << (n-p+1);
-  printf("%d \n", x);
+  //make 0 ..//
+  x |= ~( ((1<<n-p+1) - 1) << (n-p+1) );
+  printf("%du \n", x);
 
-  x |= bit;
-  printf("%d \n", x);
+  x |= (bit << (n-p+1));
+  printf("%du \n", x);
 
   return ret;
 
