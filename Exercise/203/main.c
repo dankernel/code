@@ -10,7 +10,7 @@
  *       Revision:  none
  *       Compiler:  gcc
  *
- *         Author:  YOUR NAME (), 
+ *         Author:  Jun-Hyung Park
  *   Organization:  
  *
  * =====================================================================================
@@ -56,7 +56,7 @@ int htoi(char *get){
   }
 
   //over..// 
-  if (INT_MAX <= ret)
+  if (INT_MAX>>1 <= ret)
     return -3;
 
   return ret;

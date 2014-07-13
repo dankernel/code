@@ -18,7 +18,16 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+char squeeze(char *str1, char str2)
+{
+  char ret = NULL;
+
+  return ret;
+}
+
 int main(int argc, char* argv[]) {
+
+  squeeze("as", "ab1ab2");
 
   return 0;
 }
