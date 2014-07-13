@@ -43,7 +43,6 @@ char* shift(char *str, int c)
     i++;
   }
 
-  printf("new : %s \n", new);
   return new;
 }
 
@@ -69,9 +68,9 @@ char* squeeze(char *str1, char *str2)
     }
 
     printf("%d %d \n", i, j);
-    ret =  shift(str2, j);
+    ret = shift(str2, j);
     printf("ret : %s \n", ret);
-
+    str2 = ret;
     printf("str2 : %s\n", str2);
   }
 
