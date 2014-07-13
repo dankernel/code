@@ -19,37 +19,19 @@
 #include <stdio.h>
 #include <string.h>
 
-char* shift(char *str, int c)
-{
-  int len = strlen(str);
-  int i = 0;
-  char *new = NULL;
-
-  new = malloc(len);
-  
-  while (i < len - c){
-    *(new + i) = *(str + i + c);
-    printf("%c \n", *(new+i));
-    i++;
-  }
-
-  return new;
-}
-
 char* squeeze(char *str1, char *str2)
 {
   int len1 = strlen(str1);
   int len2 = strlen(str2);
   int i = 0, j = 0;
-  char *ret = NULL;
+  int tmp = 0;
+  char ret[100] = {'\0', };
+  int ind = 0;
 
   if (!str1 || !str2)
     return NULL;
 
   while (*(str2 + j) != '\0') {
-
-    i = 0;
-    j = 0;
 
     printf("A : %s \n", str2);
     printf("B : %s \n", str1);
@@ -58,14 +40,18 @@ char* squeeze(char *str1, char *str2)
       j++;
       printf("loop\n");
     }
-    j++;
+    
+    if (j == len1) {
+      printf("ok \n");
+    } else {
+      printf("no \n");
+      ret[inf++] = *(str1 + j);
+    }
 
-    printf("%d %d \n", i, j);
-    ret = shift(str2, j);
-    printf("ret : %s \n", ret);
-    str2 = ret;
-    printf("str2 : %s\n", str2);
-  }
+    j++;
+    i = 0;
+
+ }
 
   return str2;
 }
@@ -74,7 +60,7 @@ int main(int argc, char* argv[]) {
 
   char *ret = NULL;
 
-  ret = squeeze("ab", "ab1ab2ab3");
+  ret = squeeze("ab", "ab1a2ab3");
   printf("%s \n", ret);
 
   return 0;
