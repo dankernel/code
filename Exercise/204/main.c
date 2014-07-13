@@ -19,12 +19,12 @@
 #include <stdio.h>
 #include <string.h>
 
-char* squeeze(char *str1, char str2)
+char* squeeze(char *str1, char *str2)
 {
-  int len1 = strle(str1);
-  int len2 = strle(str2);
+  int len1 = strlen(str1);
+  int len2 = strlen(str2);
   int i = 0, j = 0;
-  char ret[len2];
+  int ret_i = 0;
 
   if (!str1 || !str2)
     return NULL;
@@ -32,16 +32,24 @@ char* squeeze(char *str1, char str2)
   while (j < len2) {
     while (*(str1 + i) == *(str2 + j))
       i = ++j;
-    memcpy(ret, str2 + j, len1);
+
+    printf("%s\n", *(str1+i-1));
+    printf("%s\n", *(str2+j-1));
+
+    memcpy(str2, str2 + j, len2 - j);
+    j++;
     i = 0;
   }
 
-  return ret;
+  return str2;
 }
 
 int main(int argc, char* argv[]) {
 
-  squeeze("as", "ab1ab2");
+  char *ret = NULL;
+
+  ret = squeeze("as", "ab1ab2ab3");
+  printf("%s \n", ret);
 
   return 0;
 }
