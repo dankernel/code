@@ -31,7 +31,21 @@ char* my_strstr(char *str1, char *str2)
 
 char* shift(char *str, int c)
 {
+  int len = strlen(str);
+  int i = 0;
+  char *new = NULL;
 
+  new = malloc(len);
+  
+  while (i < len - c){
+    *(new + i) = *(str + i + c);
+    printf("%c \n", *(new+i));
+    i++;
+  }
+
+  printf("ret : %s \n", new);
+  memcpy(str, new, strlen(new));
+  printf("ret : %s \n", new);
   return str;
 }
 
@@ -58,7 +72,7 @@ char* squeeze(char *str1, char *str2)
     }
 
     printf("%d %d \n", i, j);
-    *str2 <<= 1;
+    shift(str2, j);
 
     printf("%s\n", ret);
   }
