@@ -24,26 +24,18 @@ int invert(int num, int bitp, int bitn)
 
   //get bit ..//
   tmp_bit = ~num & (((1<<bitn) - 1) << bitp-bitn);
-  printf("bit : %d \n", tmp_bit);
+  tmp_bit = ~tmp_bit & ((1<<bitn) - 1);
+  tmp_bit <<= bitp - bitn;
   print_bin(tmp_bit);
 
   //set 0 ..//
   num = num & ~(((1<<bitn) - 1) << bitp-bitn);
-  printf("num : %d \n", num);
   print_bin(num);
 
-  num = num & ((1<<bitn) - 1);
+  num |= tmp_bit;
+
   print_bin(num);
-
-  num = ~num & (((1<<bitn) - 1));
-  num <<= bitp-bitn;
-  print_bin(num);
-
-  tmp_bit |= num;
-
-  printf("num : %d \n", num);
-  print_bin(num);
-
+  return num;
 }
 
 void print_bin(unsigned int num)
