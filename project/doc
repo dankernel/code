@@ -10,6 +10,11 @@ class math
   enum op;      //+, -, *, /, ...//
 }
 
++, - , *, /, %,
++=, -=, *=, /=, %=,
+==, !=, <=, >=, <, >,
+~, ^, |, &
+
 class call
 {
   int argc;
@@ -17,4 +22,16 @@ class call
 
   string name;
 }
+
+class branch
+{
+  object math;
+  object code;
+}
+
+
+
+
+
+
 
