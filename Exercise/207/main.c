@@ -35,8 +35,14 @@ int invert(int num, int bitp, int bitn)
   num = num & ((1<<bitn) - 1);
   print_bin(num);
 
-  num = (((1<<bitn) - 1) << bitp-bitn);
+  num = ~num & (((1<<bitn) - 1));
+  num <<= bitp-bitn;
+  print_bin(num);
+
+  tmp_bit |= num;
+
   printf("num : %d \n", num);
+  print_bin(num);
 
 }
 
