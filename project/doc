@@ -4,8 +4,8 @@ class math
   Object op1;
   Object op2;
 
-  enum op1_ty;
-  enum op2_ty;
+  enum type1;
+  enum type2;
 
   enum op;      //+, -, *, /, ...//
 }
@@ -23,15 +23,16 @@ class call
   string name;
 }
 
+class code
+{
+  
+}
+
 class branch
 {
   object math;
-  object code;
+  object code[];
+
+  list mapping; //math result and code array.//
 }
-
-
-
-
-
-
 
