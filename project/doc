@@ -1,17 +1,20 @@
 
 class math
 {
-  Object op1
-  Object op2
+  Object op1;
+  Object op2;
 
-  enum op1_ty
-  enum op2_ty
+  enum op1_ty;
+  enum op2_ty;
 
-  enum op  //+, -, *, /, ...//
+  enum op;      //+, -, *, /, ...//
 }
 
-class{
-  
-  
+class call
+{
+  int argc;
+  string argv[];
 
+  string name;
 }
+
