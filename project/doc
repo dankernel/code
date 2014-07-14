@@ -23,15 +23,15 @@ class call
   string name;
 }
 
-class code
+class code_s
 {
-  
+  code list[]; 
 }
 
 class branch
 {
   object math;
-  object code[];
+  object code_s[];
 
   list mapping; //math result and code array.//
 }
