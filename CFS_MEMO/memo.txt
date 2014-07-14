@@ -140,6 +140,9 @@ enqueue_task_fair()
 
 enqueue_entity()
   update_curr()
+  ...
+  if (se != cfs_rq->curr) => __enqueue_entity();
+  
 
 
 
