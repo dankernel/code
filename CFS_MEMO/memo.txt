@@ -126,7 +126,13 @@ __sched_period()
   디폴트 6000000 (6.00ms)
   8개 이상 돌고 있으면 750000 (0.75ms) * 돌고있는 task 개수.
 
-init_task_runnable_average
+init_task_runnable_average()
+
+
+enqueue_entity()
+  update_curr();
+  
+  
   
   
   
