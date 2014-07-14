@@ -18,6 +18,17 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+/* 
+ * tmp func
+ */
+void print_bin(unsigned int num)
+{/*{{{*/
+  int i = 32;
+  while (0 <= i)
+    printf("%d", (num>>i--) & 1);
+  printf("\n\n");
+}/*}}}*/
+
 int invert(int num, int bitp, int bitn)
 {
   int tmp_bit = 0;
@@ -32,26 +43,19 @@ int invert(int num, int bitp, int bitn)
   num = num & ~(((1<<bitn) - 1) << bitp-bitn);
   print_bin(num);
 
+  //or..//
   num |= tmp_bit;
 
   print_bin(num);
   return num;
 }
 
-void print_bin(unsigned int num)
-{
-  int i = 32;
-  while (0 <= i)
-    printf("%d", (num>>i--) & 1);
-  printf("\n\n");
-}
+
 
 int main(int argc, char* argv[]) {
 
   print_bin(21);
   invert(21, 3, 2);
-
-
 
   return 0;
 }
