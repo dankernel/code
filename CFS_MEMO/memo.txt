@@ -129,8 +129,20 @@ __sched_period()
 init_task_runnable_average()
 
 
+/*
+ * nr_running이 증가하기 전에 호출됨.
+ * 통계 자료를 업데이트 한 후에 rb-tree에 넣는다.
+ */
+enqueue_task_fair()
+  ... 
+  if (!on_rq) => enqueue_entity();
+  ....
+
 enqueue_entity()
-  update_curr();
+  update_curr()
+
+
+
   
   
   
