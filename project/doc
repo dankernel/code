@@ -1,11 +1,17 @@
 
 class math
 {
+  Object op1
+  Object op2
 
-  math 
+  enum op1_ty
+  enum op2_ty
 
-  Object
-
+  enum op  //+, -, *, /, ...//
 }
 
+class{
+  
+  
 
+}
