@@ -138,10 +138,21 @@ enqueue_task_fair()
   if (!on_rq) => enqueue_entity();
   ....
 
+/*
+ * 처음 큐에넣는 함수인 듯.
+ */
 enqueue_entity()
   update_curr()
   ...
   if (se != cfs_rq->curr) => __enqueue_entity();
+  
+/*
+ * rb-tree에 넣는 과정인 듯.
+ */
+__enqueue_entity()
+  트리를 타고 자식을 찾아감.
+  leftmost 노드를 캐싱한다.
+  트리에 넣는다.
   
 
 
