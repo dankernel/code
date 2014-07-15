@@ -54,6 +54,7 @@ char *expand(char *str1, char *str2)
       ret = _expand(start, end);
       len = strlen(ret);
       memcpy(str2 + j, ret, len);
+      free(ret);
       j += len;
     } else {
       start = '\0';
@@ -69,7 +70,7 @@ char *expand(char *str1, char *str2)
 
 int main(int argc, char* argv[]) {
 
-  char str1[MAX] = "A-Z09";
+  char str1[MAX] = "v-z0-5";
   char str2[MAX] = {'\0', };
   char *ret = NULL;
 
