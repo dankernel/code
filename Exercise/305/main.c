@@ -18,13 +18,18 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+#define MAX 100
+
 char *itob(char *str, char *ret, int num)
 {
+  int i = 0, j = 0;
   char *ret_tmp = NULL;
   ret_tmp = malloc(sizeof(char) * MAX);
 
   if (!str || !ret || num <=0)
     return NULL;
+
+
 
 
 
