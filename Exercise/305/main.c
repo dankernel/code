@@ -20,7 +20,7 @@
 
 #define MAX 100
 
-char *itob(char *str, char *ret, int num)
+char *itob(char *ret, char *str, int num)
 {
   int i = 0, j = 0;
   char *ret_tmp = NULL;
@@ -28,6 +28,8 @@ char *itob(char *str, char *ret, int num)
 
   if (!str || !ret || num <=0)
     return NULL;
+
+
 
 
 
