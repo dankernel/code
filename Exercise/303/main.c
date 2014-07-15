@@ -17,6 +17,8 @@
  */
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
+
 #define MAX 100
 
 char *_expand(char start, char end)
@@ -34,6 +36,7 @@ char *_expand(char start, char end)
 char *expand(char *str1, char *str2)
 {
   int i = 0, j = 0;
+  int len = 0;
   char *ret = NULL;
   char *tmp;
   char start, end;
@@ -47,24 +50,26 @@ char *expand(char *str1, char *str2)
     if (*tmp == '-'){
       start = *(tmp - 1);
       end = *(tmp + 1);
+
+      ret = _expand(start, end);
+      len = strlen(ret);
+      memcpy(str2 + j, ret, len);
+      j += len;
+    } else {
+      start = '\0';
+      end = '\0';
     }
-
-    _expand(start, end);
-
     
     //next..//
     i++;
   }
   
-
-
-
-  return ret;
+  return str2;
 }
 
 int main(int argc, char* argv[]) {
 
-  char str1[MAX] = "a-z";
+  char str1[MAX] = "A-Z09";
   char str2[MAX] = {'\0', };
   char *ret = NULL;
 
