@@ -20,10 +20,13 @@
 
 char *expand(char *str1, char *str2)
 {
+  int i = 0, j = 0;
   char *ret = NULL;
 
   if (!str1 || !str2)
     return NULL;
+  
+
 
 
   return ret;
