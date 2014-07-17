@@ -57,8 +57,8 @@ char *itob(char *ret, int num, int b)
 
   i = (32 / unit);
   printf("i : %d \n", i);
-  while (0 <= i) {
-    tmp = (num >> unit * i) & (1<<unit - 1);
+  while (0 < i) {
+    tmp = (num >> unit * (i - 1)) & (1<<unit - 1);
     printf("tmp = %d \n", tmp);
 
     if (tmp < 9)
