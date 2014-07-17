@@ -10,5 +10,18 @@ do_fork()
         task_struct->se.* = 0;
         task_struct->se.statistics = 0;
       task_struct->state = TASK_RUNNING;
+      task_struct->prio set. like current
+      task_struct->sched_class. 
+
+
+/*
+ * MEMO 
+ *
+ * prio, normal_prio  //동적 우선순위 (스케줄러에 의해 산출됨)
+ * static_prio        //정적 우선순위 (프로세스가 시작될때 정해짐)
+ * rt_priority        // real-time process 우선순위(0~99)
+ * 
+ * -by iamroot-
+ */
         
       
