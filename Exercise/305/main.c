@@ -20,19 +20,24 @@
 
 #define MAX 100
 
-char *itob(char *ret, char *str, int num)
+char *itob(char *ret, int num, int b)
 {
   int i = 0, j = 0;
   char *ret_tmp = NULL;
   ret_tmp = malloc(sizeof(char) * MAX);
 
-  if (!str || !ret || num <=0)
+  if (!ret || b <= 0)
     return NULL;
+
+
 
   return ret;
 }
 
 int main(int argc, char* argv[]) {
+
+  char ret[MAX];
+  itob(ret, 100, 2);
 
   return 0;
 }
