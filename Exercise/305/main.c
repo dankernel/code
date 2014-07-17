@@ -18,60 +18,36 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+
 #define MAX 100
 
-char *str_swap(char *get)
+char *get_bin(unsigned int num)
 {
-  int len = strlen(get);
-  int i = 0;
-  char *tmp;
-  
-  if (!get)
-    return NULL;
+  int i = 32;
+  char *tmp = NULL;
+  tmp = malloc(sizeof(char) * 32);
 
-  tmp = malloc(sizeof(char) * (len + 1));
-
-  while (*(get + i)) {
-    *(tmp + len - i - 1) = *(get + i);
-    i++;
+  while (0 <= i) {
+    *(tmp + (32 - i)) = ((num>>i--) & 1) + '0';
   }
 
+  printf("%s \n", tmp);
   return tmp;
 }
 
 char *itob(char *ret, int num, int b)
 {
   int i = 0, j = 0;
-  int negative_num = 0;
+  int tmp;
   char *ret_tmp = NULL;
-  char tmp;
   ret_tmp = malloc(sizeof(char) * MAX);
 
   if (!ret || b <= 0)
     return NULL;
 
-  if (num < 0) {
-    negative_num = 1;
-    num = -num;
+  while (tmp) {
+    tmp = num << 4*i;
   }
-
-  while (0 < num) {
-
-    tmp = (num % b);
-    if (tmp <= 9)
-      tmp += '0';
-    else 
-      tmp = 'A' + (tmp - 10);
-    
-    *(ret_tmp + (i++)) = tmp;
-    num /= b;
-  }
-
-  if (negative_num)
-    *(ret_tmp + (i++)) = '-';
-
-  ret_tmp = str_swap(ret_tmp);
-  strcpy(ret, ret_tmp);
 
   return ret_tmp;
 }
@@ -81,6 +57,8 @@ int main(int argc, char* argv[]) {
   char ret[MAX];
   itob(ret, 255, 16);
   printf("%s\n", ret);
+
+  printf("%s\n", get_bin(-9));
 
   return 0;
 }
