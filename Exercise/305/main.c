@@ -18,7 +18,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-
 #define MAX 100
 
 char *str_swap(char *get)
@@ -38,14 +37,13 @@ char *str_swap(char *get)
   }
 
   printf("2 : %s \n", tmp);
-
   return tmp;
-
 }
 
 char *itob(char *ret, int num, int b)
 {
   int i = 0, j = 0;
+  int negative_num = 0;
   char *ret_tmp = NULL;
   char tmp;
   ret_tmp = malloc(sizeof(char) * MAX);
@@ -53,30 +51,35 @@ char *itob(char *ret, int num, int b)
   if (!ret || b <= 0)
     return NULL;
 
+  if (num < 0) {
+    *(ret_tmp + (i++)) = '-';
+    num = -num;
+  }
+
   while (0 < num) {
 
     tmp = (num % b);
     if (tmp <= 9)
       tmp += '0';
     else 
-      tmp += 'A';
+      tmp = 'A' + (tmp - 10);
     
-    *(ret_tmp + i) = tmp;
-    i++;
+    *(ret_tmp + (i++)) = tmp;
     num /= b;
     printf(" loop \n");
   }
 
   printf("1 : %s \n", ret_tmp);
   ret_tmp = str_swap(ret_tmp);
+  ret = ret_tmp;
 
-  return ret_tmp;;
+  return ret_tmp;
 }
 
 int main(int argc, char* argv[]) {
 
   char ret[MAX];
-  itob(ret, 1024, 2);
+  itob(ret, -10, 2);
   printf("%s\n", ret);
 
   return 0;
