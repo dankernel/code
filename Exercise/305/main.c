@@ -21,20 +21,6 @@
 
 #define MAX 100
 
-char *get_bin(unsigned int num)
-{
-  int i = 32;
-  char *tmp = NULL;
-  tmp = malloc(sizeof(char) * 32);
-
-  while (0 <= i) {
-    *(tmp + (32 - i)) = ((num>>i--) & 1) + '0';
-  }
-
-  printf("%s \n", tmp);
-  return tmp;
-}
-
 char *itob(char *ret, int num, int b)
 {
   int i = 0, j = 0;
@@ -55,19 +41,19 @@ char *itob(char *ret, int num, int b)
   printf("unit : %d \n", unit);
 
   //getindex..//
-  i = (32 / unit);
+  i = (32 / unit) - 1;
   printf("i : %d \n", i);
 
   while (0 <= i) {
     tmp = (num >> unit * i) & ((1<<unit) - 1);
-    printf("tmp = %d \n", tmp);
+    printf("i : %d / tmp : %d \n", i, tmp);
 
     if (tmp <= 9)
       tmp += '0';
     else
-      tmp = 'A' + (tmp - 10) - 1;
+      tmp = 'A' + (tmp - 10);
 
-    *(ret_tmp + (32/unit - i)) = tmp;
+    *(ret_tmp + 32 - i) = tmp;
 
     printf("loop\n");
     i--;
@@ -80,7 +66,7 @@ char *itob(char *ret, int num, int b)
 int main(int argc, char* argv[]) {
 
   char ret[MAX];
-  itob(ret, 5, 16);
+  itob(ret, 1024, 2);
 
   return 0;
 }
