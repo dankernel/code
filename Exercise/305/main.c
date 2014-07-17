@@ -19,22 +19,22 @@
 #include <stdio.h>
 #include <string.h>
 
-char *itob(char *ret, int num, int b)
+int itob(char *ret, int num, int b)
 {
   int i = 0, tmp = 0, unit = 0, len = 0;
   char *ret_tmp = NULL;
 
   if (!ret || b <= 0)
-    return NULL;
+    return -1;
 
   if (!(b == 2 || b == 4 || b == 8 || b == 16))
-    return NULL;
+    return -1;
 
   //get unit..//
   while (b >>= 1)
     unit++;
 
-  //getindex..//
+  //get index..//
   len = 32 / unit;
   i = len - 1;
   ret_tmp = malloc(sizeof(char) * len);
@@ -51,16 +51,17 @@ char *itob(char *ret, int num, int b)
     i--;
   }
 
-  printf("ret : %s \n", ret_tmp);
-  ret = ret_tmp;
+  strcpy(ret, ret_tmp);
+  free(ret_tmp);
 
-  return ret_tmp;
+  return 0;
 }
 
 int main(int argc, char* argv[]) {
 
   char ret[32];
-  itob(ret, 9, 2);
+  if (itob(ret, 255, 16) >= 0)
+    printf("ret : %s \n", ret);
 
   return 0;
 }
