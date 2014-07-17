@@ -20,16 +20,37 @@
 
 #define MAX 100
 
+char* swap(char *get)
+{
+  char tmp[MAX];
+
+}
+
 char *itob(char *ret, int num, int b)
 {
   int i = 0, j = 0;
   char *ret_tmp = NULL;
+  char tmp;
   ret_tmp = malloc(sizeof(char) * MAX);
 
   if (!ret || b <= 0)
     return NULL;
 
+  while (0 < num) {
 
+    tmp = (num % b);
+    if (tmp <= 9)
+      tmp += '0';
+    else 
+      tmp += 'A';
+    
+    *(ret_tmp + i) = tmp;
+    i++;
+    num /= b;
+    printf(" loop \n");
+  }
+
+  printf("%s \n", ret_tmp);
 
   return ret;
 }
@@ -37,7 +58,7 @@ char *itob(char *ret, int num, int b)
 int main(int argc, char* argv[]) {
 
   char ret[MAX];
-  itob(ret, 100, 2);
+  itob(ret, 1024, 2);
 
   return 0;
 }
