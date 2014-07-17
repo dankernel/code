@@ -12,6 +12,9 @@ do_fork()
       task_struct->state = TASK_RUNNING;
       task_struct->prio set. like current
       task_struct->sched_class
+      set_task_cpu()
+  wake_up_new_task()
+      
 
 
 /*
