@@ -39,26 +39,43 @@ char *itob(char *ret, int num, int b)
 {
   int i = 0, j = 0;
   int tmp;
+  int unit = 0;
   char *ret_tmp = NULL;
-  ret_tmp = malloc(sizeof(char) * MAX);
+  ret_tmp = malloc(sizeof(char) * 32);
 
   if (!ret || b <= 0)
     return NULL;
 
-  while (tmp) {
-    tmp = num << 4*i;
+  if (!(b == 2 || b == 4 || b == 8 || b == 16))
+    return NULL;
+
+  while (b>>1) {
+
   }
 
+  i = 32;
+  while (b/2 < i) {
+    tmp = num >> (b/2)*i;
+
+    if (tmp < 9)
+      tmp += '0';
+    else
+      tmp = 'A' + (tmp - tmp);
+
+    *(ret_tmp + (64/b - i)) = tmp;
+
+    printf("loop\n");
+    i++;
+  }
+
+  printf("ret : %s \n", ret_tmp);
   return ret_tmp;
 }
 
 int main(int argc, char* argv[]) {
 
   char ret[MAX];
-  itob(ret, 255, 16);
-  printf("%s\n", ret);
-
-  printf("%s\n", get_bin(-9));
+  itob(ret, 8, 2);
 
   return 0;
 }
