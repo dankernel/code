@@ -1,0 +1,14 @@
+
+
+
+do_fork()
+  copy_process()
+    //copy and init..//
+    sched_fork(flags, task_struct)
+      __sched_fork(flags, task_struct) 
+        task_struct->on_rq = 0;
+        task_struct->se.* = 0;
+        task_struct->se.statistics = 0;
+      task_struct->state = TASK_RUNNING;
+        
+      
