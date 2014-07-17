@@ -59,7 +59,7 @@ char *itob(char *ret, int num, int b)
   printf("i : %d \n", i);
 
   while (0 <= i) {
-    tmp = (num >> unit * i)  & (1<<unit+1 - 1);
+    tmp = (num >> unit * i) & ((1<<unit) - 1);
     printf("tmp = %d \n", tmp);
 
     if (tmp <= 9)
@@ -80,7 +80,7 @@ char *itob(char *ret, int num, int b)
 int main(int argc, char* argv[]) {
 
   char ret[MAX];
-  itob(ret, 10, 16);
+  itob(ret, 5, 16);
 
   return 0;
 }
