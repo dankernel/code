@@ -49,23 +49,26 @@ char *itob(char *ret, int num, int b)
   if (!(b == 2 || b == 4 || b == 8 || b == 16))
     return NULL;
 
-  while (b>>1) {
-
+  while (b >>= 1) {
+    unit++;
   }
 
-  i = 32;
-  while (b/2 < i) {
-    tmp = num >> (b/2)*i;
+  printf("unit : %d \n", unit);
+
+  i = 32 / unit;
+  printf("i : %d \n", i);
+  while (0 <= i) {
+    tmp = (num >> unit * i) & (1<<unit - 1);
 
     if (tmp < 9)
       tmp += '0';
     else
       tmp = 'A' + (tmp - tmp);
 
-    *(ret_tmp + (64/b - i)) = tmp;
+    *(ret_tmp + (32/unit - i)) = tmp;
 
     printf("loop\n");
-    i++;
+    i--;
   }
 
   printf("ret : %s \n", ret_tmp);
@@ -75,7 +78,7 @@ char *itob(char *ret, int num, int b)
 int main(int argc, char* argv[]) {
 
   char ret[MAX];
-  itob(ret, 8, 2);
+  itob(ret, 10, 16);
 
   return 0;
 }
