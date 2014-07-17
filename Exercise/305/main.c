@@ -29,12 +29,6 @@ char *itob(char *ret, char *str, int num)
   if (!str || !ret || num <=0)
     return NULL;
 
-
-
-
-
-
-
   return ret;
 }
 
