@@ -17,12 +17,29 @@
  */
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 #define MAX 100
 
-char* swap(char *get)
+char *str_swap(char *get)
 {
-  char tmp[MAX];
+  int len = strlen(get);
+  int i = 0;
+  char *tmp;
+  
+  if (!get)
+    return NULL;
+
+  tmp = malloc(sizeof(char) * (len + 1));
+
+  while (*(get + i)) {
+    *(tmp + len - i - 1) = *(get + i);
+    i++;
+  }
+
+  printf("2 : %s \n", tmp);
+
+  return tmp;
 
 }
 
@@ -50,15 +67,17 @@ char *itob(char *ret, int num, int b)
     printf(" loop \n");
   }
 
-  printf("%s \n", ret_tmp);
+  printf("1 : %s \n", ret_tmp);
+  ret_tmp = str_swap(ret_tmp);
 
-  return ret;
+  return ret_tmp;;
 }
 
 int main(int argc, char* argv[]) {
 
   char ret[MAX];
   itob(ret, 1024, 2);
+  printf("%s\n", ret);
 
   return 0;
 }
