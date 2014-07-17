@@ -19,15 +19,13 @@
 #include <stdio.h>
 #include <string.h>
 
-#define MAX 100
-
 char *itob(char *ret, int num, int b)
 {
   int i = 0, j = 0;
   int tmp;
   int unit = 0;
+  int len = 0;
   char *ret_tmp = NULL;
-  ret_tmp = malloc(sizeof(char) * 32);
 
   if (!ret || b <= 0)
     return NULL;
@@ -41,8 +39,9 @@ char *itob(char *ret, int num, int b)
   printf("unit : %d \n", unit);
 
   //getindex..//
-  i = (32 / unit) - 1;
-  printf("i : %d \n", i);
+  len = 32 / unit;
+  i = len - 1;
+  ret_tmp = malloc(sizeof(char) * len);
 
   while (0 <= i) {
     tmp = (num >> unit * i) & ((1<<unit) - 1);
@@ -53,7 +52,7 @@ char *itob(char *ret, int num, int b)
     else
       tmp = 'A' + (tmp - 10);
 
-    *(ret_tmp + 32 - i) = tmp;
+    *(ret_tmp + len - i - 1) = tmp;
 
     printf("loop\n");
     i--;
@@ -65,8 +64,8 @@ char *itob(char *ret, int num, int b)
 
 int main(int argc, char* argv[]) {
 
-  char ret[MAX];
-  itob(ret, 1024, 2);
+  char ret[32];
+  itob(ret, 255, 16);
 
   return 0;
 }
