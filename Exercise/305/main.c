@@ -36,7 +36,6 @@ char *str_swap(char *get)
     i++;
   }
 
-  printf("2 : %s \n", tmp);
   return tmp;
 }
 
@@ -52,7 +51,7 @@ char *itob(char *ret, int num, int b)
     return NULL;
 
   if (num < 0) {
-    *(ret_tmp + (i++)) = '-';
+    negative_num = 1;
     num = -num;
   }
 
@@ -66,12 +65,13 @@ char *itob(char *ret, int num, int b)
     
     *(ret_tmp + (i++)) = tmp;
     num /= b;
-    printf(" loop \n");
   }
 
-  printf("1 : %s \n", ret_tmp);
+  if (negative_num)
+    *(ret_tmp + (i++)) = '-';
+
   ret_tmp = str_swap(ret_tmp);
-  ret = ret_tmp;
+  strcpy(ret, ret_tmp);
 
   return ret_tmp;
 }
@@ -79,7 +79,7 @@ char *itob(char *ret, int num, int b)
 int main(int argc, char* argv[]) {
 
   char ret[MAX];
-  itob(ret, -10, 2);
+  itob(ret, 255, 16);
   printf("%s\n", ret);
 
   return 0;
