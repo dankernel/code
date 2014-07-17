@@ -11,7 +11,7 @@ do_fork()
         task_struct->se.statistics = 0;
       task_struct->state = TASK_RUNNING;
       task_struct->prio set. like current
-      task_struct->sched_class. 
+      task_struct->sched_class
 
 
 /*
