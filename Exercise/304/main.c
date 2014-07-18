@@ -53,7 +53,7 @@ int main(int argc, char* argv[])
 {
   char str[100];
 
-  itoa(0x7FFFFFFF, str);
+  itoa(0x80000000, str);
   printf("%s\n", str);
 
   return 0;
