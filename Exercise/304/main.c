@@ -6,7 +6,7 @@
  *    Description:  
  *
  *        Version:  1.0
- *        Created:  2014년 07월 19일 01시 17분 58초
+ *        Created:  2014년 07월 19일 01시 50분 37초
  *       Revision:  none
  *       Compiler:  gcc
  *
@@ -31,7 +31,7 @@ void reverse(char s[])
   }
 } 
 
-void itoa(int n, char s[], int size)
+void itoa(int n, char s[])
 {
   int i, sign;
   if ((sign = n) < 0) /*  record sign */
@@ -42,19 +42,18 @@ void itoa(int n, char s[], int size)
     s[i++] = n % 10 + '0'; /*  get next digit */
   } while ((n /= 10) > 0); /*  delete it */
 
-  while (i < size)
-    s[i++] = '0';
-
   if (sign < 0)
     s[i++] = '-';
 
+  s[i] = '\0';
   reverse(s);
 }
 
 int main(int argc, char* argv[])
 {
   char str[100];
-  itoa(-12, str, 5);
+
+  itoa(0x7FFFFFFF, str);
   printf("%s\n", str);
 
   return 0;
