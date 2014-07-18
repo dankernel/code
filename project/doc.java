@@ -27,6 +27,7 @@ class call
 {
   int argc;
   string argv[];
+  //or val argv[];
 
   string func;  //function name..//
 }

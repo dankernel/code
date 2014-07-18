@@ -62,6 +62,8 @@ int main(int argc, char* argv[]) {
   char ret[32];
   if (itob(ret, 255, 16) >= 0)
     printf("ret : %s \n", ret);
+  else
+    printf("err.. \n");
 
   return 0;
 }
