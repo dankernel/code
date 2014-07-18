@@ -13,7 +13,6 @@ class math
   math val1;
   math val2;
 
-  //+, -, *, /, ...//
   enum op;      
 }
 
