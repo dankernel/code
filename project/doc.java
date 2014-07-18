@@ -17,12 +17,10 @@ class math
   enum op;      
 }
 
-/*
-   +, - , *, /, %,
-   +=, -=, *=, /=, %=,
-   ==, !=, <=, >=, <, >,
-   ~, ^, |, &
-*/
+/* +, - , *, /, %, */
+/* +=, -=, *=, /=, %=, */
+/* ==, !=, <=, >=, <, >, */
+/* ~, ^, |, & */
 
 class call
 {
@@ -41,12 +39,19 @@ class code_s
   code list[]; 
 }
 
+//math result => code_s
+class mapp_table
+{
+  int result[];
+  int index[];
+}
+
 class branch
 {
   object math;
   object code_s[];
 
-  list mapping; //math result and code array.//
+  mapp_table table; //math result and code array.//
 }
 
 class set_func
