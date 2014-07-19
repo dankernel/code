@@ -34,12 +34,14 @@ void reverse(char s[])
 void itoa(int n, char s[])
 {
   int i, sign;
-  if ((sign = n) < 0) /*  record sign */
+  if ((sign = n) < 1) /*  record sign */
     n = -n; /*  make n positive */
 
   i = 0;
   do { /*  generate digits in reverse order */
     s[i++] = n % 10 + '0'; /*  get next digit */
+    printf("loop  %d \n", n );
+    printf("loop  %d \n", n%10 );
   } while ((n /= 10) > 0); /*  delete it */
 
   if (sign < 0)
