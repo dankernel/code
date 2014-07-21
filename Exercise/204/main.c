@@ -36,11 +36,11 @@ char* squeeze(char *str1, char *str2)
 
   while (*(str2 + j) != '\0') {
 
-    while ((*(str1 + i) != '\0') || (*(str1 + i) != *(str2 + j)))
+    while ((*(str1 + i) != '\0') && (*(str1 + i) != *(str2 + j)))
       i++;
 
-    printf("loop \n");
-    if ((*(str1 + i) != '\0') || (*(str1 + i) != *(str2 + j))) {
+ 
+    if ((*(str1 + i) != *(str2 + j))) {
       ret[ind++] = *(str2 + j);
       printf("__ret : %s \n", ret);
     }
@@ -57,7 +57,7 @@ int main(int argc, char* argv[]) {
 
   char *ret = NULL;
 
-  ret = squeeze("ab", "ab12ab34ab56a2b7a77ab7ab7ba77va7ba7ab");
+  ret = squeeze("a7b", "ab12ab34ab56a2b7a77ab7ab7ba77va7ba7ab");
   printf("%s \n", ret);
 
   return 0;
