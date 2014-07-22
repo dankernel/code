@@ -21,13 +21,16 @@
 int rightrot(int get, int n)
 {
   int ret = get >>= n;
+  int i = 0;
+
+  while (i<n)
+
 
   return ret;
 }
 
 int main(int argc, char* argv[])
 {
-
   int tmp = 1024;
   int ret = 0;
 
