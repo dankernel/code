@@ -43,7 +43,7 @@ int setbit(int x, int p, int n, int y)
   //set 0bit ..//
   printf("x \n");
   print_bin(x);
-  x = (1<<n - 1); // << (p - n - 1);
+  x &= ((1<<n) - 1) << (p - n);
   print_bin(x);
 
   ///or ..//
