@@ -23,10 +23,10 @@
  */
 void print_bin(unsigned int num)
 {/*{{{*/
-  int i = 32;
+  int i = 31;
   while (0 <= i)
     printf("%d", (num>>i--) & 1);
-  printf("\n\n");
+  printf("\n");
 }/*}}}*/
 
 int setbit(int x, int p, int n, int y)
@@ -35,13 +35,16 @@ int setbit(int x, int p, int n, int y)
   int bit = 0;
 
   //get  bit..//
+  printf("bit \n");
   print_bin(y);
-  bit = y & ( (1<<n-p+1) - 1 );
+  bit = y & (1<<n - 1);
   print_bin(bit);
 
   //set 0bit ..//
-  x &= ~( ((1<<n-p+1) - 1) << (n-p+1));
-  printf("%d \n", x);
+  printf("x \n");
+  print_bin(x);
+  x &= ~( ((1<<p) - 1) << n);
+  print_bin(x);
 
   ///or ..//
   x |= (bit << (n-p+1));
@@ -57,7 +60,7 @@ int main(int argc, char* argv[]) {
 
   //setbit(a, b, c, d);
   //b부터 c개 => d의 0부터 c개..//
-  setbit(33, 1, 2, 13);
+  setbit(28, 3, 2, 14);
 
   return 0;
 }
