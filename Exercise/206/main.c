@@ -43,7 +43,7 @@ int setbit(int x, int p, int n, int y)
   //set 0bit ..//
   printf("x \n");
   print_bin(x);
-  x &= ~( ((1<<p) - 1) << n);
+  x = (1<<n - 1); // << (p - n - 1);
   print_bin(x);
 
   ///or ..//
@@ -60,7 +60,7 @@ int main(int argc, char* argv[]) {
 
   //setbit(a, b, c, d);
   //b부터 c개 => d의 0부터 c개..//
-  setbit(28, 3, 2, 14);
+  setbit(31, 3, 2, 14);
 
   return 0;
 }
