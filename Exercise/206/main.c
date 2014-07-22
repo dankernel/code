@@ -18,6 +18,17 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+/* 
+ * tmp func
+ */
+void print_bin(unsigned int num)
+{/*{{{*/
+  int i = 32;
+  while (0 <= i)
+    printf("%d", (num>>i--) & 1);
+  printf("\n\n");
+}/*}}}*/
+
 int setbit(int x, int p, int n, int y)
 {
   int ret = 0;
@@ -41,6 +52,7 @@ int setbit(int x, int p, int n, int y)
 
 int main(int argc, char* argv[]) {
 
+  print_bin(33); 
   setbit(33, 1, 3, 7);
 
   return 0;
