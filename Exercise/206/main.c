@@ -18,9 +18,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-/* 
- * tmp func
- */
 void print_bin(unsigned int num)
 {/*{{{*/
   int i = 31;
@@ -43,15 +40,15 @@ int setbit(int x, int p, int n, int y)
   //set 0bit ..//
   printf("x \n");
   print_bin(x);
-  x &= ((1<<n) - 1) << (p - n);
+  x &= ~(((1<<n) - 1) << (p - n + 1));
   print_bin(x);
 
   ///or ..//
+  printf("result \n");
   x |= (bit << (n-p+1));
-  printf("%d \n", x);
+  print_bin(x);
 
   return ret;
-
 }
 
 int main(int argc, char* argv[]) {
@@ -60,7 +57,7 @@ int main(int argc, char* argv[]) {
 
   //setbit(a, b, c, d);
   //b부터 c개 => d의 0부터 c개..//
-  setbit(31, 3, 2, 14);
+  setbit(74, 4, 2, 14);
 
   return 0;
 }
