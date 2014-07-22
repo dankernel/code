@@ -25,7 +25,8 @@ int rightrot(int get, int n)
   return ret;
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char* argv[])
+{
 
   int tmp = 1024;
   int ret = 0;

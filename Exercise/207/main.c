@@ -50,8 +50,6 @@ int invert(int num, int bitp, int bitn)
   return num;
 }
 
-
-
 int main(int argc, char* argv[]) {
 
   print_bin(21);

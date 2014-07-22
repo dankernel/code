@@ -57,7 +57,7 @@ int main(int argc, char* argv[]) {
 
   //setbit(a, b, c, d);
   //b부터 c개 => d의 0부터 c개..//
-  setbit(74, 4, 2, 14);
+  setbit(63, 4, 2, 14);
 
   return 0;
 }
