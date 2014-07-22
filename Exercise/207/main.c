@@ -23,7 +23,7 @@
  */
 void print_bin(unsigned int num)
 {/*{{{*/
-  int i = 32;
+  int i = 31;
   while (0 <= i)
     printf("%d", (num>>i--) & 1);
   printf("\n\n");
@@ -52,8 +52,8 @@ int invert(int num, int bitp, int bitn)
 
 int main(int argc, char* argv[]) {
 
-  print_bin(21);
-  invert(21, 3, 2);
+  print_bin(31);
+  invert(31, 3, 2);
 
   return 0;
 }
