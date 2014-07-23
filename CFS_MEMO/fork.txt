@@ -4,16 +4,24 @@
 do_fork()
   /* Task의 스케줄링 정보를 복사한다. */
   copy_process()
+
     //copy and init..//
     sched_fork(flags, task_struct)
+
       __sched_fork(flags, task_struct) 
-        task_struct->on_rq = 0;
-        task_struct->se.* = 0;
-        task_struct->se.statistics = 0;
+        task_struct->on_rq = 0;           //런큐 상태 0..
+        task_struct->se.* = 0;            //스케줄 엔티티 초기화..
+        task_struct->se.statistics = 0;   //통계정보 초기화..
+        init dl_timer 
+        task_struct->dl.* = 0;
+
       task_struct->state = TASK_RUNNING;
-      task_struct->prio set. like current
+      task_struct->prio = current->nomal_prio;
       task_struct->sched_class
       set_task_cpu()
+      task_struct->on_cpu = 0;
+
+
   /* 새로운 Task를 Wakeup 시킨다. */
   wake_up_new_task()
     set_task_cpu()
