@@ -47,10 +47,12 @@ int itob(char *ret, int num, int b)
     else
       tmp = 'A' + (tmp - 10);
 
+    ///insert..///
     *(ret_tmp + len - i - 1) = tmp;
     i--;
   }
 
+  //ret..//
   strcpy(ret, ret_tmp);
   free(ret_tmp);
 

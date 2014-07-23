@@ -54,7 +54,7 @@ void itoa(int n, char s[], int size)
 int main(int argc, char* argv[])
 {
   char str[100];
-  itoa(-12, str, 5);
+  itoa(-12, str, 3);
   printf("%s\n", str);
 
   return 0;

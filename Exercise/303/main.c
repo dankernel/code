@@ -48,11 +48,15 @@ char *expand(char *str1, char *str2)
   
     tmp = (str1 + i);
     if (*tmp == '-'){
+      //pick char
       start = *(tmp - 1);
       end = *(tmp + 1);
 
+      //get start~end string
       ret = _expand(start, end);
       len = strlen(ret);
+
+      //copy
       memcpy(str2 + j, ret, len);
       free(ret);
       j += len;
@@ -76,6 +80,7 @@ int main(int argc, char* argv[]) {
 
   ret = expand(str1, str2);
   printf("%s\n", ret);
+  printf("%s\n", str2);
 
   return 0;
 }

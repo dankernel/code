@@ -31,17 +31,17 @@ void reverse(char s[])
   }
 } 
 
+/*  itoa: convert n to characters in s */
 void itoa(int n, char s[])
 {
   int i, sign;
-  if ((sign = n) < 1) /*  record sign */
+
+  if ((sign = n) < 0) /*  record sign */
     n = -n; /*  make n positive */
 
   i = 0;
   do { /*  generate digits in reverse order */
     s[i++] = n % 10 + '0'; /*  get next digit */
-    printf("loop  %d \n", n );
-    printf("loop  %d \n", n%10 );
   } while ((n /= 10) > 0); /*  delete it */
 
   if (sign < 0)
@@ -49,13 +49,13 @@ void itoa(int n, char s[])
 
   s[i] = '\0';
   reverse(s);
-}
+} 
 
 int main(int argc, char* argv[])
 {
   char str[100];
 
-  itoa(0x80000000, str);
+  itoa(0x80FFFFFF, str);
   printf("%s\n", str);
 
   return 0;
