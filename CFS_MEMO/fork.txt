@@ -55,5 +55,9 @@ do_fork()
 /*
  * fork의 CLONE_VM flasg => 부모와 자식이 동일한 메모리 공간에서 실행됨.
  */
+
+/*
+ * sched_statistics => Task의 통계정보가 들어있음.
+ */
         
       
