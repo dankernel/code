@@ -2,6 +2,7 @@
 
 
 do_fork()
+  /* Task의 스케줄링 정보를 복사한다. */
   copy_process()
     //copy and init..//
     sched_fork(flags, task_struct)
@@ -13,6 +14,7 @@ do_fork()
       task_struct->prio set. like current
       task_struct->sched_class
       set_task_cpu()
+  /* 새로운 Task를 Wakeup 시킨다. */
   wake_up_new_task()
     set_task_cpu()
     init_task_runnable_average()
@@ -26,9 +28,13 @@ do_fork()
  *
  * prio, normal_prio  //동적 우선순위 (스케줄러에 의해 산출됨)
  * static_prio        //정적 우선순위 (프로세스가 시작될때 정해짐)
- * rt_priority        // real-time process 우선순위(0~99)
+ * rt_priority        //real-time process 우선순위(0~99)
  * 
  * -by iamroot-
+ */
+
+/*
+ * fork의 CLONE_VM flasg => 부모와 자식이 동일한 메모리 공간에서 실행됨.
  */
         
       
