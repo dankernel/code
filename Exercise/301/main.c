@@ -29,12 +29,9 @@ int binsearch(int x, int v[], int n)
      if (x < v[mid])
        high = mid + 1;
      else (x > v[mid])
-     //else if (x > v[mid])
        low = mid + 1;
-     //else /*  found match */
-     //  return mid;
-
   }
+
   return -1; /*  no match */
 }
 
