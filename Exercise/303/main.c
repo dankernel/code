@@ -25,7 +25,7 @@ char *_expand(char start, char end)
 {
   int i, j = 0;
   char *ret = NULL;
-  ret = malloc(sizeof(char) * MAX);
+  ret = malloc(sizeof(char) * (end - start));
 
   for (i=start; i<=end; i++)
     *(ret + j++) = i;
@@ -70,7 +70,7 @@ char *expand(char *str1, char *str2)
 
 int main(int argc, char* argv[]) {
 
-  char str1[MAX] = "v-z0-5";
+  char str1[MAX] = "a-f0-6";
   char str2[MAX] = {'\0', };
   char *ret = NULL;
 
