@@ -18,8 +18,18 @@ do_fork()
       task_struct->state = TASK_RUNNING;
       task_struct->prio = current->nomal_prio;
       task_struct->sched_class
+
       set_task_cpu()
+
+        migrate_task_rq()
+
+        __set_task_cpu()
+          set_task_rq()
+          task_struct->cpu = cpu;
+          task_struct->wake_cpu = cpu;
+
       task_struct->on_cpu = 0;
+      put_cpu()
 
   if (!IS_ERR()) /* Run Code */
 
