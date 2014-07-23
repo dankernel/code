@@ -21,10 +21,11 @@ do_fork()
       set_task_cpu()
       task_struct->on_cpu = 0;
 
+  if (!IS_ERR()) /* Run Code */
 
   /* 새로운 Task를 Wakeup 시킨다. */
   wake_up_new_task()
-    set_task_cpu()
+    set_task_cpu()                    //Fork balancing..//
     init_task_runnable_average()
     task_struct->on_rq = 1;
 
