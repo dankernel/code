@@ -12,7 +12,7 @@ do_fork()
         task_struct->on_rq = 0;           //런큐 상태 0..
         task_struct->se.* = 0;            //스케줄 엔티티 초기화..
         task_struct->se.statistics = 0;   //통계정보 초기화..
-        init dl_timer 
+        init dl.timer 
         task_struct->dl.* = 0;
 
       task_struct->state = TASK_RUNNING;
