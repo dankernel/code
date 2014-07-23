@@ -35,8 +35,13 @@ int invert(int x, int p, int n)
 
   //get  bit..//
   printf("bit \n");
-  bit = p & ((1<<n) - 1);
+  bit = ((1<<n) - 1);
+  bit <<= p - n + 1;
   print_bin(bit);
+
+  printf("result \n");
+  x ^= bit;
+  print_bin(x);
 
   return bit;
 }
@@ -44,7 +49,7 @@ int invert(int x, int p, int n)
 int main(int argc, char* argv[]) {
 
   print_bin(31);
-  invert(31, 3, 2);
+  invert(31, 2, 2);
 
   return 0;
 }
