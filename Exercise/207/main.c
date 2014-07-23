@@ -29,25 +29,16 @@ void print_bin(unsigned int num)
   printf("\n\n");
 }/*}}}*/
 
-int invert(int num, int bitp, int bitn)
+int invert(int x, int p, int n)
 {
-  int tmp_bit = 0;
+  int bit = 0;
 
-  //get bit ..//
-  tmp_bit = ~num & (((1<<bitn) - 1) << bitp-bitn);
-  tmp_bit = ~tmp_bit & ((1<<bitn) - 1);
-  tmp_bit <<= bitp - bitn;
-  print_bin(tmp_bit);
+  //get  bit..//
+  printf("bit \n");
+  bit = p & ((1<<n) - 1);
+  print_bin(bit);
 
-  //set 0 ..//
-  num = num & ~(((1<<bitn) - 1) << bitp-bitn);
-  print_bin(num);
-
-  //or..//
-  num |= tmp_bit;
-
-  print_bin(num);
-  return num;
+  return bit;
 }
 
 int main(int argc, char* argv[]) {
