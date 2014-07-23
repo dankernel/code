@@ -15,6 +15,9 @@ do_fork()
       set_task_cpu()
   wake_up_new_task()
     set_task_cpu()
+    init_task_runnable_average()
+    task_struct->on_rq = 1;
+
       
 
 
