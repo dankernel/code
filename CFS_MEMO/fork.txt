@@ -14,6 +14,7 @@ do_fork()
       task_struct->sched_class
       set_task_cpu()
   wake_up_new_task()
+    set_task_cpu()
       
 
 
