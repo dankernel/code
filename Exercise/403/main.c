@@ -133,7 +133,7 @@ int main(int argc, char* argv[])
         printf("%\n");
         op1 = pop();
         op2 = pop();
-        push( op1-(op1/op2)*op2 );
+        push( op1-(op1/op2)*op2 );  // TODO : !!! //
         break;
       
       case '/':
