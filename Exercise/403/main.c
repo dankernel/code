@@ -78,25 +78,26 @@ int getop(char s[])
 /*  push: push f onto value stack */
 void push(double f)
 {
-  if (sp < MAXVAL)
+  if (sp < MAXVAL) {
     val[sp++] = f;
-
-  else
+    printf("[ok] push...  f : %f \n", f);
+    printf("[ok] push... sp : %d \n", sp);
+    printf("[ok] push...val : %f \n", val[sp]);
+  } else {
     printf("error: stack full, can't push %g\n", f);
+  }
 }
 
 /*  pop: pop and return top value from stack */
 double pop(void)
 {
-  if (sp > 0)
+  if (sp > 0) {
     return val[--sp];
-
-  else {
+  } else {
     printf("error: stack empty\n");
     return 0.0;
   }
 }
-
 
 int main(int argc, char* argv[])
 {
@@ -104,23 +105,31 @@ int main(int argc, char* argv[])
   int type;
   double op2;
   char s[MAXOP];
+
   while ((type = getop(s)) != EOF) {
 
+    printf("=print : %c \n", type);
+    printf("=sp    : %d \n", sp);
     switch (type) {
       case NUMBER:            // ='0'
+        printf("push %s \n", s);
         push(atof(s));
         break;
       case '+':
+        printf("+\n");
         push(pop() + pop());
         break;
       case '*':
+        printf("*\n");
         push(pop() * pop());
         break;
       case '-':
+        printf("-\n");
         op2 = pop();
         push(pop() - op2);
         break;
       case '/':
+        printf("/\n");
         op2 = pop();
         if (op2 != 0.0)
           push(pop() / op2);
@@ -128,6 +137,7 @@ int main(int argc, char* argv[])
           printf("error: zero divisor\n");
         break;
       case '\n':
+        printf("\\n\n");
         printf("\t%.8g\n", pop());
         break;
       default:
