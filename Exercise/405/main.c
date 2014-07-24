@@ -58,6 +58,13 @@ int getop(char s[])
 
   s[1] = '\0';
 
+  //is sin..?//
+  printf("%s\n", s);
+  if (!strstr(s, "sin"))
+    printf("Sin!!!\n");
+  else
+    printf("Not Sin!!!\n");
+
   if (!isdigit(c) && c != '.')
     return c; /*  not a number */
   i = 0;
@@ -162,11 +169,10 @@ int main(int argc, char* argv[])
         printf("c\n");
         pop_all();
         break;
-      case 'sin':                       // XXX : sin //
+      case 's':                       // XXX : sin //
         printf("c\n");
         pop_all();
         break;
-
       default:
         printf("error: unknown command %s\n", s);
         break;
