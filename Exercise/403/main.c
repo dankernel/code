@@ -103,6 +103,7 @@ int main(int argc, char* argv[])
 {
 
   int type;
+  double op1;
   double op2;
   char s[MAXOP];
 
@@ -130,7 +131,9 @@ int main(int argc, char* argv[])
         break;
       case '%':
         printf("%\n");
-        push(pop() % pop());
+        op1 = pop();
+        op2 = pop();
+        push( op1-(op1/op2)*op2 );
         break;
       
       case '/':
