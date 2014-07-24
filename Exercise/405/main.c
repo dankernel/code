@@ -41,7 +41,7 @@ double val[MAXVAL]; /*  value stack */
 
 int getch(void) /*  get a (possibly pushed-back) character */
 {
-  //XXX: //
+
   return (bufp > 0) ? buf[--bufp] : getchar();
 }
 
@@ -59,10 +59,9 @@ int getop(char s[])
   int i, c;
 
   //remove ' ' or '\t'
-  while ((s[0] = c = getch()) == ' ' || c == '\t');
+  while ((s[0] = c = getch()) == ' ' || c == '\t')
+    printf("null okok\n");
 
-    printf(">> %c \n", c);
-  
   s[1] = '\0';
 
   if (!isdigit(c) && c != '.')
@@ -76,6 +75,7 @@ int getop(char s[])
     while (isdigit(s[++i] = c = getch()));
 
   s[i] = '\0';
+
   if (c != EOF)
     ungetch(c);
 
@@ -161,8 +161,8 @@ int main(int argc, char* argv[])
       case '\n':
         //printf("pop : %.8g\n", pop());
         break;
-      case 'p':                       
-        printf("p\n");
+      case 'l':                       
+        printf("l\n");
         printf("%f \n", val[sp - 1]);
         break;
       case 'c':                       
@@ -170,9 +170,18 @@ int main(int argc, char* argv[])
         pop_all();
         break;
       case 's':                       // XXX : sin //
-        printf("c\n");
+        printf("s\n");
+        //push( sin(pop()) );
+        break;
+      case 'e':                       // XXX : sin //
+        printf("e\n");
         pop_all();
         break;
+      case 'p':                       // XXX : sin //
+        printf("p\n");
+        pop_all();
+        break;
+
       default:
         printf("error: unknown command %s\n", s);
         break;
