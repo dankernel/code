@@ -40,32 +40,75 @@ int sp = 0;         /*  next free stack position */
 double val[MAXVAL]; /*  value stack */
 double most_recently = 0;
 
+/*  getline: specialized version */
+int getline(void)
+{
+  int c, i;
+  extern char line[];
+  for (i = 0; i < MAXLINE - 1
+      && (c=getchar)) != EOF && c != '\n'; ++i)
+        line[i] = c;
+  if (c == '\n') {
+    line[i] = c;
+    ++i;
+  }
+  line[i] = '\0';
+  return i;
+}
+
+int getch(void) /*  get a (possibly pushed-back) character */
+{
+  int ret = 0;
+
+  if (bufp > 0){ 
+    ret =  buf[--bufp];
+    printf(">>get Buf\n");
+  } else {
+    ret = getchar();
+    printf(">>get Char : %c \n", ret);
+  }
+
+  return ret;
+}
+
+/* push character back on input */
+void ungetch(int c) {
+  printf("ungetch!!\n");
+  if (bufp >= BUFSIZE)
+    printf("ungetch : too many characters\n");
+  else
+    buf[bufp++] = c;
+}
+
 /* getop: get next character or numeric operand */
 int getop(char s[])
 {
   int i, c;
 
   // ' ' or '\t' => call more getch()
-  while ((s[0] = c = getlinr()) == ' ' || c == '\t');
+  while ((s[0] = c = getch()) == ' ' || c == '\t');
 
   printf("buf = %s \n", buf);
 
   s[1] = '\0';
 
-  if (!isdigit(c) && c != '.')
+  if (!isdigit(c) && c != '.') {
+    if (c == EOF) 
+      printf("EOF!!!!!!\n");
     return c; /* not a number */
+  }
 
   i = 0;
   if (isdigit(c)) /* collect integer part */
-    while (isdigit(s[++i] = c = getline()));
+    while (isdigit(s[++i] = c = getch()));
   
   if (c == '.') /* collect fraction part */
-    while (isdigit(s[++i] = c = getline()));
+    while (isdigit(s[++i] = c = getch()));
 
   s[i] = '\0';
 
-  /* if (c != EOF) */
-  /*   ungetch(c); */
+  if (c != EOF)
+    ungetch(c);
 
   return NUMBER;
 } 
