@@ -44,18 +44,20 @@ int _getline(char s[], int lim)
 int strindex(char s[], char t[])
 {
   int i, j, k;
+  int prev = -1;
 
   for (i = 0; s[i] != '\0'; i++) {
     for (j=i, k=0; t[k]!='\0' && s[j]==t[k]; j++, k++);
 
-    /*
     if (k > 0 && t[k] == '\0')
-      return i;
-    */
+        prev = i;
 
   }
 
-  return -1;
+  if (prev >= 0)
+    return prev;
+  else
+    return -1;
 } 
 
 int main(int argc, char* argv[])
@@ -69,6 +71,8 @@ int main(int argc, char* argv[])
       printf("ret : %d ", ret);
       printf("%s", line + ret);
       found++;
+    } else {
+      printf("No \n");
     }
 
   return 0;
