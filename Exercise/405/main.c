@@ -45,8 +45,10 @@ int getch(void) /*  get a (possibly pushed-back) character */
 
   if (bufp > 0){ 
     ret =  buf[--bufp];
+    printf(">>get Buf\n");
   } else {
     ret = getchar();
+    printf(">>get Char : %c \n", ret);
   }
 
   return ret;
@@ -179,15 +181,15 @@ int main(int argc, char* argv[])
         break;
       case 's':                       // XXX : sin //
         printf("s\n");
-        //push( sin(pop()) );
+        push( sin(pop()) );
         break;
       case 'e':                       // XXX : sin //
         printf("e\n");
-        pop_all();
+        push( exp(pop()) );
         break;
       case 'p':                       // XXX : sin //
         printf("p\n");
-        pop_all();
+        push( pow(pop(), pop()) );
         break;
 
       default:
