@@ -34,8 +34,8 @@ int getop(char []);
 void push(double);
 double pop(void);
 
-char buf[BUFSIZE];  /*  buffer for ungetch */
-int bufp = 0;       /*  next free position in buf */
+char buf;  /*  buffer for ungetch */
+///int bufp = 0;       /*  next free position in buf */
 int sp = 0;         /*  next free stack position */
 double val[MAXVAL]; /*  value stack */
 double most_recently = 0;
@@ -45,7 +45,7 @@ int getch(void) /*  get a (possibly pushed-back) character */
   int ret = 0;
 
   if (bufp > 0){ 
-    ret =  buf[--bufp];
+    ret =  buf;
     printf(">>get Buf\n");
   } else {
     ret = getchar();
