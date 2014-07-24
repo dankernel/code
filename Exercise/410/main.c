@@ -41,7 +41,7 @@ double val[MAXVAL]; /*  value stack */
 double most_recently = 0;
 
 /*  getline: specialized version */
-int getline(void)
+int _getline(void)
 {
   int c, i;
   extern char line[];
