@@ -89,6 +89,13 @@ void push(double f)
 }
 
 /*  pop: pop and return top value from stack */
+double pop_all(void)
+{
+  while (pop() != 0.0)
+    pop();
+}
+
+/*  pop: pop and return top value from stack */
 double pop(void)
 {
   if (sp > 0) {
@@ -133,9 +140,8 @@ int main(int argc, char* argv[])
         printf("%\n");
         op2 = pop();
         op1 = pop();
-        push( op1 - (((int)(op1/op2))*op2) );  // TODO : !!! //
+        push( op1 - (((int)(op1/op2))*op2) );
         break;
-      
       case '/':
         printf("/\n");
         op2 = pop();
@@ -145,9 +151,18 @@ int main(int argc, char* argv[])
           printf("error: zero divisor\n");
         break;
       case '\n':
-        printf("\\n\n");
-        printf("\t%.8g\n", pop());
+        printf("pop : %.8g\n", pop());
         break;
+      case 'p':                       // XXX : print val[sp] //
+        printf("p\n");
+        printf("%f \n", val[sp]);
+        break;
+      case 'c':                       // XXX : clear stack //
+        printf("c\n");
+        pop_all();
+        break;
+
+
       default:
         printf("error: unknown command %s\n", s);
         break;
