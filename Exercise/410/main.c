@@ -22,6 +22,8 @@
 #include <math.h>
 
 #define MAXVAL 100  /*  maximum depth of val stack */
+#define MAXLINE 100  /*  maximum depth of val stack */
+
 #define MAXOP 100   /*  max size of operand or operator */
 #define BUFSIZE 1
 #define NUMBER '0'  /*  signal that a number was found */
@@ -45,8 +47,7 @@ int _getline(void)
 {
   int c, i;
   extern char line[];
-  for (i = 0; i < MAXLINE - 1
-      && (c=getchar)) != EOF && c != '\n'; ++i)
+  for (i = 0; i < MAXLINE - 1 && (c=getchar) != EOF && c != '\n'; ++i)
         line[i] = c;
   if (c == '\n') {
     line[i] = c;
