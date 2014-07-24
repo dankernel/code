@@ -41,37 +41,45 @@ double val[MAXVAL]; /*  value stack */
 
 int getch(void) /*  get a (possibly pushed-back) character */
 {
+  int ret = 0;
 
-  return (bufp > 0) ? buf[--bufp] : getchar();
+  if (bufp > 0){ 
+    ret =  buf[--bufp];
+  } else {
+    ret = getchar();
+  }
+
+  return ret;
 }
 
-void ungetch(int c) /*  push character back on input */
-{
+/* push character back on input */
+void ungetch(int c) {
   if (bufp >= BUFSIZE)
-    printf("ungetch: too many characters\n");
+    printf("ungetch : too many characters\n");
   else
     buf[bufp++] = c;
 }
 
-/*  getop: get next character or numeric operand */
+/* getop: get next character or numeric operand */
 int getop(char s[])
 {
   int i, c;
 
-  //remove ' ' or '\t'
-  while ((s[0] = c = getch()) == ' ' || c == '\t')
-    printf("null okok\n");
+  // ' ' or '\t' => call more getch()
+  while ((s[0] = c = getch()) == ' ' || c == '\t');
+
+  printf("buf = %s \n", buf);
 
   s[1] = '\0';
 
   if (!isdigit(c) && c != '.')
-    return c; /*  not a number */
+    return c; /* not a number */
 
   i = 0;
-  if (isdigit(c)) /*  collect integer part */
+  if (isdigit(c)) /* collect integer part */
     while (isdigit(s[++i] = c = getch()));
   
-  if (c == '.') /*  collect fraction part */
+  if (c == '.') /* collect fraction part */
     while (isdigit(s[++i] = c = getch()));
 
   s[i] = '\0';
