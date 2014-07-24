@@ -23,7 +23,7 @@
 
 #define MAXVAL 100  /*  maximum depth of val stack */
 #define MAXOP 100   /*  max size of operand or operator */
-#define BUFSIZE 100
+#define BUFSIZE 1
 #define NUMBER '0'  /*  signal that a number was found */
 
 #define SIN 0x00000001
@@ -34,9 +34,8 @@ int getop(char []);
 void push(double);
 double pop(void);
 
-char buf;  /*  buffer for ungetch */
-///int bufp = 0;       /*  next free position in buf */
-int bufp_f = 0;       /*  next free position in buf */
+char buf[BUFSIZE];  /*  buffer for ungetch */
+int bufp = 0;       /*  next free position in buf */
 int sp = 0;         /*  next free stack position */
 double val[MAXVAL]; /*  value stack */
 double most_recently = 0;
@@ -45,9 +44,8 @@ int getch(void) /*  get a (possibly pushed-back) character */
 {
   int ret = 0;
 
-  if (bufp_f > 0){ 
-    ret =  buf;
-    bufp_f--;
+  if (bufp > 0){ 
+    ret =  buf[--bufp];
     printf(">>get Buf\n");
   } else {
     ret = getchar();
@@ -60,9 +58,10 @@ int getch(void) /*  get a (possibly pushed-back) character */
 /* push character back on input */
 void ungetch(int c) {
   printf("ungetch!!\n");
-  buf = c;
-  bufp_f++;
-
+  if (bufp >= BUFSIZE)
+    printf("ungetch : too many characters\n");
+  else
+    buf[bufp++] = c;
 }
 
 /* getop: get next character or numeric operand */
