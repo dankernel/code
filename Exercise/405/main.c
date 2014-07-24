@@ -41,6 +41,7 @@ double val[MAXVAL]; /*  value stack */
 
 int getch(void) /*  get a (possibly pushed-back) character */
 {
+  //XXX: //
   return (bufp > 0) ? buf[--bufp] : getchar();
 }
 
@@ -59,6 +60,9 @@ int getop(char s[])
 
   //remove ' ' or '\t'
   while ((s[0] = c = getch()) == ' ' || c == '\t');
+
+    printf(">> %c \n", c);
+  
   s[1] = '\0';
 
   if (!isdigit(c) && c != '.')
