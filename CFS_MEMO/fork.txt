@@ -1,6 +1,4 @@
 
-
-
 do_fork()
   /* Task의 스케줄링 정보를 복사한다. */
   copy_process()
