@@ -26,6 +26,8 @@
 #define BUFSIZE 100
 #define NUMBER '0'  /*  signal that a number was found */
 
+#define SIN 0x00000001
+
 int getch(void);
 void ungetch(int);
 int getop(char []);
@@ -54,21 +56,15 @@ void ungetch(int c) /*  push character back on input */
 int getop(char s[])
 {
   int i, c;
+
+  //remove ' ' or '\t'
   while ((s[0] = c = getch()) == ' ' || c == '\t');
-
   s[1] = '\0';
-
-  //is sin..?//
-  printf("%s\n", s);
-  if (!strstr(s, "sin"))
-    printf("Sin!!!\n");
-  else
-    printf("Not Sin!!!\n");
 
   if (!isdigit(c) && c != '.')
     return c; /*  not a number */
-  i = 0;
 
+  i = 0;
   if (isdigit(c)) /*  collect integer part */
     while (isdigit(s[++i] = c = getch()));
   
