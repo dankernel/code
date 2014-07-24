@@ -116,8 +116,8 @@ int main(int argc, char* argv[])
 
   while ((type = getop(s)) != EOF) {
 
-    printf("=print : %c \n", type);
-    printf("=sp    : %d \n", sp);
+    printf("=type : %c \n", type);
+    printf("=sp   : %d \n", sp);
     switch (type) {
       case NUMBER:            // ='0'
         printf("push %s \n", s);
@@ -151,18 +151,16 @@ int main(int argc, char* argv[])
           printf("error: zero divisor\n");
         break;
       case '\n':
-        printf("pop : %.8g\n", pop());
+        //printf("pop : %.8g\n", pop());
         break;
       case 'p':                       // XXX : print val[sp] //
         printf("p\n");
-        printf("%f \n", val[sp]);
+        printf("%f \n", val[sp - 1]);
         break;
       case 'c':                       // XXX : clear stack //
         printf("c\n");
         pop_all();
         break;
-
-
       default:
         printf("error: unknown command %s\n", s);
         break;
