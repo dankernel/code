@@ -82,7 +82,7 @@ void push(double f)
     val[sp++] = f;
     printf("[ok] push...  f : %f \n", f);
     printf("[ok] push... sp : %d \n", sp);
-    printf("[ok] push...val : %f \n", val[sp]);
+    printf("[ok] push...val : %f \n", val[sp - 1]);
   } else {
     printf("error: stack full, can't push %g\n", f);
   }
@@ -128,6 +128,11 @@ int main(int argc, char* argv[])
         op2 = pop();
         push(pop() - op2);
         break;
+      case '%':
+        printf("%\n");
+        push(pop() % pop());
+        break;
+      
       case '/':
         printf("/\n");
         op2 = pop();
