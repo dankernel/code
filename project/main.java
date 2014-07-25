@@ -24,12 +24,14 @@ public class main
  */
 class val
 {
+
   String name;
   //enum type;
   Object contain;
 
   /* init */
-  public val(){
+  public val()
+  {
     /* Do Nothing.. */ 
   }
   
