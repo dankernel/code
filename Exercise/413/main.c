@@ -20,28 +20,33 @@
 #include <string.h>
 
 /*  swap: interchange v[i] and v[j] */
-inline void swap(int v[], int i, int j)
+inline void reverse_swap(char v[], int len, int i)
 {
   int temp;
+
+  printf("i : %d : %c \n", i , v[i]);
+
+  //swap..//
   temp = v[i];
-  v[i] = v[j];
-  v[j] = temp;
+  v[i] = v[len - i];
+  v[len - i] = temp;
+
+  i++;
+
+  if (i <= len/2 + 1)
+    reverse_swap(v, len, i);
+
 }
 
 /*  reverse: reverse string s in place */
 void reverse(char s[])
 {
-  int c, i, j;
+  int len = strlen(s);
 
-  if (i = 0, j = strlen(s)-1; i < j; i++, j--) {
+  printf("len : %d  \n", len);
 
-    //swap..///
-    c = s[i];
-    s[i] = s[j];
-    s[j] = c;
-  }
+  reverse_swap(s, len, 0);
 
-  reverse(s+1);
 } 
 
 int main(int argc, char* argv[])
