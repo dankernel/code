@@ -5,13 +5,13 @@ import java.lang.String;
 public class main
 {
   
-  public static void main(String[] args){
+  /* main */
+  public static void main(String[] args)
+  {
 
     System.out.println("=== Start ===");
 
     val a = new val("index", null, 100);
-    //a.set_name("index");
-
     System.out.println("name : " + a.get_name());
     System.out.println("val : " + a.get_contain());
 
@@ -120,3 +120,4 @@ class set_func
   String func;  //function name..//
   Object code_s[];
 }
+
