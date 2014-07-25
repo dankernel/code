@@ -61,7 +61,7 @@ sched_slice()
     1.5. period = 750000ULL * nr_runnig
     1.6. return period
 
-  2. case : (se->parent == NULL) ? return slice : goto (9.)
+  2. case : (se->parent == NULL) ? return slice : goto (4.)
   4. get load (se->sfs_rq->load)
   5. case : (se->on_rq == NULL) ? goto(6.)
   6. get lw (cfs_rq->load) 
@@ -153,6 +153,10 @@ __enqueue_entity()
   트리를 타고 자식을 찾아감.
   leftmost 노드를 캐싱한다.
   트리에 넣는다.
+
+/*
+ * se->on_rq이 0이면 (의외로...) 실행중인 것이다.
+ */
   
 
 
