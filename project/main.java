@@ -9,10 +9,11 @@ public class main
 
     System.out.println("=== Start ===");
 
-    val a = new val();
-    a.set_name("retunr3903joifjewhwvjiorebferrtte");
+    val a = new val("index", null, 100);
+    //a.set_name("index");
 
     System.out.println("name : " + a.get_name());
+    System.out.println("val : " + a.get_contain());
 
   }
 
@@ -25,11 +26,18 @@ class val
 {
   String name;
   //enum type;
+  Object contain;
+
+  /* init */
+  public val(){
+    /* Do Nothing.. */ 
+  }
   
-  public val(String name, String type)
+  /* init */
+  public val(String name, String type, Object contain)
   {
-    //if (name == null || type == null)
-      
+    this.name = name;
+    this.contain = contain;
   }
 
   public int set_name(String get)
@@ -45,6 +53,11 @@ class val
   public String get_name()
   {
     return (name != null) ? name : "name is null";
+  }
+
+  public Object get_contain()
+  {
+    return (contain != null) ? contain.toString() : "contain is null";
   }
 
 }
