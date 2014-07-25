@@ -1,0 +1,12 @@
+
+/* 
+ * 시간 관련.. 타이머 인터럽트 핸들러..? 
+ */
+tick_periodic()
+  
+  /* 시간 관련 무언가 처리함.. */
+  update_process_times()
+
+    /* 스케줄러 틱! */
+    scheduler_tick();
+  
