@@ -1,6 +1,6 @@
 
 import java.*;
-import java.*.String;
+import java.lang.String;
 
 public class main
 {
@@ -10,7 +10,7 @@ public class main
     System.out.println("=== Start ===");
 
     val a = new val();
-    a.set_name("ret");
+    a.set_name("retunr3903joifjewhwvjiorebferrtte");
 
     System.out.println("name : " + a.get_name());
 
@@ -25,11 +25,16 @@ class val
 {
   String name;
   //enum type;
+  
+  public val(String name, String type)
+  {
+    //if (name == null || type == null)
+      
+  }
 
   public int set_name(String get)
   {
-    get.len
-    if (get.import < 10) {
+    if (get.length() < 10) {
       name = get;
       return 0;
     } else {
@@ -39,7 +44,7 @@ class val
 
   public String get_name()
   {
-    return name;
+    return (name != null) ? name : "name is null";
   }
 
 }
