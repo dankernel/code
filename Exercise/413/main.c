@@ -24,17 +24,15 @@ inline void reverse_swap(char v[], int len, int i)
 {
   int temp;
 
-  printf("i : %d : %c \n", i , v[i]);
-
   //swap..//
   temp = v[i];
-  v[i] = v[len - i];
-  v[len - i] = temp;
+  v[i] = v[len - i - 1];
+  v[len - i - 1] = temp;
 
   i++;
 
-  if (i <= len/2 + 1)
-    reverse_swap(v, len, i);
+  if (i <= len/2 - 1)
+    reverse_swap(v, len, i); //XXX : ..//
 
 }
 
@@ -51,11 +49,11 @@ void reverse(char s[])
 
 int main(int argc, char* argv[])
 {
-  char str[100] = "I'm_dkdk509";
+  char str[100] = "12345";
 
-  printf("%s\n", str);
+  printf("1 : %s\n", str);
   reverse(str);
-  printf("%s\n", str);
+  printf("2 : %s\n", str);
 
   return 0;
 }
