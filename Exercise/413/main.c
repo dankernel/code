@@ -6,7 +6,7 @@
  *    Description:  
  *
  *        Version:  1.0
- *        Created:  2014년 07월 25일 21시 35분 43초
+ *        Created:  2014년 07월 25일 23시 06분 04초
  *       Revision:  none
  *       Compiler:  gcc
  *
@@ -19,23 +19,17 @@
 #include <stdio.h>
 #include <string.h>
 
-/*  printd: print n in decimal */
-void _itoa(char *str)
+/*  swap: interchange v[i] and v[j] */
+void swap(int v[], int i, int j)
 {
-  char tmp = *str;
-  
-  //printf("tmp : %c \n", tmp);
-  
-  putchar(tmp);
-
-  if (*(str+1) != '\0')
-    _itoa(str+1);
-
-}
+  int temp;
+  temp = v[i];
+  v[i] = v[j];
+  v[j] = temp;
+} 
 
 int main(int argc, char* argv[])
 {
-  _itoa("940406");
 
   return 0;
 }
