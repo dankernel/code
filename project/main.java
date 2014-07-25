@@ -1,5 +1,6 @@
 
 import java.*;
+import java.*.String;
 
 public class main
 {
@@ -8,7 +9,10 @@ public class main
 
     System.out.println("=== Start ===");
 
-    val test[10];
+    val a = new val();
+    a.set_name("ret");
+
+    System.out.println("name : " + a.get_name());
 
   }
 
@@ -21,6 +25,23 @@ class val
 {
   String name;
   //enum type;
+
+  public int set_name(String get)
+  {
+    get.len
+    if (get.import < 10) {
+      name = get;
+      return 0;
+    } else {
+      return -1;
+    }
+  }
+
+  public String get_name()
+  {
+    return name;
+  }
+
 }
 
 class math
