@@ -6,7 +6,6 @@ import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
 import android.content.Intent;
-import android.net.ConnectivityManager;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
@@ -208,18 +207,18 @@ public class MainActivity extends Activity {
 	}
 
 
-	 private void setMobileDataEnabled(Context context, boolean enabled) {
-	     final ConnectivityManager conman = (ConnectivityManager)  context.getSystemService(Context.CONNECTIVITY_SERVICE);
-	     final Class conmanClass = Class.forName(conman.getClass().getName());
-	     final Field connectivityManagerField = conmanClass.getDeclaredField("mService");
-	     connectivityManagerField.setAccessible(true);
-	     final Object connectivityManager = connectivityManagerField.get(conman);
-	     final Class connectivityManagerClass =  Class.forName(connectivityManager.getClass().getName());
-	     final Method setMobileDataEnabledMethod = connectivityManagerClass.getDeclaredMethod("setMobileDataEnabled", Boolean.TYPE);
-	     setMobileDataEnabledMethod.setAccessible(true);
+	private void setMobileDataEnabled(Context context, boolean enabled) {
+		final ConnectivityManager conman = (ConnectivityManager)  context.getSystemService(Context.CONNECTIVITY_SERVICE);
+		final Class conmanClass = Class.forName(conman.getClass().getName());
+		final Field connectivityManagerField = conmanClass.getDeclaredField("mService");
+		connectivityManagerField.setAccessible(true);
+		final Object connectivityManager = connectivityManagerField.get(conman);
+		final Class connectivityManagerClass =  Class.forName(connectivityManager.getClass().getName());
+		final Method setMobileDataEnabledMethod = connectivityManagerClass.getDeclaredMethod("setMobileDataEnabled", Boolean.TYPE);
+		setMobileDataEnabledMethod.setAccessible(true);
 
-	     setMobileDataEnabledMethod.invoke(connectivityManager, enabled);
-	 }
+		setMobileDataEnabledMethod.invoke(connectivityManager, enabled);
+	}
 
 	public void toast_print(String get_text){
 		Toast t = null;

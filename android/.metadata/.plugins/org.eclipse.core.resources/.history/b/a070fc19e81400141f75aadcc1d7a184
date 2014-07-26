@@ -6,7 +6,6 @@ import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
 import android.content.Intent;
-import android.net.ConnectivityManager;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
@@ -109,7 +108,6 @@ public class MainActivity extends Activity {
 				NativeCall nativeCall = new NativeCall();
 
 				if(tb_mobile.isChecked()){
-					TelephonyAidl(true);
 					String NativeStatus = String.valueOf(nativeCall.MobileOn());
 					Toast.makeText(getApplicationContext(), "Mobile ON,  Status is " + NativeStatus,  Toast.LENGTH_SHORT).show();
 				}else{
@@ -207,19 +205,21 @@ public class MainActivity extends Activity {
 		}
 	}
 
+	public void TelephonyAidl(boolean dataconnectivity) throws Exception {
+		TelephonyManager tm = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
+		@SuppressWarnings("rawtypes")
+		Class c = Class.forName(tm.getClass().getName());
+		Method m = c.getDeclaredMethod("getITelephony");
+		m.setAccessible(true);
+		ITelephony telephonyService;
+		telephonyService = (ITelephony)m.invoke(tm);
 
-	 private void setMobileDataEnabled(Context context, boolean enabled) {
-	     final ConnectivityManager conman = (ConnectivityManager)  context.getSystemService(Context.CONNECTIVITY_SERVICE);
-	     final Class conmanClass = Class.forName(conman.getClass().getName());
-	     final Field connectivityManagerField = conmanClass.getDeclaredField("mService");
-	     connectivityManagerField.setAccessible(true);
-	     final Object connectivityManager = connectivityManagerField.get(conman);
-	     final Class connectivityManagerClass =  Class.forName(connectivityManager.getClass().getName());
-	     final Method setMobileDataEnabledMethod = connectivityManagerClass.getDeclaredMethod("setMobileDataEnabled", Boolean.TYPE);
-	     setMobileDataEnabledMethod.setAccessible(true);
-
-	     setMobileDataEnabledMethod.invoke(connectivityManager, enabled);
-	 }
+		if(dataconnectivity) {
+			telephonyService.enableDataConnectivity();
+		} else {
+			telephonyService.disableDataConnectivity();
+		}
+	}
 
 	public void toast_print(String get_text){
 		Toast t = null;

@@ -6,7 +6,6 @@ import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
 import android.content.Intent;
-import android.net.ConnectivityManager;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
@@ -207,6 +206,10 @@ public class MainActivity extends Activity {
 		}
 	}
 
+	 down vote accepted
+		
+
+	 This code sample should work for android phones running gingerbread and higher:
 
 	 private void setMobileDataEnabled(Context context, boolean enabled) {
 	     final ConnectivityManager conman = (ConnectivityManager)  context.getSystemService(Context.CONNECTIVITY_SERVICE);
