@@ -120,13 +120,13 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				NativeCall nativeCall = new NativeCall();
+				
+				toggleWiFi(1);
 
 				if(tb_wifi.isChecked()){
-					toggleWiFi(true);
 					String NativeStatus = String.valueOf(nativeCall.WifiOn());
 					Toast.makeText(getApplicationContext(), "Wifi ON,  Status is " + NativeStatus,  Toast.LENGTH_SHORT).show();
 				}else{
-					toggleWiFi(false);
 					String NativeStatus = String.valueOf(nativeCall.WifiOff());
 					Toast.makeText(getApplicationContext(), "Wifi OFF, Status is " + NativeStatus,  Toast.LENGTH_SHORT).show();					 
 				}

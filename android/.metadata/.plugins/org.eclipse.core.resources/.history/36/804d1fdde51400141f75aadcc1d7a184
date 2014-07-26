@@ -125,5 +125,12 @@ public class LocalService extends Service {
 		Toast.makeText(getApplicationContext(), "Stop Broadcast Service",  Toast.LENGTH_SHORT).show();
 	}   
 
-	
+	public void toggleWiFi(boolean status) {
+		WifiManager wifiManager = (WifiManager) this.getSystemService(Context.WIFI_SERVICE);
+		if (status == true && !wifiManager.isWifiEnabled()) {
+			wifiManager.setWifiEnabled(true);
+		} else if (status == false && wifiManager.isWifiEnabled()) {
+			wifiManager.setWifiEnabled(false);
+		}
+	}
 }

@@ -120,6 +120,7 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				NativeCall nativeCall = new NativeCall();
+				
 
 				if(tb_wifi.isChecked()){
 					toggleWiFi(true);
