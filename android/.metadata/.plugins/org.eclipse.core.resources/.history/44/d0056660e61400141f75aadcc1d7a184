@@ -1,7 +1,6 @@
 package com.example.hal;
 
 import android.app.Activity;
-import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
 import android.content.Intent;
 import android.net.wifi.WifiManager;
@@ -10,8 +9,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 import android.widget.ToggleButton;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
@@ -121,14 +120,16 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				NativeCall nativeCall = new NativeCall();
-				String NativeStatus = String.valueOf(nativeCall.WifiOn());
-				toast_print("Wifi ON,  Status is " + NativeStatus);
 
-				if (tb_wifi.isChecked()) 
+				if(tb_wifi.isChecked()){
 					toggleWiFi(true);
-				else
-					toggleWiFi(false);		 
-
+					String NativeStatus = String.valueOf(nativeCall.WifiOn());
+					Toast.makeText(getApplicationContext(), "Wifi ON,  Status is " + NativeStatus,  Toast.LENGTH_SHORT).show();
+				}else{
+					toggleWiFi(false);
+					String NativeStatus = String.valueOf(nativeCall.WifiOff());
+					Toast.makeText(getApplicationContext(), "Wifi OFF, Status is " + NativeStatus,  Toast.LENGTH_SHORT).show();					 
+				}
 			}
 		});
 
@@ -139,14 +140,14 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				NativeCall nativeCall = new NativeCall();
-				String NativeStatus = String.valueOf(nativeCall.BluetoothOn());
-				toast_print("Bluetooth OFF, Status is " + NativeStatus);
-				
-				if(tb_bluetooth.isChecked())
-					togglebluetooth(true);
-				else
-					togglebluetooth(false);
-				
+
+				if(tb_bluetooth.isChecked()){
+					String NativeStatus = String.valueOf(nativeCall.BluetoothOn());
+					Toast.makeText(getApplicationContext(), "Bluetooth ON,  Status is " + NativeStatus,  Toast.LENGTH_SHORT).show();
+				}else{
+					String NativeStatus = String.valueOf(nativeCall.BluetoothOff());
+					Toast.makeText(getApplicationContext(), "Bluetooth OFF, Status is " + NativeStatus,  Toast.LENGTH_SHORT).show();					 
+				}
 			}
 		});        
 
@@ -191,17 +192,6 @@ public class MainActivity extends Activity {
 		}
 	}
 
-	public void togglebluetooth(boolean status) {
-		BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter();
-		//현재 Bluetooth가 켜져 있는지, 혹은 켜는 중인지 확인 한다. 
-		if (adapter.getState() == BluetoothAdapter.STATE_TURNING_ON || adapter.getState() == BluetoothAdapter.STATE_ON){
-			adapter.disable();   // Bluetooth Off
-		}
-		else{
-			adapter.enable();     // Bluetooth On
-		}
-	}
-	
 
 	public void toast_print(String get_text){
 		Toast t = null;

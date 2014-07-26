@@ -142,11 +142,15 @@ public class MainActivity extends Activity {
 				String NativeStatus = String.valueOf(nativeCall.BluetoothOn());
 				toast_print("Bluetooth OFF, Status is " + NativeStatus);
 				
-				if(tb_bluetooth.isChecked())
+				if(tb_bluetooth.isChecked()){
 					togglebluetooth(true);
-				else
+					String NativeStatus = String.valueOf(nativeCall.BluetoothOn());
+					Toast.makeText(getApplicationContext(), "Bluetooth ON,  Status is " + NativeStatus,  Toast.LENGTH_SHORT).show();
+				}else{
 					togglebluetooth(false);
-				
+					String NativeStatus = String.valueOf(nativeCall.BluetoothOff());
+					Toast.makeText(getApplicationContext(), "Bluetooth OFF, Status is " + NativeStatus,  Toast.LENGTH_SHORT).show();					 
+				}
 			}
 		});        
 
@@ -190,6 +194,7 @@ public class MainActivity extends Activity {
 			wifiManager.setWifiEnabled(false);
 		}
 	}
+
 
 	public void togglebluetooth(boolean status) {
 		BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter();

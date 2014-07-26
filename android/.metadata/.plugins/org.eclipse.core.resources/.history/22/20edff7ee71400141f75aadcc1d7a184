@@ -142,11 +142,11 @@ public class MainActivity extends Activity {
 				String NativeStatus = String.valueOf(nativeCall.BluetoothOn());
 				toast_print("Bluetooth OFF, Status is " + NativeStatus);
 				
-				if(tb_bluetooth.isChecked())
+				if(tb_bluetooth.isChecked()){
 					togglebluetooth(true);
-				else
+				}else{
 					togglebluetooth(false);
-				
+				}
 			}
 		});        
 
