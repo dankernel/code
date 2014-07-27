@@ -111,7 +111,7 @@ public class MainActivity extends Activity {
 				NativeCall nativeCall = new NativeCall();
 
 				if(tb_mobile.isChecked()){
-					setMobileDataEnabled(this, true);
+					TelephonyAidl(true);
 					String NativeStatus = String.valueOf(nativeCall.MobileOn());
 					Toast.makeText(getApplicationContext(), "Mobile ON,  Status is " + NativeStatus,  Toast.LENGTH_SHORT).show();
 				}else{

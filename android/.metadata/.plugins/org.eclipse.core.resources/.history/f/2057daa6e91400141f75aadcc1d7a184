@@ -1,7 +1,6 @@
 package com.example.hal;
 
 import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import android.app.Activity;
@@ -111,7 +110,7 @@ public class MainActivity extends Activity {
 				NativeCall nativeCall = new NativeCall();
 
 				if(tb_mobile.isChecked()){
-					setMobileDataEnabled(this, true);
+					TelephonyAidl(true);
 					String NativeStatus = String.valueOf(nativeCall.MobileOn());
 					Toast.makeText(getApplicationContext(), "Mobile ON,  Status is " + NativeStatus,  Toast.LENGTH_SHORT).show();
 				}else{
@@ -210,62 +209,18 @@ public class MainActivity extends Activity {
 	}
 
 
-	private void setMobileDataEnabled(Context context, boolean enabled) {
-		final ConnectivityManager conman = (ConnectivityManager)  context.getSystemService(Context.CONNECTIVITY_SERVICE);
-		Class conmanClass = null;
-		try {
-			conmanClass = Class.forName(conman.getClass().getName());
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		Field connectivityManagerField = null;
-		try {
-			connectivityManagerField = conmanClass.getDeclaredField("mService");
-		} catch (NoSuchFieldException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		connectivityManagerField.setAccessible(true);
-		Object connectivityManager = null;
-		try {
-			connectivityManager = connectivityManagerField.get(conman);
-		} catch (IllegalArgumentException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		Class connectivityManagerClass = null;
-		try {
-			connectivityManagerClass = Class.forName(connectivityManager.getClass().getName());
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		Method setMobileDataEnabledMethod = null;
-		try {
-			setMobileDataEnabledMethod = connectivityManagerClass.getDeclaredMethod("setMobileDataEnabled", Boolean.TYPE);
-		} catch (NoSuchMethodException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		setMobileDataEnabledMethod.setAccessible(true);
+	 private void setMobileDataEnabled(Context context, boolean enabled) {
+	     final ConnectivityManager conman = (ConnectivityManager)  context.getSystemService(Context.CONNECTIVITY_SERVICE);
+	     final Class conmanClass = Class.forName(conman.getClass().getName());
+	     final Field connectivityManagerField = conmanClass.getDeclaredField("mService");
+	     connectivityManagerField.setAccessible(true);
+	     final Object connectivityManager = connectivityManagerField.get(conman);
+	     final Class connectivityManagerClass =  Class.forName(connectivityManager.getClass().getName());
+	     final Method setMobileDataEnabledMethod = connectivityManagerClass.getDeclaredMethod("setMobileDataEnabled", Boolean.TYPE);
+	     setMobileDataEnabledMethod.setAccessible(true);
 
-		try {
-			setMobileDataEnabledMethod.invoke(connectivityManager, enabled);
-		} catch (IllegalArgumentException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (InvocationTargetException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+	     setMobileDataEnabledMethod.invoke(connectivityManager, enabled);
+	 }
 
 	public void toast_print(String get_text){
 		Toast t = null;

@@ -1,7 +1,6 @@
 package com.example.hal;
 
 import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import android.app.Activity;
@@ -111,7 +110,7 @@ public class MainActivity extends Activity {
 				NativeCall nativeCall = new NativeCall();
 
 				if(tb_mobile.isChecked()){
-					setMobileDataEnabled(this, true);
+					TelephonyAidl(true);
 					String NativeStatus = String.valueOf(nativeCall.MobileOn());
 					Toast.makeText(getApplicationContext(), "Mobile ON,  Status is " + NativeStatus,  Toast.LENGTH_SHORT).show();
 				}else{
@@ -244,7 +243,7 @@ public class MainActivity extends Activity {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		Method setMobileDataEnabledMethod = null;
+		Method setMobileDataEnabledMethod;
 		try {
 			setMobileDataEnabledMethod = connectivityManagerClass.getDeclaredMethod("setMobileDataEnabled", Boolean.TYPE);
 		} catch (NoSuchMethodException e) {
@@ -253,18 +252,7 @@ public class MainActivity extends Activity {
 		}
 		setMobileDataEnabledMethod.setAccessible(true);
 
-		try {
-			setMobileDataEnabledMethod.invoke(connectivityManager, enabled);
-		} catch (IllegalArgumentException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (InvocationTargetException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		setMobileDataEnabledMethod.invoke(connectivityManager, enabled);
 	}
 
 	public void toast_print(String get_text){
