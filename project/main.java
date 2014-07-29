@@ -18,9 +18,16 @@ public class main
     list val_list = new list("val_list");
     System.out.println("list name : " + val_list.get_name());
 
-    val tmp = val_list.add_node("new_val", "int", 940406);
+    val tmp = null;
+
+    tmp = val_list.add_node("val_a", "int", 940406);
     System.out.println("list name : " + tmp.get_name());
     System.out.println("list name : " + tmp.get_contain());
+
+    tmp = val_list.add_node("val_b", "int", 940406);
+    System.out.println("list name : " + tmp.get_name());
+    System.out.println("list name : " + tmp.get_contain());
+
 
   }
 
@@ -51,7 +58,10 @@ class list
   public val add_node(String name, String type, Object contain)
   {
     val last_node = (val)pic_last_node(); 
-    val new_val = new val("index", null, 100);
+
+    val new_val = new val(name, type, contain);
+    list_node.set_prev(new_val);
+  
     return new_val;
   }
 
@@ -94,6 +104,24 @@ class list_node
   public list_node get_next()
   {
     return (list_node)this.next;
+  }
+
+  public list_node set_prev(Object get_obj)
+  {
+    this.prev = get_obj;
+    return this.prev;
+  }
+
+  public list_node set_node(Object get_obj)
+  {
+    this.node = get_obj;
+    return this.node;
+  }
+
+  public list_node set_next(Object get_obj)
+  {
+    this.next = get_obj;
+    return this.next;
   }
 
 }
