@@ -41,4 +41,4 @@ X86 설치방법.
 
   출처 : http://holypsycho.egloos.com/viewer/3200748
 
-
+build/X86/gem5.opt configs/example/se.py -c tests/test-progs/hello/bin/x86/linux/hello
