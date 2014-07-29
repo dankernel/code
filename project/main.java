@@ -52,12 +52,15 @@ class list
 
   public val pic_last_node()
   {
-    list_node tmp = null;
-    while (this.head != null)
-      tmp = this.head 
+    Object tmp = this.head_node;
+    
+    while (tmp != null) {
+      tmp = tmp.get_next();
+    }
 
-    return val;
+    return (val)tmp;
   }
+
 
 }
 
