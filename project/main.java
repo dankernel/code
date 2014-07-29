@@ -15,6 +15,34 @@ public class main
     System.out.println("name : " + a.get_name());
     System.out.println("val : " + a.get_contain());
 
+    list val_list = new list("val_list");
+    System.out.println("list name : " + val_list.get_name());
+
+
+  }
+
+}
+
+class list
+{
+  Object head_node;
+  String name;
+
+  public list()
+  {
+    this.head_node = new Object();
+    this.name = "init_main";
+  }
+
+  public list(String name)
+  {
+    this.head_node = new Object();
+    this.name = name;
+  }
+
+  public String get_name()
+  {
+    return this.name;
   }
 
 }
