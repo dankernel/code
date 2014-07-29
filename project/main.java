@@ -57,10 +57,10 @@ class list
 
   public val add_node(String name, String type, Object contain)
   {
-    val last_node = (val)pic_last_node(); 
+    list_node last_node = (list_node)pic_last_node(); 
 
     val new_val = new val(name, type, contain);
-    list_node.set_prev(new_val);
+    last_node.set_prev(new_val);
   
     return new_val;
   }
@@ -106,19 +106,19 @@ class list_node
     return (list_node)this.next;
   }
 
-  public list_node set_prev(Object get_obj)
+  public Object set_prev(Object get_obj)
   {
     this.prev = get_obj;
     return this.prev;
   }
 
-  public list_node set_node(Object get_obj)
+  public Object set_node(Object get_obj)
   {
     this.node = get_obj;
     return this.node;
   }
 
-  public list_node set_next(Object get_obj)
+  public Object set_next(Object get_obj)
   {
     this.next = get_obj;
     return this.next;
