@@ -1,9 +1,8 @@
-
 import java.*;
 import java.lang.String;
 
 public class main
-{
+{//{{{
   
   /* main */
   public static void main(String[] args)
@@ -31,10 +30,10 @@ public class main
 
   }
 
-}
+}//}}}
 
 class list
-{
+{//{{{
   list_node head_node;
   String name;
 
@@ -76,10 +75,10 @@ class list
     return (Object)tmp;
   }
 
-}
+}//}}}
 
 class list_node
-{
+{//{{{
   Object prev;
   Object node;
   Object next;
@@ -124,13 +123,13 @@ class list_node
     return this.next;
   }
 
-}
+}//}}}
 
 /*
  * val of all type.
  */
 class val
-{
+{//{{{
 
   String name;
   //enum type;
@@ -169,7 +168,7 @@ class val
     return (contain != null) ? contain.toString() : "contain is null";
   }
 
-}
+}//}}}
 
 class math
 {
