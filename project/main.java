@@ -18,25 +18,24 @@ public class main
     list val_list = new list("val_list");
     System.out.println("list name : " + val_list.get_name());
 
-
   }
 
 }
 
 class list
 {
-  val head_node;
+  list_node head_node;
   String name;
 
   public list()
   {
-    this.head_node = new Object();
+    this.head_node = new list_node();
     this.name = "init_main";
   }
 
   public list(String name)
   {
-    this.head_node = new Object();
+    this.head_node = new list_node();
     this.name = name;
   }
 
@@ -53,7 +52,34 @@ class list
 
   public val pic_last_node()
   {
+    list_node tmp = null;
+    while (this.head != null)
+      tmp = this.head 
+
     return val;
+  }
+
+}
+
+class list_node
+{
+  Object prev;
+  Object next;
+
+  public list_node()
+  {
+    prev = null;
+    next = null;
+  }
+
+  public list_node get_prev()
+  {
+    return this.prev;
+  }
+
+  public list_node get_next()
+  {
+    return this.next;
   }
 
 }
