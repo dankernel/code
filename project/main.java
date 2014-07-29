@@ -25,7 +25,7 @@ public class main
 
 class list
 {
-  Object head_node;
+  val head_node;
   String name;
 
   public list()
@@ -43,6 +43,17 @@ class list
   public String get_name()
   {
     return this.name;
+  }
+
+  public val add_node(String name, String type, Object contain)
+  {
+    val last_node = pic_last_node(); 
+    val new_val = new val("index", null, 100);
+  }
+
+  public val pic_last_node()
+  {
+    return val;
   }
 
 }
