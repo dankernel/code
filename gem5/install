@@ -33,3 +33,12 @@ scons 라고 치면 make 한 것 처럼. 파이썬으로 된 인스톨 파일이
 
 설치 완료.
 
+X86 설치방법.
+  scons build/X86/gem5.opt
+  build/{여기}에 적절한 것을 넣는다. 뒤에 gem6.opt는 같다.
+  여기서!! X86이 대문자이고, 처음에 보면 해당 경로가 없는데,
+  없어도 잘 된다.
+
+  출처 : http://holypsycho.egloos.com/viewer/3200748
+
+
