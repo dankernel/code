@@ -7,10 +7,24 @@ tick_handle_periodic()
 
 /* 책에서 설명하는 함수 */ 
 tick_periodic()
+
+  /* 지피값 증가. */
+  do_timer(1);
   
   /* 시간 관련 무언가 처리함.. */
+  /* 1/HZ동안 실햄됨. 초당 100 ~ 1000번 정도 발생 함. */
   update_process_times()
+
+    /* 실제 프로세서 시간 갱신 작업을 함, 진동주기 전체동안 발생 한 것으로 인식 */
+    account_process_tick();
+
+    /* softirq 발생. */
+    run_local_timers();
 
     /* 스케줄러 틱! */
     scheduler_tick();
-  
+
+      /* ddd */
+      
+
+
