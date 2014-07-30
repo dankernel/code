@@ -23,8 +23,9 @@ tick_periodic()
 
     /* 스케줄러 틱! */
     scheduler_tick();
+      get CPU, rq, curr
 
-      /* ddd */
+
       
 
 
