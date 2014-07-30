@@ -9,20 +9,25 @@ tick_handle_periodic()
 /* 특정 주기(초장 100 ~ 1000)마다 실행되는 함수 */
 tick_periodic()
 {
-  1. write_seqlock()
+  1. write_seqlock()    /* unlock by 4. */
 
-  /* 지피값 증가. */
-  2. do_timer(1);
+  /* TODO : next tick..?? */
+  2. Keep track of the next tick event
+
+  3. do_timer(1);       /* 지피값 증가. */
+
+  4. write_sequnlock()  /* lock by 1. */
 
   /* 벽에 걸려있는 실제 시간(?) */
-  3. update_wall_time()
+  /* 아래 별도의 설명을 하겠음. */
+  5. update_wall_time()
   
   /* 시간 관련 처리를 함. */
   /* 어느 모드(유저/시스템)에서 틱이 발생 했는지 알아옴. */
   /* 아래 별도의 설명을 하겠음. */
-  4. update_process_times() 
+  6. update_process_times() 
 
-  5. profile_tick()
+  7. profile_tick()
 
 }
 
@@ -67,6 +72,17 @@ update_process_times()
     
   /* 중요한 것 같은데, 모르겠당 */
   7. run_posix_cpu_timers()
+
+}
+
+update_wall_time()
+{
+
+
+
+
+
+
 
 
 }
