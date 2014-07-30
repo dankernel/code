@@ -19,17 +19,23 @@ tick_periodic()
     account_process_tick();
 
     /* softirq 발생. */
-    run_local_timers();
+    run_local_timers()
 
     /* 스케줄러 틱! */
-    scheduler_tick();
+    scheduler_tick()
       1. get CPU, rq, curr
       2. lock
       3. update_rq_clock
       4. curr->sched_class->task_tick()
         4-1. (= task_tick_fair)
         4-2. entity_tick();
-          4-2-1. update_curr() //
+          4-2-1. update_curr() //저번주에 했던...
+          4-2-2. ...??
+          4-2-3. resched_task()
+      5. update_cpu_load_active()
+      6. unlock
+
+      7. trigger_load_balance()
       
 
 
