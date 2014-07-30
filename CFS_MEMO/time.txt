@@ -13,10 +13,16 @@ tick_periodic()
   do_timer(1);
   
   /* 시간 관련 처리를 함. */
+  /* 어느 모드(유저/시스템)에서 틱이 발생 했는지 알아옴. */
   update_process_times()
 
+    1. get current and cpu(number)
+
     /* 책 : 실제 프로세서 시간 갱신 작업을 함, 진동주기 전체동안 발생 한 것으로 인식(?) */
+    /* 1에서 구한 current와 cpu로 갱신작업을 수행 함 */
     account_process_tick();
+      1-2. vtime_account_user()을 task를 인자로 바로 매핑 함.
+
 
     /* 책 : softirq 발생.(?) */
     run_local_timers()
