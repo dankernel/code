@@ -29,6 +29,7 @@ tick_periodic()
       4. curr->sched_class->task_tick()
         4-1. (= task_tick_fair)
         4-2. entity_tick();
+          4-2-1. update_curr() //
       
 
 
