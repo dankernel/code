@@ -23,7 +23,13 @@ tick_periodic()
 
     /* 스케줄러 틱! */
     scheduler_tick();
-      get CPU, rq, curr
+      1. get CPU, rq, curr
+      2. lock
+      3. update_rq_clock
+      4. curr->sched_class->task_tick()
+        4-1. (= task_tick_fair)
+        4-2. entity_tick();
+      
 
 
       
