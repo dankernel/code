@@ -12,7 +12,7 @@ tick_periodic()
   /* 지피값 증가. */
   do_timer(1);
 
-  /* ?? */
+  /* 벽에 걸려있는 실제 시간(?) */
   update_wall_time()
   
   /* 시간 관련 처리를 함. */
@@ -34,6 +34,7 @@ tick_periodic()
       hrtimer_run_queues()
       raise_softirq()
   
+    /* ...? */
     rcu_check_callbacks()
 
     /* 스케줄러 틱! */
@@ -44,11 +45,15 @@ tick_periodic()
       4. curr->sched_class->task_tick()
         4-1. (= task_tick_fair)
         4-2. entity_tick();
-          4-2-1. update_curr() //저번주에 했던...
+          4-2-1. update_curr() //저번주에 했던... 업데이트 커런트 ..//
           4-2-2. ...??
-          4-2-3. resched_task()
+          4-2-3. resched_task() //리스케줄링 ..//
       5. update_cpu_load_active()
       6. unlock
 
       7. trigger_load_balance()
+    
+    /* 중요한 것 같은데, 모르겠당 */
+    run_posix_cpu_timers()
+
       
