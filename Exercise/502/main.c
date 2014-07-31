@@ -41,6 +41,9 @@ int getint(float *pn)
 {
   char c, sign;
   int i = 0;
+  int isdot = 0;
+  float dot = 0;
+  
   while (isspace(c = getch())); /*  skip white space */
   
   if (!isdigit(c) && c != EOF && c != '+' && c != '-' && c != '.') {
@@ -52,10 +55,22 @@ int getint(float *pn)
   if (c == '+' || c == '-')
     c = getch();
 
-
   for (*pn = 0; isdigit(c) || c =='.'; c = getch()) {
-    printf("%d \n", (c-'0')*10);
-    *pn = 10 * *pn + (c - '0'); 
+
+    if (c == '.') {
+      printf("is Dot!!\n");
+      isdot = 2;
+    } else {
+
+      if (isdot) {
+        printf("%d\n", c);
+        *pn = *pn + (c - '0') * (10 / isdot++);
+      } else {
+        printf("%d \n", (c-'0')*10);
+        *pn = 10 * *pn + (c - '0'); 
+      }
+    }
+
   }
 
   *pn *= sign;
