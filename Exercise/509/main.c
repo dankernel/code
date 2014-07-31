@@ -35,7 +35,7 @@ int day_of_year(int year, int month, int day)
     return -1;
   }
 
-  if (day < 1 || daytab[leap][month] < day) {
+  if (day < 1 || *(*(daytab + leap) + month) < day) {
     return -1;
   }
 
@@ -77,7 +77,7 @@ int main(int argc, char* argv[])
   int d;
 
 
-  ret = day_of_year(2014, 3, 3);
+  ret = day_of_year(2014, 11, 33);
   printf("ret :  %d\n", ret);
 
   month_day(2014, 400, &m, &d);
