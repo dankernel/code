@@ -53,7 +53,10 @@ int main(int argc, char* argv[])
 {
   int ret = 0;
 
-  ret = day_of_year(2014, 2, 4);
+  int *pm = NULL;
+  int *pd = NULL;
+
+  ret = month_day(2014, 1, pm, pd);
   printf("%d\n", ret);
 
   return 0;

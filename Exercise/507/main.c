@@ -21,14 +21,29 @@
 
 #define MAXLINES 5000 /*  max #lines to be sorted */
 #define MAXLEN 1000 
-char *lineptr[MAXLINES]; /*  pointers to text lines */  
-int _getline(char *, int);
-char *alloc(int);
 
 #define ALLOCSIZE 10000 /*  size of available space */
 static char allocbuf[ALLOCSIZE]; /*  storage for alloc */
 static char *allocp = allocbuf; /*  next free position */
 
+char *lineptr[MAXLINES]; /*  pointers to text lines */  
+int _getline(char *, int);
+char *alloc(int);
+
+/*  getline: specialized version */
+int getline(void)
+{
+  int c, i;
+  extern char line[];
+  for (i = 0; i < MAXLINE - 1 && (c=getchar)) != EOF && c != '\n'; ++i)
+        line[i] = c;
+  if (c == '\n') {
+    line[i] = c;
+    ++i;
+  }
+  line[i] = '\0';
+  return i;
+} 
 char *alloc(int n) /*  return pointer to n characters */
 {
   if (allocbuf + ALLOCSIZE - allocp >= n) { /*  it fits */
@@ -39,7 +54,7 @@ char *alloc(int n) /*  return pointer to n characters */
 }
 
 /* readlines: read input lines */
-int readlines(char *lineptr[], int maxlines)
+int _readlines(char *lineptr[], int maxlines)
 {
   int len, nlines;
   char *p, line[MAXLEN];
