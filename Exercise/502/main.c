@@ -52,10 +52,10 @@ int getint(float *pn)
   if (c == '+' || c == '-')
     c = getch();
 
+
   for (*pn = 0; isdigit(c) || c =='.'; c = getch()) {
     printf("%d \n", (c-'0')*10);
-    *pn *= (c - '0') * 10;
-    printf("%f \n", *pn);
+    *pn = 10 * *pn + (c - '0'); 
   }
 
   *pn *= sign;
@@ -72,7 +72,7 @@ int main(int argc, char* argv[])
   float *p;
 
   ret = getint(p);
-  printf("%f\n", p);
+  printf("%f\n", *p);
 
 
   return 0;
