@@ -40,7 +40,7 @@ int day_of_year(int year, int month, int day)
   }
 
   for (i = 1; i < month; i++)
-    day += daytab[leap][i];
+    day += *(*(daytab + leap) + i);
 
   return day;
 } 
@@ -61,8 +61,8 @@ void month_day(int year, int yearday, int *pmonth, int *pday)
     goto ret;
   }
 
-  for (i = 1; yearday > daytab[leap][i]; i++)
-    yearday -= daytab[leap][i];
+  for (i = 1; yearday > *(*(daytab + leap) + i); i++)
+    yearday -= *(*(daytab + leap) + i);
 
 ret:
   *pmonth = i;
@@ -76,11 +76,10 @@ int main(int argc, char* argv[])
   int m;
   int d;
 
-
-  ret = day_of_year(2014, 11, 33);
+  ret = day_of_year(2014, 2, 10);
   printf("ret :  %d\n", ret);
 
-  month_day(2014, 400, &m, &d);
+  month_day(2014, 40, &m, &d);
   printf("%d \n", m);
   printf("%d \n", d);
 
