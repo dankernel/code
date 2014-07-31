@@ -21,16 +21,22 @@
 
 int strend(char *str, char *key)
 {
+  int s_len = 0;
+  int k_len = 0;
   int len = 0;
+
   int i = 0;
 
-  while (*(str + len++) != '\0');
-  len -= 3;
+  while (*(str + s_len++) != '\0');
+  while (*(key + k_len++) != '\0');
+  len = s_len - k_len;
 
+  printf("len : %d\n", s_len);
+  printf("len : %d\n", k_len);
   printf("len : %d\n", len);
 
-  while (i < len) {
-    printf("%c  %c \n", *(key + i), *(str + len - i));
+  while (i < len + 1) {
+    printf("%c  %c \n", *(key + i), *(str + len + i));
     if (*(key + i) == *(str + len - i));
     else return -1;
 
