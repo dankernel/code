@@ -24,13 +24,12 @@
 char buf[BUFSIZE]; /*  buffer for ungetch */
 int bufp = 0; /*  next free position in buf */ 
 
-int getch(void) /*  get a (possibly pushed-back) character */
+char getch(void) /*  get a (possibly pushed-back) character */
 {
   return (bufp > 0) ? buf[--bufp] : getchar();
 }
-void ungetch(int c) /*  push character back on input */
+void ungetch(char c) /*  push character back on input */
 {
-  printf("%d \n", c);
   if (bufp >= BUFSIZE)
     printf("ungetch: too many characters\n");
   else
@@ -40,7 +39,8 @@ void ungetch(int c) /*  push character back on input */
 /*  getint: get next integer from input into *pn */
 int getint(char *pn)
 {
-  int c, sign;
+  char c, sign;
+  int i = 0;
   while (isspace(c = getch())); /*  skip white space */
   
   if (!isdigit(c) && c != EOF && c != '+' && c != '-' && c != '.') {
@@ -52,8 +52,9 @@ int getint(char *pn)
   if (c == '+' || c == '-')
     c = getch();
 
-  for (*pn = 0; isdigit(c); c = getch())
-    *pn = 10 * *pn + (c - '0');
+  for (*pn = 0; isdigit(c) || c =='.'; c = getch()) {
+    *(pn + i++) = c;
+  }
 
   *pn *= sign;
   if (c != EOF)
@@ -66,10 +67,10 @@ int main(int argc, char* argv[])
 {
 
   int ret = 0;
-  char p[10];
+  char p[10] = {'\0', };
 
   ret = getint(p);
-  printf("%d\n", *p);
+  printf("%s\n", p);
 
 
   return 0;
