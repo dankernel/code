@@ -40,13 +40,10 @@ void ungetch(int c) /*  push character back on input */
 int getint(float *pn)
 {
   char c, sign;
-  int i = 0;
   int isdot = 0;
-
-  int dot = 0;
-  int val = 0;
-  int dot_count = 0;
-  float result = 0;
+  float dot = 0;
+  float val = 0;
+  float dot_count = 1;
   
   while (isspace(c = getch())); /*  skip white space */
   
@@ -64,22 +61,16 @@ int getint(float *pn)
     if (c == '.')
       isdot = 1;
     else if (isdot) {
-      printf("%d \n", (c-'0')*10);
       dot = 10 * dot + (c - '0'); 
-      dot_count++;
+      dot_count *= 10;
     } else {
-      printf("%d \n", (c-'0')*10);
       val = 10 * val + (c - '0'); 
     }
 
   }
 
-  printf("result\n");
-  printf("%d \n", val);
-  printf("%d \n", dot);
-  result = (10*dot_count);
-  printf("%f\n", result);
 
+  *pn = val + (dot / dot_count);
   *pn *= sign;
   if (c != EOF)
     ungetch(c);
