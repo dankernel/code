@@ -29,9 +29,16 @@ int day_of_year(int year, int month, int day)
 {
   int i, leap;
 
-
-
   leap = year%4 == 0 && year%100 != 0 || year%400 == 0;
+  
+  if (month < 1 || 12 < month) {
+    return -1;
+  }
+
+  if (day < 1 || daytab[leap][month] < day) {
+    return -1;
+  }
+
   for (i = 1; i < month; i++)
     day += daytab[leap][i];
 
@@ -41,10 +48,23 @@ int day_of_year(int year, int month, int day)
 /*  month_day: set month, day from day of year */
 void month_day(int year, int yearday, int *pmonth, int *pday)
 {
-  int i, leap;
+  int i = -1, leap;
   leap = year%4 == 0 && year%100 != 0 || year%400 == 0;
+
+  if (year < 1) {
+    yearday = -1;
+    goto ret;
+  }
+
+  if (yearday < 1 || 365 < yearday) {
+    yearday = -1;
+    goto ret;
+  }
+
   for (i = 1; yearday > daytab[leap][i]; i++)
     yearday -= daytab[leap][i];
+
+ret:
   *pmonth = i;
   *pday = yearday;
 } 
@@ -53,11 +73,16 @@ int main(int argc, char* argv[])
 {
   int ret = 0;
 
-  int *pm = NULL;
-  int *pd = NULL;
+  int m;
+  int d;
 
-  ret = month_day(2014, 1, pm, pd);
-  printf("%d\n", ret);
+
+  ret = day_of_year(2014, 3, 3);
+  printf("ret :  %d\n", ret);
+
+  month_day(2014, 400, &m, &d);
+  printf("%d \n", m);
+  printf("%d \n", d);
 
   return 0;
 }
