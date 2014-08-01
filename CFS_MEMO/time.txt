@@ -6,7 +6,7 @@
 tick_handle_periodic()
 
 /* 책에서 설명하는 함수 */ 
-/* 특정 주기(초장 100 ~ 1000)마다 실행되는 함수 */
+/* 특정 주기(초당 100 ~ 1000)마다 실행되는 함수 */
 tick_periodic()
 {
   1. write_seqlock()    /* unlock by 4. */
