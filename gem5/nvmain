@@ -1,5 +1,10 @@
 
 scons로 tar 압축 풀기.
 
+.hg/hgrc에 다음을 추가.
 
+[extensions]
+mq =
+
+hg qinit -c
 
