@@ -1,0 +1,166 @@
+package com.example.hal;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+
+import android.app.Activity;
+import android.bluetooth.BluetoothAdapter;
+import android.content.Context;
+import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.wifi.WifiManager;
+import android.os.Bundle;
+import android.telephony.TelephonyManager;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.Toast;
+import android.widget.ToggleButton;
+
+
+public class MainActivity extends Activity implements OnClickListener {
+
+	control_tower control_tower = new control_tower();
+
+	public ToggleButton 	tb_camera, tb_microphone, tb_sdcard, 
+	tb_gps, tb_mobile, tb_wifi, tb_bluetooth;
+	public Button bt_exit;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+
+		startService(new Intent("com.example.hal.service.EVENT_CATCHER"));
+
+		/* camera */
+		tb_camera = (ToggleButton)this.findViewById(R.id.toggleButton_camera);
+		tb_camera.setOnClickListener(this);
+
+		/* Microphone */
+		tb_microphone = (ToggleButton)this.findViewById(R.id.toggleButton_microphone);
+		tb_microphone.setOnClickListener(this);
+
+		/* SDCard */
+		tb_sdcard = (ToggleButton)this.findViewById(R.id.toggleButton_sdcard);
+		tb_sdcard.setOnClickListener(this);
+
+		/* GPS */
+		tb_gps = (ToggleButton)this.findViewById(R.id.toggleButton_gps);
+		tb_gps.setOnClickListener(this);
+
+		/* Mobile */
+		tb_mobile = (ToggleButton)this.findViewById(R.id.toggleButton_mobile);
+		tb_mobile.setOnClickListener(this);
+
+		/* wifi */
+		tb_wifi = (ToggleButton)this.findViewById(R.id.toggleButton_wifi);
+		tb_wifi.setOnClickListener(this);
+
+		/* Bluetooth */
+		tb_bluetooth = (ToggleButton)this.findViewById(R.id.toggleButton_bluetooth);
+		tb_bluetooth.setOnClickListener(this);     
+
+		/* exit */
+		bt_exit = (Button) findViewById(R.id.button_exit);
+		bt_exit.setOnClickListener(this);    
+
+		toast_print("mobile :" + control_tower.get_status(this, "mobile"));
+		toast_print("wifi :" + control_tower.get_status(this, "wifi"));
+
+	}
+
+	public void onClick(View v)
+	{
+		if (v.getId() == R.id.toggleButton_camera) {
+
+			control_tower.control(this, "camera", tb_camera.isChecked());
+
+		} else if (v.getId() == R.id.toggleButton_microphone) {
+
+			control_tower.control(this, "microphone", tb_microphone.isChecked());
+
+		} else if (v.getId() == R.id.toggleButton_sdcard) {
+
+			control_tower.control(this, "sdcard", tb_sdcard.isChecked());
+
+		} else if (v.getId() == R.id.toggleButton_gps) {
+
+			control_tower.control(this, "gps", tb_gps.isChecked());
+
+		} else if (v.getId() == R.id.toggleButton_mobile) {
+
+			toggleMobile(this, true);
+			control_tower.control(this, "mobile", tb_mobile.isChecked());
+
+		} else if (v.getId() == R.id.toggleButton_wifi) {
+
+			control_tower.control(this, "wifi", tb_wifi.isChecked());
+
+		} else if (v.getId() == R.id.toggleButton_bluetooth) {
+
+			control_tower.control(this, "bluetooth", tb_bluetooth.isChecked());
+
+		} else if (v.getId() == R.id.button_exit) {
+
+			stopService(new Intent("com.example.hal.service.EVENT_CATCHER"));
+			finish();
+
+		} else {
+			toast_print("Exception..! Button.");
+		}
+
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.main, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle action bar item clicks here. The action bar will
+		// automatically handle clicks on the Home/Up button, so long
+		// as you specify a parent activity in AndroidManifest.xml.
+		int id = item.getItemId();
+		if (id == R.id.action_settings) {
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
+	}
+
+	/* toast */
+	public void toast_print(String get_text){
+		Toast t = null;
+		if(t == null) {
+			t = Toast.makeText(this, get_text, Toast.LENGTH_SHORT);
+		}
+		t.show();
+	}
+
+	/* Mobile */
+	private int toggleMobile(Context context, boolean enabled) throws Exception {
+		try{
+			final ConnectivityManager conman = (ConnectivityManager)  context.getSystemService(Context.CONNECTIVITY_SERVICE);
+			final Class conmanClass = Class.forName(conman.getClass().getName());
+			final Field iConnectivityManagerField = conmanClass.getDeclaredField("mService");
+			iConnectivityManagerField.setAccessible(true);
+			final Object iConnectivityManager = iConnectivityManagerField.get(conman);
+			final Class iConnectivityManagerClass =  Class.forName(iConnectivityManager.getClass().getName());
+			final Method setMobileDataEnabledMethod = iConnectivityManagerClass.getDeclaredMethod("setMobileDataEnabled", Boolean.TYPE);
+			setMobileDataEnabledMethod.setAccessible(true);
+			setMobileDataEnabledMethod.invoke(iConnectivityManager, enabled);
+
+			toast_print("ok");
+			return 1;
+		} catch (NullPointerException e) {
+			return -1;
+		}
+	}
+
+}
