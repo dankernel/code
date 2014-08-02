@@ -1643,3 +1643,6 @@ java.lang.NullPointerException
 
 !ENTRY com.android.ide.eclipse.adt 4 0 2014-08-02 11:06:23.860
 !MESSAGE Failed to load properties file for project 'BluetoothRequestPermissionTest'
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-08-02 11:32:26.654
+!MESSAGE Failed to load properties file for project 'Settings'
