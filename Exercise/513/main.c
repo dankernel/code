@@ -30,16 +30,16 @@ int tail(char *str, int n)
     i++;
   }
 
-  printf("line : %d \n", line);
+  line--;
   while (i > 0 && line > 0) {
     if (*(str + i) == '\n')
       line--;
     i--;
   }
 
-  printf("i :  %d\n", i);
+  i += 2;
 
-  printf("result : %s\n", (str + i));
+  printf("%s\n", (str + i));
 
   
 
