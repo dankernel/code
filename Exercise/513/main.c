@@ -19,7 +19,7 @@
 #include <stdio.h>
 #include <string.h>
 
-int tail(char *str)
+int tail(char *str, int n)
 {
   int line = 0;
   int i = 0;
@@ -31,6 +31,16 @@ int tail(char *str)
   }
 
   printf("line : %d \n", line);
+  while (i > 0 && line > 0) {
+    if (*(str + i) == '\n')
+      line--;
+    i--;
+  }
+
+  printf("i :  %d\n", i);
+
+  printf("result : %s\n", (str + i));
+
   
 
   return 0;
@@ -42,7 +52,7 @@ int main(int argc, char* argv[])
   char str[] = "Hi\nDKDK\njun\nHyung~\n";
   printf("%s\n", str);
 
-  tail(str);
+  tail(str, 2);
 
   return 0;
 }
