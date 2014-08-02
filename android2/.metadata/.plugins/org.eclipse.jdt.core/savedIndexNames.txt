@@ -1,6 +1,4 @@
 INDEX VERSION 1.127+/home/dkdk/code/android2/.metadata/.plugins/org.eclipse.jdt.core
-3260040230.index
-629880402.index
-1269938973.index
-3596971471.index
 2749339810.index
+629880402.index
+3260040230.index

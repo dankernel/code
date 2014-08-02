@@ -1,0 +1,265 @@
+package com.example.hal;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+
+import android.app.Activity;
+import android.bluetooth.BluetoothAdapter;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.NetworkInfo.State;
+import android.net.wifi.WifiManager;
+import android.widget.Toast;
+
+public class control_tower extends Activity {
+
+	boolean camera 		= false;
+	boolean microphone 	= false;
+	boolean sdcard 		= false;
+	boolean gps 		= false;
+	boolean mobile 		= false;
+	boolean wifi 		= false;
+	boolean bluetooth 	= false;
+
+	public int get_status(Context context, String name) {
+
+		if (name=="camera") {
+
+		}
+
+		if (name=="microphone") {
+
+		}
+
+		if (name=="sdcard") {
+
+		}
+
+		if (name=="gps") {
+
+		}
+
+		if (name=="mobile") {
+			return ismobile(context);
+		}
+
+		if (name=="wifi") {
+			return iswifi(context);
+		}
+
+		if (name=="bth") {
+
+		}
+
+		return -1;
+	}
+
+	public int control(Context context, String name, boolean bool) {
+
+		toast_print(context, name + " / " + bool);
+
+		if (name=="camera") {
+			if (0 <= toggleCamera(context, bool))
+				camera = bool;
+			else
+				toast_print(context, "Camera toggle fail..!");
+		}
+
+		if (name=="microphone") {
+			if (0 <= toggleMicrophone(context, bool))
+				microphone = bool;
+			else
+				toast_print(context, "microphone toggle fail..!");
+		}
+
+		if (name=="sdcard") {
+			if (0 <= toggleSdcard(context, bool))
+				sdcard = bool;
+			else
+				toast_print(context, "sdcard toggle fail..!");
+		}
+
+		if (name=="gps") {
+			if (0 <= toggleGps(context, bool))
+				gps = bool;
+			else
+				toast_print(context, "gps toggle fail..!");
+		}
+
+		if (name=="mobile") {
+			try {
+				if (0 <= toggleMobile(context, bool))
+					mobile = bool;
+				else
+					toast_print(context, "mobile toggle fail..!");
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+
+		if (name=="wifi") {
+			if (0 <= toggleWiFi(context, bool))
+				wifi = bool;
+			else
+				toast_print(context, "wifi toggle fail..!");
+		}
+
+		if (name=="bth") {
+			if (0 <= togglebluetooth(context, bool))
+				bluetooth = bool;
+			else
+				toast_print(context, "bluetooth toggle fail..!");
+		}
+
+		return 0;
+	}
+
+	public boolean get_status(){
+
+		return false;
+	}
+
+	public int update_status(){
+
+		camera 		= false;
+		microphone 	= false;
+		sdcard 		= false;
+		gps 		= false;
+		mobile 		= false;
+		wifi 		= false;
+		bluetooth 	= false;
+
+		return 0;
+	}
+
+	/* Camera */
+	private int toggleCamera(Context context, boolean status) {
+
+		try {
+			return 0;
+		} catch (Exception e) {
+			return -1;
+		}
+	}
+
+	/* Microphone */
+	private int toggleMicrophone(Context context, boolean status) {
+
+		try {
+			return 0;
+		} catch (Exception e) {
+			return -1;
+		}
+	}
+
+	/* Sdcard */
+	private int toggleSdcard(Context context, boolean status) {
+
+		try {
+			return 0;
+		} catch (Exception e) {
+			return -1;
+		}
+	}
+
+	/* Gps */
+	private int toggleGps(Context context, boolean status) {
+
+		try {
+			return 0;
+		} catch (Exception e) {
+			return -1;
+		}
+	}
+
+
+
+	/* WIFI */
+	private int toggleWiFi(Context context, boolean status) {
+		try {
+			WifiManager wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
+			if (status == true && !wifiManager.isWifiEnabled()) {
+				wifiManager.setWifiEnabled(true);
+			} else if (status == false && wifiManager.isWifiEnabled()) {
+				wifiManager.setWifiEnabled(false);
+			}
+			return 0;
+		} catch (Exception e) {
+			return -1;
+		}
+	}
+
+	/* bluetooth */
+	private int togglebluetooth(Context context, boolean status) {
+		try {
+			BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter(); 
+			if (status == true){
+				adapter.enable();
+			} else {
+				adapter.disable();
+			}
+			return 0;
+		} catch (Exception e) {
+			return -1;
+		}
+	}
+
+	/* toast */
+	private void toast_print(Context context, String get_text){
+		Toast t = null;
+		if(t == null) {
+			t = Toast.makeText(context, get_text, Toast.LENGTH_SHORT);
+		}
+		t.show();
+	}
+
+	private int ismobile(Context context) { // network 연결 상태 확인
+		try {
+			ConnectivityManager manager = (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+			// mobile ConnectivityManager.TYPE_MOBILE
+			State mobile = manager.getNetworkInfo(0).getState(); 
+
+			if (!(mobile == NetworkInfo.State.DISCONNECTED || mobile == NetworkInfo.State.DISCONNECTING)) {
+				return 1;
+			}
+		} catch (NullPointerException e) {
+			return -1;
+		}
+		return 0;
+	}
+
+	@SuppressWarnings("unused")
+	private int iswifi(Context context) { // network 연결 상태 확인
+		try {
+			ConnectivityManager conMan = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+			// wifi
+			State wifi = conMan.getNetworkInfo(1).getState(); 
+
+			if (!(wifi == NetworkInfo.State.DISCONNECTED || wifi == NetworkInfo.State.DISCONNECTING)) {
+				return 1;
+			}	
+		} catch (NullPointerException e) {
+			return -1;
+		}
+		return 0;
+	}
+
+	/* Mobile */
+	private void setMobileDataEnabled(Context context, boolean enabled) {
+	    final ConnectivityManager conman = (ConnectivityManager)  context.getSystemService(Context.CONNECTIVITY_SERVICE);
+	    final Class conmanClass = Class.forName(conman.getClass().getName());
+	    final Field connectivityManagerField = conmanClass.getDeclaredField("mService");
+	    connectivityManagerField.setAccessible(true);
+	    final Object connectivityManager = connectivityManagerField.get(conman);
+	    final Class connectivityManagerClass =  Class.forName(connectivityManager.getClass().getName());
+	    final Method setMobileDataEnabledMethod = connectivityManagerClass.getDeclaredMethod("setMobileDataEnabled", Boolean.TYPE);
+	    setMobileDataEnabledMethod.setAccessible(true);
+
+	    setMobileDataEnabledMethod.invoke(connectivityManager, enabled);
+	}
+
+}
