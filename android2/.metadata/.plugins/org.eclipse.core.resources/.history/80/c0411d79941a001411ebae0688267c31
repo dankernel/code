@@ -1,0 +1,117 @@
+package com.example.cameradisabler;
+
+import android.app.Activity;
+import android.app.admin.DeviceAdminReceiver;
+import android.app.admin.DevicePolicyManager;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
+
+public class MainActivity extends Activity {
+
+	public DevicePolicyManager devicePolicyManager;
+	public ComponentName adminComponent;
+	
+	// http://is.gd/eyUGgH
+	public static class DeviceAdminClass extends DeviceAdminReceiver {
+	    void showToast(Context context, String msg) {
+	        Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
+	    }
+
+	    @Override
+	    public void onEnabled(Context context, Intent intent) {
+	        showToast(context, "Device Admin Permission Enabled");
+	    }
+
+	    @Override
+	    public CharSequence onDisableRequested(Context context, Intent intent) {
+	        return "Device Disabling Request";
+	    }
+
+	    @Override
+	    public void onDisabled(Context context, Intent intent) {
+	        showToast(context, "Device Admin Permission Disabled");
+	    }
+	}
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		adminComponent = new ComponentName(getBaseContext(), DeviceAdminClass.class);
+		devicePolicyManager = (DevicePolicyManager)getSystemService(Context.DEVICE_POLICY_SERVICE);
+
+		if(!devicePolicyManager.isAdminActive(adminComponent)){
+			Intent intent = new Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN);
+
+			intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, adminComponent);
+			intent.putExtra(DevicePolicyManager.EXTRA_ADD_EXPLANATION, "Must using this App, Need this permission");
+
+			// TODO: 이 기기관리자 액티비티에서 "활성화"를 누르면 메인 엑티비티를 보여주고,
+			//       "취소"를 누르면 앱이 종료되도록 할것.
+			startActivityForResult(intent, 1);
+		}
+	    		
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+
+	    final Button Camera_on_buttion = (Button)this.findViewById(R.id.buttion_cameraOn);
+	    Camera_on_buttion.setOnClickListener(new View.OnClickListener(){
+	    	
+	    	@Override
+	    	public void onClick(View v) {			 
+	    		// Disable -> Enable
+	    		if(devicePolicyManager.getCameraDisabled(adminComponent) == true){
+	    			devicePolicyManager.setCameraDisabled(adminComponent, false);
+	    			Toast.makeText(getApplicationContext(), "Camera Enable",  Toast.LENGTH_SHORT).show();
+	    		}
+			}		
+		});
+	        
+		final Button Camera_off_buttion = (Button)this.findViewById(R.id.buttion_cameraOff);
+		Camera_off_buttion.setOnClickListener(new View.OnClickListener(){
+					
+			@Override
+			public void onClick(View v) {
+	    		// Enable -> Disable
+	    		if(devicePolicyManager.getCameraDisabled(adminComponent) == false){
+	    			devicePolicyManager.setCameraDisabled(adminComponent, true);
+	    			Toast.makeText(getApplicationContext(), "Camera Disable",  Toast.LENGTH_SHORT).show();
+	    		}
+			}	
+		});
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.main, menu);
+		return true;
+	}
+
+	@Override
+	protected void onDestroy(){
+		super.onDestroy();
+		
+		// Device Administrator OFF
+		if(devicePolicyManager.isAdminActive(adminComponent)){
+			devicePolicyManager.removeActiveAdmin(adminComponent);
+		}
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle action bar item clicks here. The action bar will
+		// automatically handle clicks on the Home/Up button, so long
+		// as you specify a parent activity in AndroidManifest.xml.
+		int id = item.getItemId();
+		if (id == R.id.action_settings) {
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
+	}
+}

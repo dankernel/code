@@ -23,11 +23,15 @@ mq =
 
 hg qinit
 
+문제 1
 hg qimport -f /path/to/nvmain/patches/gem5/nvmain-classic-gem5-XXXX
 //XXXX는 버전임.
 
 hg qpush
 
+문제 2
 scons EXTRAS=/path/to/nvmain build/X86/gem5.fast
 
+문제3
+위키와 리드미에 있는 버전(?)의 차이.
 
