@@ -523,3 +523,9 @@ org.eclipse.core.internal.resources.ResourceException: A resource already exists
 	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
 !SUBENTRY 1 org.eclipse.core.resources 4 272 2014-08-02 09:45:13.648
 !MESSAGE A resource already exists on disk '/home/dkdk/android/003/.settings'.
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-08-02 10:25:37.941
+!MESSAGE Failed to load properties file for project 'Settings'
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-08-02 10:25:38.054
+!MESSAGE Failed to load properties file for project 'BluetoothRequestPermissionTest'
