@@ -14,3 +14,20 @@ hg qinit -c
 http://wiki.nvmain.org/index.php?n=Site.Compiling
 여기 링크 보고 했음...!
 
+~/x68 설치까지 하고..
+
+.hgrc에 파일에서 다음 두줄을 추가 함.
+
+[extensions]
+mq =
+
+hg qinit
+
+hg qimport -f /path/to/nvmain/patches/gem5/nvmain-classic-gem5-XXXX
+//XXXX는 버전임.
+
+hg qpush
+
+scons EXTRAS=/path/to/nvmain build/X86/gem5.fast
+
+
