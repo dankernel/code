@@ -2063,3 +2063,6 @@ org.eclipse.core.internal.resources.ResourceException: A resource already exists
 
 !ENTRY com.android.ide.eclipse.adt 4 0 2014-08-03 07:29:21.771
 !MESSAGE Failed to load properties file for project 'Settings'
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-08-03 07:37:27.394
+!MESSAGE Failed to load properties file for project 'Settings'
