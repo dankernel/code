@@ -1,8 +1,13 @@
 
 참고 사이트 : http://wiki.nvmain.org/index.php?n=Site.Compiling
 
-
 ~/x68 설치까지 하고..
+
+/* 
+ * 메뉴얼에 있는 hg 명령어를 치면, mq오류가 발생함.
+ * 큐 관련되어 머큐리얼 사이트에 찾아보니까
+ * 다음과같이 설정파일을 수정해야 함. 
+ */
 
 .hgrc에 파일에서 다음 두줄을 추가 함.
 [extensions]
@@ -38,4 +43,4 @@ scons EXTRAS=/path/to/nvmain build/X86/gem5.fast
  * 둘다 봐도 잘안됨..
  */
 
-
+/* TODO : .... */
