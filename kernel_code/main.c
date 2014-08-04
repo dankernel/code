@@ -20,13 +20,38 @@
 #include <string.h>
 #include <fcntl.h>
 
-#define ERR_ARG_NULL 0x00000001
+#define ERR_ARG_NULL      0x00000001
+#define ERR_ARG_NEGATIVE  0x00000002
+
+
+int line_word_size_chaeek(char *buf, int file_size, int word_size)
+{
+  int i = 0;
+  int tmp_word_count = 0;
+
+  if (!buf)
+    return -ERR_ARG_NULL;
+
+  if (file_size < 0 || word_size < 0)
+    return -ERR_ARG_NEGATIVE;
+
+  while (i < file_size) {
+
+    tmp_word_count = 0;
+    while (buf[i] != '\n') {
+      tmp_word_count++;
+    }
+
+  }
+
+  return 0;
+}
 
 int open_file(char *path)
 {
   int fd = 0;
 
-  if(!path)
+  if (!path)
     return -ERR_ARG_NULL;
 
   if ((fd = open(path, O_RDONLY)) < 0)
@@ -50,13 +75,15 @@ int read_file(char *path, int fd)
   /* init buf */
   buf = malloc(sizeof(char) * size);
 
-  if ((
+  /* read file and save buf */
+  if ((ret = read(fd, buf, size)) < 0)
+    return -1;
 
+  printf("%s \n", buf);
 
+  line_word_size_chaeek(buf, size, 80);
 
-
-
-
+  free(buf);
 
   return 0;
 
