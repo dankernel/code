@@ -1,0 +1,12 @@
+
+gem5부터 버전에 맞게 다시 다운받음. 
+
+버전 : changeset 10146 27dfed4c8403
+주소 : http://repo.gem5.org/gem5/rev/27dfed4c8403
+
+hg clone http://repo.gem5.org/gem5/ -r 27dfed4c8403
+
+gem5 컴파일 (이제 몇번째인지 모르겠다..)
+scons build/X86/gem5.opt
+
+
