@@ -32,6 +32,7 @@ int print_over_word(char *buf, int i, int len)
 
   /* alloc tmp mem */
   print_buf = malloc(sizeof(char) * len + 1);
+  memset(print_buf, '\0', len + 1);
   
   /* copy string */
   strncpy(print_buf, buf + i - len, len);
@@ -90,45 +91,54 @@ int open_file(char *path)
   }
 }
 
-int read_file(char *path, int fd)
+int read_file(char *path, int fd, char *ret_buf)
 {
-  int size = 0;
+  int file_size = 0;
   int ret = 0;
   struct stat file_info;
   char *buf = NULL;
 
   /* get file size */
   stat(path, &file_info);
-  size = file_info.st_size;
-  printf("size : %d \n", size);
+  file_size = file_info.st_size;
+  printf("file size : %d \n", file_size);
 
   /* init buf */
-  buf = malloc(sizeof(char) * size);
+  buf = malloc(sizeof(char) * file_size);
 
   /* read file and save buf */
-  if ((ret = read(fd, buf, size)) < 0)
+  if ((ret = read(fd, buf, file_size)) < 0)
     return -1;
   else
     printf("[OK] read.. \n");
 
   printf("%s \n", buf);
 
-  line_word_size_chaeek(buf, size, 10);
+  ret_buf = buf;
 
-  free(buf);
-
-  return 0;
+  return file_size;
 
 }
 
+int close_file(char *fd, char *buf)
+{
+  close(fd);
+  free(buf);
+
+  return 0;
+}
 
 int main(int argc, char* argv[])
 {
   int fd = 0;
+  int size = 0;
+  char *buf = NULL;
 
   fd = open_file("./file.c");
   
-  read_file("./file.c", fd);
+  size = read_file("./file.c", fd, buf);
+  line_word_size_chaeek(buf, size, 10);
+  close_file(fd, buf);
 
   return 0;
 }
