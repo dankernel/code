@@ -130,15 +130,34 @@ int close_file(int fd, char *buf)
 
 int main(int argc, char* argv[])
 {
-  int fd = 0;
+  int fd_code = 0;
+  int fd_list = 0;
   int size = 0;
   char *buf = NULL;
+  char *file_list = NULL;
 
-  fd = open_file(argv[1]);
-  
-  size = read_file(argv[1], fd, &buf);
-  line_word_size_chaeek(buf, size, 30);
-  close_file(fd, buf);
+  char file_path[1024];
+  int i = 0;
+
+
+  fd_list = open_file("./kernel_file_list");
+
+  /* .. */
+
+  memset(file_path, '\0', 1024);
+  read_file("./kernel_file_list", fd_list, &file_list);
+  while (*(file_list + i) != EOF) {
+
+
+
+    /* Do... */
+    fd_code = open_file(argv[1]);
+    size = read_file(argv[1], fd_code, &buf);
+    line_word_size_chaeek(buf, size, 30);
+    close_file(fd_code, buf);
+
+  }
+
 
   return 0;
 }
