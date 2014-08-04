@@ -23,8 +23,13 @@
 #define ERR_ARG_NULL      0x00000001
 #define ERR_ARG_NEGATIVE  0x00000002
 
+int print_over_word(char *buf, int i, int count)
+{
 
-int line_word_size_chaeek(char *buf, int file_size, int word_size)
+  return 0;
+}
+
+int line_word_size_chaeek(char *buf, int file_size, int limit_size)
 {
   int i = 0;
   int tmp_word_count = 0;
@@ -32,14 +37,21 @@ int line_word_size_chaeek(char *buf, int file_size, int word_size)
   if (!buf)
     return -ERR_ARG_NULL;
 
-  if (file_size < 0 || word_size < 0)
+  if (file_size < 0 || limit_size < 0)
     return -ERR_ARG_NEGATIVE;
 
+  /* cheek */
   while (i < file_size) {
 
     tmp_word_count = 0;
     while (buf[i] != '\n') {
       tmp_word_count++;
+      i++;
+    }
+
+    i++;
+    if (limit_size < tmp_word_count) {
+      print_over_word(buf, i, tmp_word_count);
     }
 
   }
@@ -56,8 +68,10 @@ int open_file(char *path)
 
   if ((fd = open(path, O_RDONLY)) < 0)
     return -1;
-  else
+  else {
+    printf("[OK] open..\n");
     return fd;
+  }
 }
 
 int read_file(char *path, int fd)
@@ -78,10 +92,12 @@ int read_file(char *path, int fd)
   /* read file and save buf */
   if ((ret = read(fd, buf, size)) < 0)
     return -1;
+  else
+    printf("[OK] read.. \n");
 
   printf("%s \n", buf);
 
-  line_word_size_chaeek(buf, size, 80);
+  line_word_size_chaeek(buf, size, 10);
 
   free(buf);
 
