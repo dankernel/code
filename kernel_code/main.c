@@ -91,7 +91,7 @@ int open_file(char *path)
   }
 }
 
-int read_file(char *path, int fd, char *ret_buf)
+int read_file(char *path, int fd, char **ret_buf)
 {
   int file_size = 0;
   int ret = 0;
@@ -114,13 +114,13 @@ int read_file(char *path, int fd, char *ret_buf)
 
   printf("%s \n", buf);
 
-  ret_buf = buf;
+  *ret_buf = buf;
 
   return file_size;
 
 }
 
-int close_file(char *fd, char *buf)
+int close_file(int fd, char *buf)
 {
   close(fd);
   free(buf);
@@ -134,10 +134,10 @@ int main(int argc, char* argv[])
   int size = 0;
   char *buf = NULL;
 
-  fd = open_file("./file.c");
+  fd = open_file(argv[1]);
   
-  size = read_file("./file.c", fd, buf);
-  line_word_size_chaeek(buf, size, 10);
+  size = read_file(argv[1], fd, &buf);
+  line_word_size_chaeek(buf, size, 30);
   close_file(fd, buf);
 
   return 0;
