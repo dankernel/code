@@ -23,8 +23,23 @@
 #define ERR_ARG_NULL      0x00000001
 #define ERR_ARG_NEGATIVE  0x00000002
 
-int print_over_word(char *buf, int i, int count)
+int print_over_word(char *buf, int i, int len)
 {
+  char *print_buf = NULL;
+
+  if (!buf)
+    return -ERR_ARG_NULL;
+
+  /* alloc tmp mem */
+  print_buf = malloc(sizeof(char) * len + 1);
+  
+  /* copy string */
+  strncpy(print_buf, buf + i - len, len);
+  printf("[OVER] len : %d \n", len);
+  printf("%s \n", print_buf);
+
+  /* free */
+  free(print_buf);
 
   return 0;
 }
@@ -49,10 +64,11 @@ int line_word_size_chaeek(char *buf, int file_size, int limit_size)
       i++;
     }
 
-    i++;
-    if (limit_size < tmp_word_count) {
+    if (limit_size < tmp_word_count)
       print_over_word(buf, i, tmp_word_count);
-    }
+
+    /* next char */
+    i++;
 
   }
 
