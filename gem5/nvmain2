@@ -9,7 +9,7 @@ hg clone http://repo.gem5.org/gem5/ -r 27dfed4c8403
 gem5 컴파일 (이제 몇번째인지 모르겠다..)
 scons build/X86/gem5.opt
 
-/* 디버깅 안됨! 다른 버전으로 다시 ㅠㅠ */
+/* 컴파일 안됨! 다른 버전으로 다시 ㅠㅠ */
 
 gem5부터 버전에 맞게 다시 다운받음. 
 
@@ -17,3 +17,15 @@ gem5부터 버전에 맞게 다시 다운받음.
 주소 : http://repo.gem5.org/gem5/rev/06a33d872798
 
 hg clone http://repo.gem5.org/gem5/ -r 06a33d872798
+
+/* 컴파일 안됨! 다른 버전으로 다시 ㅠㅠ */
+
+9983버전으로 다시 받음... 
+hg clone http://repo.gem5.org/gem5/ -r 2cce74fe359e
+
+nvmain에서 패치를 제공하는 gem5버전으로 다운로드를 받으면 컴파일이 안됨.
+
+
+
+
+
