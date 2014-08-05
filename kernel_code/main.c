@@ -149,7 +149,6 @@ int main(int argc, char* argv[])
   while (*(file_list + i) != EOF) {
 
 
-
     /* Do... */
     fd_code = open_file(argv[1]);
     size = read_file(argv[1], fd_code, &buf);
