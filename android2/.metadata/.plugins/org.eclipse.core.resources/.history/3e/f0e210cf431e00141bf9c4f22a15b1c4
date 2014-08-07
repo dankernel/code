@@ -1,0 +1,461 @@
+package com.example.hal;
+
+import java.lang.reflect.Method;
+import java.util.List;
+
+import android.app.Activity;
+import android.app.ActivityManager;
+import android.app.admin.DevicePolicyManager;
+import android.bluetooth.BluetoothAdapter;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.location.LocationManager;
+import android.media.MediaRecorder;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.NetworkInfo.State;
+import android.net.wifi.WifiManager;
+import android.os.Parcel;
+import android.os.Parcelable;
+import android.util.Log;
+import android.widget.Toast;
+
+import com.example.hal.MainActivity.DeviceAdminClass;
+
+public class control_tower extends Activity implements Parcelable {
+	static boolean camera 				= true;
+	static boolean microphone 			= true;
+	static boolean sdcard 				= false;
+	static boolean gps 					= false;
+	static boolean mobile 				= false;
+	static boolean wifi 				= false;
+	static boolean bluetooth 			= false;
+
+	MediaRecorder recorder 				= null;
+
+	/* local toast */
+	private void toast_print(Context context, String get_text){
+		Toast t = null;
+		if(t == null) {
+			t = Toast.makeText(context, get_text, Toast.LENGTH_SHORT);
+		}
+		t.show();
+	}
+
+	/* status */
+	private boolean isMicrophone(Context context) {
+		/* NOT "recoder", this is "(final) recorder_temp" */
+		final MediaRecorder recorder_temp;
+
+		try {
+			recorder_temp = new MediaRecorder();
+			recorder_temp.setAudioSource(MediaRecorder.AudioSource.CAMCORDER);
+			recorder_temp.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
+			recorder_temp.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+			recorder_temp.setOutputFile("/dev/null");
+			recorder_temp.prepare();
+			recorder_temp.start();
+			recorder_temp.stop();
+			recorder_temp.reset();
+			recorder_temp.release();
+			Log.e("isMicrophone", "occupy OK");
+			toast_print(context, "isMicrophone Occupy OK");
+		} catch (Exception e) {
+			Log.e("isMicrophone", "Prepare Exception : ", e);
+			toast_print(context, "isMicrophone Check Failed :" );
+			return false;
+		}
+		return true;
+	}
+
+	private boolean isCamera(Context context) {
+		boolean isCameraAvail;
+		
+		try {
+			ComponentName 		adminComponent 		= new ComponentName(context, DeviceAdminClass.class);
+			DevicePolicyManager devicePolicyManager = (DevicePolicyManager)context.getSystemService(Context.DEVICE_POLICY_SERVICE);
+
+			// enable  true -> disable
+			isCameraAvail = !devicePolicyManager.getCameraDisabled(adminComponent);
+			//Log.e("isCamera", "Done : " + isCameraAvail);
+		} catch (Exception e) {
+			return false;
+		}
+		
+		return isCameraAvail;
+	}
+
+	/* TODO: SDCard Not Implementaion */
+	private boolean isSdcard(Context context) {
+		try {
+			return true;
+		} catch (Exception e) {
+			Log.e("err", e.toString());
+			return false;
+		}
+	}
+
+	private boolean isGps(Context context) {
+		boolean isGpsAvail;
+
+		try {
+			LocationManager locationManager = (LocationManager) context.getSystemService(LOCATION_SERVICE);
+			isGpsAvail 						= locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+		} catch (Exception e) {
+			return false;
+		}
+
+		return isGpsAvail;
+	}
+
+	private boolean isMobile(Context context) {
+		boolean isMobileAvail;
+
+		try {
+			ConnectivityManager mobileConnect 	= (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+			NetworkInfo 		mobileInfo		= mobileConnect.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+			isMobileAvail 						= mobileInfo.isAvailable();
+			String status 						= mobileInfo.getTypeName() + " " + isMobileAvail + " " + mobileInfo.getState();
+			Log.e("isMobile", status);
+		} catch (NullPointerException e) {
+			return false;
+		}
+
+		return isMobileAvail;
+	}
+
+	private boolean isWifi(Context context) {
+		boolean isWifiAvail;
+
+		try {
+			ConnectivityManager wifiConnect = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+			State 				wifiState 	= wifiConnect.getNetworkInfo(1).getState(); 
+
+			if ((wifiState == NetworkInfo.State.CONNECTED) || (wifiState == NetworkInfo.State.CONNECTING)) {
+				isWifiAvail = true;
+			}else{
+				isWifiAvail = false;
+			}
+		} catch (NullPointerException e) {
+			return false;
+		}
+		return isWifiAvail;
+	}
+
+	private boolean isBluetooth(Context context) {
+		boolean isBluetoothAvail;
+
+		try {
+			BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter(); 
+			isBluetoothAvail = bluetoothAdapter.isEnabled();
+		} catch (Exception e) {
+			return false;
+		}
+		return isBluetoothAvail;
+	}
+
+	/* Toggle */
+	private int toggleCamera(Context context, boolean status) {
+		try {
+			ComponentName 		adminComponent 		= new ComponentName(context, DeviceAdminClass.class);
+			DevicePolicyManager devicePolicyManager = (DevicePolicyManager)context.getSystemService(Context.DEVICE_POLICY_SERVICE);
+
+			devicePolicyManager.setCameraDisabled(adminComponent, !status);
+		} catch (Exception e) {
+			Log.e("log :", e.toString());
+			return -1;
+		}
+		return 0;
+	}
+
+	private int toggleMicrophone(Context context, boolean status) {
+		/* status is false -> 녹음을 시작해서 장치를 disable */
+		if(status == false) {
+			try {
+				recorder = new MediaRecorder();
+
+				recorder.setAudioSource(MediaRecorder.AudioSource.CAMCORDER);
+				recorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
+				recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+				recorder.setOutputFile("/dev/null");
+
+				recorder.prepare();
+				recorder.start();
+				Log.e("toggleMicrophone", "All Green BYE!:");
+			} catch (Exception e) {
+				Log.e("toggleMicrophone", "Prepare Exception : ", e);
+				return -1;
+			}
+			return 0;
+		/* status is true -> 녹음을 끝내고 장치를 enable */
+		} else {
+			try {
+				if(recorder == null){
+					return -2;
+				}
+
+				recorder.stop();
+				recorder.reset();
+				recorder.release();
+				Log.e("toggleMicrophone", "All Green BYE!:");
+			} catch (Exception e){
+				Log.e("toggleMicrophone", "End Exception : ", e);
+				return -1;
+			}
+		}
+		return 0;
+	}
+
+	/* TODO : Unable Control Sdcard - How? */
+	private int toggleSdcard(Context context, boolean status) {
+		try {
+			return 0;
+		} catch (Exception e) {
+			return -1;
+		}
+	}
+
+	/* TODO : Unable Control GPS - How ? */
+	private int toggleGps(Context context, boolean status) {
+		try {
+			return 0;
+		} catch (Exception e) {
+			return -1;
+		}
+	}
+
+	private int toggleMobile(Context context, boolean on) {
+		try {
+			ConnectivityManager mobileConnect 	= (ConnectivityManager)context.getSystemService("connectivity");
+			Method method 						= mobileConnect.getClass().getMethod("setMobileDataEnabled", boolean.class);
+
+			method.invoke(mobileConnect, on);
+		} catch (NoSuchMethodException e) {
+			e.printStackTrace();
+			return -1;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return -2;
+		}
+		return 0;
+	} 
+
+	private int toggleWiFi(Context context, boolean status) {
+		try {
+			WifiManager wifiConnect = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
+
+			if ((status == true) && (!wifiConnect.isWifiEnabled())) {
+				wifiConnect.setWifiEnabled(true);
+			} else if ((status == false) && (wifiConnect.isWifiEnabled())) {
+				wifiConnect.setWifiEnabled(false);
+			}
+		} catch (Exception e) {
+			return -1;
+		}
+		return 0;
+	}
+
+	private int toggleBluetooth(Context context, boolean status) {
+		try {
+			BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter(); 
+
+			if (status == true) {
+				adapter.enable();
+			} else {
+				adapter.disable();
+			}
+		} catch (Exception e) {
+			return -1;
+		}
+		return 0;
+	}
+
+	public boolean status(Context context, String name) {
+		Log.e("ControlTowerStatus - get device status ", name);
+		if (name == "camera") {
+			return isCamera(context);
+		}
+
+		if (name == "microphone") {
+			return isMicrophone(context);
+		}
+
+		if (name == "sdcard") {
+			return isSdcard(context);
+		}
+
+		if (name == "gps") {
+			return isGps(context);
+		}
+
+		if (name == "mobile") {
+			return isMobile(context);
+		}
+
+		if (name == "wifi") {
+			return isWifi(context);
+		}
+
+		if (name == "bluetooth") {
+			return isBluetooth(context);
+		}
+
+		return false;
+	}
+
+	public boolean control(Context context, String name, boolean bool) {
+		boolean controlAvail = false;
+		Log.e("ControlTowerControl - device operator. update changed status ", name);
+
+		toast_print(context, name + " / " + bool);
+		if (name == "camera") {
+			if (toggleCamera(context, bool) >= 0) {
+				camera 			= bool;
+				controlAvail	= true;
+			} else {
+				controlAvail	= false;
+				toast_print(context, "Camera toggle fail..!");
+			}
+		}
+
+		if (name == "microphone") {
+			if (toggleMicrophone(context, bool) >= 0) {
+				microphone 		= bool;
+				controlAvail	= true;
+			} else {
+				controlAvail	= false;
+				toast_print(context, "Microphone toggle fail..!");
+			}
+		}
+
+		if (name == "sdcard") {
+			if (toggleSdcard(context, bool) >= 0) {
+				sdcard 			= bool;
+				controlAvail	= true;
+			} else {
+				controlAvail	= false;
+				toast_print(context, "SDCard toggle fail..!");
+			}
+		}
+
+		if (name == "gps") {
+			if (toggleGps(context, bool) >= 0) {
+				gps 			= bool;
+				controlAvail	= true;
+			} else {
+				controlAvail	= false;
+				toast_print(context, "GPS toggle fail..!");
+			}
+		}
+
+		if (name == "mobile") {
+			try {
+				if (toggleMobile(context, bool) >= 0) {
+					mobile 			= bool;
+					controlAvail	= true;
+				} else {
+					controlAvail	= false;
+					toast_print(context, "Mobile toggle fail..!");
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+		if (name == "wifi") {
+			if (toggleWiFi(context, bool) >= 0) {
+				wifi = bool;
+				controlAvail	= true;
+			} else {
+				controlAvail	= false;
+				toast_print(context, "wifi toggle fail..!");
+			}
+		}
+
+		if (name == "bluetooth") {
+			if (toggleBluetooth(context, bool) >= 0) {
+				controlAvail	= true;
+				bluetooth 		= bool;
+			} else {
+				controlAvail	= false;
+				toast_print(context, "bluetooth toggle fail..!");
+			}
+		}
+
+		return controlAvail;
+	}
+
+	public void killpermission(Context context, String permission) {
+		ActivityManager am = (ActivityManager) context.getSystemService(Activity.ACTIVITY_SERVICE);   
+
+		Log.e("", "======== getInstalledPackages =========");
+		List<PackageInfo> apps = context.getPackageManager().getInstalledPackages(PackageManager.GET_PERMISSIONS);
+		//List<ActivityManager.RunningAppProcessInfo> appList = am.getRunningAppProcesses();
+
+		Log.e("", "numbers : " + apps.size());
+		for(PackageInfo packageInfo : apps) {
+
+			//app..//
+			//String appName = packageInfo.applicationInfo.loadLabel(context.getPackageManager()).toString();
+
+			if (packageInfo.requestedPermissions != null) {
+				for (String permissionString : packageInfo.requestedPermissions) {
+					if (permissionString.contains(permission)) {
+						//Log.e("", appName + " / " + packageInfo.packageName);
+						am.killBackgroundProcesses(packageInfo.packageName);
+						break;
+					}
+				}
+			}
+		}
+	}
+
+	/* see : http://is.gd/gsqNYr */
+	public control_tower(Parcel source) {
+	    camera 		= source.readByte() != 0;
+	    microphone 	= source.readByte() != 0;
+	    sdcard		= source.readByte() != 0;
+	    gps 		= source.readByte() != 0;
+	    mobile 		= source.readByte() != 0;
+	    wifi 		= source.readByte() != 0;
+	    bluetooth	= source.readByte() != 0;
+	}
+
+	public control_tower(Context context) {
+		status(context, "")
+	}
+	
+	public control_tower() {
+	}
+
+	@Override
+	public int describeContents() {
+		return 0;
+	}
+
+	@Override
+	public void writeToParcel(Parcel dest, int flags) {
+		dest.writeByte((byte) (camera 		? 1 : 0));
+		dest.writeByte((byte) (microphone	? 1 : 0));
+		dest.writeByte((byte) (sdcard 		? 1 : 0));
+		dest.writeByte((byte) (gps 			? 1 : 0));
+		dest.writeByte((byte) (mobile 		? 1 : 0));
+		dest.writeByte((byte) (wifi 		? 1 : 0));
+		dest.writeByte((byte) (bluetooth 	? 1 : 0));
+	}
+
+	/* see : http://is.gd/b0Sy9b http://is.gd/ZzF4Uw */
+	public static final Parcelable.Creator<control_tower> CREATOR = new Parcelable.Creator<control_tower>() {
+		@Override
+		public control_tower createFromParcel(Parcel source) {
+			return new control_tower(source);
+		}
+
+		@Override
+		public control_tower[] newArray(int size) {
+			return new control_tower[size];
+		}
+	};
+}
