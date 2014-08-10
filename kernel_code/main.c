@@ -163,21 +163,24 @@ int main(int argc, char* argv[])
   /* get list */
   fd_list = open_file("./kernel_file_list");
 
-  memset(file_path, '\0', 1024);
   read_file("./kernel_file_list", fd_list, &file_list);
 
+  memset(file_path, '\0', 1024);
   file_path = next_line(&file_list);
   printf("next : %s \n", file_path);
+
   while (*(file_path) != EOF) {
 
     memset(file_path, '\0', 1024);
     file_path = next_line(&file_list);
     printf("next : %s \n", file_path);
 
+    /*  
     fd_code = open_file(file_path);
     size = read_file(file_path, fd_code, &buf);
     line_word_size_chaeek(buf, size, 30);
     close_file(fd_code, buf);
+    */
 
   }
 
