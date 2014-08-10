@@ -130,12 +130,20 @@ int close_file(int fd, char *buf)
   return 0;
 }
 
-char *next_line(char *str)
+char *next_line(char **str)
 {
   int len = 0;
   char *ret = NULL;
 
+  if (!*str)
+    return NULL;
 
+  while (*(*str + len++) != '\n');
+
+  ret = malloc(sizeof(char) * len + 1);
+  strncpy(ret, *str, len);
+
+  *str += len;
 
   return ret;
 }
@@ -152,25 +160,26 @@ int main(int argc, char* argv[])
   int i = 0;
 
 
+  /* get list */
   fd_list = open_file("./kernel_file_list");
-
-  /* .. */
 
   memset(file_path, '\0', 1024);
   read_file("./kernel_file_list", fd_list, &file_list);
 
-  next_line(file_list);
+  file_path = next_line(&file_list);
+  printf("next : %s \n", file_path);
+  while (*(file_path) != EOF) {
 
-  /*
-  while (*(file_list + i) != EOF) {
+    memset(file_path, '\0', 1024);
+    file_path = next_line(&file_list);
+    printf("next : %s \n", file_path);
 
-    fd_code = open_file(argv[1]);
-    size = read_file(argv[1], fd_code, &buf);
+    fd_code = open_file(file_path);
+    size = read_file(file_path, fd_code, &buf);
     line_word_size_chaeek(buf, size, 30);
     close_file(fd_code, buf);
 
   }
-  */
 
 
   return 0;
