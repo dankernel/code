@@ -1,0 +1,196 @@
+package com.example.hal;
+
+import android.app.Activity;
+import android.app.admin.DeviceAdminReceiver;
+import android.app.admin.DevicePolicyManager;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.Toast;
+import android.widget.ToggleButton;
+
+public class MainActivity extends Activity implements OnClickListener {
+	public DevicePolicyManager devicePolicyManager;
+	public ComponentName adminComponent;
+	public ToggleButton tb_camera,
+						tb_microphone,
+						tb_sdcard,
+						tb_gps,
+						tb_mobile,
+						tb_wifi,
+						tb_bluetooth;
+	public Button bt_exit, tb_lock;
+	control_tower control_tower = new control_tower();
+
+	/* local toast */
+	public void toast_print(String get_text){
+		Toast t = null;
+		if(t == null) {
+			t = Toast.makeText(this, get_text, Toast.LENGTH_SHORT);
+		}
+		t.show();
+	}
+
+	public static class DeviceAdminClass extends DeviceAdminReceiver {
+		void showToast(Context context, String msg) {
+			Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
+		}
+
+		@Override
+		public void onEnabled(Context context, Intent intent) {
+			showToast(context, "Device Admin Permission Enabled");
+		}
+
+		@Override
+		public CharSequence onDisableRequested(Context context, Intent intent) {
+			return "Device Disabling Request";
+		}
+
+		@Override
+		public void onDisabled(Context context, Intent intent) {
+			showToast(context, "Device Admin Permission Disabled");
+		}
+	}
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+
+		/* camera */
+		tb_camera = (ToggleButton)this.findViewById(R.id.toggleButton_camera);
+		tb_camera.setOnClickListener(this);
+		tb_camera.setChecked(control_tower.status(this, "camera"));
+
+		/* Microphone */
+		tb_microphone = (ToggleButton)this.findViewById(R.id.toggleButton_microphone);
+		tb_microphone.setOnClickListener(this);
+		tb_microphone.setChecked(control_tower.status(this, "microphone"));
+
+		/* SDCard */
+		tb_sdcard = (ToggleButton)this.findViewById(R.id.toggleButton_sdcard);
+		tb_sdcard.setOnClickListener(this);
+		tb_sdcard.setChecked(control_tower.status(this, "sdcard"));
+
+		/* GPS */
+		tb_gps = (ToggleButton)this.findViewById(R.id.toggleButton_gps);
+		tb_gps.setOnClickListener(this);
+		tb_gps.setChecked(control_tower.status(this, "gps"));
+
+		/* Mobile */
+		tb_mobile = (ToggleButton)this.findViewById(R.id.toggleButton_mobile);
+		tb_mobile.setOnClickListener(this);
+		tb_mobile.setChecked(control_tower.status(this, "mobile"));
+
+		/* wifi */
+		tb_wifi = (ToggleButton)this.findViewById(R.id.toggleButton_wifi);
+		tb_wifi.setOnClickListener(this);
+		tb_wifi.setChecked(control_tower.status(this, "wifi"));
+
+		/* Bluetooth */
+		tb_bluetooth = (ToggleButton)this.findViewById(R.id.toggleButton_bluetooth);
+		tb_bluetooth.setOnClickListener(this); 
+		tb_bluetooth.setChecked(control_tower.status(this, "bluetooth"));
+		
+		/* Bluetooth */
+		tb_lock = (Button)this.findViewById(R.id.toggleButton_lock);
+		tb_lock.setOnClickListener(this); 
+		tb_lock.setChecked(control_tower.status(this, "lock"));
+
+		/* exit */
+		bt_exit = (Button) findViewById(R.id.button_exit);
+		bt_exit.setOnClickListener(this);  
+
+		/* device admin - http://is.gd/eyUGgH */
+		adminComponent = new ComponentName(getBaseContext(), DeviceAdminClass.class);
+		devicePolicyManager = (DevicePolicyManager)getSystemService(Context.DEVICE_POLICY_SERVICE);
+
+		if (!devicePolicyManager.isAdminActive(adminComponent)) {
+			Intent intent = new Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN);
+
+			intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, adminComponent);
+			intent.putExtra(DevicePolicyManager.EXTRA_ADD_EXPLANATION, "Must using this App, Need this permission");
+
+			// TODO: 이 기기관리자 액티비티에서 "활성화"를 누르면 메인 엑티비티를 보여주고,
+			//       "취소"를 누르면 앱이 종료되도록 할것.
+			startActivityForResult(intent, 1);
+		}
+		/*
+		final PackageManager pm = getPackageManager();
+		List<ApplicationInfo> list = pm.getInstalledApplications(0);
+		for (ApplicationInfo applicationInfo : list) {
+			String name = String.valueOf(applicationInfo.loadLabel(pm));    // 앱 이름
+			String pName = applicationInfo.packageName;   // 앱 패키지
+
+			Log.e("list", name + " " + applicationInfo.permission);
+		} */
+
+		/* StartService : must be last */
+		Intent local_service = new Intent("com.example.hal.service.EVENT_CATCHER");
+		local_service.putExtra("control_tower", control_tower);
+		startService(local_service);
+
+		control_tower.killpermission(this, "LOCATION");
+	}
+
+	public void onClick(View v) {
+		if (v.getId() == R.id.toggleButton_camera) {
+			control_tower.control(this, "camera", tb_camera.isChecked());
+		} else if (v.getId() == R.id.toggleButton_microphone) {
+			control_tower.control(this, "microphone", tb_microphone.isChecked());
+		} else if (v.getId() == R.id.toggleButton_sdcard) {
+			control_tower.control(this, "sdcard", tb_sdcard.isChecked());
+		} else if (v.getId() == R.id.toggleButton_gps) {
+			control_tower.control(this, "gps", tb_gps.isChecked());
+		} else if (v.getId() == R.id.toggleButton_mobile) {
+			control_tower.control(this, "mobile", tb_mobile.isChecked());
+		} else if (v.getId() == R.id.toggleButton_wifi) {
+			control_tower.control(this, "wifi", tb_wifi.isChecked());
+		} else if (v.getId() == R.id.toggleButton_bluetooth) {
+			control_tower.control(this, "bluetooth", tb_bluetooth.isChecked());
+		} else if (v.getId() == R.id.toggleButton_lock) {
+			control_tower.control(this, "lock", true);
+		} else if (v.getId() == R.id.button_exit) {
+			finish();
+		}  else {
+			toast_print("Exception..! Button.");
+		}
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.main, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle action bar item clicks here. The action bar will
+		// automatically handle clicks on the Home/Up button, so long
+		// as you specify a parent activity in AndroidManifest.xml.
+		int id = item.getItemId();
+		if (id == R.id.action_settings) {
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
+	}
+
+	@Override
+	protected void onDestroy() {
+		// TODO 자동 생성된 메소드 스텁
+		super.onDestroy();
+
+		stopService(new Intent("com.example.hal.service.EVENT_CATCHER"));
+
+		if (devicePolicyManager.isAdminActive(adminComponent)){
+			devicePolicyManager.removeActiveAdmin(adminComponent);
+		}
+	}
+}
