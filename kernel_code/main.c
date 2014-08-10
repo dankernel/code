@@ -164,9 +164,13 @@ int main(int argc, char* argv[])
   fd_list = open_file("./kernel_file_list");
   read_file("./kernel_file_list", fd_list, &file_list);
 
+  file_path = malloc(sizeof(char) * 1024);
   memset(file_path, '\0', 1024);
   file_path = next_line(&file_list);
   printf("next : %s \n", file_path);
+  file_path = next_line(&file_list);
+  printf("next : %s \n", file_path);
+
 
   /*
   while (*(file_path) != EOF) {
