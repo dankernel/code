@@ -76,6 +76,9 @@ int line_word_size_chaeek(char *buf, int file_size, int limit_size)
   return 0;
 }
 
+/*  
+ * return fd
+ */
 int open_file(char *path)
 {
   int fd = 0;
@@ -89,6 +92,7 @@ int open_file(char *path)
     printf("[OK] open..\n");
     return fd;
   }
+
 }
 
 int read_file(char *path, int fd, char **ret_buf)
@@ -146,8 +150,8 @@ int main(int argc, char* argv[])
 
   memset(file_path, '\0', 1024);
   read_file("./kernel_file_list", fd_list, &file_list);
-  while (*(file_list + i) != EOF) {
 
+  while (*(file_list + i) != EOF) {
 
     /* Do... */
     fd_code = open_file(argv[1]);
