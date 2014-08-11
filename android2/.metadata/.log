@@ -8891,3 +8891,145 @@ java.lang.NullPointerException
 	at com.android.tools.lint.client.api.LintDriver.analyze(LintDriver.java:374)
 	at com.android.ide.eclipse.adt.internal.lint.LintJob.run(LintJob.java:163)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.equinox.p2.operations 4 10053 2014-08-11 20:16:22.808
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 10053 2014-08-11 20:16:22.808
+!MESSAGE Cannot complete the install because one or more required items could not be found.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2014-08-11 20:16:22.808
+!MESSAGE Software being installed: Vrapper - Python Extensions (Optional, requires PyDev) 0.46.0 (net.sourceforge.vrapper.eclipse.pydev.feature.feature.group 0.46.0)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2014-08-11 20:16:22.808
+!MESSAGE Missing requirement: Vrapper - Python Extensions (Optional, requires PyDev) 0.46.0 (net.sourceforge.vrapper.eclipse.pydev.feature.feature.group 0.46.0) requires 'org.python.pydev 2.6.0' but it could not be found
+
+!ENTRY org.eclipse.equinox.p2.operations 4 10053 2014-08-11 20:16:22.813
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 10053 2014-08-11 20:16:22.814
+!MESSAGE Cannot complete the install because one or more required items could not be found.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2014-08-11 20:16:22.814
+!MESSAGE Software being installed: Vrapper - Python Extensions (Optional, requires PyDev) 0.46.0 (net.sourceforge.vrapper.eclipse.pydev.feature.feature.group 0.46.0)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2014-08-11 20:16:22.814
+!MESSAGE Missing requirement: Vrapper - Python Extensions (Optional, requires PyDev) 0.46.0 (net.sourceforge.vrapper.eclipse.pydev.feature.feature.group 0.46.0) requires 'org.python.pydev 2.6.0' but it could not be found
+
+!ENTRY org.eclipse.equinox.p2.operations 4 10053 2014-08-11 20:16:22.857
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 10053 2014-08-11 20:16:22.857
+!MESSAGE Cannot complete the install because one or more required items could not be found.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2014-08-11 20:16:22.857
+!MESSAGE Software being installed: Vrapper - Python Extensions (Optional, requires PyDev) 0.46.0 (net.sourceforge.vrapper.eclipse.pydev.feature.feature.group 0.46.0)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2014-08-11 20:16:22.857
+!MESSAGE Missing requirement: Vrapper - Python Extensions (Optional, requires PyDev) 0.46.0 (net.sourceforge.vrapper.eclipse.pydev.feature.feature.group 0.46.0) requires 'org.python.pydev 2.6.0' but it could not be found
+
+!ENTRY org.eclipse.equinox.p2.operations 4 10053 2014-08-11 20:16:22.857
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 10053 2014-08-11 20:16:22.857
+!MESSAGE Cannot complete the install because one or more required items could not be found.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2014-08-11 20:16:22.858
+!MESSAGE Software being installed: Vrapper - Python Extensions (Optional, requires PyDev) 0.46.0 (net.sourceforge.vrapper.eclipse.pydev.feature.feature.group 0.46.0)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2014-08-11 20:16:22.858
+!MESSAGE Missing requirement: Vrapper - Python Extensions (Optional, requires PyDev) 0.46.0 (net.sourceforge.vrapper.eclipse.pydev.feature.feature.group 0.46.0) requires 'org.python.pydev 2.6.0' but it could not be found
+!SESSION 2014-08-11 20:18:37.924 -----------------------------------------------
+eclipse.buildId=4.4.0.I20140606-1215
+java.version=1.8.0_05
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=ko_KR
+Framework arguments:  -product org.eclipse.epp.package.standard.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.standard.product
+
+!ENTRY org.eclipse.e4.ui.di 2 0 2014-08-11 20:18:42.033
+!MESSAGE [SCR] Found components with duplicated names! Details: 
+Component1 : Component[
+	name = org.eclipse.e4.ui.di.events
+	activate = activate
+	deactivate = deactivate
+	modified = 
+	configuration-policy = optional
+	factory = null
+	autoenable = true
+	immediate = false
+	implementation = org.eclipse.e4.ui.internal.di.UIEventObjectSupplier
+	state = Unsatisfied
+	properties = {dependency.injection.annotation=org.eclipse.e4.ui.di.UIEventTopic}
+	serviceFactory = false
+	serviceInterface = [org.eclipse.e4.core.di.suppliers.ExtendedObjectSupplier]
+	references = null
+	located in bundle = org.eclipse.e4.ui.di_0.10.1.v20120523-1955 [323]
+]
+Component2: Component[
+	name = org.eclipse.e4.ui.di.events
+	activate = activate
+	deactivate = deactivate
+	modified = 
+	configuration-policy = optional
+	factory = null
+	autoenable = true
+	immediate = false
+	implementation = org.eclipse.e4.ui.internal.di.UIEventObjectSupplier
+	state = Unsatisfied
+	properties = {dependency.injection.annotation=org.eclipse.e4.ui.di.UIEventTopic}
+	serviceFactory = false
+	serviceInterface = [org.eclipse.e4.core.di.suppliers.ExtendedObjectSupplier]
+	references = null
+	located in bundle = org.eclipse.e4.ui.di_1.0.0.v20140328-2112 [65]
+]  
+
+!ENTRY org.eclipse.equinox.event 2 0 2014-08-11 20:18:42.037
+!MESSAGE [SCR] Found components with duplicated names! Details: 
+Component1 : Component[
+	name = org.eclipse.equinox.event
+	activate = activate
+	deactivate = deactivate
+	modified = 
+	configuration-policy = optional
+	factory = null
+	autoenable = true
+	immediate = false
+	implementation = org.eclipse.equinox.internal.event.EventComponent
+	state = Unsatisfied
+	properties = 
+	serviceFactory = false
+	serviceInterface = [org.osgi.service.event.EventAdmin]
+	references = null
+	located in bundle = org.eclipse.equinox.event_1.2.200.v20120522-2049 [355]
+]
+Component2: Component[
+	name = org.eclipse.equinox.event
+	activate = activate
+	deactivate = deactivate
+	modified = 
+	configuration-policy = optional
+	factory = null
+	autoenable = true
+	immediate = false
+	implementation = org.eclipse.equinox.internal.event.EventComponent
+	state = Unsatisfied
+	properties = 
+	serviceFactory = false
+	serviceInterface = [org.osgi.service.event.EventAdmin]
+	references = null
+	located in bundle = org.eclipse.equinox.event_1.3.100.v20140115-1647 [100]
+]  
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2014-08-11 20:18:42.318
+!MESSAGE Unable to acquire PluginConverter service during generation for: /usr/share/eclipse/dropins/android.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2014-08-11 20:18:43.170
+!MESSAGE Unable to acquire PluginConverter service during generation for: /usr/share/eclipse/dropins/wtp.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2014-08-11 20:18:43.978
+!MESSAGE Unable to acquire PluginConverter service during generation for: /usr/share/eclipse/dropins/emf.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2014-08-11 20:18:44.121
+!MESSAGE Unable to acquire PluginConverter service during generation for: /usr/share/eclipse/dropins/gef.
+
+!ENTRY com.android.ide.eclipse.adt 4 4 2014-08-11 20:19:00.527
+!MESSAGE Failed
+!STACK 0
+java.lang.NullPointerException
+	at com.android.ide.eclipse.adt.internal.lint.EclipseLintClient.getTargets(EclipseLintClient.java:916)
+	at com.android.tools.lint.detector.api.Project.readManifest(Project.java:652)
+	at com.android.tools.lint.client.api.LintDriver.runFileDetectors(LintDriver.java:946)
+	at com.android.tools.lint.client.api.LintDriver.checkProject(LintDriver.java:880)
+	at com.android.tools.lint.client.api.LintDriver.analyze(LintDriver.java:431)
+	at com.android.tools.lint.client.api.LintDriver.analyze(LintDriver.java:374)
+	at com.android.ide.eclipse.adt.internal.lint.LintJob.run(LintJob.java:163)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)

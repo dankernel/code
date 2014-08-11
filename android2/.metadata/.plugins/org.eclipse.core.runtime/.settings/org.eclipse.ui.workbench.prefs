@@ -1,3 +1,9 @@
 //org.eclipse.ui.commands/state/org.eclipse.wst.xml.views.XPathView.processor.xpathprocessor/org.eclipse.ui.commands.radioState=xpath10
+ColorsAndFontsPreferencePage.expandedCategories=Torg.eclipse.jdt.ui.presentation
+ColorsAndFontsPreferencePage.selectedElement=Forg.eclipse.jdt.ui.editors.textfont
 eclipse.preferences.version=1
+org.eclipse.jdt.junit.failurePaneFont=1|\uB098\uB214\uACE0\uB515\uCF54\uB529|12.0|0|GTK|1|;
+org.eclipse.jdt.ui.PropertiesFileEditor.textfont=1|\uB098\uB214\uACE0\uB515\uCF54\uB529|12.0|0|GTK|1|;
+org.eclipse.jdt.ui.editors.textfont=1|\uB098\uB214\uACE0\uB515\uCF54\uB529|12.0|0|GTK|1|;
+org.eclipse.jdt.ui.javadocfont=1|\uB098\uB214\uACE0\uB515\uCF54\uB529|10.0|0|GTK|1|;
 org.eclipse.ui.commands=<?xml version\="1.0" encoding\="UTF-8"?>\n<org.eclipse.ui.commands>\n<keyBinding contextId\="org.eclipse.ui.contexts.dialogAndWindow" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="ALT+/"/>\n<keyBinding commandId\="org.eclipse.ui.edit.text.contentAssist.proposals" contextId\="org.eclipse.ui.contexts.dialogAndWindow" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="CTRL+SPACE"/>\n</org.eclipse.ui.commands>
