@@ -8,5 +8,10 @@ hg clone http://repo.gem5.org/gem5/ -r 27dfed4c8403
 
 scons build/X86/gem5.opt
 
+[ui]
+; editor used to enter commit logs, etc.  Most text editors will work.
+editor = notepad
+username = userEmail@domain.com
+
 
 
