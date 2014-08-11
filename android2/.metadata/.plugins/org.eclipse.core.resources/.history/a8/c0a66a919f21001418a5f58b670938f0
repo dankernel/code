@@ -1,0 +1,559 @@
+package com.example.hal;
+
+import java.lang.reflect.Method;
+import java.util.List;
+
+import android.app.Activity;
+import android.app.ActivityManager;
+import android.app.admin.DevicePolicyManager;
+import android.bluetooth.BluetoothAdapter;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.location.LocationManager;
+import android.media.MediaRecorder;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.NetworkInfo.State;
+import android.net.wifi.WifiManager;
+import android.os.Parcel;
+import android.os.Parcelable;
+import android.util.Log;
+import android.widget.Toast;
+
+import com.example.hal.MainActivity.DeviceAdminClass;
+
+public class control_tower extends Activity implements Parcelable {
+	static boolean camera 				= false;
+	static boolean microphone 			= false;
+	static boolean sdcard 				= false;
+	static boolean gps 					= false;
+	static boolean mobile 				= false;
+	static boolean wifi 				= false;
+	static boolean bluetooth 			= false;
+
+	static MediaRecorder recorder 		= null;
+
+	/* Creator - init device status */
+	public control_tower() {
+		isCamera(getBaseContext());
+		isMicrophone(getBaseContext());
+		isSdcard(getBaseContext());
+		isGps(getBaseContext());
+		isMobile(getBaseContext());
+		isWifi(getBaseContext());
+		isBluetooth(getBaseContext());
+	}
+
+	/* for pacel see (not completly implement) : http://is.gd/gsqNYr */
+	public control_tower(Parcel source) {
+		camera 		= source.readByte() != 0;
+		microphone 	= source.readByte() != 0;
+		sdcard		= source.readByte() != 0;
+		gps 		= source.readByte() != 0;
+		mobile 		= source.readByte() != 0;
+		wifi 		= source.readByte() != 0;
+		bluetooth	= source.readByte() != 0;
+	}
+
+	/* local toast */
+	private void toast_print(Context context, String get_text){
+		Toast t = null;
+		if(t == null) {
+			t = Toast.makeText(context, get_text, Toast.LENGTH_SHORT);
+		}
+		t.show();
+	}
+
+	/* status */
+	private boolean isMicrophone(Context context) {
+		/* enable microphone -> not recording status */
+		/* TODO : if another app is capture record device? - KillAll! */
+		if(recorder == null){
+			return true;
+		}
+		return false;
+	}
+
+	private boolean isCamera(Context context) {
+		boolean isCameraAvail;
+
+		try {
+			ComponentName 		adminComponent 		= new ComponentName(context, DeviceAdminClass.class);
+			DevicePolicyManager devicePolicyManager = (DevicePolicyManager)context.getSystemService(Context.DEVICE_POLICY_SERVICE);
+
+			// enable  true -> disable
+			isCameraAvail = !devicePolicyManager.getCameraDisabled(adminComponent);
+			//Log.e("isCamera", "Done : " + isCameraAvail);
+		} catch (Exception e) {
+			return false;
+		}
+
+		return isCameraAvail;
+	}
+
+	/* TODO: SDCard Not Implementaion - http://is.gd/ghO9SA */
+	private boolean isSdcard(Context context) {
+		try {
+			return true;
+		} catch (Exception e) {
+			Log.e("err", e.toString());
+			return false;
+		}
+	}
+
+	private boolean isGps(Context context) {
+		boolean isGpsAvail;
+
+		try {
+			LocationManager locationManager = (LocationManager) context.getSystemService(LOCATION_SERVICE);
+			isGpsAvail 						= locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+		} catch (Exception e) {
+			return false;
+		}
+
+		return isGpsAvail;
+	}
+
+	private boolean isMobile(Context context) {
+		boolean isMobileAvail;
+
+		try {
+			ConnectivityManager mobileConnect 	= (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+			NetworkInfo 		mobileInfo		= mobileConnect.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+			isMobileAvail 						= mobileInfo.isConnected();
+			String status 						= mobileInfo.getTypeName() + " " + isMobileAvail + " " + mobileInfo.getState();
+			Log.e("isMobile", status);
+		} catch (NullPointerException e) {
+			return false;
+		}
+
+		return isMobileAvail;
+	}
+
+	private boolean isWifi(Context context) {
+		boolean isWifiAvail;
+
+		try {
+			ConnectivityManager wifiConnect = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+			State 				wifiState 	= wifiConnect.getNetworkInfo(1).getState(); 
+
+			if ((wifiState == NetworkInfo.State.CONNECTED) || (wifiState == NetworkInfo.State.CONNECTING)) {
+				isWifiAvail = true;
+			}else{
+				isWifiAvail = false;
+			}
+		} catch (NullPointerException e) {
+			return false;
+		}
+		return isWifiAvail;
+	}
+
+	private boolean isBluetooth(Context context) {
+		boolean isBluetoothAvail;
+
+		try {
+			BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter(); 
+			isBluetoothAvail = bluetoothAdapter.isEnabled();
+		} catch (Exception e) {
+			return false;
+		}
+		return isBluetoothAvail;
+	}
+
+	/* Toggle */
+	private int toggleCamera(Context context, boolean status) {
+		try {
+			ComponentName 		adminComponent 		= new ComponentName(context, DeviceAdminClass.class);
+			DevicePolicyManager devicePolicyManager = (DevicePolicyManager)context.getSystemService(Context.DEVICE_POLICY_SERVICE);
+
+			devicePolicyManager.setCameraDisabled(adminComponent, !status);
+
+		} catch (Exception e) {
+			Log.e("log :", e.toString());
+			return -1;
+		}
+		return 0;
+	}
+
+	private int toggleMicrophone(Context context, boolean status) {
+		/* status is false -> 장치를 disable, 녹음 시작! */
+		if(status == false) {
+			try {
+				/* 녹음이 시작이려면, 당연히 기존에 할당(녹음중)인게 없어야 함. 있다면 에러 */
+				if(recorder != null){
+					return -1;
+				}
+
+				recorder = new MediaRecorder();
+
+				recorder.setAudioSource(MediaRecorder.AudioSource.CAMCORDER);
+				recorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
+				recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+				recorder.setOutputFile("/dev/null");
+				recorder.prepare();
+				recorder.start();
+				Log.e("toggleMicrophone", "All Green BYE!:");
+			} catch (Exception e) {
+				Log.e("toggleMicrophone", "Prepare Exception : ", e);
+				return -2;
+			}
+			return 0;
+			/* status is true -> 녹음을 끝내고 장치를 enable */
+		} else {
+			try {
+				/* 녹음이 하는 상태여야 함 */
+				if(recorder == null){
+					return -1;
+				}
+
+				recorder.stop();
+				recorder.reset();
+				recorder.release();
+				recorder = null;
+				Log.e("toggleMicrophone", "All Green BYE!:");
+			} catch (Exception e){
+				Log.e("toggleMicrophone", "End Exception : ", e);
+				return -2;
+			}
+		}
+		return 0;
+	}
+
+	/* TODO : Unable Control Sdcard - How? */
+	private int toggleSdcard(Context context, boolean status) {
+		String message;
+
+		if(status == true){
+			message = "SDCard를 수동으로 (ON)켜주세요.";
+		} else {
+			message = "SDCard를 수동으로 (OFF)켜주세요.";
+		}
+
+		toast_print(context, message);
+
+		try {
+			Intent intent = new Intent(android.provider.Settings.ACTION_INTERNAL_STORAGE_SETTINGS);
+			intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			context.startActivity(intent);
+		} catch (Exception e) {
+			Log.e("toggleSdcard", "Set Config Actityty Failed : ",e);
+			return -1;
+		}
+		return 0;
+	}
+
+	/* TODO : Unable Control GPS - How ? */
+	private int toggleGps(Context context, boolean status) {
+		String message;
+
+		if(status == true){
+			message = "GPS를 수동으로 (ON)켜주세요.";
+		} else {
+			message = "GPS를 수동으로 (OFF)꺼주세요.";
+		}
+
+		toast_print(context, message);
+
+		try {
+			Intent intent = new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+			intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			context.startActivity(intent);
+		} catch (Exception e) {
+			Log.e("toggleGPS", "Set Config Actityty Failed : ",e);
+			return -1;
+		}
+		return 0;
+	}
+
+	private int toggleMobile(Context context, boolean status) {
+		try {
+			ConnectivityManager mobileConnect 	= (ConnectivityManager)context.getSystemService("connectivity");
+			Method method 						= mobileConnect.getClass().getMethod("setMobileDataEnabled", boolean.class);
+
+			method.invoke(mobileConnect, status);
+		} catch (NoSuchMethodException e) {
+			e.printStackTrace();
+			return -1;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return -2;
+		}
+		return 0;
+	} 
+
+	private int toggleWiFi(Context context, boolean status) {
+		try {
+			WifiManager wifiConnect = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
+
+			if ((status == true) && (!wifiConnect.isWifiEnabled())) {
+				wifiConnect.setWifiEnabled(true);
+			} else if ((status == false) && (wifiConnect.isWifiEnabled())) {
+				wifiConnect.setWifiEnabled(false);
+			}
+		} catch (Exception e) {
+			return -1;
+		}
+		return 0;
+	}
+
+	private int toggleBluetooth(Context context, boolean status) {
+		try {
+			BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter(); 
+
+			if (status == true) {
+				adapter.enable();
+			} else {
+				adapter.disable();
+			}
+		} catch (Exception e) {
+			return -1;
+		}
+		return 0;
+	}
+
+	private int toggleLock(Context context) {
+		try {
+
+			ComponentName adminComponent = new ComponentName(context, DeviceAdminClass.class);
+			DevicePolicyManager devicePolicyManager = (DevicePolicyManager)context.getSystemService(Context.DEVICE_POLICY_SERVICE);
+
+			if (!devicePolicyManager.isAdminActive(adminComponent)){        
+
+				Intent intent = new Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN);
+				intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, adminComponent);
+				intent.putExtra(DevicePolicyManager.EXTRA_ADD_EXPLANATION, "Additional text explaining why this needs to be added.");
+				startActivityForResult(intent, 1);
+			}
+
+			Log.e("", "Lock!! lockNow");
+			if (devicePolicyManager.isAdminActive(adminComponent)) {
+				Log.e("", "Lock!! lockNow2");
+				devicePolicyManager.lockNow();
+			}
+
+
+		} catch (Exception e) {
+			Log.e("Exception", e.toString());
+			return -1;
+		}
+		return 0;
+	}
+
+	public boolean status(Context context, String name) {
+		Log.e("ControlTowerStatus - get device status ", name);
+		if (name == "camera") {
+			return isCamera(context);
+		}
+
+		if (name == "microphone") {
+			return isMicrophone(context);
+		}
+
+		if (name == "sdcard") {
+			return isSdcard(context);
+		}
+
+		if (name == "gps") {
+			return isGps(context);
+		}
+
+		if (name == "mobile") {
+			return isMobile(context);
+		}
+
+		if (name == "wifi") {
+			return isWifi(context);
+		}
+
+		if (name == "bluetooth") {
+			return isBluetooth(context);
+		}
+
+		return false;
+	}
+
+	public boolean control(Context context, String name, boolean bool) {
+		boolean controlAvail = false;
+		Log.e("ControlTowerControl - device operator. update changed status ", name);
+		//toast_print(context, name + " / " + bool);
+
+		if (name == "camera") {
+			if (toggleCamera(context, bool) >= 0) {
+				camera 			= bool;
+				controlAvail	= true;
+			} else {
+				controlAvail	= false;
+				toast_print(context, "Camera toggle fail..!");
+			}
+		}
+
+		if (name == "microphone") {
+			if (toggleMicrophone(context, bool) >= 0) {
+				microphone 		= bool;
+				controlAvail	= true;
+			} else {
+				controlAvail	= false;
+				toast_print(context, "Microphone toggle fail..!");
+			}
+		}
+
+		if (name == "sdcard") {
+			if (toggleSdcard(context, bool) >= 0) {
+				sdcard 			= bool;
+				controlAvail	= true;
+			} else {
+				controlAvail	= false;
+				toast_print(context, "SDCard toggle fail..!");
+			}
+		}
+
+		if (name == "gps") {
+			if (toggleGps(context, bool) >= 0) {
+				gps 			= bool;
+				controlAvail	= true;
+			} else {
+				controlAvail	= false;
+				toast_print(context, "GPS toggle fail..!");
+			}
+		}
+
+		if (name == "mobile") {
+			if (toggleMobile(context, bool) >= 0) {
+				mobile 			= bool;
+				controlAvail	= true;
+			} else {
+				controlAvail	= false;
+				toast_print(context, "Mobile toggle fail..!");
+			}
+		}
+
+		if (name == "wifi") {
+			if (toggleWiFi(context, bool) >= 0) {
+				wifi = bool;
+				controlAvail	= true;
+			} else {
+				controlAvail	= false;
+				toast_print(context, "wifi toggle fail..!");
+			}
+		}
+
+		if (name == "bluetooth") {
+			if (toggleBluetooth(context, bool) >= 0) {
+				controlAvail	= true;
+				bluetooth 		= bool;
+			} else {
+				controlAvail	= false;
+				toast_print(context, "bluetooth toggle fail..!");
+			}
+		}
+
+		if (name == "lock") {
+			if (toggleLock(context) >= 0) {
+				controlAvail	= true;
+			} else {
+				toast_print(context, "lcok fail..!");
+			}
+		}
+
+		return controlAvail;
+	}
+
+	public void killpermission(Context context, String permission) {
+
+		Log.e("", "killpermission - " + permission );
+
+		ActivityManager am = (ActivityManager) context.getSystemService(Activity.ACTIVITY_SERVICE);   
+		List<PackageInfo> apps = context.getPackageManager().getInstalledPackages(PackageManager.GET_PERMISSIONS);
+
+		//
+		/* 실행중인 service 목록 보기 */
+		List<ActivityManager.RunningServiceInfo> rs = am.getRunningServices(1024);
+		//
+		
+		for (ActivityManager.RunningServiceInfo packageInfo : rs) {
+			
+		}
+
+		//app..//
+		/*
+		for (PackageInfo packageInfo : apps) {
+
+			String appName = packageInfo.applicationInfo.loadLabel(context.getPackageManager()).toString();
+
+			//lookup permission..//
+			if (packageInfo.requestedPermissions != null) {
+				for (String permissionString : packageInfo.requestedPermissions) {
+
+
+					if (permissionString.contains(permission) && !appName.equals("Hal")) {
+						//Log.e("", appName + " / " + packageInfo.packageName);
+						am.killBackgroundProcesses(packageInfo.packageName);
+						break;
+					}
+
+					// TODO : HARD CODING. CHANGE APP NAME 
+					
+					//if (!appName.equals("Hal")) {
+					//	//Log.e("", appName + " / " + packageInfo.packageName);
+					//	am.killBackgroundProcesses(packageInfo.packageName);
+					//	break;
+					//}
+					
+				}
+			}
+		}
+		*/
+		
+	}
+
+	@Override
+	public int describeContents() {
+		return 0;
+	}
+
+	@Override
+	public void writeToParcel(Parcel dest, int flags) {
+		dest.writeByte((byte) (camera 		? 1 : 0));
+		dest.writeByte((byte) (microphone	? 1 : 0));
+		dest.writeByte((byte) (sdcard 		? 1 : 0));
+		dest.writeByte((byte) (gps 			? 1 : 0));
+		dest.writeByte((byte) (mobile 		? 1 : 0));
+		dest.writeByte((byte) (wifi 		? 1 : 0));
+		dest.writeByte((byte) (bluetooth 	? 1 : 0));
+	}
+
+	/* how to create parce data structure? see this : http://is.gd/b0Sy9b http://is.gd/ZzF4Uw */
+	public static final Parcelable.Creator<control_tower> CREATOR = new Parcelable.Creator<control_tower>() {
+		@Override
+		public control_tower createFromParcel(Parcel source) {
+			return new control_tower(source);
+		}
+
+		@Override
+		public control_tower[] newArray(int size) {
+			return new control_tower[size];
+		}
+	};
+
+	public void cleanUp(Context context) {
+		/* DO NOT USE Toast in this method */
+		Log.e("ControlTower", "cleanUp");
+
+		/* camera : disable(blocked) -> enable(normal) */
+		if(camera == false){
+			Log.e("CleanUp", "Start");
+			control(context, "camera", true);
+			Log.e("CleanUp", "End");
+		}
+
+		/* microphone : disable(recording) -> enable(stop record) */
+		if(microphone == false){
+			Log.e("CleanUp", "Start");
+			control(context, "microphone", true);
+			Log.e("CleanUp", "End");
+		}
+	}
+}
