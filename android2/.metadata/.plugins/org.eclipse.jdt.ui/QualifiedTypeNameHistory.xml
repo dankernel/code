@@ -7,4 +7,5 @@
 <fullyQualifiedTypeName name="android.util.Log"/>
 <fullyQualifiedTypeName name="android.telephony.TelephonyManager"/>
 <fullyQualifiedTypeName name="android.provider.Settings"/>
+<fullyQualifiedTypeName name="android.content.pm.PackageInfo"/>
 </qualifiedTypeNameHistroy>
