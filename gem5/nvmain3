@@ -30,6 +30,20 @@ scons build/X86/gem5.opt
 [extensions]
 mq = 
 
+4. 머큐리얼 큐를 초기화 한다.
+./.hg/patchs 디렉토리가 생긴다.
+hg qinit
+
+5. 버전에 맞는 걸 찾아서 아래와 같이 한다.
+hg qimport -f /path/to/nvmain/patches/gem5/nvmain-classic-gem5-XXXX
+hg qpush
+
+6. fast 파일을 생성 함. 이게 nvmain이 적용 된 것 인듯. 하다..
+nvmain 적용해서 다시 컴파일 한다.
+scons EXTRAS=/path/to/nvmain build/X86/gem5.fast
+
+/* 변경사항 저장하는게 있는데, 잘 안된다ㅠㅠ.. */
+
 4. 유저네임을 적용하기 위해 다음 작업을 해야 한다.
 ./.hg/hgrc 파일에 다음 라인을 추가 한다. 이걸 해야지 유저네임(?) 같은게 먹힌다.
 
@@ -38,16 +52,7 @@ mq =
 editor = notepad
 username = userEmail@domain.com
 
-hg qinit
 
-/* 버전에 맞는 걸 찾아서 아래와 같이 한다. */  
-hg qimport -f /path/to/nvmain/patches/gem5/nvmain-classic-gem5-XXXX
-hg qpush
-
-/* fast 파일을 생성 함. 이게 nvmain이 적용 된 것 인듯. 하다..  */
-scons EXTRAS=/path/to/nvmain build/X86/gem5.fast
-
-/* 변경사항 저장하는게 있는데, 잘 안된다ㅠㅠ.. */
 
 build/X86/gem5.fast configs/example/se.py -c 
 tests/test-progs/dkdk/src/main --mem-type=nvmain 
