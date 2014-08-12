@@ -4,7 +4,6 @@ INDEX VERSION 1.127+/home/dkdk/code/android2/.metadata/.plugins/org.eclipse.jdt.
 2859745636.index
 3683116914.index
 460275238.index
-488383428.index
 3535258683.index
 3425764745.index
 1972861804.index
