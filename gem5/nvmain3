@@ -42,19 +42,25 @@ hg qpush
 nvmain 적용해서 다시 컴파일 한다. 이것도 시간이 한참...
 scons EXTRAS=/path/to/nvmain build/X86/gem5.fast
 
-/* 
- * 7. 변경사항 저장하는게 있는데, 잘 안된다ㅠㅠ.. */
- * http://wiki.nvmain.org/index.php?n=Site.Compiling의 
- * "Saving your changes"에 해당하는 부분..
- */
-
-7-1. 유저네임을 적용하기 위해 다음 작업을 해야 한다.
+7. 유저네임을 적용하기 위해 다음 작업을 해야 한다.
 ./.hg/hgrc 파일에 다음 라인을 추가 한다. 이걸 해야지 유저네임(?) 같은게 먹힌다.
 
 [ui]
 ; editor used to enter commit logs, etc.  Most text editors will work.
 editor = notepad
 username = userEmail@domain.com
+
+/* 
+ * 8. 변경사항 저장하는게 있는데, 잘 안된다ㅠㅠ.. */
+ * http://wiki.nvmain.org/index.php?n=Site.Compiling의 
+ * "Saving your changes"에 해당하는 부분..
+ */
+
+ hg qrefresh
+ hg qpop -a
+ hg qimport -f /path/to/nvmain/patches/gem5/nvmain
+ hg qpush -a 
+이걸 하고 6으로 돌아가서 컴파일을 다시 하면 된다.
 
 8. 실행
 
@@ -63,5 +69,5 @@ tests/test-progs/dkdk/src/main --mem-type=nvmain
 --caches --l2cache --l1i_size 32kB  --l1d_size 32kB 
 --l2_size 2MB --nvmain-config=/path/to/nvmain/Config/PCM_MLC_example.config > out
 
-
+--mem-type=nvmain << 이부분이 되면 되는 것!
 
