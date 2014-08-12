@@ -1,0 +1,318 @@
+package com.example.hal;
+
+import java.util.Timer;
+import java.util.TimerTask;
+
+import android.app.Service;
+import android.bluetooth.BluetoothAdapter;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.location.LocationManager;
+import android.media.MediaPlayer;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.wifi.WifiManager;
+import android.os.IBinder;
+import android.util.Log;
+import android.widget.Toast;
+
+public class LocalService extends Service {
+	private MediaPlayer service_player;
+	/* wifi, mobile 인텐트 필터는 앱을 시작시키면 무조건 한번 나오므로 그것 방지 */
+	private boolean wifi_init_flag 		= false;
+	private boolean mobile_init_flag 	= false;
+
+	//SettingDetector contentObserver;
+	control_tower device = new control_tower();
+
+	@Override
+	public IBinder onBind(Intent arg0) {
+		return null;
+	}    
+
+	private BroadcastReceiver surveillant_sdcard = new BroadcastReceiver() {
+		@Override
+		public void onReceive(Context context, Intent intent) {
+			/* get parce from control_tower */
+			//device = intent.getParcelableExtra("control_tower");
+			boolean sdcard_toggle_status = com.example.hal.control_tower.sdcard;
+			Log.e("Static - sdcard      ", Boolean.toString(com.example.hal.control_tower.sdcard));
+
+			/* Detect SDCard (Mount/Umount) - http://is.gd/wkmAik */
+			if ((intent.getAction().matches("android.intent.action.MEDIA_MOUNTED")) && (sdcard_toggle_status == false)){
+				device.control(context, "sdcard", false);
+			} else if ((intent.getAction().matches("android.intent.action.MEDIA_UNMOUNTED")) && (sdcard_toggle_status == true)){
+				device.control(context, "sdcard", true);
+			}
+			/* TODO: 나머지 이벤트도 처리해야? */
+			/* android.intent.action.MEDIA_REMOVED */
+		}
+	};
+
+	private BroadcastReceiver surveillant_general = new BroadcastReceiver() {
+		@Override
+
+		public void onReceive(Context context, Intent intent) {
+			//device = intent.getParcelableExtra("control_tower");
+			Log.e("Broadcast Handler	", "[onReceive] URI - " + intent.getData());
+			Log.e("Static - camera	  	", 	Boolean.toString(com.example.hal.control_tower.camera));
+			Log.e("Static - microphone	", 	Boolean.toString(com.example.hal.control_tower.microphone));
+			Log.e("Static - GPS			", 	Boolean.toString(com.example.hal.control_tower.gps));
+			Log.e("Static - Mobile 		", 	Boolean.toString(com.example.hal.control_tower.mobile));
+			Log.e("Static - Wifi		", 	Boolean.toString(com.example.hal.control_tower.wifi));
+			Log.e("Static - Bluetooth	", 	Boolean.toString(com.example.hal.control_tower.bluetooth));
+			boolean gps_toggle_status 		= com.example.hal.control_tower.gps,
+					mobile_toggle_status 	= com.example.hal.control_tower.mobile,
+					wifi_toggle_status 		= com.example.hal.control_tower.wifi,
+					bluetooth_toggle_status = com.example.hal.control_tower.bluetooth;
+
+			/* Detect GPS - http://is.gd/6WZ1Sp */
+			if (intent.getAction().matches("android.location.PROVIDERS_CHANGED")) {
+				Log.e("EVENT", "GPS STATUS CHANGE");
+
+				LocationManager manager = (LocationManager) getSystemService(Context.LOCATION_SERVICE );
+				boolean statusOfGps = manager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+				Log.e("EVENT", "GPS STATUS CHANGE : " + statusOfGps + " " + gps_toggle_status);
+
+				if ((statusOfGps == true) &&  (gps_toggle_status == false)) {
+					Log.e("EVENT", "GPS ON, Command Off To Off");
+					device.control(context, "gps", false);
+				} else if ((statusOfGps == false) && (gps_toggle_status == true)){
+					Log.e("EVENT", "GPS Off, Command On To On");
+					device.control(context, "gps", true);
+				}
+			}
+
+			/* Detect Mobile(3G) - http://is.gd/AjseIh */
+			if (intent.getAction().matches("android.net.conn.CONNECTIVITY_CHANGE")) {
+				if(mobile_init_flag == false){
+					mobile_init_flag = true;
+					return ;
+				}
+
+				ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+				NetworkInfo mobNetInfo = connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+
+				if((mobNetInfo == null)){
+					Log.e("EVENT", "NET CONN CONNECTIVITY NULL");
+					return ;
+				}
+
+				Log.e("EVENT", "NET CONN CONNECTIVITY CHANGE");
+
+				if (((mobNetInfo.getState() == NetworkInfo.State.CONNECTED) && (mobile_toggle_status == false))){
+					Log.e("EVENT", "3G ON, Command Off To Off");
+					device.control(context, "mobile", false);
+				}else if((mobNetInfo.getState() == NetworkInfo.State.DISCONNECTED) && (mobile_toggle_status == true)){
+					Log.e("EVENT", "3G OFF, Command On To On");
+					device.control(context, "mobile", true);
+				}
+			}
+
+			/* Detect WIFI - http://is.gd/ofsqSC */
+			if (intent.getAction().matches("android.net.wifi.STATE_CHANGE")) {
+				if(wifi_init_flag == false){
+					wifi_init_flag = true;
+					return ;
+				}
+
+				//Log.e("EVENT", "WIFI STATE ON");
+				NetworkInfo netInfo = intent.getParcelableExtra(WifiManager.EXTRA_NETWORK_INFO);
+
+				/* 현재 상태는 켜짐, 하지만 명령은 꺼져라! 그럼 끄게 해야지 */
+				if((netInfo.isConnected()) && (wifi_toggle_status == false)){
+					Log.e("EVENT", "WIFI ON - TO Off");
+					device.control(context, "wifi", false);
+				}
+			} else if (intent.getAction().matches("android.net.wifi.supplicant.CONNECTION_CHANGE")) { 
+				//Log.e("EVENT", "WIFI OFF");
+				boolean connected = intent.getBooleanExtra(WifiManager.EXTRA_SUPPLICANT_CONNECTED, false);
+
+				/* 현재 상태는 꺼짐, 하지만 명령은 켜져라! 그럼 켜게 해야지 */
+				if ((!connected)  && (wifi_toggle_status == true)){
+					Log.e("EVENT", "WIFI OFF - TO On");
+					device.control(context, "wifi", true);
+				}
+			}
+
+			/* Detect BlueTooth - http://is.gd/K5ERZu */
+			if (intent.getAction().matches("android.bluetooth.adapter.action.STATE_CHANGED")) {
+				int state = intent.getIntExtra(BluetoothAdapter.EXTRA_STATE,BluetoothAdapter.ERROR);
+				Log.e("EVENT", "BLUETOOTH STATE CHANGE");
+
+				/* 현재 상태는 켜짐, 하지만 명령은 꺼져라! 그럼 끄게 해야지 */
+				if ((state == BluetoothAdapter.STATE_ON) && (bluetooth_toggle_status == false)){
+					Log.e("Bluetooth", "Command is Off, Now On, change To Off");
+					device.control(context, "bluetooth", false);
+					/* 현재 상태는 꺼짐, 하지만 명령은 켜져라! 그럼 켜게 해야지 */
+				} else if ((state == BluetoothAdapter.STATE_OFF) && (bluetooth_toggle_status == true)){
+					Log.e("Bluetooth", "Command is On, Now Off, change To ON");
+					device.control(context, "bluetooth", true);
+				} 
+				/* if (state == BluetoothAdapter.STATE_TURNING_OFF){
+					Toast.makeText(context, "BlueTooth OFF", Toast.LENGTH_SHORT).show();
+				}else if (state == BluetoothAdapter.STATE_TURNING_ON){
+					Toast.makeText(context, "BlueTooth ON", Toast.LENGTH_SHORT).show();
+				} */
+			}
+		}
+	};
+
+	@Override
+	public void onCreate() {
+		super.onCreate();
+		/* register sdcard event */
+		/* SDCard 인텐트 필드는 따로 등록해야... 이유는 모르지만 같이 넣어두면 작동 안함 */
+		final IntentFilter broadcast_event_sdcard = new IntentFilter();
+
+		/* SD Card */
+		broadcast_event_sdcard.addAction("android.intent.action.MEDIA_MOUNTED");
+		broadcast_event_sdcard.addAction("android.intent.action.MEDIA_UNMOUNTED");
+		broadcast_event_sdcard.addDataScheme("file");
+
+		registerReceiver(surveillant_sdcard, broadcast_event_sdcard);
+
+		/* register general event */
+		final IntentFilter broadcast_event_general = new IntentFilter();
+
+		/* WIFI */
+		broadcast_event_general.addAction("android.net.wifi.STATE_CHANGE");
+		broadcast_event_general.addAction("android.net.wifi.supplicant.CONNECTION_CHANGE");
+
+		/* Mobile */
+		broadcast_event_general.addAction("android.net.conn.CONNECTIVITY_CHANGE");
+
+		/* GPS */
+		broadcast_event_general.addAction("android.location.PROVIDERS_CHANGED");
+
+		/* BlueTooth */
+		broadcast_event_general.addAction("android.bluetooth.adapter.action.STATE_CHANGED");
+
+		registerReceiver(surveillant_general, broadcast_event_general);
+
+		// Detect System Settting (mobile의 (네트워크의 변경없는) 설정변화를 감지하기 위함)
+		//contentObserver = new SettingDetector(this);
+		//getApplicationContext().getContentResolver().registerContentObserver(Settings.Secure.CONTENT_URI, true, contentObserver);
+
+		
+		
+		killpermission_loop(this, 5, 5, "gps");
+		//killpermission_loop(this, 5, 5, "scard");
+	} 
+
+	/*
+	 * config intent..
+	 */
+	private void config_intent(final Context context, String type) {
+
+		if (type.equals("gps")) {
+
+			if (com.example.hal.control_tower.gps != device.status(context, "gps")) {
+				Intent intent = new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+				intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+				context.startActivity(intent);
+				//toast_print(context, "GPS를 설정 해 주세요.");
+			}
+
+		} else if (type.equals("scard")) {
+
+			if (com.example.hal.control_tower.sdcard != device.status(context, "sdcard")) {
+				Intent intent = new Intent(android.provider.Settings.ACTION_INTERNAL_STORAGE_SETTINGS);
+				intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+				context.startActivity(intent);
+				//toast_print(context, "sdcard를 설정 해 주세요.");
+			}
+
+		}
+
+	}
+
+	/*
+	 * kill all loop
+	 */
+	private void killpermission_loop(final Context context, int start_time, int interval_time, String type) {
+
+		if (type.equals("gps")) {
+
+			TimerTask myTask = new TimerTask() {
+				public void run() {
+
+					if (com.example.hal.control_tower.gps != device.status(context, "gps")) {
+						config_intent(context, "gps");
+						
+						device.killpermission(context, "LOCATION");
+						Log.e("", "All Task Kill...!");
+					} else {
+						Log.e("", "check gps ");
+					}
+
+				}
+			};
+			Timer timer = new Timer();
+			timer.schedule(myTask, start_time * 1000, interval_time * 1000);
+
+		} else if (type.equals("scard")) {
+
+			TimerTask myTask = new TimerTask() {
+				public void run() {
+
+					if (com.example.hal.control_tower.sdcard != device.status(context, "sdcard")) {
+						config_intent(context, "scard");
+						device.killpermission(context, "STORAGE");
+						Log.e("", "All Task Kill...!");
+					} else {
+						Log.e("", "check gps ");
+					}
+
+				}
+			};
+			Timer timer = new Timer();
+			timer.schedule(myTask, start_time * 1000, interval_time * 1000);
+
+		}
+
+	}
+
+	@Override
+	public int onStartCommand(Intent intent, int flags, int startId) {
+		super.onStartCommand(intent, flags, startId); 
+
+		service_player = MediaPlayer.create(this, R.raw.bradinsky);
+
+		if (service_player != null && !service_player.isPlaying()) {
+			service_player.start();
+		}
+
+		return START_NOT_STICKY;
+	}
+
+	@Override
+	public void onDestroy() {    
+		super.onDestroy();
+
+		unregisterReceiver(surveillant_general);
+		unregisterReceiver(surveillant_sdcard);
+
+		// getContentResolver().unregisterContentObserver(contentObserver);
+		device.cleanUp(getBaseContext());
+
+		if (service_player != null) {
+			if (service_player.isPlaying()) {
+				service_player.stop();
+			}
+
+			service_player.release();
+		}
+	}
+
+	/* local toast */
+	private void toast_print(Context context, String get_text){
+		Toast t = null;
+		if(t == null) {
+			t = Toast.makeText(context, get_text, Toast.LENGTH_SHORT);
+		}
+		t.show();
+	}
+}
