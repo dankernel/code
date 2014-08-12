@@ -1,13 +1,26 @@
 
-gem5부터 버전에 맞게 다시 다운받음. 
+1. gem5 10146 버전을 다운받는다.
 
+나중에 nvamin 패치를 해야 하기 때문에,
+nvmain에서 지원하는 gem5버전을 설치해야 한다.
+(원래 gem5 버전에서 패치 해야 하니까..)
+
+버전과 주소는 다음과 같으니 참고 한다..
 버전 : changeset 10146 27dfed4c8403
 주소 : http://repo.gem5.org/gem5/rev/27dfed4c8403
 
+다음 명령어로 10146버전을 받아올 수 있다. 
+시간이 조금 소요된다..
 hg clone http://repo.gem5.org/gem5/ -r 27dfed4c8403
 
-/* gen5 컴파일 하는 과정이다. */
+2. gen5을 컴파일 한다. 
 scons build/X86/gem5.opt
+
+/*
+ *.hg/hgrc 파일에 다음 라인을 추가 한다. 이걸 해야지 아래 명령어(?)가 먹힌다.
+ */
+[extensions]
+mq = 
 
 /*
  * .hg/hgrc 파일에 다음 라인을 추가 한다. 이걸 해야지 유저네임(?) 같은게 먹힌다.
@@ -17,11 +30,6 @@ scons build/X86/gem5.opt
 editor = notepad
 username = userEmail@domain.com
 
-/*
- *.hg/hgrc 파일에 다음 라인을 추가 한다. 이걸 해야지 아래 명령어(?)가 먹힌다.
- */
-[extensions]
-mq = 
 
 /* 버전에 맞는 걸 찾아서 아래와 같이 한다. */  
 hg qimport -f /path/to/nvmain/patches/gem5/nvmain-classic-gem5-XXXX
