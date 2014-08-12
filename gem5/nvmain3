@@ -13,18 +13,22 @@ nvmain에서 지원하는 gem5버전을 설치해야 한다.
 시간이 조금 소요된다..
 hg clone http://repo.gem5.org/gem5/ -r 27dfed4c8403
 
-2. gen5을 컴파일 한다. 
+2. gen5을 컴파일 한다.
 scons build/X86/gem5.opt
+해당 경로에 해당 파일을 만드는(?) 것이다.
+처음엔 build 디렉토리 조차 없다! 괜찮..
 
-/*
- *.hg/hgrc 파일에 다음 라인을 추가 한다. 이걸 해야지 아래 명령어(?)가 먹힌다.
- */
+3. mq명령어(?)를 사용하기 위해서 다음 작업을 해야 한다.
+./.hg/hgrc 파일에 다음 라인을 추가 한다. 
+[extensions]는 이미 있을 수도 있다. 한 줄만 추가해도 된다.
+이걸 해야지 mq명령어(?)가 먹힌다.
+
 [extensions]
 mq = 
 
-/*
- * .hg/hgrc 파일에 다음 라인을 추가 한다. 이걸 해야지 유저네임(?) 같은게 먹힌다.
- */
+4. 유저네임을 적용하기 위해 다음 작업을 해야 한다.
+./.hg/hgrc 파일에 다음 라인을 추가 한다. 이걸 해야지 유저네임(?) 같은게 먹힌다.
+
 [ui]
 ; editor used to enter commit logs, etc.  Most text editors will work.
 editor = notepad
