@@ -15,13 +15,17 @@ hg clone http://repo.gem5.org/gem5/ -r 27dfed4c8403
 
 2. gen5을 컴파일 한다.
 scons build/X86/gem5.opt
+
 해당 경로에 해당 파일을 만드는(?) 것이다.
 처음엔 build 디렉토리 조차 없다! 괜찮..
+계속 할거면 엔터를 누르라는데, 엔터를 누르고 계속 한다.
+
+커널 컴파일 하듯 시간이 좀 걸리는데.. 이것도 한참 기다린다.
 
 3. mq명령어(?)를 사용하기 위해서 다음 작업을 해야 한다.
 ./.hg/hgrc 파일에 다음 라인을 추가 한다. 
 [extensions]는 이미 있을 수도 있다. 한 줄만 추가해도 된다.
-이걸 해야지 mq명령어(?)가 먹힌다.
+이걸 해야지 mq명령어(?)가 먹힌다. (이유는 모른다..)
 
 [extensions]
 mq = 
@@ -34,6 +38,7 @@ mq =
 editor = notepad
 username = userEmail@domain.com
 
+hg qinit
 
 /* 버전에 맞는 걸 찾아서 아래와 같이 한다. */  
 hg qimport -f /path/to/nvmain/patches/gem5/nvmain-classic-gem5-XXXX
@@ -41,6 +46,8 @@ hg qpush
 
 /* fast 파일을 생성 함. 이게 nvmain이 적용 된 것 인듯. 하다..  */
 scons EXTRAS=/path/to/nvmain build/X86/gem5.fast
+
+/* 변경사항 저장하는게 있는데, 잘 안된다ㅠㅠ.. */
 
 build/X86/gem5.fast configs/example/se.py -c 
 tests/test-progs/dkdk/src/main --mem-type=nvmain 
