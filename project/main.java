@@ -7,7 +7,6 @@ public class main
   /* main */
   public static void main(String[] args)
   {
-
     System.out.println("=== Start ===");
 
     val a = new val("index", null, 100);
@@ -26,8 +25,6 @@ public class main
     tmp = val_list.add_node("val_b", "int", 940406);
     System.out.println("list name : " + tmp.get_name());
     System.out.println("list name : " + tmp.get_contain());
-
-
   }
 
 }//}}}

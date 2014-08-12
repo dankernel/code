@@ -1,0 +1,13 @@
+package c01;
+
+import java.*;
+import java.lang.String;
+
+
+public class c1 {
+	
+	System.out.println("aa");
+	
+
+
+}
