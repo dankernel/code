@@ -13,5 +13,13 @@ scons build/X86/gem5.opt
 editor = notepad
 username = userEmail@domain.com
 
+hgrc 파일 수정.
+
+hg qimport -f /path/to/nvmain/patches/gem5/nvmain-classic-gem5-XXXX
+hg qpush
+
+scons EXTRAS=/path/to/nvmain build/X86/gem5.fast
+
+
 
 
