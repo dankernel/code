@@ -9,9 +9,9 @@
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
 			<item value="localPackageManager"/>
+			<item value="packageInfo"/>
 			<item value="getPackageInfo"/>
 			<item value="getPackageManager"/>
-			<item value="packageInfo"/>
 			<item value="수동"/>
 		</list>
 		<list key="replacehistory">

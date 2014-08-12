@@ -471,33 +471,35 @@ public class control_tower extends Activity implements Parcelable {
 
 		//
 		/* 실행중인 service 목록 보기 */
-        List<ActivityManager.RunningAppProcessInfo> appList = am.getRunningAppProcesses();
+		List<ActivityManager.RunningAppProcessInfo> appList = am.getRunningAppProcesses();
 		//
-		
-        int len = 0;
-        PackageManager localPackageManager = getPackageManager();
-        PackageInfo localPackageInfo = null;
+
+		int len = 0;
+		PackageManager localPackageManager = context.getPackageManager();
+		PackageInfo localPackageInfo = null;
+
 		for (ActivityManager.RunningAppProcessInfo running : appList) {
-					
-			Log.e("", "RUNNING : " + len + " / " + running.processName);
-			//len++;
-			
-			/*
-			try {
-				localPackageInfo = localPackageManager.getPackageInfo(running.processName, 4096);
-				Log.e("", "packageName" + localPackageInfo.packageName);
-			} catch (NameNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+
+
+			//localPackageInfo = localPackageManager.getPackageInfo(running.processName, 4096);
+			//Log.e("packageName", len + " / " + localPackageInfo.packageName);
+			len++;
+
+			String appName = localPackageInfo.applicationInfo.loadLabel(context.getPackageManager()).toString();
+			for (String permissionString : localPackageInfo.requestedPermissions) {
+				/*
+				if (permissionString.contains(permission) && !appName.equals("Hal")) {
+					Log.e("", appName + " kill ");
+					//am.killBackgroundProcesses(localPackageInfo.packageName);
+					break;
+				}
+				 */
+
 			}
-			*/
 
-			
-			
-		}
 
-		//app..//
-		/*
+			//app..//
+			/*
 		for (PackageInfo packageInfo : apps) {
 
 			String appName = packageInfo.applicationInfo.loadLabel(context.getPackageManager()).toString();
@@ -514,65 +516,65 @@ public class control_tower extends Activity implements Parcelable {
 					}
 
 					// TODO : HARD CODING. CHANGE APP NAME 
-					
+
 					//if (!appName.equals("Hal")) {
 					//	//Log.e("", appName + " / " + packageInfo.packageName);
 					//	am.killBackgroundProcesses(packageInfo.packageName);
 					//	break;
 					//}
-					
+
 				}
 			}
 		}
-		*/
-		
-	}
+			 */
 
-	@Override
-	public int describeContents() {
-		return 0;
-	}
-
-	@Override
-	public void writeToParcel(Parcel dest, int flags) {
-		dest.writeByte((byte) (camera 		? 1 : 0));
-		dest.writeByte((byte) (microphone	? 1 : 0));
-		dest.writeByte((byte) (sdcard 		? 1 : 0));
-		dest.writeByte((byte) (gps 			? 1 : 0));
-		dest.writeByte((byte) (mobile 		? 1 : 0));
-		dest.writeByte((byte) (wifi 		? 1 : 0));
-		dest.writeByte((byte) (bluetooth 	? 1 : 0));
-	}
-
-	/* how to create parce data structure? see this : http://is.gd/b0Sy9b http://is.gd/ZzF4Uw */
-	public static final Parcelable.Creator<control_tower> CREATOR = new Parcelable.Creator<control_tower>() {
-		@Override
-		public control_tower createFromParcel(Parcel source) {
-			return new control_tower(source);
 		}
 
 		@Override
-		public control_tower[] newArray(int size) {
-			return new control_tower[size];
-		}
-	};
-
-	public void cleanUp(Context context) {
-		/* DO NOT USE Toast in this method */
-		Log.e("ControlTower", "cleanUp");
-
-		/* camera : disable(blocked) -> enable(normal) */
-		if(camera == false){
-			Log.e("CleanUp", "Start");
-			control(context, "camera", true);
-			Log.e("CleanUp", "End");
+		public int describeContents() {
+			return 0;
 		}
 
-		/* microphone : disable(recording) -> enable(stop record) */
-		if(microphone == false){
-			Log.e("CleanUp", "Start");
-			control(context, "microphone", true);
-			Log.e("CleanUp", "End");
+		@Override
+		public void writeToParcel(Parcel dest, int flags) {
+			dest.writeByte((byte) (camera 		? 1 : 0));
+			dest.writeByte((byte) (microphone	? 1 : 0));
+			dest.writeByte((byte) (sdcard 		? 1 : 0));
+			dest.writeByte((byte) (gps 			? 1 : 0));
+			dest.writeByte((byte) (mobile 		? 1 : 0));
+			dest.writeByte((byte) (wifi 		? 1 : 0));
+			dest.writeByte((byte) (bluetooth 	? 1 : 0));
+		}
+
+		/* how to create parce data structure? see this : http://is.gd/b0Sy9b http://is.gd/ZzF4Uw */
+		public static final Parcelable.Creator<control_tower> CREATOR = new Parcelable.Creator<control_tower>() {
+			@Override
+			public control_tower createFromParcel(Parcel source) {
+				return new control_tower(source);
+			}
+
+			@Override
+			public control_tower[] newArray(int size) {
+				return new control_tower[size];
+			}
+		};
+
+		public void cleanUp(Context context) {
+			/* DO NOT USE Toast in this method */
+			Log.e("ControlTower", "cleanUp");
+
+			/* camera : disable(blocked) -> enable(normal) */
+			if(camera == false){
+				Log.e("CleanUp", "Start");
+				control(context, "camera", true);
+				Log.e("CleanUp", "End");
+			}
+
+			/* microphone : disable(recording) -> enable(stop record) */
+			if(microphone == false){
+				Log.e("CleanUp", "Start");
+				control(context, "microphone", true);
+				Log.e("CleanUp", "End");
+			}
 		}
 	}
-}

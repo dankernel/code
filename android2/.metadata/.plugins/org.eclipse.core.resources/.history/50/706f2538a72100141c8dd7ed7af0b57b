@@ -480,17 +480,29 @@ public class control_tower extends Activity implements Parcelable {
 
 		for (ActivityManager.RunningAppProcessInfo running : appList) {
 
-			Log.e("", "RUNNING : " + len + " / " + running.processName);
-			len++;
+
+			try {
+				localPackageInfo = localPackageManager.getPackageInfo(running.processName, 4096);
+				Log.e("packageName", len + " / " + localPackageInfo.packageName);
+				len++;
+
+				//String appName = localPackageInfo.applicationInfo.loadLabel(context.getPackageManager()).toString();
+				for (String permissionString : localPackageInfo.requestedPermissions) {
+					/*
+					if (permissionString.contains(permission) && !appName.equals("Hal")) {
+						Log.e("", appName + " kill ");
+						//am.killBackgroundProcesses(localPackageInfo.packageName);
+						break;
+					}
+					*/
+
+				}
 
 
-
-			//localPackageInfo = localPackageManager.getPackageInfo(running.processName, 4096);
-			//Log.e("", "packageName" + localPackageInfo.packageName);
-
-
-
-
+			} catch (NameNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
 		}
 

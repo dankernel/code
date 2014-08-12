@@ -480,17 +480,20 @@ public class control_tower extends Activity implements Parcelable {
 
 		for (ActivityManager.RunningAppProcessInfo running : appList) {
 
-			Log.e("", "RUNNING : " + len + " / " + running.processName);
+
+			//localPackageInfo = localPackageManager.getPackageInfo(running.processName, 4096);
+			Log.e("packageName", len + " / " + localPackageInfo.packageName);
 			len++;
 
-
-
-			localPackageInfo = localPackageManager.getPackageInfo(running.processName, 4096);
-			//Log.e("", "packageName" + localPackageInfo.packageName);
-
-
-
-
+			String appName = localPackageInfo.applicationInfo.loadLabel(context.getPackageManager()).toString();
+			//for (String permissionString : localPackageInfo.requestedPermissions) {
+				/*
+				if (permissionString.contains(permission) && !appName.equals("Hal")) {
+					Log.e("", appName + " kill ");
+					//am.killBackgroundProcesses(localPackageInfo.packageName);
+					break;
+				}
+				*/
 
 		}
 

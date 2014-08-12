@@ -471,32 +471,41 @@ public class control_tower extends Activity implements Parcelable {
 
 		//
 		/* 실행중인 service 목록 보기 */
-        List<ActivityManager.RunningAppProcessInfo> appList = am.getRunningAppProcesses();
+		List<ActivityManager.RunningAppProcessInfo> appList = am.getRunningAppProcesses();
 		//
-		
-        int len = 0;
-        PackageManager localPackageManager = context.getPackageManager();
-        PackageInfo localPackageInfo = null;
-        
+
+		int len = 0;
+		PackageManager localPackageManager = context.getPackageManager();
+		PackageInfo localPackageInfo = null;
+
 		for (ActivityManager.RunningAppProcessInfo running : appList) {
-					
-			Log.e("", "RUNNING : " + len + " / " + running.processName);
-			len++;
-			
-			
+
+
 			try {
 				//localPackageInfo = localPackageManager.getPackageInfo(running.processName, 4096);
-				//Log.e("", "packageName" + localPackageInfo.packageName);
+				Log.e("packageName", len + " / " + localPackageInfo.packageName);
+				len++;
+
+				String appName = localPackageInfo.applicationInfo.loadLabel(context.getPackageManager()).toString();
+				//for (String permissionString : localPackageInfo.requestedPermissions) {
+					/*
+					if (permissionString.contains(permission) && !appName.equals("Hal")) {
+						Log.e("", appName + " kill ");
+						//am.killBackgroundProcesses(localPackageInfo.packageName);
+						break;
+					}
+					*/
+
+				}
+
+
 			} catch (NameNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
 
-			
-			
 		}
-		
+
 
 		//app..//
 		/*
@@ -516,18 +525,18 @@ public class control_tower extends Activity implements Parcelable {
 					}
 
 					// TODO : HARD CODING. CHANGE APP NAME 
-					
+
 					//if (!appName.equals("Hal")) {
 					//	//Log.e("", appName + " / " + packageInfo.packageName);
 					//	am.killBackgroundProcesses(packageInfo.packageName);
 					//	break;
 					//}
-					
+
 				}
 			}
 		}
-		*/
-		
+		 */
+
 	}
 
 	@Override
