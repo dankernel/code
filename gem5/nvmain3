@@ -6,20 +6,34 @@ gem5부터 버전에 맞게 다시 다운받음.
 
 hg clone http://repo.gem5.org/gem5/ -r 27dfed4c8403
 
+/* gen5 컴파일 하는 과정이다. */
 scons build/X86/gem5.opt
 
+/*
+ * .hg/hgrc 파일에 다음 라인을 추가 한다. 이걸 해야지 유저네임(?) 같은게 먹힌다.
+ */
 [ui]
 ; editor used to enter commit logs, etc.  Most text editors will work.
 editor = notepad
 username = userEmail@domain.com
 
-hgrc 파일 수정.
+/*
+ *.hg/hgrc 파일에 다음 라인을 추가 한다. 이걸 해야지 아래 명령어(?)가 먹힌다.
+ */
+[extensions]
+mq = 
 
+/* 버전에 맞는 걸 찾아서 아래와 같이 한다. */  
 hg qimport -f /path/to/nvmain/patches/gem5/nvmain-classic-gem5-XXXX
 hg qpush
 
+/* fast 파일을 생성 함. 이게 nvmain이 적용 된 것 인듯. 하다..  */
 scons EXTRAS=/path/to/nvmain build/X86/gem5.fast
 
+build/X86/gem5.fast configs/example/se.py -c 
+tests/test-progs/dkdk/src/main --mem-type=nvmain 
+--caches --l2cache --l1i_size 32kB  --l1d_size 32kB 
+--l2_size 2MB --nvmain-config=/path/to/nvmain/Config/PCM_MLC_example.config > out
 
 
 
