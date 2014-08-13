@@ -71,3 +71,5 @@ tests/test-progs/dkdk/src/main --mem-type=nvmain
 
 --mem-type=nvmain << 이부분이 되면 되는 것!
 
+머큐리얼 사용법 한글 링크 :
+http://hyeonseok.com/soojung/dev/2014/06/08/756.html
