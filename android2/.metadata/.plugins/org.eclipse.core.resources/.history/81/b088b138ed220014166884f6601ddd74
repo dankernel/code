@@ -1,0 +1,151 @@
+package com.example.emptytest;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Locale;
+import java.util.Set;
+import java.util.regex.Pattern;
+
+import org.xmlpull.v1.XmlPullParser;
+
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.res.AssetManager;
+import android.content.res.XmlResourceParser;
+import android.os.Build;
+import android.os.Bundle;
+import android.os.Environment;
+import android.support.v4.content.ContextCompat;
+import android.text.TextUtils;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Toast;
+
+
+public class MainActivity extends Activity {
+	private static final Pattern DIR_SEPORATOR = Pattern.compile("/");
+
+	public static String[] getStorageDirectories()
+	{
+	    // Final set of paths
+	    final Set<String> rv = new HashSet<String>();
+	    // Primary physical SD-CARD (not emulated)
+	    final String rawExternalStorage = System.getenv("EXTERNAL_STORAGE");
+	    // All Secondary SD-CARDs (all exclude primary) separated by ":"
+	    final String rawSecondaryStoragesStr = System.getenv("SECONDARY_STORAGE");
+	    // Primary emulated SD-CARD
+	    final String rawEmulatedStorageTarget = System.getenv("EMULATED_STORAGE_TARGET");
+
+	    Log.e("TEST External Storage", rawExternalStorage);
+	    Log.e("TEST Second   Storage", rawSecondaryStoragesStr);
+
+	    if(TextUtils.isEmpty(rawEmulatedStorageTarget)) {
+	    	Log.e("IN", "1");
+	        // Device has physical external storage; use plain paths.
+	        if(TextUtils.isEmpty(rawExternalStorage)) {
+	            // EXTERNAL_STORAGE undefined; falling back to default.
+	            rv.add("/storage/sdcard0");
+	        } else {
+	            rv.add(rawExternalStorage);
+	        }
+	    } else {
+	    	Log.e("IN", "2");
+	        // Device has emulated storage; external storage paths should have
+	        // userId burned into them.
+	        final String rawUserId;
+
+	        if(Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
+	            rawUserId = "";
+	        } else {
+	            final String path = Environment.getExternalStorageDirectory().getAbsolutePath();
+	            final String[] folders = DIR_SEPORATOR.split(path);
+	            final String lastFolder = folders[folders.length - 1];
+	            boolean isDigit = false;
+	            try {
+	                Integer.valueOf(lastFolder);
+	                isDigit = true;
+	            } catch(NumberFormatException ignored) {
+	            }
+	            rawUserId = isDigit ? lastFolder : "";
+	        }
+	        // /storage/emulated/0[1,2,...]
+	        if(TextUtils.isEmpty(rawUserId)) {
+	            rv.add(rawEmulatedStorageTarget);
+	        } else {
+	            rv.add(rawEmulatedStorageTarget + File.separator + rawUserId);
+	        }
+	    }
+	    // Add all secondary storages
+	    if(!TextUtils.isEmpty(rawSecondaryStoragesStr)) {
+	        // All Secondary SD-CARDs splited into array
+	        final String[] rawSecondaryStorages = rawSecondaryStoragesStr.split(File.pathSeparator);
+	        Collections.addAll(rv, rawSecondaryStorages);
+	    }
+	    return rv.toArray(new String[rv.size()]);
+	}
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+
+		findViewById(R.id.button1).setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				int i;
+				/* 이 방법은 4.4미만의 버전에서는 단 1개의 external장치만 알아낼수 있다 */
+				/* File[] StorageList = ContextCompat.getExternalFilesDirs(getApplicationContext(), null);
+				Log.e("Storage Max Count : ", String.valueOf(StorageList.length));	
+				for(i = 0;i < StorageList.length;i ++){
+					Log.e("Storage 1", StorageList[i].getPath());	
+				} */
+
+				/* 아이스크림, 젤리빈 */
+				if(Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
+					String[] StorageArray = getStorageDirectories();
+					for(i = 0;i < StorageArray.length;i ++){
+						Log.e("Storage 2", StorageArray[i]);	
+					}
+				/* 킷캣 */
+				} else {
+					File[] externalFilesDirs;
+					externalFilesDirs = getApplicationContext.getExternalFilesDirs(null);
+					
+				}
+			}
+		});
+		//startService(new Intent("com.example.emptytest.service.EVENT_CATCHER"));
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.main, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle action bar item clicks here. The action bar will
+		// automatically handle clicks on the Home/Up button, so long
+		// as you specify a parent activity in AndroidManifest.xml.
+		int id = item.getItemId();
+		if (id == R.id.action_settings) {
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
+	}
+}
