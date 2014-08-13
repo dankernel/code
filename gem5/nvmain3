@@ -73,3 +73,6 @@ tests/test-progs/dkdk/src/main --mem-type=nvmain
 
 머큐리얼 사용법 한글 링크 :
 http://hyeonseok.com/soojung/dev/2014/06/08/756.html
+
+nvmain만 테스트 하는 방법 : 
+./nvmain.fast Config/PCM_MLC_example.config Tests/Traces/hello_world.nvt 1000000
