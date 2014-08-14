@@ -7,7 +7,7 @@ public class Test {
 		val tmp = new val("number", "int", 20);
 		tmp.debug();
 		
-		tmp.setContain(12.4);
+		tmp.setContain(40);
 		tmp.debug();
 
 		

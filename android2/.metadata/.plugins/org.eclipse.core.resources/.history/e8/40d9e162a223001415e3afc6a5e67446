@@ -22,17 +22,8 @@ public class val {
 		return this.Contain;
 	}
 
-	public void setContain(Object contain) {
-		this.Contain = contain;
-	}
 	
-	public int debug() {
-		System.out.println("name : " + this.Name);
-		System.out.println("type : " + this.Type);
-		System.out.println("cont : " + this.Contain);
-		System.out.println("cont : " + this.Contain.getClass().toString());
-		
-		return 0;
-	}
+	
+	
 
 }
