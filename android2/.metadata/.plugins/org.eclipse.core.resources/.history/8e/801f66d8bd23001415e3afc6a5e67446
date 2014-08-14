@@ -11,7 +11,7 @@ import antlr.CParser.translation_unit_return;
 public class __Test__ {
 
     public static void main(String args[]) throws Exception {
-    	System.out.println("����");
+    	System.out.println("start");
     	CLexer lex = new CLexer(new ANTLRFileStream("/home/dkdk/code/antlr/__Test___input.txt", "UTF8"));
         CommonTokenStream tokens = new CommonTokenStream(lex);
         
@@ -20,7 +20,7 @@ public class __Test__ {
             translation_unit_return c = g.translation_unit();
             System.out.println("print : " + c.tree.toStringTree());
             System.out.println(c.tree.toString());
-            /*
+            
             for(int i=0;i<c.tree.getChildCount();i++)
             {
             	System.out.println(c.tree.getChild(i));
@@ -34,7 +34,6 @@ public class __Test__ {
             	}
             	System.out.println();
             }
-            */
            
         } catch (RecognitionException e) {
             e.printStackTrace();
