@@ -9,8 +9,10 @@ public class Test {
 
 	}
 	
-	private static int f1(int num) {
-		return num * 10;
+	private static String f1(int num) {
+
+		return Integer.toString(num * 10);
+		
 	}
 
 }
