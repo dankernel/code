@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-<listEntry value="/antlr/src/antlr/__Test__.java"/>
+<listEntry value="/Test"/>
 </listAttribute>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
-<listEntry value="1"/>
+<listEntry value="4"/>
 </listAttribute>
-<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="antlr.__Test__"/>
-<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="antlr"/>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="Test.main"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="Test"/>
 </launchConfiguration>

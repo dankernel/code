@@ -1,0 +1,21 @@
+
+
+import java.*;
+import java.lang.String;
+
+public class Test {
+	
+	public Test() {
+		
+		
+	}
+	
+	public static void main()
+	{
+
+		
+		
+	}
+
+
+}
