@@ -1,0 +1,11 @@
+package Test;
+
+public class math {
+	
+	public math() {
+		math val1 = null;
+		math val2 = null;
+		
+	}
+
+}

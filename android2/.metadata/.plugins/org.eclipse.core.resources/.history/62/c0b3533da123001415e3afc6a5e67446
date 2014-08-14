@@ -1,0 +1,15 @@
+package Test;
+
+public class math {
+
+	math val1 = null;
+	math val2 = null;
+	String op = "";
+
+	public math() {
+		math val1 = null;
+		math val2 = null;
+		String op = "";
+	}
+
+}

@@ -1,0 +1,8 @@
+package Test;
+
+public class val {
+	
+	private String name;
+	private String Type;
+
+}
