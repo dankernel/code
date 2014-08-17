@@ -26,6 +26,7 @@
 struct file_info
 {
   char *path;
+  int fd;
 
   int file_size;
   int seek;
@@ -34,12 +35,11 @@ struct file_info
   int buf_size;
   char *buf;
 
+  int int_file(char *);
 };
-
 
 int init_file(char *path)
 {
-
   _open_file(path);
 
 }
