@@ -20,9 +20,23 @@
 #include <string.h>
 #include <fcntl.h>
 
+#include "errno.h"
+
+struct file_info
+{
+
+}
+
 int open_file(char *path)
 {
   int ret = -1;
+
+  if (!path)
+    return -EARG_NULL;
+
+  ret = open(path, O_RDWR, 0666);
+  if (ret < 0)
+    return -EFAIL_FUNC;
 
 ret:
   return 0;
@@ -32,8 +46,12 @@ int main(int argc, char* argv[])
 {
   int fd = -1;
 
-  open_file();
+  fd = open_file("f");
+  if (fd < 0) {
+    printf("[FAIL] \n");
+  }
   
+
 
 
 
