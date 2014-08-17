@@ -105,18 +105,29 @@ int read_split(struct file_info *info, char ch)
   char tmp = '\0';
 
   /* read */
-  read_size += read(info->fd, info->buf_size, info->buf);
-  info->seek = read_size;
+  read_size = read(info->fd, info->buf, info->buf_size);
+  info->seek += read_size;
+  err_test(read_size, "read");
 
-  /* lookup ch */
-  while ((tmp = *(info->buf + i)) != ch) {
-    i++;
+  /* loop buf */
+  while (i <= read_size) {
 
-    if (tmp == '\n)
+    tmp = *((info->buf) + i);
+
+    /* new line count */
+    if (tmp == '\n')
       info->line++;
-  }
-  
 
+    /* lookup ch */
+    if (tmp == ch)
+      goto ret;
+
+    i++;
+  }
+
+ret : 
+  info->buf[i] = '\0';
+  printf("buf : %s \n", info->buf);
   return 0;
 }
 

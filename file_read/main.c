@@ -38,6 +38,12 @@ int main(int argc, char* argv[])
   buf = malloc(sizeof(char) * 1024);
   memset(buf, '\0', 1024);
 
+  read_split(dk_file, '\n');
+
+  
+
+  
+
   
   
   return 0;
