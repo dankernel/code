@@ -36,21 +36,36 @@ struct file_info
   char *buf;
 
   int (*init_file)(char *);
+  int (*f1)(char *);
 };
 
-int init_file_struct(struct file_info *info)
+int f1(char *tmp)
 {
-  (info->init_file) = init_file;
-  return 0;
+  printf("f1\n");
 }
 
 int init_file(char *path)
 {
-  printf("==\n");
+  printf("init_file \n");
   _open_file(path);
-
 }
 
+/*
+ * init function pointer
+ */
+int init_file_struct(struct file_info *info)
+{/*{{{*/
+  (info->init_file) = init_file;
+  (info->f1) = f1;
+  (info->f2) = f2;
+  return 0;
+}/*}}}*/
+
+/*
+ * open file
+ * @path : file path
+ * return : fd
+ */
 int _open_file(char *path)
 {
   int ret = -1;
@@ -65,6 +80,6 @@ int _open_file(char *path)
   err_test(ret, "open");
 
 ret:
-  return 0;
+  return ret;
 }
 
