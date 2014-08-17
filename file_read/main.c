@@ -30,8 +30,7 @@ int main(int argc, char* argv[])
   struct file_info *dk_file = NULL;
   dk_file = (struct file_info*)malloc(sizeof(struct file_info));
 
-  init_file_struct(dk_file);
-  dk_file->init_file("./file");
+  init_file_struct(dk_file, "./file");
   
   return 0;
 }

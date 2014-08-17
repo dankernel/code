@@ -35,30 +35,22 @@ struct file_info
   int buf_size;
   char *buf;
 
-  int (*init_file)(char *);
-  int (*f1)(char *);
 };
-
-int f1(char *tmp)
-{
-  printf("f1\n");
-}
-
-int init_file(char *path)
-{
-  printf("init_file \n");
-  _open_file(path);
-}
 
 /*
  * init function pointer
+ * @info : file_info struct
+ * @parh : target file path
  */
 int init_file_struct(struct file_info *info, char *path)
 {/*{{{*/
-
-  strcpy(info->path, path);
   
+  /* path */
+  info->path = malloc(sizeof(char) * strlen(path));
+  strcpy(info->path, path);
 
+  /* fd */
+  info->fd = open_file(path);
 
   return 0;
 }/*}}}*/
@@ -68,7 +60,7 @@ int init_file_struct(struct file_info *info, char *path)
  * @path : file path
  * return : fd
  */
-int _open_file(char *path)
+int open_file(char *path)
 {/*{{{*/
   int ret = -1;
 
@@ -79,9 +71,8 @@ int _open_file(char *path)
   if (ret < 0)
     return -EFAIL_FUNC;
 
-  err_test(ret, "open");
-
 ret:
+  err_test(ret, "open");
   return ret;
 }/*}}}*/
 
