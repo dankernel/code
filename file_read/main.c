@@ -27,13 +27,11 @@ int main(int argc, char* argv[])
   int fd = -1;
 
   struct file_info *dk_file = NULL;
-  dk_file = (struct file_info*) malloc(sizeof(struct file_info));
+  dk_file = (struct file_info*)malloc(sizeof(struct file_info));
 
-
-  fd = init_file("./file");
+  dk_file->init_file = init_file;
+  dk_file->init_file("./file");
   
-
-
   return 0;
 }
 
