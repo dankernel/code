@@ -25,10 +25,26 @@
 
 struct file_info
 {
+  char *path;
+
+  int file_size;
+  int seek;
+  int line;
+
+  int buf_size;
+  char *buf;
 
 };
 
-int open_file(char *path)
+
+int init_file(char *path)
+{
+
+  _open_file(path);
+
+}
+
+int _open_file(char *path)
 {
   int ret = -1;
 
@@ -39,19 +55,9 @@ int open_file(char *path)
   if (ret < 0)
     return -EFAIL_FUNC;
 
+  err_test(ret, "open");
+
 ret:
-  return 0;
-}
-
-int main(int argc, char* argv[])
-{
-  int fd = -1;
-
-  fd = open_file("./file");
-  err_test(fd, "open");
-
-
-
   return 0;
 }
 

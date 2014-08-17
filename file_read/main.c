@@ -20,15 +20,18 @@
 #include <string.h>
 #include <fcntl.h>
 
-#include "file_rasd.h"
+#include "file_read.h"
 
 int main(int argc, char* argv[])
 {
   int fd = -1;
 
-  fd = open_file("./file");
-  err_test(fd, "open");
+  struct file_info *dk_file = NULL;
+  dk_file = (struct file_info)malloc(sizeof(struct file_info));
 
+
+  fd = open_file("./file");
+  
 
 
   return 0;
