@@ -16,17 +16,17 @@
  * =====================================================================================
  */
 
-static void print_f(char *str)
+inline void print_f(char *str)
 {
   printf("[FAIL] %s \n", str);
 }
 
-static void print_o(char *str)
+inline void print_o(char *str)
 {
   printf("[OK] %s \n", str);
 }
 
-static int err_test(int val, char *str)
+inline int err_test(int val, char *str)
 {
 
   if(val < 0) {

@@ -53,11 +53,13 @@ int init_file(char *path)
 /*
  * init function pointer
  */
-int init_file_struct(struct file_info *info)
+int init_file_struct(struct file_info *info, char *path)
 {/*{{{*/
-  (info->init_file) = init_file;
-  (info->f1) = f1;
-  (info->f2) = f2;
+
+  strcpy(info->path, path);
+  
+
+
   return 0;
 }/*}}}*/
 
