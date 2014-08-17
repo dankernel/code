@@ -23,5 +23,22 @@ static void print_f(char *str)
 
 static void print_o(char *str)
 {
-  printf("[FAIL] %s \n", str);
+  printf("[OK] %s \n", str);
 }
+
+static int err_test(int val, char *str)
+{
+
+  if(val < 0) {
+    printf("[FAIL] %s fail... \n", str);
+  } else {
+    printf("[ OK ] %s ok... \n", str);
+  }
+
+  return val;
+}
+
+
+
+
+
