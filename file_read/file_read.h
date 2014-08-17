@@ -67,7 +67,7 @@ int init_file_struct(struct file_info *info)
  * return : fd
  */
 int _open_file(char *path)
-{
+{/*{{{*/
   int ret = -1;
 
   if (!path)
@@ -81,5 +81,6 @@ int _open_file(char *path)
 
 ret:
   return ret;
-}
+}/*}}}*/
+
 
