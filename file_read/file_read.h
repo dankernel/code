@@ -38,6 +38,12 @@ struct file_info
   int (*init_file)(char *);
 };
 
+int init_file_struct(struct file_info *info)
+{
+  (info->init_file) = init_file;
+  return 0;
+}
+
 int init_file(char *path)
 {
   printf("==\n");
