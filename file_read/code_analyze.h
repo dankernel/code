@@ -16,3 +16,35 @@
  * =====================================================================================
  */
 
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include <fcntl.h>
+
+/*
+ * count tabs
+ */
+inline int count_tab(char *str)
+{/*{{{*/
+  int ret = 0;
+
+  if (!str)
+    return 0;
+
+  while (*(str + ret) == '\t')
+    ret++;
+
+  return ret;
+}/*}}}*/
+
+/* TODO : working */
+int is_comment(char *str)
+{/*{{{*/
+  int ret = 0;
+
+  /* TODO : WORKING */
+
+  return ret;
+}/*}}}*/
+
+

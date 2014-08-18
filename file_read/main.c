@@ -21,31 +21,7 @@
 #include <fcntl.h>
 
 #include "file_read.h"
-
-/*
- * count tabs
- */
-inline int count_tab(char *str)
-{/*{{{*/
-  int ret = 0;
-
-  if (!str)
-    return 0;
-
-  while (*(str + ret) == '\t')
-    ret++;
-
-  return ret;
-}/*}}}*/
-
-int is_comment(char *str)
-{/*{{{*/
-  int ret = 0;
-
-  /* TODO : WORKING */
-
-  return ret;
-}/*}}}*/
+#include "code_analyze.h"
 
 int main(int argc, char* argv[])
 {
@@ -53,13 +29,12 @@ int main(int argc, char* argv[])
   int ret = 0;
   char *buf = NULL;
 
-  /* alloc struct */
+  /* alloc and init struct */
   struct file_info *dk_file = NULL;
   dk_file = (struct file_info*)malloc(sizeof(struct file_info));
-
-  /* open */
   init_file_struct(dk_file, "./core.c");
 
+  /* CORE */
   buf = read_split(dk_file, '\n');
   while (buf) {
 
@@ -72,9 +47,7 @@ int main(int argc, char* argv[])
 
     /* next */
     buf = read_split(dk_file, '\n');
-
   }
-
 
   return 0;
 }
