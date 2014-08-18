@@ -1,0 +1,293 @@
+[ OK ] open : 3 ok... 
+ 					 HRTIMER_MODE_ABS_PINNED, 0); 
+== info : 125 line / 5 tab 
+ 				sysctl_sched_features &= ~(1UL << i); 
+== info : 226 line / 4 tab 
+ 				sched_feat_disable(i); 
+== info : 227 line / 4 tab 
+ 				sysctl_sched_features |= (1UL << i); 
+== info : 229 line / 4 tab 
+ 				sched_feat_enable(i); 
+== info : 230 line / 4 tab 
+ 				cpu = i; 
+== info : 653 line / 4 tab 
+ 				goto unlock; 
+== info : 654 line / 4 tab 
+ 				       const struct sched_class *prev_class, 
+== info : 1003 line / 4 tab 
+ 				       int oldprio) 
+== info : 1004 line / 4 tab 
+ 				break; 
+== info : 1023 line / 4 tab 
+ 				resched_task(rq->curr); 
+== info : 1025 line / 4 tab 
+ 				break; 
+== info : 1026 line / 4 tab 
+ 				      lockdep_is_held(&task_rq(p)->lock))); 
+== info : 1062 line / 4 tab 
+ 				return 0; 
+== info : 1232 line / 4 tab 
+ 				continue; 
+== info : 1343 line / 4 tab 
+ 				continue; 
+== info : 1345 line / 4 tab 
+ 				return dest_cpu; 
+== info : 1347 line / 4 tab 
+ 				continue; 
+== info : 1355 line / 4 tab 
+ 				continue; 
+== info : 1357 line / 4 tab 
+ 					task_pid_nr(p), p->comm, cpu); 
+== info : 1388 line / 5 tab 
+ 				schedstat_inc(sd, ttwu_wake_remote); 
+== info : 1446 line / 4 tab 
+ 				break; 
+== info : 1447 line / 4 tab 
+ 				 struct task_struct *next) 
+== info : 2134 line / 4 tab 
+ 				 struct task_struct *next) 
+== info : 2150 line / 4 tab 
+ 				defined(CONFIG_PREEMPT_TRACER)) 
+== info : 2555 line / 4 tab 
+ 				PREEMPT_MASK - 10); 
+== info : 2572 line / 4 tab 
+ 				goto again; 
+== info : 2686 line / 4 tab 
+ 				struct task_struct *to_wakeup; 
+== info : 2772 line / 4 tab 
+ 				to_wakeup = wq_worker_sleeping(prev, cpu); 
+== info : 2774 line / 4 tab 
+ 				if (to_wakeup) 
+== info : 2775 line / 4 tab 
+ 					try_to_wake_up_local(to_wakeup); 
+== info : 2776 line / 5 tab 
+ 				const struct sched_attr *attr, 
+== info : 3321 line / 4 tab 
+ 				bool user) 
+== info : 3322 line / 4 tab 
+ 				policy != SCHED_FIFO && policy != SCHED_RR && 
+== info : 3344 line / 4 tab 
+ 				policy != SCHED_NORMAL && policy != SCHED_BATCH && 
+== info : 3345 line / 4 tab 
+ 				policy != SCHED_IDLE) 
+== info : 3346 line / 4 tab 
+ 				return -EPERM; 
+== info : 3372 line / 4 tab 
+ 					task_rlimit(p, RLIMIT_RTPRIO); 
+== info : 3377 line / 5 tab 
+ 				return -EPERM; 
+== info : 3381 line / 4 tab 
+ 				return -EPERM; 
+== info : 3386 line / 4 tab 
+ 				return -EPERM; 
+== info : 3404 line / 4 tab 
+ 				task_group(p)->rt_bandwidth.rt_runtime == 0 && 
+== info : 3464 line / 4 tab 
+ 				!task_group_is_autogroup(task_group(p))) { 
+== info : 3465 line / 4 tab 
+ 				task_rq_unlock(rq, p, &flags); 
+== info : 3481 line / 4 tab 
+ 				return -EPERM; 
+== info : 3482 line / 4 tab 
+ 				return ret; 
+== info : 3682 line / 4 tab 
+ 				goto err_size; 
+== info : 3684 line / 4 tab 
+ 				| (p->sched_reset_on_fork ? SCHED_RESET_ON_FORK : 0); 
+== info : 3791 line / 4 tab 
+ 				return -EFBIG; 
+== info : 3863 line / 4 tab 
+ 				class->rq_online(rq); 
+== info : 5060 line / 4 tab 
+ 				class->rq_offline(rq); 
+== info : 5072 line / 4 tab 
+ 				      unsigned long action, void *hcpu) 
+== info : 5151 line / 4 tab 
+ 					unsigned long action, void *hcpu) 
+== info : 5166 line / 5 tab 
+ 				return notifier_from_errno(-EBUSY); 
+== info : 5187 line / 4 tab 
+ 				  struct cpumask *groupmask) 
+== info : 5237 line / 4 tab 
+ 					" has parent"); 
+== info : 5251 line / 5 tab 
+ 				"CPU%d\n", cpu); 
+== info : 5259 line / 4 tab 
+ 				" CPU%d\n", cpu); 
+== info : 5263 line / 4 tab 
+ 				group->sgc->capacity); 
+== info : 5305 line / 4 tab 
+ 				SD_BALANCE_NEWIDLE | 
+== info : 5391 line / 4 tab 
+ 				SD_BALANCE_FORK | 
+== info : 5392 line / 4 tab 
+ 				SD_BALANCE_EXEC | 
+== info : 5393 line / 4 tab 
+ 				SD_SHARE_CPUCAPACITY | 
+== info : 5394 line / 4 tab 
+ 				SD_SHARE_PKG_RESOURCES | 
+== info : 5395 line / 4 tab 
+ 				SD_PREFER_SIBLING | 
+== info : 5396 line / 4 tab 
+ 				SD_SHARE_POWERDOMAIN); 
+== info : 5397 line / 4 tab 
+ 				parent->parent->child = tmp; 
+== info : 5627 line / 4 tab 
+ 				tmp->flags |= SD_PREFER_SIBLING; 
+== info : 5634 line / 4 tab 
+ 				GFP_KERNEL, cpu_to_node(cpu)); 
+== info : 5746 line / 4 tab 
+ 				continue; 
+== info : 5854 line / 4 tab 
+ 				 struct sched_domain_attr *attr) 
+== info : 5917 line / 4 tab 
+ 				 const struct cpumask *cpu_map) 
+== info : 5941 line / 4 tab 
+ 						   const struct cpumask *cpu_map) 
+== info : 5957 line / 6 tab 
+ 					| 1*SD_BALANCE_NEWIDLE 
+== info : 6051 line / 5 tab 
+ 					| 1*SD_BALANCE_EXEC 
+== info : 6052 line / 5 tab 
+ 					| 1*SD_BALANCE_FORK 
+== info : 6053 line / 5 tab 
+ 					| 0*SD_BALANCE_WAKE 
+== info : 6054 line / 5 tab 
+ 					| 1*SD_WAKE_AFFINE 
+== info : 6055 line / 5 tab 
+ 					| 0*SD_SHARE_CPUCAPACITY 
+== info : 6056 line / 5 tab 
+ 					| 0*SD_SHARE_PKG_RESOURCES 
+== info : 6057 line / 5 tab 
+ 					| 0*SD_SERIALIZE 
+== info : 6058 line / 5 tab 
+ 					| 0*SD_PREFER_SIBLING 
+== info : 6059 line / 5 tab 
+ 					| 0*SD_NUMA 
+== info : 6060 line / 5 tab 
+ 					| sd_flags 
+== info : 6061 line / 5 tab 
+ 					, 
+== info : 6062 line / 5 tab 
+ 				       SD_BALANCE_FORK | 
+== info : 6096 line / 4 tab 
+ 				       SD_WAKE_AFFINE); 
+== info : 6097 line / 4 tab 
+ 				int distance = node_distance(i, k); 
+== info : 6202 line / 4 tab 
+ 				if (distance > curr_distance && 
+== info : 6204 line / 4 tab 
+ 				    (distance < next_distance || 
+== info : 6205 line / 4 tab 
+ 				     next_distance == curr_distance)) 
+== info : 6206 line / 4 tab 
+ 					next_distance = distance; 
+== info : 6207 line / 5 tab 
+ 				/* 
+== info : 6209 line / 4 tab 
+ 				 * While not a strong assumption it would be nice to know 
+== info : 6210 line / 4 tab 
+ 				 * about cases where if node A is connected to B, B is not 
+== info : 6211 line / 4 tab 
+ 				 * equally connected to A. 
+== info : 6212 line / 4 tab 
+ 				 */ 
+== info : 6213 line / 4 tab 
+ 				if (sched_debug() && node_distance(k, i) != distance) 
+== info : 6214 line / 4 tab 
+ 					sched_numa_warn("Node-distance not symmetric"); 
+== info : 6215 line / 5 tab 
+ 				if (sched_debug() && i && !find_numa_distance(distance)) 
+== info : 6217 line / 4 tab 
+ 					sched_numa_warn("Node-0 not representative"); 
+== info : 6218 line / 5 tab 
+ 				sched_domains_numa_distance[level++] = next_distance; 
+== info : 6221 line / 4 tab 
+ 				sched_domains_numa_levels = level; 
+== info : 6222 line / 4 tab 
+ 				curr_distance = next_distance; 
+== info : 6223 line / 4 tab 
+ 				return; 
+== info : 6269 line / 4 tab 
+ 				if (node_distance(j, k) > sched_domains_numa_distance[i]) 
+== info : 6274 line / 4 tab 
+ 					continue; 
+== info : 6275 line / 5 tab 
+ 				cpumask_or(mask, mask, cpumask_of_node(k)); 
+== info : 6277 line / 4 tab 
+ 				cpumask_set_cpu(cpu, sched_domains_numa_masks[i][j]); 
+== info : 6322 line / 4 tab 
+ 					   unsigned long action, 
+== info : 6341 line / 5 tab 
+ 					   void *hcpu) 
+== info : 6342 line / 5 tab 
+ 					   unsigned long action, 
+== info : 6367 line / 5 tab 
+ 					   void *hcpu) 
+== info : 6368 line / 5 tab 
+ 					GFP_KERNEL, cpu_to_node(j)); 
+== info : 6400 line / 5 tab 
+ 				return -ENOMEM; 
+== info : 6402 line / 4 tab 
+ 					GFP_KERNEL, cpu_to_node(j)); 
+== info : 6407 line / 5 tab 
+ 				return -ENOMEM; 
+== info : 6409 line / 4 tab 
+ 					GFP_KERNEL, cpu_to_node(j)); 
+== info : 6416 line / 5 tab 
+ 				return -ENOMEM; 
+== info : 6418 line / 4 tab 
+ 				sd = *per_cpu_ptr(sdd->sd, j); 
+== info : 6439 line / 4 tab 
+ 				if (sd && (sd->flags & SD_OVERLAP)) 
+== info : 6440 line / 4 tab 
+ 					free_sched_groups(sd->groups, 0); 
+== info : 6441 line / 5 tab 
+ 				kfree(*per_cpu_ptr(sdd->sd, j)); 
+== info : 6442 line / 4 tab 
+ 				kfree(*per_cpu_ptr(sdd->sg, j)); 
+== info : 6446 line / 4 tab 
+ 				kfree(*per_cpu_ptr(sdd->sgc, j)); 
+== info : 6448 line / 4 tab 
+ 				*per_cpu_ptr(d.sd, i) = sd; 
+== info : 6503 line / 4 tab 
+ 				sd->flags |= SD_OVERLAP; 
+== info : 6505 line / 4 tab 
+ 				break; 
+== info : 6507 line / 4 tab 
+ 				if (build_overlap_sched_groups(sd, i)) 
+== info : 6516 line / 4 tab 
+ 					goto error; 
+== info : 6517 line / 5 tab 
+ 				if (build_sched_groups(sd, i)) 
+== info : 6519 line / 4 tab 
+ 					goto error; 
+== info : 6520 line / 5 tab 
+ 				/* attribues of custom domains in 'doms_cur' */ 
+== info : 6553 line / 4 tab 
+ 				goto match1; 
+== info : 6695 line / 4 tab 
+ 				goto match2; 
+== info : 6716 line / 4 tab 
+ 				set_user_nice(p, 0); 
+== info : 7133 line / 4 tab 
+ 				lockdep_is_held(&tsk->sighand->siglock)), 
+== info : 7301 line / 4 tab 
+ 				 struct cgroup_taskset *tset) 
+== info : 7723 line / 4 tab 
+ 				struct cftype *cftype, u64 shareval) 
+== info : 7766 line / 4 tab 
+ 				  struct cftype *cft) 
+== info : 7903 line / 4 tab 
+ 				   struct cftype *cftype, s64 cfs_quota_us) 
+== info : 7909 line / 4 tab 
+ 				   struct cftype *cft) 
+== info : 7915 line / 4 tab 
+ 				    struct cftype *cftype, u64 cfs_period_us) 
+== info : 7921 line / 4 tab 
+ 				struct cftype *cft, s64 val) 
+== info : 8020 line / 4 tab 
+ 				    struct cftype *cftype, u64 rt_period_us) 
+== info : 8032 line / 4 tab 
+ 				   struct cftype *cft) 
+== info : 8038 line / 4 tab 

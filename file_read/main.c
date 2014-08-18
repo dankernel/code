@@ -59,10 +59,10 @@ int main(int argc, char* argv[])
   while (buf) {
 
     /* cheek */
-    ret = strlen(buf);
-    if (80 < ret) {
+    ret = count_tab(buf);
+    if (4 <= ret) {
       printf(" %s \n", buf);
-      printf("== info : %d line %d len \n", dk_file->line, ret);
+      printf("== info : %d line / %d tab \n", dk_file->line, ret);
     }
 
     /* next */
