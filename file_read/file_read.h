@@ -98,7 +98,7 @@ ret:
   return ret;
 }/*}}}*/
 
-int read_split(struct file_info *info, char ch)
+char *read_split(struct file_info *info, char ch)
 {
   int read_size = 0;
   int i = 0;
@@ -125,10 +125,18 @@ int read_split(struct file_info *info, char ch)
     i++;
   }
 
+fail:
+  return NULL;
+
 ret : 
+  /* seek */
+  info->seek -= read_size;
+  info->seek += i;
+
+  /* string end */
   info->buf[i] = '\0';
-  printf("buf : %s \n", info->buf);
-  return 0;
+
+  return info->buf;
 }
 
 int read_file(struct file_info *info)

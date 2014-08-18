@@ -25,6 +25,7 @@
 int main(int argc, char* argv[])
 {
   int fd = -1;
+  char *ret = NULL;
   char *buf = NULL;
 
   /* alloc struct */
@@ -38,7 +39,8 @@ int main(int argc, char* argv[])
   buf = malloc(sizeof(char) * 1024);
   memset(buf, '\0', 1024);
 
-  read_split(dk_file, '\n');
+  ret = read_split(dk_file, '\n');
+  printf("read str : %s \n", ret);
 
   
 
