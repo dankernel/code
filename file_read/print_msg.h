@@ -30,9 +30,9 @@ inline int err_test(int val, char *str)
 {
 
   if(val < 0) {
-    printf("[FAIL] %s fail... \n", str);
+    printf("[FAIL] %s : %d fail... \n", str, val);
   } else {
-    printf("[ OK ] %s ok... \n", str);
+    printf("[ OK ] %s : %d ok... \n", str, val);
   }
 
   return val;

@@ -102,15 +102,15 @@ char *read_split(struct file_info *info, char ch)
 {
   int read_size = 0;
   int i = 0;
+  int ret = 0;
   char tmp = '\0';
 
 loop:
 
   /* read and save buf */
   read_size = read(info->fd, info->buf, info->buf_size);
-  info->seek += read_size;
   err_test(read_size, "read");
-  if (read_size < 0)
+  if (read_size <= 0)
     goto fail;
 
   /* lookup char */
@@ -128,18 +128,21 @@ loop:
     if (tmp == ch)
       goto ret;
 
+    /* next */
     i++;
   }
   goto loop;
-
 
 fail:
   return NULL;
 
 ret : 
   /* seek */
-  info->seek -= read_size;
-  info->seek += i;
+  ret = lseek(info->fd, -(read_size - i), SEEK_CUR);
+  printf("seek : %d \n", ret);
+  info->seek = ret;
+
+  printf("seek2 : %d \n", lseek(info->fd, 0, SEEK_CUR));
 
   /* string end */
   info->buf[i] = '\0';
