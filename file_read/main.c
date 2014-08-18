@@ -41,7 +41,9 @@ int main(int argc, char* argv[])
 
   ret = read_split(dk_file, '\n');
   printf("read str : %s \n", ret);
-  printf("seek2 : %d \n", lseek(dk_info->fd, 0, SEEK_CUR));
+  
+  ret = read_split(dk_file, '\n');
+  printf("read str : %s \n", ret);
   
 
   return 0;

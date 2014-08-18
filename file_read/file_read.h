@@ -107,7 +107,10 @@ char *read_split(struct file_info *info, char ch)
 
 loop:
 
+  printf("curr seek : %d \n", lseek(info->fd, 0, SEEK_CUR));
+
   /* read and save buf */
+  memset(info->buf, '\0', info->buf_size);
   read_size = read(info->fd, info->buf, info->buf_size);
   err_test(read_size, "read");
   if (read_size <= 0)
@@ -139,10 +142,7 @@ fail:
 ret : 
   /* seek */
   ret = lseek(info->fd, -(read_size - i), SEEK_CUR);
-  printf("seek : %d \n", ret);
   info->seek = ret;
-
-  printf("seek2 : %d \n", lseek(info->fd, 0, SEEK_CUR));
 
   /* string end */
   info->buf[i] = '\0';
