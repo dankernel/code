@@ -33,18 +33,19 @@ int main(int argc, char* argv[])
   dk_file = (struct file_info*)malloc(sizeof(struct file_info));
 
   /* open */
-  init_file_struct(dk_file, "./file");
+  init_file_struct(dk_file, "./core.c");
 
   /* buff init */
   buf = malloc(sizeof(char) * 1024);
   memset(buf, '\0', 1024);
 
   ret = read_split(dk_file, '\n');
-  printf("read str : %s \n", ret);
-  
-  ret = read_split(dk_file, '\n');
-  printf("read str : %s \n", ret);
-  
+  printf(">> read str : %s \n", ret);
+  while (ret) {
+    ret = read_split(dk_file, '\n');
+    printf(">> read str : %s \n", ret);
+  }
+
 
   return 0;
 }

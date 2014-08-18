@@ -20,6 +20,9 @@
 #include <string.h>
 #include <fcntl.h>
 
+#include <sys/types.h>
+#include <unistd.h>
+
 #include "errno.h"
 #include "print_msg.h"
 
@@ -107,12 +110,10 @@ char *read_split(struct file_info *info, char ch)
 
 loop:
 
-  printf("curr seek : %d \n", lseek(info->fd, 0, SEEK_CUR));
-
   /* read and save buf */
   memset(info->buf, '\0', info->buf_size);
   read_size = read(info->fd, info->buf, info->buf_size);
-  err_test(read_size, "read");
+  // :err_test(read_size, "read");
   if (read_size <= 0)
     goto fail;
 
@@ -140,12 +141,15 @@ fail:
   return NULL;
 
 ret : 
+  /* string end */
+  info->buf[i] = '\0';
+
+  /* prevent re-find */
+  i++;
+
   /* seek */
   ret = lseek(info->fd, -(read_size - i), SEEK_CUR);
   info->seek = ret;
-
-  /* string end */
-  info->buf[i] = '\0';
 
   return info->buf;
 }
