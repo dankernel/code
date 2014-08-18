@@ -35,6 +35,13 @@ inline int count_tab(char *str)
   return ret;
 }
 
+int is_comment(char *str)
+{
+  int ret = 0;
+
+  return ret;
+}
+
 int main(int argc, char* argv[])
 {
   int fd = -1;
