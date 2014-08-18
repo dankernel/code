@@ -49,15 +49,18 @@ int main(int argc, char* argv[])
   init_file_struct(dk_file, "./core.c");
 
   buf = read_split(dk_file, '\n');
-  printf(">> read str : %s \n", buf);
   while (buf) {
-    buf = read_split(dk_file, '\n');
-    ret =  count_tab(buf);
 
-    if (2 <= ret) {
-      printf(">> [%d] read str : %s \n", ret, buf);
-      printf(">>> info : %d line \n", dk_file->line);
+    /* cheek */
+    ret = strlen(buf);
+    if (80 < ret) {
+      printf(" %s \n", buf);
+      printf("== info : %d line %d len \n", dk_file->line, ret);
     }
+
+    /* next */
+    buf = read_split(dk_file, '\n');
+
   }
 
 
