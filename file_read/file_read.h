@@ -113,7 +113,7 @@ loop:
   /* read and save buf */
   memset(info->buf, '\0', info->buf_size);
   read_size = read(info->fd, info->buf, info->buf_size);
-  // :err_test(read_size, "read");
+  // err_test(read_size, "read");
   if (read_size <= 0)
     goto fail;
 

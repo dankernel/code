@@ -22,10 +22,23 @@
 
 #include "file_read.h"
 
+inline int count_tab(char *str)
+{
+  int ret = 0;
+
+  if (!str)
+    return 0;
+
+  while (*(str + ret) == '\t')
+    ret++;
+
+  return ret;
+}
+
 int main(int argc, char* argv[])
 {
   int fd = -1;
-  char *ret = NULL;
+  int ret = 0;
   char *buf = NULL;
 
   /* alloc struct */
@@ -35,15 +48,16 @@ int main(int argc, char* argv[])
   /* open */
   init_file_struct(dk_file, "./core.c");
 
-  /* buff init */
-  buf = malloc(sizeof(char) * 1024);
-  memset(buf, '\0', 1024);
+  buf = read_split(dk_file, '\n');
+  printf(">> read str : %s \n", buf);
+  while (buf) {
+    buf = read_split(dk_file, '\n');
+    ret =  count_tab(buf);
 
-  ret = read_split(dk_file, '\n');
-  printf(">> read str : %s \n", ret);
-  while (ret) {
-    ret = read_split(dk_file, '\n');
-    printf(">> read str : %s \n", ret);
+    if (2 <= ret) {
+      printf(">> [%d] read str : %s \n", ret, buf);
+      printf(">>> info : %d line \n", dk_file->line);
+    }
   }
 
 
