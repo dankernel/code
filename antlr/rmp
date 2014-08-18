@@ -4,6 +4,10 @@
 
 ID : 함수나 변수 이름 같은걸 의미 하는 듯.
 (ID i) : 변수 i.
+(ID printf) 함수 printf.
+
+LITERAL
+(LITERAL 0) : 상수 0.
 
 (STATEMENT  ~~ ;)의 식으로 하는 듯.
 KEYWORD : int fot return 등의 키워드를 의미 하는 듯.
