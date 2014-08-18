@@ -104,14 +104,20 @@ char *read_split(struct file_info *info, char ch)
   int i = 0;
   char tmp = '\0';
 
-  /* read */
+loop:
+
+  /* read and save buf */
   read_size = read(info->fd, info->buf, info->buf_size);
   info->seek += read_size;
   err_test(read_size, "read");
+  if (read_size < 0)
+    goto fail;
 
-  /* loop buf */
-  while (i <= read_size) {
+  /* lookup char */
+  i = 0;
+  while (i < read_size){
 
+    /* next char */
     tmp = *((info->buf) + i);
 
     /* new line count */
@@ -124,6 +130,8 @@ char *read_split(struct file_info *info, char ch)
 
     i++;
   }
+  goto loop;
+
 
 fail:
   return NULL;

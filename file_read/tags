@@ -1,0 +1,25 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+EARG_NULL	errno.h	19;"	d
+EFAIL_FUNC	errno.h	20;"	d
+MAX_BUFF_SIZE	file_read.h	26;"	d
+buf	file_read.h	/^  char *buf;$/;"	m	struct:file_info
+buf_size	file_read.h	/^  int buf_size;$/;"	m	struct:file_info
+err_test	print_msg.h	/^inline int err_test(int val, char *str)$/;"	f
+fd	file_read.h	/^  int fd;$/;"	m	struct:file_info
+file_info	file_read.h	/^struct file_info$/;"	s
+file_size	file_read.h	/^  int file_size;$/;"	m	struct:file_info
+init_file_struct	file_read.h	/^int init_file_struct(struct file_info *info, char *path)$/;"	f
+line	file_read.h	/^  int line;$/;"	m	struct:file_info
+main	main.c	/^int main(int argc, char* argv[])$/;"	f
+open_file	file_read.h	/^int open_file(char *path)$/;"	f
+path	file_read.h	/^  char *path;$/;"	m	struct:file_info
+print_f	print_msg.h	/^inline void print_f(char *str)$/;"	f
+print_o	print_msg.h	/^inline void print_o(char *str)$/;"	f
+read_file	file_read.h	/^int read_file(struct file_info *info)$/;"	f
+read_split	file_read.h	/^char *read_split(struct file_info *info, char ch)$/;"	f
+seek	file_read.h	/^  int seek;$/;"	m	struct:file_info
