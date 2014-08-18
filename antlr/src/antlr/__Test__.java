@@ -20,7 +20,7 @@ public class __Test__ {
             System.out.println("print : " + c.tree.toStringTree());
             System.out.println(c.tree.toString());
 
-            /*
+            
             System.out.println("print : ");
             for (int i=0; i<c.tree.getChildCount(); i++)
             {
@@ -35,7 +35,6 @@ public class __Test__ {
             	}
             	System.out.println();
             }
-            */
            
         } catch (RecognitionException e) {
             e.printStackTrace();

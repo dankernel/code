@@ -13,3 +13,17 @@ int main()
 	return 0;
 
 }
+
+print
+(FUNCTION (KEYWORD int) (DECLARATOR (ID main) ( )) { 
+ (DECLARATION (KEYWORD int) (INIT_DECLARATOR (DECLARATOR (ID i))) ;)
+ (STATEMENT (KEYWORD for) 
+            ( (ID i) = (LITERAL 0) ; (ID i) < (LITERAL 10) ; (ID i) ++ ) 
+            (STATEMENT { 
+                  (STATEMENT (ID printf) ( (LITERAL "*") ) ;) 
+            })
+ ) 
+ (STATEMENT (ID printf) ( (LITERAL "\n") ) ;) 
+ (STATEMENT (KEYWORD return) (LITERAL 0) ;) 
+})
+
