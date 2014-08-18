@@ -22,8 +22,11 @@
 
 #include "file_read.h"
 
+/*
+ * count tabs
+ */
 inline int count_tab(char *str)
-{
+{/*{{{*/
   int ret = 0;
 
   if (!str)
@@ -33,14 +36,16 @@ inline int count_tab(char *str)
     ret++;
 
   return ret;
-}
+}/*}}}*/
 
 int is_comment(char *str)
-{
+{/*{{{*/
   int ret = 0;
 
+  /* TODO : WORKING */
+
   return ret;
-}
+}/*}}}*/
 
 int main(int argc, char* argv[])
 {

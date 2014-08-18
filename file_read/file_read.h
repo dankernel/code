@@ -28,8 +28,12 @@
 
 #define MAX_BUFF_SIZE 1024 * 4
 
+/*
+ * file info struct
+ */
 struct file_info
-{
+{/*{{{*/
+
   char *path;
   int fd;
 
@@ -40,10 +44,13 @@ struct file_info
   int buf_size;
   char *buf;
 
-};
+};/*}}}*/
 
 /*
- * init function pointer
+ * init file_info struct
+ * @info : file_info struct
+ * @path : open target file
+ * return : err
  */
 int init_file_struct(struct file_info *info, char *path)
 {/*{{{*/
@@ -101,8 +108,14 @@ ret:
   return ret;
 }/*}}}*/
 
+/*
+ * read (next) string, split to ch
+ * @info : file_info struct
+ * @ch : split char
+ * return : result string
+ */
 char *read_split(struct file_info *info, char ch)
-{
+{/*{{{*/
   int read_size = 0;
   int i = 0;
   int ret = 0;
@@ -152,7 +165,7 @@ ret :
   info->seek = ret;
 
   return info->buf;
-}
+}/*}}}*/
 
 int read_file(struct file_info *info)
 {
