@@ -1,0 +1,24 @@
+
+
+
+
+ID : 함수나 변수 이름 같은걸 의미 하는 듯.
+(ID i) : 변수 i.
+
+(STATEMENT  ~~ ;)의 식으로 하는 듯.
+KEYWORD : int fot return 등의 키워드를 의미 하는 듯.
+
+/* ================================================================ */
+
+(FUNCTION (KEYWORD int) (DECLARATOR (ID main) ( )) { 
+  (DECLARATION (KEYWORD int) (INIT_DECLARATOR (DECLARATOR (ID i))) ;)
+  (STATEMENT (KEYWORD for) 
+    ( (ID i) = (LITERAL 0) ; (ID i) < (LITERAL 10) ; (ID i) ++ ) 
+      (STATEMENT { 
+        (STATEMENT (ID printf) ( (LITERAL "*") ) ;) 
+      })
+  ) 
+  (STATEMENT (ID printf) ( (LITERAL "\n") ) ;) 
+  (STATEMENT (KEYWORD return) (LITERAL 0) ;) 
+})
+
