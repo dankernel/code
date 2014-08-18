@@ -41,12 +41,6 @@ int main(int argc, char* argv[])
 
   ret = read_split(dk_file, '\n');
   printf("read str : %s \n", ret);
-
-  
-
-  
-
-  
   
   return 0;
 }

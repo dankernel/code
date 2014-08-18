@@ -7,11 +7,12 @@ import org.antlr.runtime.tree.Tree;
 
 import antlr.CParser.translation_unit_return;
 
+
 public class __Test__ {
 
     public static void main(String args[]) throws Exception {
     	System.out.println("����");
-    	CLexer lex = new CLexer(new ANTLRFileStream("/home/dkdk/code/antlr/__Test___input.txt", "UTF-8"));
+    	CLexer lex = new CLexer(new ANTLRFileStream("/home/dkdk/code/antlr/__Test___input.txt", "UTF8"));
         CommonTokenStream tokens = new CommonTokenStream(lex);
         
         CParser g = new CParser(tokens, null);

@@ -19,7 +19,7 @@
 <entry path="/opt/java/jre/lib/endorsed"/>
 </endorsedDirs>
 </libraryInfo>
-<libraryInfo home="/opt/java" version="1.8.0_05">
+<libraryInfo home="/opt/java" version="1.8.0_11">
 <bootpath>
 <entry path="/opt/java/jre/lib/resources.jar"/>
 <entry path="/opt/java/jre/lib/rt.jar"/>
