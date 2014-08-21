@@ -20,7 +20,6 @@
 #include <string.h>
 #include <fcntl.h>
 
-#include "file_read.h"
 #include "code_analyze.h"
 
 int main(int argc, char* argv[])
@@ -35,21 +34,16 @@ int main(int argc, char* argv[])
   init_file_struct(dk_file, "./core.c");
 
   /* CORE */
-  buf = read_split(dk_file, '\n');
+  buf = read_pass_comment(dk_file);
   while (buf) {
 
     /* cheek */
-    ret = count_tab(buf);
-    if (4 <= ret) {
-      printf(" %s \n", buf);
-      printf("== info : %d line / %d tab \n", dk_file->line, ret);
-    }
+    printf("%s\n", buf);
 
     /* next */
-    buf = read_split(dk_file, '\n');
+    buf = read_pass_comment(dk_file);
   }
 
   return 0;
 }
-
 

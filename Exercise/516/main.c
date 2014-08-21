@@ -114,17 +114,20 @@ int main(int argc, char *argv[])
 {
   int nlines; /*  number of input lines read */
   int numeric = 0; /*  1 if numeric sort */
-  int r = 0;
+  int r = 0; /* "-r" option */
+  int f = 0; /* "-f" option */
 
   /* cheek argv option */
   numeric = cheek_option(argc, argv, "-n");
   r = cheek_option(argc, argv, "-r");
+  f = cheek_option(argc, argv, "-f");
   printf("n : %d\n", numeric);
   printf("r : %d\n", r);
+  printf("f : %d\n", f);
 
   if ((nlines = readlines(lineptr, MAXLINES)) >= 0) {
     /* sort */
-    _qsort((void**) lineptr, 0, nlines-1, (int (*)(void*,void*))(numeric ? numcmp : strcmp), r);
+    _qsort((void**) lineptr, 0, nlines-1, (int (*)(void*,void*))(f ? strcmp : strcasecmp), r);
 
     /* print */
     writelines(lineptr, nlines);

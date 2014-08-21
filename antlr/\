@@ -1,0 +1,17 @@
+
+#include <stdio.h>
+
+int main()
+{
+  int a = 10;
+  int b = 20;
+  int c = 30;
+}
+
+
+(FUNCTION (KEYWORD int) (DECLARATOR (ID main) ( )) { 
+  (DECLARATION (KEYWORD int) (INIT_DECLARATOR (DECLARATOR (ID a)) = (LITERAL 10)) ;) 
+  (DECLARATION (KEYWORD int) (INIT_DECLARATOR (DECLARATOR (ID b)) = (LITERAL 20)) ;) 
+  (DECLARATION (KEYWORD int) (INIT_DECLARATOR (DECLARATOR (ID c)) = (LITERAL 30)) ;) 
+})
+

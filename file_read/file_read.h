@@ -167,10 +167,3 @@ ret :
   return info->buf;
 }/*}}}*/
 
-int read_file(struct file_info *info)
-{
-
-  return 0;
-}
-
-

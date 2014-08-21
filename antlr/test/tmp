@@ -1,16 +1,21 @@
 
 
-
-
-ID : 함수나 변수 이름 같은걸 의미 하는 듯.
+ID : 함수나 변수 이름
 (ID i) : 변수 i.
 (ID printf) 함수 printf.
 
 LITERAL
 (LITERAL 0) : 상수 0.
+(LITERAL "*") : 문자열 "*"
 
 (STATEMENT  ~~ ;)의 식으로 하는 듯.
 KEYWORD : int fot return 등의 키워드를 의미 하는 듯.
+(KEYWORD int) : int
+(KEYWORD for) : for
+
+DECLARATOR : 선언
+DECLARATION : 선언
+INIT_DECLARATOR : 초기화
 
 /* ================================================================ */
 
