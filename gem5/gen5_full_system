@@ -42,6 +42,8 @@ http://gem5.org/Introduction#Getting_Additional_Tools_and_Files
 그 경로를 바꾸거나 M5_PATH 환경변수를 설정해서 
 경로를 대체 할 .py파일을 편집 할 수 있다.
 
+(.py파일을 편집해서 x86으로 바꾼다.)
+
 이게 제대로 안되면 다음과같은 오류가 발생한다.
 Can't find a path to system files. 
 when you first attempt to run the simulator in full-system mode. 
@@ -72,13 +74,17 @@ scons build/X86/gem5.opt
 그냥 한참을 기다리면 된다.
 중간의 X86은 대문자로 하고, 확장자(opt)는 의미가 있는데, 디폴트로 한다.
 
-
-
 아래 링크에서 풀-시스템의 실행을 알 수 있다.
 http://gem5.org/Introduction#Getting_Additional_Tools_and_Files
 
-/* 이하, 결과 요약을 목적으로 하는 메모. */
+동영상을 보고 따라하면 된다.
+요약하면 다음과 같다.
 
+다음 명령어를 입력한다. 무언가 포트를 여는데, 서버의 역할(?)을 하는가보다.
+build/X86/gem5.opt configs/example/fs.py --disk-image=/dist/x86/system/disks/linux-x86.img --kernel=/dist/x86/system/binaries/x86_64-vmlinux-2.6.22.9.smp --num-cpus=4 
+
+그러면, 다음과 같은 메세지가 난다. 
+뭔지 모르겠지만 그냥 한다..
 info: Entering event queue @ 0.  Starting simulation...
 warn: Don't know what interrupt to clear for console.
 
@@ -87,11 +93,10 @@ warn: Tried to clear PCI interrupt 14
 warn: Unknown mouse command 0xe1.
 warn: instruction 'wbinvd' unimplemented
 
-
-build/X86/gem5.opt configs/example/fs.py --disk-image=/dist/x86/system/disks/linux-x86.img --kernel=/dist/x86/system/binaries/x86_64-vmlinux-2.6.22.9.smp --num-cpus=4 
-
-
+같은머신, 다른 쉘에서 다음 명령어로 쉘에 접속(?) 한다.
 tenlet 127.0.0.1 3456
+
+한참을 기다리면 쉘이 뜬다.(담배 하나 필 시간정도) 
 
 
 
