@@ -88,6 +88,14 @@ warn: Unknown mouse command 0xe1.
 warn: instruction 'wbinvd' unimplemented
 
 
+build/X86/gem5.opt configs/example/fs.py --disk-image=/dist/x86/system/disks/linux-x86.img --kernel=/dist/x86/system/binaries/x86_64-vmlinux-2.6.22.9.smp --num-cpus=4 
+
+
+tenlet 127.0.0.1 3456
+
+
+
+
 
 
 
