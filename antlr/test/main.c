@@ -30,4 +30,3 @@ int main()
  (STATEMENT (ID printf) ( (LITERAL "result : %d \n") , (ID a) ) ;) 
 })
 
-
