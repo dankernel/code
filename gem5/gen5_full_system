@@ -15,4 +15,40 @@ http://gem5.org/Introduction#Getting_Additional_Tools_and_Files
 
 풀-시스템 버전을 실행 하려는경우, 
 전체 시스템 파일을 다운로드 해야 한다고 한다.
+(이 다운로드에 대한 링크는 1.의 링크로 다시 연결한다..)
+
+2-1. 설정파일
+이런 파일의 경로는 configs/common/SysPaths.py에서 결정된다고 한다.
+위 .py파일에서 하드코딩된 기본 경로가 몇가지 있다.
+그 경로를 바꾸거나 M5_PATH 환경변수를 설정해서 
+경로를 대체 할 .py파일을 편집 할 수 있다.
+
+이게 제대로 안되면 다음과같은 오류가 발생한다.
+Can't find a path to system files. 
+when you first attempt to run the simulator in full-system mode. 
+
+3. 설정
+% sudo mkdir -p /dist/m5/system
+% cd /dist/m5/system
+% sudo tar vxfj <path>/m5_system_2.0b3.tar.bz2
+% sudo mv m5_system_2.0b3/* . ; sudo rmdir m5_system_2.0b3/
+% sudo chgrp -R <grp> /dist  # where <grp> is a group that contains all the m5 users
+
+/dist/m5/system에 디렉토리를 만들고,
+풀-시스템 파일 압축을 풀고,
+그룹을 적절히 바꾸어 준다.
+
+4. 빌딩
+gem5의 scons는 파이썬 기반으로 작동한다.
+
+
+
+
+
+
+
+
+
+
+
 
