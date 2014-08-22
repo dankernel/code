@@ -74,6 +74,9 @@ scons build/X86/gem5.opt
 
 
 
+아래 링크에서 풀-시스템의 실행을 알 수 있다.
+http://gem5.org/Introduction#Getting_Additional_Tools_and_Files
+
 /* 이하, 결과 요약을 목적으로 하는 메모. */
 
 info: Entering event queue @ 0.  Starting simulation...
