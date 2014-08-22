@@ -14,6 +14,8 @@ nvmain에서 지원하는 gem5버전을 설치해야 한다.
 hg clone http://repo.gem5.org/gem5/ -r 27dfed4c8403
 시간이 조금 소요된다..
 
+adding * ....의 문자 몇줄이 터미널에 출력된다.
+
 1. 풀-시스템 다운로드
 http://gem5.org/Download
 위 사이트를 참고하면 풀-시스템 다운로드에 대해 명시되어 있다.
