@@ -74,6 +74,15 @@ scons build/X86/gem5.opt
 
 
 
+/* 이하, 결과 요약을 목적으로 하는 메모. */
+
+info: Entering event queue @ 0.  Starting simulation...
+warn: Don't know what interrupt to clear for console.
+
+warn: x86 cpuid: unknown family 0x8086
+warn: Tried to clear PCI interrupt 14
+warn: Unknown mouse command 0xe1.
+warn: instruction 'wbinvd' unimplemented
 
 
 
