@@ -28,7 +28,7 @@ public class __Test__ {
             	{
             		for (int j=0; j<c.tree.getChild(i).getChildCount(); j++)
             		{
-            			System.out.println(">>" + c.tree.getChild(j).getChild(i));
+            			System.out.println(c.tree.getChild(i).getChild(j));
             		}
             		
             	}
