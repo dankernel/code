@@ -15,12 +15,6 @@ public class __Test__ {
         CommonTokenStream tokens = new CommonTokenStream(lex);
         
         CParser g = new CParser(tokens, null);
-        translation_unit_return c = g.translation_unit();
-        System.out.println("print : " + c.tree.toStringTree());
-        System.out.println(c.tree.toString());
-        
-        /*
-        CParser g = new CParser(tokens, null);
         try {
             translation_unit_return c = g.translation_unit();
             System.out.println("print : " + c.tree.toStringTree());
@@ -34,7 +28,7 @@ public class __Test__ {
             	{
             		for (int j=0; j<c.tree.getChild(i).getChildCount(); j++)
             		{
-            			System.out.println(">>" + c.tree.getChild(i).getChild(j));
+            			System.out.println(">>" + c.tree.getChild(j).getChild(i));
             		}
             		
             	}
@@ -44,6 +38,5 @@ public class __Test__ {
         } catch (RecognitionException e) {
             e.printStackTrace();
         }
-        */
     }
 }

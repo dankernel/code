@@ -14,11 +14,6 @@ public class __Test__ {
     	CLexer lex = new CLexer(new ANTLRFileStream("/home/dkdk/code/antlr/test/main.c", "UTF-8"));
         CommonTokenStream tokens = new CommonTokenStream(lex);
         
-        CParser g = new CParser(tokens, null);
-        translation_unit_return c = g.translation_unit();
-        System.out.println("print : " + c.tree.toStringTree());
-        System.out.println(c.tree.toString());
-        
         /*
         CParser g = new CParser(tokens, null);
         try {
