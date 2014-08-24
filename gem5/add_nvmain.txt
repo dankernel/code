@@ -85,9 +85,16 @@ traceSim/traceMain.cpp 파일에서 100번째 라인으로 가서
 특별한 설정파일의 변화 없이 그냥 scons 명령어를 사용하면
 빌드되어서 nvmain이 실행 할 때 추가로 메세지가 더 나온다.
 
+SConscript파일이 있는데, 이걸 만지면 오히려 오류가 발생한다. :(
+
+그냥 .h파일을 추가하고 빌드하면 된다.
+
 6. scons의 구조
 
-최상위 경로에 있는 SConstruct파일중에 중요한 두 함수이다.
+.h파일을 추가하고, 적절한 다른 원본 소스에서 함수를 추가하면 된다.
+그냥 c언어 처럼 쓰면 된다.... 하지만. 추가로 scons의 구조를 파악한다.
+
+최상위 경로에 있는 SConstruct파일 중에 중요한 두 함수이다.
 
 def NVMainSource(src):
   src_list.append(File(src))
@@ -101,7 +108,7 @@ def NVMainSourceType(build_dir, src_type):
 아래 NVMainSourceType는 SConscripts뿐만 아니라 구성 요소 유형을 추가 할 수 있다.
 두 함수의 차이점은 확인되지 않았으나. 소스를 추가 하는 듯하다.
 
-
+각 디렉토리 아래는 다음 구조의 SConscript파일이 존재한다.
 
 # Assume that this is a gem5 extras build if this is set.
 if 'TARGET_ISA' in env and env['TARGET_ISA'] == 'no':
@@ -110,17 +117,12 @@ if 'TARGET_ISA' in env and env['TARGET_ISA'] == 'no':
 if 'NVMAIN_BUILD' in env:
     NVMainSourceType('src', 'Backend Source')
 
-
 NVMainSource('LH-Cache.cpp')
 
+위의 맨 마지막줄 .cpp 파일은 해당 경로에 있는 cpp파일을 갖는다.
 
-
-
-
-
-
-
-
+아래는 무슨 타입인데, 위에 NVMAIN_BUILD일 대 불려지는 NVMainSourceType함수의
+첫번째 인자 값으로 무언가 온다...
 
 ource_types = {
   'MemControl'   : "Memory Controller",
@@ -135,4 +137,7 @@ ource_types = {
   'dkdk'         : "MY type",
   prog_name      : "Program"
 }
+
+무엇인진 ㅁ르겠다..
+이걸 활용해서 SConscript 파일을 만들면 오히려 오류가 나기 때문에 무쓸모. ;(
 
