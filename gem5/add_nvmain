@@ -11,8 +11,35 @@ SCons로 설치를 한다.
 커널컴파일처럼 설치(빌드)가 된다.
 
 3. 실행.
+다음 명령어를 실행하면 nvmain이 실행된다.
 
-./nvmain Config/myConfig.config traces/myTrace.nvt 1000000
+./nvmain.fast Config/PCM_MLC_example.config Tests/Traces/hello_world.nvt 1000000
+
+3-1. 예외!
+arg0 : 확장자 fast의 유무가 상이할 수 있다.
+arg1 : .config 파일의 경로나 파일명이 상이할 수 있다.
+arg2 : .nvt파일의 경로나 파일명이 상이할 수 있다.
+따라서, 해당 경로에 해당 파일이 없으면 적절한 확장자로 검색해서 대체한다.
+
+채널, 랭크, 뱅크 같은 결과와 적절한 숫자가 나온다면 성공 한 것이다.
+적절한 숫자가 중요하다. 모두 0이 나오거나 규칙적(?)이면 실패한 것!
+
+
+잘 실행되었다면 그 결과를 리다이렉션으로 적절히 파일로 뺀다.
+에러 출력 없이 깔끔하게 된다면 성공 한 것이다.
+
+리다이렉션 한 파일을 열어서 보면...
+
+
+
+Warning이 뜰 수 있는데, 실행은 잘 되기 때문에...
+
+아래 결과가 맨 마지막에 출력된다.
+Exiting at cycle 5000000 because simCycles 5000000 reached.
+
+
+
+
 
 
 
