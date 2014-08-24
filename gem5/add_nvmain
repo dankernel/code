@@ -122,4 +122,17 @@ NVMainSource('LH-Cache.cpp')
 
 
 
+ource_types = {
+  'MemControl'   : "Memory Controller",
+  'FaultModels'  : "Hard-Error Model",
+  'NVM'          : "Source",
+  'SimInterface' : "Simulation Interface",
+  'Utils'        : "Utility Feature",
+  'include'      : "Include",
+  'src'          : "Source",
+  'traceReader'  : "Trace Reader",
+  'traceSim'     : "Trace main()",
+  'dkdk'         : "MY type",
+  prog_name      : "Program"
+}
 
