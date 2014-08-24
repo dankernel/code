@@ -98,7 +98,20 @@ def NVMainSourceType(build_dir, src_type):
   Export('NVMainSourceType')
 
 위의 NVMainSource은 SConscripts 계층에서 사용하는 함수를 정의
+아래 NVMainSourceType는 SConscripts뿐만 아니라 구성 요소 유형을 추가 할 수 있다.
+두 함수의 차이점은 확인되지 않았으나. 소스를 추가 하는 듯하다.
 
+
+
+# Assume that this is a gem5 extras build if this is set.
+if 'TARGET_ISA' in env and env['TARGET_ISA'] == 'no':
+    Return()
+
+if 'NVMAIN_BUILD' in env:
+    NVMainSourceType('src', 'Backend Source')
+
+
+NVMainSource('LH-Cache.cpp')
 
 
 
