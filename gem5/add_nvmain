@@ -1,0 +1,18 @@
+
+1. nvmain 다운로드.
+위키에서 공식적인 다운로드 파일을 제동하지 않기 때문에.
+동우형님께 제공받은 파일(nvmain.tar.gz)을 사용 한다.
+
+2. 설치.
+nvmain.tar.gz의 압축을 풀고 디렉토리에 들어가서
+SCons로 설치를 한다.
+
+그냥, JUST "scons"라고 입력하면 make파일을 통해서 make 되는 것 처럼
+커널컴파일처럼 설치(빌드)가 된다.
+
+3. 실행.
+
+./nvmain Config/myConfig.config traces/myTrace.nvt 1000000
+
+
+
