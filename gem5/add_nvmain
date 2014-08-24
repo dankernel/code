@@ -72,6 +72,33 @@ int dk_print(char *str)
 위 함수는 cpp로 작성되었고 iostream을 인크루드 한다.
 char 문자열을 받아서 cout으로 출력하는 간단한 함수이다.
 
+4-2. 기존 소스코드에 새로운 작업 추가.
+
+traceSim/traceMain.cpp 파일에서 100번째 라인으로 가서
+새로 만든 디렉터리와 헤더파일을 추가하고 100번째 라인 전후로
+헤더파일에 있는 함수를 호출한다.
+
+57라인  : #include "dkdk/dk_print.h"
+102라인 : dk_print((char *)"JUN-HYUNG");
+
+5. 빌드
+특별한 설정파일의 변화 없이 그냥 scons 명령어를 사용하면
+빌드되어서 nvmain이 실행 할 때 추가로 메세지가 더 나온다.
+
+6. scons의 구조
+
+최상위 경로에 있는 SConstruct파일중에 중요한 두 함수이다.
+
+def NVMainSource(src):
+  src_list.append(File(src))
+  Export('NVMainSource')
+
+def NVMainSourceType(build_dir, src_type):
+  source_types[build_dir] = src_type
+  Export('NVMainSourceType')
+
+위의 NVMainSource은 SConscripts 계층에서 사용하는 함수를 정의
+
 
 
 
