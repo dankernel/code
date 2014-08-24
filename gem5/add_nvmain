@@ -50,11 +50,28 @@ b. 추가된 코드파일의 함수를 활용해 원본 nvmain을 수정 한다.
 100번째 라인이다. cpp 파일이고, cout으로 출력한다.
 
 4-1. 새로운 디렉터리의 새로운 소스파일 생성
-상기 a의 파일을 생성하기 위해 dkdk라는 디렉토리에 dk_print.cpp를 생성한다.
+상기 a의 파일을 생성하기 위해 dkdk라는 디렉토리에 dk_print.h를 생성한다.
 
 mkdir dkdk
-touch dkdk/dk_print.cpp
-vim dkdk/dk_print.cpp
+touch dkdk/dk_print.h
+vim dkdk/dk_print.h
+
+다음 코드를 작성하고 저장한다.
+
+#include <iostream>
+int dk_print(char *str)
+{
+  std::cout << "[ OK ] Add code by dkdk" << std::endl;
+  std::cout << "====================" << std::endl;
+  std::cout << str << std::endl;
+  std::cout << "====================" << std::endl;
+
+  return 0;
+}
+
+위 함수는 cpp로 작성되었고 iostream을 인크루드 한다.
+char 문자열을 받아서 cout으로 출력하는 간단한 함수이다.
+
 
 
 
