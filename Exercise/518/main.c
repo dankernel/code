@@ -27,9 +27,13 @@ char buf[BUFSIZE]; /*  buffer for ungetch */
 int bufp = 0; /*  next free position in buf */
 
 enum { NAME, PARENS, BRACKETS };
+
+/* function */
 void dcl(void);
 void dirdcl(void);
 int gettoken(void);
+
+/* val */
 int tokentype; /*  type of last token */
 char token[MAXTOKEN]; /*  last token string */
 char name[MAXTOKEN]; /*  identifier name */
@@ -77,6 +81,7 @@ int gettoken(void) /*  return next token */
   char *p = token;
   while ((c = getch()) == ' ' || c == '\t');
 
+  // 괄호 열면, 닫을 때까지 받음. //
   if (c == '(') {
     if ((c = getch()) == ')') {
       strcpy(token, "()");  /*  last token string */
