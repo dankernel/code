@@ -22,11 +22,19 @@
 
 int main(int argc, char* argv[])
 {
-  int num;  /* num */
+  float f;
+  double d;
 
-  ln = 3.1;
+  f = 6.7;
+  d = 3.1;
 
-  printf("%f\n", ln);
+  printf("%lf \n", f);
+  printf("%f \n", f);
+  printf("%d \n", f);
+
+  printf("%lf \n", d);
+  printf("%f \n", d);
+  printf("%d \n", d);
 
   return 0;
 }

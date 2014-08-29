@@ -35,6 +35,15 @@ e는 '5'로 선언 한 것인데, 숫자 5가 아니라 문자 '5'로 초기화 
 
 3. 출력과 활용
 
+int num = 10;
+print("%d \n", num);
+
+char ch = 'D';
+print("%c \n", ch);
+
+float f = 3.14;
+print("%f \n", f);
+
 
 
 
