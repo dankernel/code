@@ -49,6 +49,9 @@ struct tnode *addtree(struct tnode *, char *);
 void treeprint(struct tnode *);
 int getword(char *, int);
 
+int _strncmp(char *str1, char *str2, int n);
+char *_strndup(char *s, int n); /*  make a duplicate of s */
+
 struct tnode *talloc(void);
 char *_strdup(char *);
 
@@ -58,6 +61,15 @@ char *_strdup(char *s) /*  make a duplicate of s */
   p = (char *) malloc(strlen(s)+1); /*  +1 for '\0' */
   if (p != NULL)
     strcpy(p, s);
+  return p;
+}
+
+char *_strndup(char *s, int n) /*  make a duplicate of s */
+{
+  char *p;
+  p = (char *) malloc(n); /*  +1 for '\0' */
+  if (p != NULL)
+    strncpy(p, s, n);
   return p;
 }
 
@@ -90,16 +102,21 @@ Treeptr talloc(void)
   return (Treeptr) malloc(sizeof(Treenode));
 }
 
+int _strncmp(char *str1, char *str2, int n)
+{
+  return strncmp(str1, str2, n);
+}
+
 /*  addtree: add a node with w, at or below p */
 struct tnode *addtree(struct tnode *p, char *w)
 {
   int cond;
   if (p == NULL) { /*  a new word has arrived */
     p = talloc(); /*  make a new node */
-    p->word = _strdup(w);
+    p->word = _strndup(w, 6);
     p->count = 1;
     p->left = p->right = NULL;
-  } else if ((cond = strcmp(w, p->word)) == 0)
+  } else if ((cond = _strncmp(w, p->word, 6)) == 0)
     p->count++; /*  repeated word */
   else if (cond < 0) /*  less than into left subtree */
     p->left = addtree(p->left, w);
