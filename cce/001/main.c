@@ -23,15 +23,9 @@
 int main(int argc, char* argv[])
 {
   int num;  /* num */
-  char ch;  /* char */
-  long ln;  /* len */
 
-  num = 10;
-  ch = 'C';
   ln = 3.1;
 
-  printf("%d\n", num);
-  printf("%c\n", ch);
   printf("%f\n", ln);
 
   return 0;
