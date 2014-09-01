@@ -155,8 +155,10 @@ char *_strtok(char *str, char tok)
     i++;
   }
 
-  printf("ret : %p \n", tmp);
-  printf("ret : %s \n", *tmp);
+  tmp++;
+  printf("ret1 : %p \n", tmp);
+  printf("ret2 : %s \n", tmp);
+  printf("END\n");
   return NULL;
 }
 
@@ -170,7 +172,7 @@ int main(int argc, char* argv[])
   char sentence[MAXWORD * 100];
   char *p = NULL;
 
-  memset(sentence, ' ', MAXWORD * 100);
+  memset(sentence, '\0', MAXWORD * 100);
   scanf("%s", sentence);
 
   p = _strtok(sentence, ' ');
