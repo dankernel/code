@@ -151,7 +151,7 @@ char *_strtok(char *str, char tok)
     return NULL;
 
   while (*(tmp = (str + i)) != tok) {
-    printf("%p %c \n", tmp, *tmp);
+    printf("%p %s \n", tmp, tmp);
     i++;
   }
 
