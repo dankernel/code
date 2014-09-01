@@ -149,6 +149,10 @@ int main(int argc, char* argv[])
   char word[MAXWORD];
   root = NULL;
 
+
+  char sentence[MAXWORD * 100];
+  scanf("%s", sentence);
+
   while (getword(word, MAXWORD) != EOF) {
     if (isalpha(word[0]))
       root = addtree(root, word);
