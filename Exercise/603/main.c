@@ -155,14 +155,16 @@ int main(int argc, char* argv[])
 
   scanf("%s", sentence);
   p = strtok(sentence, " ");
-  while (p != NULL ){
+  while (p != NULL) {
     printf(">> %s\n", p);
     p = strtok(NULL, " ");
   }
+  printf("END\n");
 
   while (getword(word, MAXWORD) != EOF) {
-    if (isalpha(word[0]))
+    if (isalpha(word[0])) {
       root = addtree(root, word);
+    }
   }
 
   treeprint(root);
