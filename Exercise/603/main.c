@@ -150,20 +150,14 @@ char *_strtok(char *str, char tok)
   if (!str)
     return NULL;
 
-  i = 0;
-  while (i++ < 100) {
-    printf("%c ", *(str + i));
-  }
-
   while (*(tmp = (str + i)) != tok) {
-    printf("tmp : %s \n", tmp);
-
+    printf("%p %c \n", tmp, *tmp);
     i++;
   }
 
-  tmp = str + i + 1;
-  printf("tmp : %s \n", tmp);
-  return tmp;
+  printf("ret : %p \n", tmp);
+  printf("ret : %s \n", *tmp);
+  return NULL;
 }
 
 /* word frequency count */
