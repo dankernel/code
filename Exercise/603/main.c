@@ -16,8 +16,8 @@
  * =====================================================================================
  */
 
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <fcntl.h>
 
@@ -150,6 +150,13 @@ char *_strtok(char *str, char tok)
   if (!str)
     return NULL;
 
+  i = 0;
+  while (i < 4) {
+    printf(">>%d / %c\n", i, *(str + i));
+    i++;
+  }
+
+  i = 0;
   while (*(tmp = (str + i)) != tok) {
     printf("%p %s \n", tmp, tmp);
     i++;
@@ -173,9 +180,9 @@ int main(int argc, char* argv[])
   char *p = NULL;
 
   memset(sentence, '\0', MAXWORD * 100);
-  scanf("%s", sentence);
+  gets(sentence);
 
-  p = _strtok(sentence, ' ');
+  p = _strtok(sentence, '\0');
   printf("p : %s\n", p);
 
   printf("END\n");
