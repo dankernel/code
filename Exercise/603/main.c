@@ -150,23 +150,20 @@ char *_strtok(char *str, char tok)
   if (!str)
     return NULL;
 
-  i = 0;
-  while (i < 4) {
-    printf(">>%d / %c\n", i, *(str + i));
-    i++;
-  }
-
-  i = 0;
+  /* next str */
   while (*(tmp = (str + i)) != tok) {
-    printf("%p %s \n", tmp, tmp);
     i++;
   }
-
   tmp++;
-  printf("ret1 : %p \n", tmp);
-  printf("ret2 : %s \n", tmp);
-  printf("END\n");
-  return NULL;
+
+  i = 0;
+  while (*(tmp = (str + i)) != tok && *tmp != '\0') {
+    i++;
+  }
+  printf("size : %d\n", i);
+
+
+  return tmp;
 }
 
 /* word frequency count */
@@ -179,11 +176,16 @@ int main(int argc, char* argv[])
   char sentence[MAXWORD * 100];
   char *p = NULL;
 
+  /* get str */
   memset(sentence, '\0', MAXWORD * 100);
-  gets(sentence);
+  fgets(sentence, MAXWORD * 100, stdin);
 
-  p = _strtok(sentence, '\0');
+  p = _strtok(sentence, ' ');
   printf("p : %s\n", p);
+
+  p = _strtok(p, ' ');
+  printf("p : %s\n", p);
+
 
   printf("END\n");
 
