@@ -149,8 +149,10 @@ char *_strtok(char *str, char tok)
   if (!str)
     return NULL;
 
-  while (*(str + i) != tok)
+  while (*(str + i) != tok) {
+    printf("%c \n", *(str + i));
     i++;
+  }
 
   printf("i : %d \n", i);
 
@@ -167,11 +169,10 @@ int main(int argc, char* argv[])
   char sentence[MAXWORD * 100];
   char *p = NULL;
 
-  memset(sentence, '\0', MAXWORD * 100);
+  memset(sentence, ' ', MAXWORD * 100);
   scanf("%s", sentence);
   p = _strtok(sentence, ' ');
   printf(">> %s\n", p);
-
 
   printf("END\n");
 
