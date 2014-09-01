@@ -142,6 +142,21 @@ void treeprint(struct tnode *p)
   }
 }
 
+char *_strtok(char *str, char tok)
+{
+  int i = 0;
+
+  if (!str)
+    return NULL;
+
+  while (*(str + i) != tok)
+    i++;
+
+  printf("i : %d \n", i);
+
+  return str + i + 1;
+}
+
 /* word frequency count */
 int main(int argc, char* argv[])
 {
@@ -149,16 +164,15 @@ int main(int argc, char* argv[])
   char word[MAXWORD];
   root = NULL;
 
-
   char sentence[MAXWORD * 100];
   char *p = NULL;
 
+  memset(sentence, '\0', MAXWORD * 100);
   scanf("%s", sentence);
-  p = strtok(sentence, " ");
-  while (p != NULL) {
-    printf(">> %s\n", p);
-    p = strtok(NULL, " ");
-  }
+  p = _strtok(sentence, ' ');
+  printf(">> %s\n", p);
+
+
   printf("END\n");
 
   while (getword(word, MAXWORD) != EOF) {
