@@ -151,7 +151,14 @@ int main(int argc, char* argv[])
 
 
   char sentence[MAXWORD * 100];
+  char *p = NULL;
+
   scanf("%s", sentence);
+  p = strtok(sentence, " ");
+  while (p != NULL ){
+    printf(">> %s\n", p);
+    p = strtok(NULL, " ");
+  }
 
   while (getword(word, MAXWORD) != EOF) {
     if (isalpha(word[0]))
