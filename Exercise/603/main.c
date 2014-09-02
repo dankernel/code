@@ -187,8 +187,10 @@ int main(int argc, char* argv[])
   p = _strtok_next(sentence, ' ');
   printf("p : %s\n", p);
 
-  p = _strtok_next(p, ' ');
-  printf("p : %s\n", p);
+  while (p) {
+    p = _strtok_next(p, ' ');
+    printf("p : %s\n", p);
+  }
 
 
   printf("END\n");
