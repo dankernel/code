@@ -192,7 +192,6 @@ int main(int argc, char* argv[])
     printf("p : %s\n", p);
   }
 
-
   printf("END\n");
 
   while (getword(word, MAXWORD) != EOF) {
