@@ -75,8 +75,10 @@ struct nlist *_install(char *name, char *defn)
   unsigned hashval;
   if ((np = lookup(name)) == NULL) { /*  not found */
     np = (struct nlist *) malloc(sizeof(*np));
+
     if (np == NULL || (np->name = _strdup(name)) == NULL)
       return NULL;
+
     hashval = hash(name);
     np->next = hashtab[hashval];
     hashtab[hashval] = np;
@@ -95,16 +97,14 @@ int main(int argc, char* argv[])
   _install("aa", "11");
   struct nlist *tmp = NULL;
 
-  if (tmp = lookup("aa"))
-    printf("%s %s \n", tmp->name, tmp->defn);
-  else
-    printf("ret NULL \n");
+  tmp = lookup("aa");
+  printf("%s %s \n", tmp->name, tmp->defn);
 
   _install("aa", "11");
-  if (tmp = lookup("aa"))
+  if (tmp = lookup("bb"))
     printf("%s %s \n", tmp->name, tmp->defn);
   else
-    printf("ret NULL \n");
+    printf("=>ret NULL\n");
 
   return 0;
 }
