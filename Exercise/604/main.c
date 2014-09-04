@@ -143,8 +143,15 @@ void treeprint(struct tnode *p)
   }
 }
 
+struct tnode tnode_list[100];
+int add_list(struct tnode *node)
+{
+
+  return 0;
+}
+
 /* word frequency count */
-int main(int argc, char* argv[])
+int main(int argc, char *argv[])
 {
   struct tnode *root;
   char word[MAXWORD];
