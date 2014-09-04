@@ -35,7 +35,7 @@ struct tnode {  /*  the tree node: */
 } Treenode;
 
 struct tnode *addtree(struct tnode *, char *);
-void treeprint(struct tnode *);
+void tree_to_list(struct tnode *);
 int getword(char *, int);
 int _strncmp(char *str1, char *str2, int n);
 char *_strndup(char *s, int n); /*  make a duplicate of s */
@@ -133,13 +133,12 @@ struct tnode *addtree(struct tnode *p, char *w)
   return p;
 }
 
+/* XXX : list */
 struct tnode tnode_list[100];
 int list_index = 0;
 int add_list(struct tnode *node)
 {
   tnode_list[list_index++] = *node;
-  printf("added list[%d] %d / %s\n", list_index - 1, node->count, node->word);
-  
   return 0;
 }
 int print_list(void)
@@ -152,22 +151,20 @@ int print_list(void)
   return 0;
 }
 
-/* treeprint: in-order print of tree p */
-void treeprint(struct tnode *p)
+/* tree_to_list: in-order print of tree p */
+void tree_to_list(struct tnode *p)
 {
   if (p != NULL) {
-    treeprint(p->left);
+    tree_to_list(p->left);
     //printf("%4d %s\n", p->count, p->word);
     add_list(p);
-    treeprint(p->right);
+    tree_to_list(p->right);
   }
 }
 
 int node_cmp(const void *a , const void *b){
   struct tnode *node1 = (struct tnode*)a;
   struct tnode *node2 = (struct tnode*)b;
-
-  printf("sort.. %d / %d \n", node1->count, node2->count);
 
   return (node2->count - node1->count);
 }
@@ -185,19 +182,13 @@ int main(int argc, char *argv[])
   }
 
   /* add list */
-  treeprint(root);
+  tree_to_list(root);
 
-  /* debug */
-  printf("index : %d \n", list_index);
-
-  /* sort */
+  /* list sort */
   qsort(tnode_list, list_index, sizeof(tnode_list[0]), node_cmp);
-
-  printf("[OK] Sort\n");
 
   /* print */
   print_list();
-
   
   return 0;
 }
