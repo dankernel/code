@@ -167,12 +167,9 @@ int node_cmp(const void *a , const void *b){
   struct tnode* node1 = (struct tnode*)a;
   struct tnode* node2 = (struct tnode*)b;
 
-  printf("sort..\n");
+  printf("sort.. %d / %d \n", node1->count, node2->count);
 
-  if (node1->count > node2->count) 
-    return 0;
-  else
-    return 1;
+  return (node1->count - node2->count);
 }
 
 /* word frequency count */
@@ -194,7 +191,7 @@ int main(int argc, char *argv[])
   printf("index : %d \n", list_index);
 
   /* sort */
-  qsort(tnode_list, 100, sizeof(tnode_list[0]), node_cmp);
+  qsort(&tnode_list, list_index - 1, sizeof(tnode_list[0]), node_cmp);
 
   printf("[OK] Sort\n");
 
