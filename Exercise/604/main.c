@@ -133,21 +133,33 @@ struct tnode *addtree(struct tnode *p, char *w)
   return p;
 }
 
+struct tnode *tnode_list[100];
+int list_index = 0;
+int add_list(struct tnode *node)
+{
+  tnode_list[list_index++] = node;
+  
+  return 0;
+}
+int print_list(void)
+{
+  int i = 0;
+  while (i < list_index) {
+    printf("==\n");
+    printf("%s\n", tnode_list[i]->count, tnode_list[i]->word);
+  }
+  return 0;
+}
+
 /* treeprint: in-order print of tree p */
 void treeprint(struct tnode *p)
 {
   if (p != NULL) {
     treeprint(p->left);
-    printf("%4d %s\n", p->count, p->word);
+    //printf("%4d %s\n", p->count, p->word);
+    add_list(p);
     treeprint(p->right);
   }
-}
-
-struct tnode tnode_list[100];
-int add_list(struct tnode *node)
-{
-
-  return 0;
 }
 
 /* word frequency count */
@@ -163,6 +175,7 @@ int main(int argc, char *argv[])
   }
 
   treeprint(root);
+  print_list();
   return 0;
 }
 
