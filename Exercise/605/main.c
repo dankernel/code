@@ -48,6 +48,8 @@ unsigned hash(char *s)
   unsigned hashval;
   for (hashval = 0; *s != '\0'; s++)
     hashval = *s + 31 * hashval;
+
+  /* make a some number, and & max size */
   return hashval % HASHSIZE;
 }
 
@@ -55,9 +57,14 @@ unsigned hash(char *s)
 struct nlist *lookup(char *s)
 {
   struct nlist *np;
-  for (np = hashtab[hash(s)]; np != NULL; np = np->next)
-    if (strcmp(s, np->name) == 0)
+  /* insert a table(array) */
+  for (np = hashtab[hash(s)]; np != NULL; np = np->next) {
+
+    if (strcmp(s, np->name) == 0) {
       return np; /*  found */
+    }
+
+  }
   return NULL; /*  not found */
 }
 
@@ -73,8 +80,11 @@ struct nlist *_install(char *name, char *defn)
     hashval = hash(name);
     np->next = hashtab[hashval];
     hashtab[hashval] = np;
-  } else /*  already there */
+  } else { /*  already there */
+    printf("already there\n");
     free((void *) np->defn); /* free previous defn */
+  }
+
   if ((np->defn = _strdup(defn)) == NULL)
     return NULL;
   return np;
@@ -83,8 +93,18 @@ struct nlist *_install(char *name, char *defn)
 int main(int argc, char* argv[])
 {
   _install("aa", "11");
-  struct nlist *tmp = lookup("aa");
-  printf("%s\n", tmp->name);
+  struct nlist *tmp = NULL;
+
+  if (tmp = lookup("aa"))
+    printf("%s %s \n", tmp->name, tmp->defn);
+  else
+    printf("ret NULL \n");
+
+  _install("aa", "11");
+  if (tmp = lookup("aa"))
+    printf("%s %s \n", tmp->name, tmp->defn);
+  else
+    printf("ret NULL \n");
 
   return 0;
 }
