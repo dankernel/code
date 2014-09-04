@@ -82,6 +82,7 @@ struct nlist *_install(char *name, char *defn)
     hashval = hash(name);
     np->next = hashtab[hashval];
     hashtab[hashval] = np;
+    
   } else { /*  already there */
     printf("already there\n");
     free((void *) np->defn); /* free previous defn */
@@ -94,8 +95,17 @@ struct nlist *_install(char *name, char *defn)
 
 int main(int argc, char* argv[])
 {
-  _install("aa", "11");
   struct nlist *tmp = NULL;
+
+  int i = 101;
+  while (i--) {
+    if (hashtab[i])
+      printf("%d : %s\n", i, hashtab[i]->defn);
+  }
+
+
+  _install("aa", "11");
+
 
   tmp = lookup("aa");
   printf("%s %s \n", tmp->name, tmp->defn);
