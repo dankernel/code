@@ -145,8 +145,8 @@ int print_list(void)
 {
   int i = 0;
   while (i < list_index) {
-    printf("==\n");
-    printf("%s\n", tnode_list[i]->count, tnode_list[i]->word);
+    printf("%d %s\n", tnode_list[i]->count, tnode_list[i]->word);
+    i++;
   }
   return 0;
 }
@@ -162,6 +162,10 @@ void treeprint(struct tnode *p)
   }
 }
 
+int node_cmp(struct tnode *a , struct tnode *b){
+  return (a->count == b->count);
+}
+
 /* word frequency count */
 int main(int argc, char *argv[])
 {
@@ -174,8 +178,16 @@ int main(int argc, char *argv[])
       root = addtree(root, word);
   }
 
+  /* add list */
   treeprint(root);
+
+  /* sort */
+  qsort(tnode_list, list_index, sizeof(struct tnode), node_cmp);
+
+  /* print */
   print_list();
+
+  
   return 0;
 }
 
