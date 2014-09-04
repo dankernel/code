@@ -133,11 +133,11 @@ struct tnode *addtree(struct tnode *p, char *w)
   return p;
 }
 
-struct tnode *tnode_list[100];
+struct tnode tnode_list[100];
 int list_index = 0;
 int add_list(struct tnode *node)
 {
-  tnode_list[list_index++] = node;
+  tnode_list[list_index++] = *node;
   printf("added list[%d] %d / %s\n", list_index - 1, node->count, node->word);
   
   return 0;
@@ -146,7 +146,7 @@ int print_list(void)
 {
   int i = 0;
   while (i < list_index) {
-    printf("%d %s\n", tnode_list[i]->count, tnode_list[i]->word);
+    printf("%d %s\n", tnode_list[i].count, tnode_list[i].word);
     i++;
   }
   return 0;
@@ -169,7 +169,7 @@ int node_cmp(const void *a , const void *b){
 
   printf("sort.. %d / %d \n", node1->count, node2->count);
 
-  return (node1->count - node2->count);
+  return (node2->count - node1->count);
 }
 
 /* word frequency count */
