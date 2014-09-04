@@ -20,6 +20,19 @@
 #include <string.h>
 #include <fcntl.h>
 
+char *_strdup(char *);
+struct nlist *lookup(char *);
+
+char *_strdup(char *s) /*  make a duplicate of s */
+{
+  char *p;
+  p = (char *) malloc(strlen(s)+1); /*  +1 for '\0' */
+  if (p != NULL)
+    strcpy(p, s);
+  return p;
+}
+
+#define IN 1
 
 struct nlist { /*  table entry: */
   struct nlist *next; /*  next entry in chain */
@@ -37,8 +50,6 @@ unsigned hash(char *s)
   return hashval % HASHSIZE;
 }
 
-struct nlist *lookup(char *);
-char *strdup(char *);
 /*  install: put (name, defn) in hashtab */
 struct nlist *install(char *name, char *defn)
 {
@@ -46,20 +57,18 @@ struct nlist *install(char *name, char *defn)
   unsigned hashval;
   if ((np = lookup(name)) == NULL) { /*  not found */
     np = (struct nlist *) malloc(sizeof(*np));
-    if (np == NULL || (np->name = strdup(name)) == NULL)
+    if (np == NULL || (np->name = _strdup(name)) == NULL)
       return NULL;
     hashval = hash(name);
     np->next = hashtab[hashval];
     hashtab[hashval] = np;
   } else /*  already there */
     free((void *) np->defn); /* free previous defn */
-  if ((np->defn = strdup(defn)) == NULL)
+  if ((np->defn = _strdup(defn)) == NULL)
     return NULL;
   return np;
 }
 
-struct nlist *lookup(char *);
-char *strdup(char *);
 /*  install: put (name, defn) in hashtab */
 struct nlist *install(char *name, char *defn)
 {
@@ -67,14 +76,14 @@ struct nlist *install(char *name, char *defn)
   unsigned hashval;
   if ((np = lookup(name)) == NULL) { /*  not found */
     np = (struct nlist *) malloc(sizeof(*np));
-    if (np == NULL || (np->name = strdup(name)) == NULL)
+    if (np == NULL || (np->name = _strdup(name)) == NULL)
       return NULL;
     hashval = hash(name);
     np->next = hashtab[hashval];
     hashtab[hashval] = np;
   } else /*  already there */
     free((void *) np->defn); /* free previous defn */
-  if ((np->defn = strdup(defn)) == NULL)
+  if ((np->defn = _strdup(defn)) == NULL)
     return NULL;
   return np;
 }
