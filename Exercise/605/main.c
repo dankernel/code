@@ -20,8 +20,18 @@
 #include <string.h>
 #include <fcntl.h>
 
+#define IN 1
+#define HASHSIZE 101
+
 char *_strdup(char *);
 struct nlist *lookup(char *);
+
+struct nlist { /*  table entry: */
+  struct nlist *next; /*  next entry in chain */
+  char *name; /*  defined name */
+  char *defn; /*  replacement text */
+};
+static struct nlist *hashtab[HASHSIZE]; /*  pointer table */
 
 char *_strdup(char *s) /*  make a duplicate of s */
 {
@@ -32,15 +42,6 @@ char *_strdup(char *s) /*  make a duplicate of s */
   return p;
 }
 
-#define IN 1
-
-struct nlist { /*  table entry: */
-  struct nlist *next; /*  next entry in chain */
-  char *name; /*  defined name */
-  char *defn; /*  replacement text */
-};
-#define HASHSIZE 101
-
 /*  hash: form hash value for string s */
 unsigned hash(char *s)
 {
@@ -50,27 +51,18 @@ unsigned hash(char *s)
   return hashval % HASHSIZE;
 }
 
-/*  install: put (name, defn) in hashtab */
-struct nlist *install(char *name, char *defn)
+/*  lookup: look for s in hashtab */
+struct nlist *lookup(char *s)
 {
   struct nlist *np;
-  unsigned hashval;
-  if ((np = lookup(name)) == NULL) { /*  not found */
-    np = (struct nlist *) malloc(sizeof(*np));
-    if (np == NULL || (np->name = _strdup(name)) == NULL)
-      return NULL;
-    hashval = hash(name);
-    np->next = hashtab[hashval];
-    hashtab[hashval] = np;
-  } else /*  already there */
-    free((void *) np->defn); /* free previous defn */
-  if ((np->defn = _strdup(defn)) == NULL)
-    return NULL;
-  return np;
+  for (np = hashtab[hash(s)]; np != NULL; np = np->next)
+    if (strcmp(s, np->name) == 0)
+      return np; /*  found */
+  return NULL; /*  not found */
 }
 
 /*  install: put (name, defn) in hashtab */
-struct nlist *install(char *name, char *defn)
+struct nlist *_install(char *name, char *defn)
 {
   struct nlist *np;
   unsigned hashval;
@@ -90,6 +82,9 @@ struct nlist *install(char *name, char *defn)
 
 int main(int argc, char* argv[])
 {
+  _install("aa", "11");
+  struct nlist *tmp = lookup("aa");
+  printf("%s\n", tmp->name);
 
   return 0;
 }
