@@ -167,6 +167,8 @@ int node_cmp(const void *a , const void *b){
   struct tnode* node1 = a;
   struct tnode* node2 = b;
 
+  printf("sort..\n");
+
   if (node1->count == node2->count) 
     return 0;
   else
