@@ -103,9 +103,7 @@ int main(int argc, char* argv[])
       printf("%d : %s\n", i, hashtab[i]->defn);
   }
 
-
   _install("aa", "11");
-
 
   tmp = lookup("aa");
   printf("%s %s \n", tmp->name, tmp->defn);
