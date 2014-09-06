@@ -132,7 +132,7 @@ loop:
 
   /* lookup char */
   i = 0;
-  while (i < read_size){
+  while (i < read_size) {
 
     /* next char */
     tmp = *((info->buf) + i);

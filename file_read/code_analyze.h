@@ -166,7 +166,7 @@ ret:
 
 
 char *read_pass_comment(struct file_info *info)
-{
+{/*{{{*/
   int comment = 0;
   int comment_stat = 0;
   char *ret = NULL;
@@ -182,5 +182,5 @@ char *read_pass_comment(struct file_info *info)
   comment = is_comment_line(ret, start, end);
 
   return ret;
-}
+}/*}}}*/
 
