@@ -122,10 +122,10 @@ char *read_split(struct file_info *info, char ch)
   char tmp = '\0';
 
 loop:
-
   /* read and save buf */
   memset(info->buf, '\0', info->buf_size);
   read_size = read(info->fd, info->buf, info->buf_size);
+
   // err_test(read_size, "read");
   if (read_size <= 0)
     goto fail;
