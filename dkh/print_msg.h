@@ -16,32 +16,15 @@
  * =====================================================================================
  */
 
+/* print msg OK or FAIL */
+#define print_f(str) printf("[FAIL] %s \n", str);
+#define print_o(str) printf("[ OK ] %s \n", str);
+
+/* negative number is FAIL, else OK */
 #define err_test(val, str) \
   do{\
     (val < 0) ?   \
-    printf("[FAIL] %s : %d fail... \n", str, val); :    \
+    printf("[FAIL] %s : %d fail... \n", str, val) :    \
     printf("[ OK ] %s : %d ok... \n", str, val);    \
-  } while(0);
-
-inline void print_f(char *str)
-{
-  printf("[FAIL] %s \n", str);
-}
-
-inline void print_o(char *str)
-{
-  printf("[OK] %s \n", str);
-}
-
-inline int err_test(int val, char *str)
-{
-
-  if(val < 0) {
-    printf("[FAIL] %s : %d fail... \n", str, val);
-  } else {
-    printf("[ OK ] %s : %d ok... \n", str, val);
-  }
-
-  return val;
-}
+  } while(0)
 
