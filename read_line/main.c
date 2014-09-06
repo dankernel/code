@@ -20,7 +20,8 @@
 #include <string.h>
 #include <fcntl.h>
 
-#include "code_analyze.h"
+//#include "code_analyze.h"
+#include "dkh/file_read.h"
 
 int main(int argc, char* argv[])
 {
@@ -31,16 +32,21 @@ int main(int argc, char* argv[])
   /* alloc and init struct */
   struct file_info *dk_file = NULL;
   dk_file = (struct file_info*)malloc(sizeof(struct file_info));
-  init_file_struct(dk_file, "./core.c");
+  init_file_struct(dk_file, "./test/core.c");
 
   /* CORE */
   buf = read_split(dk_file, '\n');
   while (buf) {
 
-    /* cheek */
+    // cheek //
     printf("%s\n", buf);
 
-    /* next */
+    /*
+     * SOME CODE ...
+     * ...
+     */
+
+    // next //
     buf = read_split(dk_file, '\n');
   }
 
