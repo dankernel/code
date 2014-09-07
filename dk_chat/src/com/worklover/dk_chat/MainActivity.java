@@ -39,14 +39,17 @@ public class MainActivity extends Activity {
 
 	public void registerGcm() {
 		Log.e("18", "start");
-		GCMRegistrar.checkDevice(this);      // 라이브러리설정이 제대로 않되면 여기서 익셉션이 발생한다
+		GCMRegistrar.checkDevice(this);      // 라이브러리설정이 제대로 않되면 여기서 익셉션이 발생한다.
+		Log.e("18", "end");
 		GCMRegistrar.checkManifest(this);
 		final String regId = GCMRegistrar.getRegistrationId(this);
+		Log.e("18", regId);
+		
 		if (regId.equals("")) {
 			GCMRegistrar.register(this, "edkdk509");
 		} else {
 			Log.e("reg_id", regId);
 		}
-		Log.e("18", regId);
+		
 	}
 }
