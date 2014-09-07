@@ -14,7 +14,7 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
+
 		registerGcm();
 	}
 
@@ -38,18 +38,16 @@ public class MainActivity extends Activity {
 	}
 
 	public void registerGcm() {
-		Log.e("18", "start");
-		GCMRegistrar.checkDevice(this);      // 라이브러리설정이 제대로 않되면 여기서 익셉션이 발생한다.
-		Log.e("18", "end");
+		GCMRegistrar.checkDevice(this);
 		GCMRegistrar.checkManifest(this);
-		final String regId = GCMRegistrar.getRegistrationId(this);
-		Log.e("18", regId);
-		
+
+		String regId = GCMRegistrar.getRegistrationId(this);
 		if (regId.equals("")) {
-			GCMRegistrar.register(this, "edkdk509");
+			GCMRegistrar.register(this, "프로젝트ID");
 		} else {
 			Log.e("reg_id", regId);
 		}
 		
 	}
+
 }
