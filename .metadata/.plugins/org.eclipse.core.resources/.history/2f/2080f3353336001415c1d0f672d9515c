@@ -1,0 +1,5 @@
+package com.worklover.dk_chat;
+
+public class GCMBaseIntentService {
+
+}
