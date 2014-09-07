@@ -9,6 +9,6 @@ package com.worklover.dk_chat;
 
 public final class Manifest {
     public static final class permission {
-        public static final String C2D_MESSAGE="ccom.worklover.dk_chat.permission.C2D_MESSAGE";
+        public static final String C2D_MESSAGE="com.worklover.dk_chat.permission.C2D_MESSAGE";
     }
 }
