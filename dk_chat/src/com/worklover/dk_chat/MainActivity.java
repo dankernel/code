@@ -41,15 +41,8 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		Log.e("ck", "000");
-		try {
-			setSocket(ip, port);
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		Log.e("ck", "001");
-
+		_setSocket(ip, port);
+		
 		checkUpdate.start();
 		final EditText et = (EditText) findViewById(R.id.EditText01);
 		Button btn = (Button) findViewById(R.id.Button01);
@@ -59,6 +52,7 @@ public class MainActivity extends Activity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				if (et.getText().toString() != null || !et.getText().toString().equals("")) {
+					
 					PrintWriter out = new PrintWriter(networkWriter,true);
 					String return_msg = et.getText().toString();
 					out.println(return_msg);
@@ -127,6 +121,15 @@ public class MainActivity extends Activity {
 			Toast.makeText(MainActivity.this, "Coming word: " + html, Toast.LENGTH_SHORT).show();
 		}
 	};
+	
+	public void _setSocket(final String ip, final int port) {
+		try {
+			setSocket(ip, port);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 	public void setSocket(final String ip, final int port) throws IOException {
 
