@@ -20,6 +20,13 @@
 #include <stdio.h>
 #include <unistd.h>
 
+int f1(int num)
+{
+  printf("in f1 : %d  \n", num * 10);
+  return num * 10;
+
+}
+
 void ctrc_handler(int s)
 {
   printf("Caught signal %d\n",s);
