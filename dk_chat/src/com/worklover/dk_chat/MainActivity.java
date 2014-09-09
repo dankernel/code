@@ -32,15 +32,40 @@ public class MainActivity extends Activity {
 	private String name;
 	private BufferedReader networkReader;
 	private BufferedWriter networkWriter;
-	private String ip = "xxx.xxx.xxx.xxx"; // IP
-	private int port = 9999; // PORT번호
+	private String ip = "220.149.250.100"; // IP
+	private int port = 4000; // PORT번호
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
+		try {
+			setSocket(ip, port);
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
+		checkUpdate.start();
+		final EditText et = (EditText) findViewById(R.id.EditText01);
+		Button btn = (Button) findViewById(R.id.Button01);
+		final TextView tv = (TextView) findViewById(R.id.TextView01);
+
+		btn.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				if (et.getText().toString() != null
+						|| !et.getText().toString().equals("")) {
+					PrintWriter out = new PrintWriter(networkWriter,true);
+					String return_msg = et.getText().toString();
+					out.println(return_msg);
+				}
+			}
+		});
+		
 		registerGcm();
+
 	}
 
 	@Override
@@ -75,9 +100,8 @@ public class MainActivity extends Activity {
 		Button btn = (Button) findViewById(R.id.Button01);
 		final TextView tv = (TextView) findViewById(R.id.TextView01);
 
-		btn.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(DialogInterface arg0, int arg1) {
+		btn.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				if (et.getText().toString() != null
 						|| !et.getText().toString().equals("")) {
@@ -87,6 +111,7 @@ public class MainActivity extends Activity {
 				}
 			}
 		});
+
 	}
 
 	public void registerGcm() {
