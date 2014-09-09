@@ -1,17 +1,17 @@
 /*
  * =====================================================================================
  *
- *       Filename:  main.c
+ *       Filename:  handler.h
  *
  *    Description:  
  *
  *        Version:  1.0
- *        Created:  2014년 07월 25일 06시 34분 33초
+ *        Created:  2014년 09월 10일 02시 04분 35초
  *       Revision:  none
  *       Compiler:  gcc
  *
- *         author:  Jun-Hyung Park (), google@dankook.ac.kr
- *   organization:  Dankook Univ.
+ *         author:   (), 
+ *   organization:  
  *
  * =====================================================================================
  */
@@ -38,12 +38,3 @@ int signal_handler(void)
 
   return 0;
 }
-
-int main(int argc, char *argv[])
-{
-  signal_handler();
-  pause();
-
-  return 0;    
-}
-
