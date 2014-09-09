@@ -58,11 +58,11 @@ public class MainActivity extends Activity {
 		btn.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				if (et.getText().toString() != null
-						|| !et.getText().toString().equals("")) {
+				if (et.getText().toString() != null || !et.getText().toString().equals("")) {
 					PrintWriter out = new PrintWriter(networkWriter,true);
 					String return_msg = et.getText().toString();
 					out.println(return_msg);
+					Log.e("gogo", return_msg);
 				}
 			}
 		});
@@ -88,33 +88,6 @@ public class MainActivity extends Activity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
-	}
-
-	public void sock(){
-		try {
-			setSocket(ip, port);
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-
-		checkUpdate.start();
-		final EditText et = (EditText) findViewById(R.id.EditText01);
-		Button btn = (Button) findViewById(R.id.Button01);
-		final TextView tv = (TextView) findViewById(R.id.TextView01);
-
-		btn.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				if (et.getText().toString() != null
-						|| !et.getText().toString().equals("")) {
-					PrintWriter out = new PrintWriter(networkWriter,true);
-					String return_msg = et.getText().toString();
-					out.println(return_msg);
-				}
-			}
-		});
-
 	}
 
 	public void registerGcm() {
