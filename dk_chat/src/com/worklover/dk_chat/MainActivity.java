@@ -38,12 +38,14 @@ public class MainActivity extends Activity {
 	}
 
 	public void registerGcm() {
+		Log.e("reg_id", "Start")
+		;
 		GCMRegistrar.checkDevice(this);
 		GCMRegistrar.checkManifest(this);
 
 		String regId = GCMRegistrar.getRegistrationId(this);
 		if (regId.equals("")) {
-			GCMRegistrar.register(this, "프로젝트ID");
+			GCMRegistrar.register(this, "548400374880");
 		} else {
 			Log.e("reg_id", regId);
 		}
