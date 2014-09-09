@@ -8,9 +8,10 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.Socket;
 
+import org.apache.http.HttpResponse;
+
 import android.app.Activity;
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -40,12 +41,14 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
+		Log.e("ck", "000");
 		try {
 			setSocket(ip, port);
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+		Log.e("ck", "001");
 
 		checkUpdate.start();
 		final EditText et = (EditText) findViewById(R.id.EditText01);
@@ -63,7 +66,7 @@ public class MainActivity extends Activity {
 				}
 			}
 		});
-		
+
 		registerGcm();
 
 	}
@@ -152,15 +155,29 @@ public class MainActivity extends Activity {
 		}
 	};
 
-	public void setSocket(String ip, int port) throws IOException {
-		try {
-			socket = new Socket(ip, port);
-			networkWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
-			networkReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-		} catch (IOException e) {
-			System.out.println(e);
-			e.printStackTrace();
-		}
+	public void setSocket(final String ip, final int port) throws IOException {
+
+		Thread thread = new Thread(new Runnable(){
+			@Override
+			public void run() {
+				try {
+					try {
+						socket = new Socket(ip, port);
+						networkWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+						networkReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+					} catch (IOException e) {
+						System.out.println(e);
+						e.printStackTrace();
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+
+		thread.start(); 
+
+
 
 	}
 
