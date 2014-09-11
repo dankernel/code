@@ -1,0 +1,17 @@
+
+
+1. 컴퓨터 내부구조를 그림을 그려 설명하시오.
+
+
+2. 프로세서의 주요 구조적 요소를 목록과 간단히 정의하시오.
+
+a. CPU.
+b. Memory.
+c. I/O
+
+3. Stored program computer에 대해서.
+
+4. 3.0GH 컴퓨터와 Intel Core 2 2.0GH 컴퓨터의 비교
+
+5. kkkkkkkkkk
+
