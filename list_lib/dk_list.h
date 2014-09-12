@@ -17,5 +17,12 @@
  */
 
 struct dk_list {
-  struct dk_list *next;
-}
+  int count;
+  struct dk_lnode *root;
+  struct dk_lnode *curr;
+};
+
+struct dk_lnode {
+  struct dk_lnode *next;
+  struct dk_lnode *prev;
+};
