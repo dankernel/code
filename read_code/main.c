@@ -23,6 +23,7 @@
 //#include "code_analyze.h"
 #include "dkh/file_read.h"
 #include "dkh/print_msg.h"
+#include "dkh/dk_str.h"
 
 int main(int argc, char* argv[])
 {
@@ -40,7 +41,7 @@ int main(int argc, char* argv[])
   while (buf) {
 
     // cheek //
-    printf("%s\n", buf);
+    // printf("%s\n", buf);
 
     /*
      * SOME CODE ...
