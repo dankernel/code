@@ -28,19 +28,19 @@ struct dk_list {
 };
 
 struct dk_lnode {
+  int *p;
   struct dk_lnode *next;
   struct dk_lnode *prev;
-  int *p;
 };
 
-struct dk_lnode *init_lnode(void)
+struct dk_lnode *init_lnode(void *val)
 {
   /* allocation */
   struct dk_lnode *ret = NULL;
   ret = malloc(sizeof(struct dk_lnode));
 
   /* init */
-  ret->p = NULL;
+  ret->p = val;
 
   return ret;
 }
