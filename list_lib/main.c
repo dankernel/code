@@ -25,10 +25,16 @@
 int main(int argc, char* argv[])
 {
 
-  struct dk_list *root = init_list();
-  printf("count : %d \n", root->count);
+  struct dk_list *list = init_list();
+  printf("count : %d \n", list->count);
 
-  printf("dkdk \n");
+  /* TEST */
+  struct dk_lnode *tmp = NULL;
+  tmp = list->head;
+  printf("%s\n", tmp->p);
+
+  tmp = add_lnode(list, "NEW");
+  printf("%s\n", tmp->p);
 
 
   return 0;
