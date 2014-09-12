@@ -25,6 +25,9 @@
 int main(int argc, char* argv[])
 {
 
+  struct dk_list *root = init_list();
+  printf("count : %d \n", root->count);
+
   printf("dkdk \n");
 
 
