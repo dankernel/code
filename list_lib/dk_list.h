@@ -23,8 +23,10 @@
 
 struct dk_list {
   int count;
-  struct dk_lnode *root;
-  struct dk_lnode *curr;
+  struct dk_lnode *head;
+  struct dk_lnode *tail;
+
+
 };
 
 struct dk_lnode {
@@ -52,8 +54,24 @@ struct dk_list *init_list(void)
   ret = malloc(sizeof(struct dk_list));
 
   /* init */
-  ret->root = 
-  ret->count = 0;
+  ret->head = init_lnode("INIT");
+  ret->tail = NULL;
+  ret->count = 1;
 
   return ret;
 }
+
+struct dk_lnode *add_lnode(struct dk_list *list, void *p)
+{
+  struct dk_lnode *lnode = NULL;
+
+  if (!list)
+    return NULL;
+
+  lnode = init_lnode(p);
+  list->tail = lnode;
+
+  return lnode;
+}
+
+int print_list(struct 
