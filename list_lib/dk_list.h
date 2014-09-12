@@ -25,8 +25,6 @@ struct dk_list {
   int count;
   struct dk_lnode *head;
   struct dk_lnode *tail;
-
-
 };
 
 struct dk_lnode {
@@ -35,43 +33,63 @@ struct dk_lnode {
   struct dk_lnode *prev;
 };
 
+/*
+ * make new node
+ * @val : node contain
+ * return : new node
+ */
 struct dk_lnode *init_lnode(void *val)
 {
-  /* allocation */
-  struct dk_lnode *ret = NULL;
-  ret = malloc(sizeof(struct dk_lnode));
+  /* allocation new node */
+  struct dk_lnode *nn = NULL;
+  nn = malloc(sizeof(struct dk_lnode));
 
   /* init */
-  ret->p = val;
+  nn->p = val;
+  nn->next = NULL;
+  nn->prev = NULL;
 
-  return ret;
+  return nn;
 }
 
+/*
+ * make new list
+ * return : new list
+ */
 struct dk_list *init_list(void)
 {
   /* allocation */
-  struct dk_list *ret = NULL;
-  ret = malloc(sizeof(struct dk_list));
+  struct dk_list *nl = NULL;
+  nl = malloc(sizeof(struct dk_list));
 
-  /* init */
-  ret->head = init_lnode("INIT");
-  ret->tail = NULL;
-  ret->count = 1;
+  /* init first node, new node = head = tail */
+  nl->head = init_lnode("INIT");
+  nl->tail = nl->head;
+  nl->count = 1;
 
-  return ret;
+  return nl;
 }
 
 struct dk_lnode *add_lnode(struct dk_list *list, void *p)
 {
-  struct dk_lnode *lnode = NULL;
+  struct dk_lnode *new_node = NULL;
 
   if (!list)
     return NULL;
 
-  lnode = init_lnode(p);
-  list->tail = lnode;
+  /* mknode and ... TODO : link */
+  new_node = init_lnode(p);
+  new_node->prev = list->tail;
 
-  return lnode;
+  /* list.. */
+  list->tail = new_node;
+
+  return new_node;
 }
 
-int print_list(struct 
+int print_list(struct dk_list *list)
+{
+  int ret = 0;
+
+  return ret;
+}
