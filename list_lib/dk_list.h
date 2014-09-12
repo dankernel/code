@@ -70,21 +70,27 @@ struct dk_list *init_list(void)
   return nl;
 }
 
+/*  
+ * make new node, and linking new node
+ * @list : target list
+ * @p : new node contain value
+ * return : new node
+ */
 struct dk_lnode *add_lnode(struct dk_list *list, void *p)
 {
-  struct dk_lnode *new_node = NULL;
+  struct dk_lnode *nn = NULL;
 
   if (!list)
     return NULL;
 
   /* mknode and ... TODO : link */
-  new_node = init_lnode(p);
-  new_node->prev = list->tail;
+  nn = init_lnode(p);
+  nn->prev = list->tail;
 
   /* list.. */
-  list->tail = new_node;
+  list->tail = nn;
 
-  return new_node;
+  return nn;
 }
 
 int print_list(struct dk_list *list)
