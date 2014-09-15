@@ -109,9 +109,18 @@ struct dk_lnode *add_lnode(struct dk_list *list, void *p)
 
 struct dk_lnode *next_lnode(struct dk_list *list)
 {
-  //struct dk_lnode *cache = NULL;
+  struct dk_lnode *old_cache = NULL;
+
+  if (!list)
+    return NULL;
+
+  if(!list->r_cache)
+    list->r_cache = list->head;
+
+  old_cache = list->r_cache;
   list->r_cache = list->r_cache->next;
-  return NULL;
+
+  return old_cache;
 }
 
 /* 

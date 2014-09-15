@@ -39,11 +39,15 @@ int main(int argc, char* argv[])
 
   /* TEST */
   struct dk_lnode *tmp = NULL;
-  tmp = add_lnode(list, "NEW");
-  tmp = add_lnode(list, "node1");
+  add_lnode(list, "NEW");
+  add_lnode(list, "node1");
   tmp = add_lnode(list, "node2");
   tmp = add_lnode(list, t);
   tmp = add_lnode(list, "node3");
+
+  printf("next %s \n", next_lnode(list)->p);
+  printf("next %s \n", next_lnode(list)->p);
+  printf("next %s \n", next_lnode(list)->p);
 
   /* ... */
   struct test *list_node = NULL;
