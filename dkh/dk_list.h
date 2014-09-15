@@ -21,7 +21,7 @@
 #include <string.h>
 #include <fcntl.h>
 
-#include "dkh/errno.h"
+#include "errno.h"
 
 struct dk_list {
   int count;

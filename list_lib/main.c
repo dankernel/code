@@ -20,7 +20,7 @@
 #include <string.h>
 #include <fcntl.h>
 
-#include "dk_list.h"
+#include "dkh/dk_list.h"
 
 struct test {
   int num;
