@@ -24,7 +24,7 @@
 
 struct test {
   int num;
-  char ch[5];
+  char ch[64];
 };
 
 int main(int argc, char* argv[])
