@@ -36,29 +36,13 @@ char *list_str(struct dk_list *list, const char *str)
   if ((!str) || (strlen(str) < 3))
     return NULL;
 
-  printf("str : %s[%d]\n", str, strlen(str));
   while (tmp = next_lnode(list)) {
-    
     s = (char *)tmp->p;
-    printf("strstr : %s : %s : \n", s, str);
-    if ((ret = strstr(s, str))) {
+    if ((ret = strstr(str, s))) {
       printf("list str ok : %s : %s : \n", s, str);
-
-      if(ret) {
-        printf("ret : %p \n", ret);
-        printf("ret : %s \n", *ret);
-      }
-
-      printf("1\n");
       break;
-    } else {
+    } 
 
-      if(ret) {
-        printf("ret : %p \n", ret);
-        printf("ret : %s \n", *ret);
-      }
-      printf("2\n");
-    }
   }
 
   return NULL;
