@@ -29,9 +29,6 @@ struct dk_list {
   struct dk_lnode *tail;
 
   /* For buffer node */
-  int r_cache_count;
-  int w_cache_count;
-
   struct dk_lnode *r_cache;
   struct dk_lnode *w_cache;
 };
@@ -76,9 +73,9 @@ struct dk_list *init_list(void)
   nl->head = init_lnode("INIT");
   nl->tail = nl->head;
 
-  /* init buf node and count*/
-  nl->buf_count = 1;
-  nl->buf_node = nl->head;
+  /* init buf node */
+  nl->r_cache = NULL;
+  nl->w_cache = nl->head;
 
   return nl;
 }
@@ -104,7 +101,17 @@ struct dk_lnode *add_lnode(struct dk_list *list, void *p)
   /* list tail reset */
   list->tail = nn;
 
+  /* cache reset */
+  list->w_cache = nn;
+
   return nn;
+}
+
+struct dk_lnode *next_lnode(struct dk_list *list)
+{
+  //struct dk_lnode *cache = NULL;
+  list->r_cache = list->r_cache->next;
+  return NULL;
 }
 
 /* 
@@ -126,7 +133,7 @@ int print_list(struct dk_list *list)
 
   /* Print loop */
   do {
-    if ((tmp->prev || tmp->next) && !strstr(tmp->p, "\n")) {
+    if ((tmp->prev || tmp->next) && !strstr((char *)tmp->p, "\n")) {
       printf("list print : %10p (%10p %10s) %10p \n", tmp->prev, &tmp->p, tmp->p, tmp->next);
     } else
       printf("fail : NULL node or Not string type\n");
