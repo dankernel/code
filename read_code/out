@@ -1,7 +1,9 @@
-list print :      (nil) (  0xfef040       INIT)   0xfef060 
-list print :   0xfef040 (  0xfef060         if)   0xfef080 
-list print :   0xfef060 (  0xfef080        for)   0xfef0a0 
-list print :   0xfef080 (  0xfef0a0      while)      (nil) 
+list print :      (nil) ( 0x1082040       INIT)  0x1082060 
+list print :  0x1082040 ( 0x1082060         if)  0x1082080 
+list print :  0x1082060 ( 0x1082080        for)  0x10820a0 
+list print :  0x1082080 ( 0x10820a0      while)  0x10820c0 
+list print :  0x10820a0 ( 0x10820c0          ()  0x10820e0 
+list print :  0x10820c0 ( 0x10820e0          ))      (nil) 
 [ OK ] open : 3 ok... 
 /*
  *  kernel/sched/core.c

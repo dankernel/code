@@ -37,6 +37,8 @@ int main(int argc, char* argv[])
   add_lnode(list, "if");
   add_lnode(list, "for");
   add_lnode(list, "while");
+  add_lnode(list, "(");
+  add_lnode(list, ")");
   print_list(list);
 
   /* alloc and init struct */
