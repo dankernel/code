@@ -87,7 +87,7 @@ struct dk_lnode *add_lnode(struct dk_list *list, void *p)
 
   /* mknode and ... TODO : link */
   nn = init_lnode(p);
-  list->tail->next = "ff";
+  list->tail->next = nn;
   nn->prev = list->tail;
 
   /* list tail reset */
@@ -109,7 +109,10 @@ int print_list(struct dk_list *list)
   tmp = root;
 
   do {
-    printf("%s %s %s \n", tmp->prev, tmp->p, tmp->next);
+    if (tmp->prev || tmp->next)
+      printf("list print : %10s %10s %10p \n", tmp->prev, tmp->p, tmp->next);
+    else
+      printf("fail\n");
 
   } while (tmp = tmp->next);
 
