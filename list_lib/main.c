@@ -30,11 +30,10 @@ int main(int argc, char* argv[])
 
   /* TEST */
   struct dk_lnode *tmp = NULL;
-  tmp = list->head;
-  printf("%s\n", tmp->p);
+  add_lnode(list, "NEW");
+  add_lnode(list, "NEW2");
 
-  tmp = add_lnode(list, "NEW");
-  printf("%s\n", tmp->p);
+  print_list(list);
 
 
   return 0;

@@ -21,6 +21,8 @@
 #include <string.h>
 #include <fcntl.h>
 
+#include "dkh/errno.h"
+
 struct dk_list {
   int count;
   struct dk_lnode *head;
@@ -85,9 +87,10 @@ struct dk_lnode *add_lnode(struct dk_list *list, void *p)
 
   /* mknode and ... TODO : link */
   nn = init_lnode(p);
+  list->tail->next = "ff";
   nn->prev = list->tail;
 
-  /* list.. */
+  /* list tail reset */
   list->tail = nn;
 
   return nn;
@@ -96,6 +99,19 @@ struct dk_lnode *add_lnode(struct dk_list *list, void *p)
 int print_list(struct dk_list *list)
 {
   int ret = 0;
+  struct dk_lnode *root = NULL;
+  struct dk_lnode *tmp = NULL;
+
+  if (!list)
+    return -EARG_NULL;
+
+  root = list->head;
+  tmp = root;
+
+  do {
+    printf("%s %s %s \n", tmp->prev, tmp->p, tmp->next);
+
+  } while (tmp = tmp->next);
 
   return ret;
 }
