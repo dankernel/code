@@ -110,7 +110,7 @@ int print_list(struct dk_list *list)
 
   do {
     if (tmp->prev || tmp->next)
-      printf("list print : %10s %10s %10p \n", tmp->prev, tmp->p, tmp->next);
+      printf("list print : %10s %10s %10s \n", tmp->prev, tmp->p, tmp->next);
     else
       printf("fail\n");
 
