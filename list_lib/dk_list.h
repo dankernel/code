@@ -23,6 +23,13 @@
 
 #include "dkh/errno.h"
 
+#define print_node(struct dk_lnode *p) \
+  if ((n->prev || n->next) && !strstr((char *)n->p, "\n"))  \
+  printf("list print : %10p (%10p %10s) %10p \n", n->prev, &n->p, n->p, n->next); \
+  else \
+  printf("fail\n");
+
+
 struct dk_list {
   int count;
   struct dk_lnode *head;
@@ -141,7 +148,8 @@ int print_list(struct dk_list *list)
   /* Print loop */
   do {
     if ((tmp->prev || tmp->next) && !strstr((char *)tmp->p, "\n")) {
-      printf("list print : %10p (%10p %10s) %10p \n", tmp->prev, &tmp->p, tmp->p, tmp->next);
+      print_node(tmp);
+      //printf("list print : %10p (%10p %10s) %10p \n", tmp->prev, &tmp->p, tmp->p, tmp->next);
     } else
       printf("fail : NULL node or Not string type\n");
 

@@ -49,8 +49,8 @@ int main(int argc, char* argv[])
   print_list(list);
   
   list->r_cache = tmp;
-  printf("%s\n", next_lnode(list)->p);
-  printf("%s\n", next_lnode(list)->p);
+  print_node(next_lnode(list));
+  print_node(next_lnode(list));
 
   return 0;
 }
