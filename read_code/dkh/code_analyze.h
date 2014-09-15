@@ -35,9 +35,10 @@ char *list_str(struct dk_list *list, const char *str)
   printf("str : %s\n", str);
   while (tmp = next_lnode(list)) {
     
-    printf("strstr : %s : %s : \n", (char *)tmp->p, str);
-    if (strstr((char *)tmp->p, str)) {
-      printf("list str ok : %s : %s : \n", tmp->p, str);
+    s = (char *)tmp->p;
+    printf("strstr : %s : %s : \n", s, str);
+    if (strstr(s, str)) {
+      printf("list str ok : %s : %s : \n", s, str);
       break;
     }
   }
