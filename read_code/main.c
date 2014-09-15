@@ -37,6 +37,7 @@ int main(int argc, char* argv[])
   add_lnode(list, "if");
   add_lnode(list, "for");
   add_lnode(list, "while");
+  print_list(list);
 
   /* alloc and init struct */
   struct file_info *dk_file = NULL;
@@ -58,6 +59,8 @@ int main(int argc, char* argv[])
     // next //
     buf = read_split(dk_file, '\n');
   }
+
+  close_file(dk_file);
 
   return 0;
 }
