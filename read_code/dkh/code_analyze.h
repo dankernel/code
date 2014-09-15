@@ -30,14 +30,16 @@
 char *list_str(struct dk_list *list, const char *str)
 {
   struct dk_lnode *tmp = NULL;
+  char *s = NULL;
 
   printf("str : %s\n", str);
   while (tmp = next_lnode(list)) {
+    
+    printf("strstr : %s : %s : \n", (char *)tmp->p, str);
     if (strstr((char *)tmp->p, str)) {
-      printf("list str ok : %s : %s \n", tmp->p, str);
+      printf("list str ok : %s : %s : \n", tmp->p, str);
       break;
     }
-    printf("loop %s\n", tmp->p);
   }
 
   return NULL;
