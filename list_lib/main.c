@@ -22,18 +22,26 @@
 
 #include "dk_list.h"
 
+struct test {
+  int num;
+  char ch[100];
+};
+
 int main(int argc, char* argv[])
 {
 
   struct dk_list *list = init_list();
   printf("count : %d \n", list->count);
 
+  /* Test */
+  struct test *t = NULL;
+  t->num = 10;
+  strcpy(t->ch, "dkdk");
+
   /* TEST */
   struct dk_lnode *tmp = NULL;
   add_lnode(list, "NEW");
-  add_lnode(list, "NEW2");
-
-  print_list(list);
+  add_lnode(list, t);
 
 
   return 0;
