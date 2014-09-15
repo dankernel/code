@@ -48,10 +48,7 @@ int main(int argc, char* argv[])
     // cheek //
     //printf("%s\n", buf);
 
-    //list_str(list, buf);
-
-    if (strstr(buf, "if"))
-      printf("%s\n", buf);
+    list_str(list, buf);
 
 
     /*
