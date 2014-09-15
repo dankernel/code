@@ -29,8 +29,11 @@ struct dk_list {
   struct dk_lnode *tail;
 
   /* For buffer node */
-  int buf_count;
-  struct dk_lnode *buf_node;
+  int r_cache_count;
+  int w_cache_count;
+
+  struct dk_lnode *r_cache;
+  struct dk_lnode *w_cache;
 };
 
 struct dk_lnode {
