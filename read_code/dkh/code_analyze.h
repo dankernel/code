@@ -31,14 +31,23 @@ char *list_str(struct dk_list *list, const char *str)
 {
   struct dk_lnode *tmp = NULL;
   char *s = NULL;
+  char *ret = 0;
 
-  printf("str : %s\n", str);
+  if (!str && (3 < strlen(str)))
+    return NULL;
+
+  printf("str : %s[%d]\n", str, strlen(str));
   while (tmp = next_lnode(list)) {
     
     s = (char *)tmp->p;
     printf("strstr : %s : %s : \n", s, str);
-    if (strstr(s, str)) {
+    if (ret = strstr(s, str)) {
       printf("list str ok : %s : %s : \n", s, str);
+
+      if(ret)
+        printf("ret : %p \n", ret);
+        printf("ret : %s \n", *ret);
+
       break;
     }
   }
