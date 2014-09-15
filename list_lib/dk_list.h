@@ -27,6 +27,10 @@ struct dk_list {
   int count;
   struct dk_lnode *head;
   struct dk_lnode *tail;
+
+  /* For buffer node */
+  int buf_count;
+  struct dk_lnode *buf_node;
 };
 
 struct dk_lnode {
@@ -65,9 +69,11 @@ struct dk_list *init_list(void)
   nl = malloc(sizeof(struct dk_list));
 
   /* init first node, new node = head = tail */
+  nl->count = 1;
   nl->head = init_lnode("INIT");
   nl->tail = nl->head;
-  nl->count = 1;
+
+  nl->buf_count = 0;
 
   return nl;
 }
@@ -115,10 +121,10 @@ int print_list(struct dk_list *list)
 
   /* Print loop */
   do {
-    if (tmp->prev || tmp->next)
-      printf("list print : %p %p %10s %p \n", tmp->prev, &tmp->p, tmp->p, tmp->next);
-    else
-      printf("fail\n");
+    if ((tmp->prev || tmp->next) && !strstr(tmp->p, "\n")) {
+      printf("list print : %10p (%10p %10s) %10p \n", tmp->prev, &tmp->p, tmp->p, tmp->next);
+    } else
+      printf("fail : NULL node or Not string type\n");
 
   } while (tmp = tmp->next);
 
