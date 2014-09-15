@@ -35,7 +35,6 @@ int main(int argc, char* argv[])
   add_lnode(list, "while");
   print_list(list);
 
-  list_str(list, "f");
 
   /* alloc and init struct */
   struct file_info *dk_file = NULL;
@@ -47,8 +46,9 @@ int main(int argc, char* argv[])
   while (buf) {
 
     // cheek //
-    printf("%s\n", buf);
+    //printf("%s\n", buf);
 
+    list_str(list, buf);
     /*
      * SOME CODE ...
      * ...
