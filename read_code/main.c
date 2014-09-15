@@ -20,11 +20,7 @@
 #include <string.h>
 #include <fcntl.h>
 
-//#include "code_analyze.h"
-#include "dkh/file_read.h"
-#include "dkh/print_msg.h"
-#include "dkh/dk_str.h"
-#include "dkh/dk_list.h"
+#include "dkh/code_analyze.h"
 
 int main(int argc, char* argv[])
 {
@@ -37,9 +33,9 @@ int main(int argc, char* argv[])
   add_lnode(list, "if");
   add_lnode(list, "for");
   add_lnode(list, "while");
-  add_lnode(list, "(");
-  add_lnode(list, ")");
   print_list(list);
+
+  list_str(list, "f");
 
   /* alloc and init struct */
   struct file_info *dk_file = NULL;
