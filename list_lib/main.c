@@ -39,25 +39,18 @@ int main(int argc, char* argv[])
 
   /* TEST */
   struct dk_lnode *tmp = NULL;
-  add_lnode(list, "NEW");
-  add_lnode(list, "node1");
-  tmp = add_lnode(list, "node2");
-  tmp = add_lnode(list, t);
-  tmp = add_lnode(list, "node3");
-
-  printf("next %s \n", next_lnode(list)->p);
-  printf("next %s \n", next_lnode(list)->p);
-  printf("next %s \n", next_lnode(list)->p);
-
-  /* ... */
-  struct test *list_node = NULL;
-  list_node = (struct test*)tmp->p;
-  printf("%s\n", list_node->ch);
+  tmp = add_lnode(list, "node0");
+  tmp = add_lnode(list, "node1");
+  add_lnode(list, "node2");
+  add_lnode(list, "node3");
 
   /* print count */
   printf("count : %d \n", list->count);
-
   print_list(list);
+  
+  list->r_cache = tmp;
+  printf("%s\n", next_lnode(list)->p);
+  printf("%s\n", next_lnode(list)->p);
 
   return 0;
 }
