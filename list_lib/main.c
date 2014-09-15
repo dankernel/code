@@ -32,15 +32,9 @@ int main(int argc, char* argv[])
 
   struct dk_list *list = init_list();
 
-  /* Test struct */
-  struct test *t = malloc(sizeof(struct test));
-  t->num = 10;
-  strcpy(t->ch, "dkdk");
-
   /* TEST */
-  struct dk_lnode *tmp = NULL;
-  tmp = add_lnode(list, "node0");
-  tmp = add_lnode(list, "node1");
+  add_lnode(list, "node0");
+  add_lnode(list, "node1");
   add_lnode(list, "node2");
   add_lnode(list, "node3");
 
@@ -48,9 +42,8 @@ int main(int argc, char* argv[])
   printf("count : %d \n", list->count);
   print_list(list);
   
-  list->r_cache = tmp;
-  print_node(next_lnode(list));
-  print_node(next_lnode(list));
+  //print_node(next_lnode(list));
+  //print_node(next_lnode(list));
 
   return 0;
 }

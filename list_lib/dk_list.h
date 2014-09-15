@@ -23,13 +23,6 @@
 
 #include "dkh/errno.h"
 
-#define print_node(struct dk_lnode *p) \
-  if ((n->prev || n->next) && !strstr((char *)n->p, "\n"))  \
-  printf("list print : %10p (%10p %10s) %10p \n", n->prev, &n->p, n->p, n->next); \
-  else \
-  printf("fail\n");
-
-
 struct dk_list {
   int count;
   struct dk_lnode *head;
@@ -117,15 +110,32 @@ struct dk_lnode *add_lnode(struct dk_list *list, void *p)
   return nn;
 }
 
+/* 
+ * get next node of read cache 
+ * @list : target list
+ * return : next node
+ */
 struct dk_lnode *next_lnode(struct dk_list *list)
 {
   if (!list)
     return NULL;
 
   if(!list->r_cache)
-    list->r_cache = list->head;
+    return list->r_cache = list->head;
 
   return list->r_cache = list->r_cache->next;
+}
+
+/* 
+ * print node to form 
+ * @n : target node
+ */
+inline void print_node(struct dk_lnode *n)
+{
+  if ((n->prev || n->next) && !strstr((char *)n->p, "\n"))
+    printf("list print : %10p (%10p %10s) %10p \n", n->prev, &n->p, n->p, n->next);
+  else
+    printf("fail\n");
 }
 
 /* 
@@ -149,7 +159,6 @@ int print_list(struct dk_list *list)
   do {
     if ((tmp->prev || tmp->next) && !strstr((char *)tmp->p, "\n")) {
       print_node(tmp);
-      //printf("list print : %10p (%10p %10s) %10p \n", tmp->prev, &tmp->p, tmp->p, tmp->next);
     } else
       printf("fail : NULL node or Not string type\n");
 
