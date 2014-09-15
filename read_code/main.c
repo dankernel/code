@@ -32,6 +32,12 @@ int main(int argc, char* argv[])
   int ret = 0;
   char *buf = NULL;
 
+  /* list and add key word */
+  struct dk_list *list = init_list();
+  add_lnode(list, "if");
+  add_lnode(list, "for");
+  add_lnode(list, "while");
+
   /* alloc and init struct */
   struct file_info *dk_file = NULL;
   dk_file = (struct file_info*)malloc(sizeof(struct file_info));
