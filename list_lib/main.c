@@ -24,25 +24,36 @@
 
 struct test {
   int num;
-  char ch[100];
+  char ch[5];
 };
 
 int main(int argc, char* argv[])
 {
 
   struct dk_list *list = init_list();
-  printf("count : %d \n", list->count);
 
-  /* Test */
-  struct test *t = NULL;
+  /* Test struct */
+  struct test *t = malloc(sizeof(struct test));
   t->num = 10;
   strcpy(t->ch, "dkdk");
 
   /* TEST */
   struct dk_lnode *tmp = NULL;
-  add_lnode(list, "NEW");
-  add_lnode(list, t);
+  tmp = add_lnode(list, "NEW");
+  tmp = add_lnode(list, "node1");
+  tmp = add_lnode(list, "node2");
+  tmp = add_lnode(list, t);
+  tmp = add_lnode(list, "node3");
 
+  /* ... */
+  struct test *list_node = NULL;
+  list_node = (struct test*)tmp->p;
+  printf("%s\n", list_node->ch);
+
+  /* print count */
+  printf("count : %d \n", list->count);
+
+  print_list(list);
 
   return 0;
 }

@@ -96,6 +96,11 @@ struct dk_lnode *add_lnode(struct dk_list *list, void *p)
   return nn;
 }
 
+/* 
+ * print list. head to tail. only char type 
+ * @list : target list struct
+ * return : error code
+ * */
 int print_list(struct dk_list *list)
 {
   int ret = 0;
@@ -108,9 +113,10 @@ int print_list(struct dk_list *list)
   root = list->head;
   tmp = root;
 
+  /* Print loop */
   do {
     if (tmp->prev || tmp->next)
-      printf("list print : %10s %10s %10s \n", tmp->prev, tmp->p, tmp->next);
+      printf("list print : %p %p %10s %p \n", tmp->prev, &tmp->p, tmp->p, tmp->next);
     else
       printf("fail\n");
 
