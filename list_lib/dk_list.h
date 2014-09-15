@@ -73,7 +73,9 @@ struct dk_list *init_list(void)
   nl->head = init_lnode("INIT");
   nl->tail = nl->head;
 
-  nl->buf_count = 0;
+  /* init buf node and count*/
+  nl->buf_count = 1;
+  nl->buf_node = nl->head;
 
   return nl;
 }
