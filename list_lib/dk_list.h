@@ -93,13 +93,16 @@ struct dk_lnode *add_lnode(struct dk_list *list, void *p)
   if (!list)
     return NULL;
 
-  /* mknode and ... TODO : link */
+  /* mknode and link */
   nn = init_lnode(p);
   list->tail->next = nn;
   nn->prev = list->tail;
 
   /* list tail reset */
   list->tail = nn;
+
+  /* add count */
+  list->count++;
 
   /* cache reset */
   list->w_cache = nn;
@@ -109,18 +112,13 @@ struct dk_lnode *add_lnode(struct dk_list *list, void *p)
 
 struct dk_lnode *next_lnode(struct dk_list *list)
 {
-  struct dk_lnode *old_cache = NULL;
-
   if (!list)
     return NULL;
 
   if(!list->r_cache)
     list->r_cache = list->head;
 
-  old_cache = list->r_cache;
-  list->r_cache = list->r_cache->next;
-
-  return old_cache;
+  return list->r_cache = list->r_cache->next;
 }
 
 /* 
