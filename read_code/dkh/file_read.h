@@ -108,6 +108,18 @@ ret:
   return ret;
 }/*}}}*/
 
+int close_file(struct file_info *info)
+{
+  int ret = 0;
+
+  if (!info)
+    return -EARG_NULL;
+
+  close(info->fd);
+
+  return ret;
+}
+
 /*
  * read (next) string, split to ch
  * @info : file_info struct
