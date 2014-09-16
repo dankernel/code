@@ -64,8 +64,9 @@ int main(int argc, char* argv[])
     }
 
     close(tmp_file->fd);
-    free(tmp_file->path);
+
     free(tmp_file->buf);
+    free(tmp_file->path);
     free(tmp_file);
 
     // next //

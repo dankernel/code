@@ -1630,6 +1630,7 @@
 ./test/kernel/tools/perf/config/feature-checks/test-backtrace.c
 ./test/kernel/tools/perf/config/feature-checks/test-libelf-getphdrnum.c
 ./test/kernel/tools/perf/config/feature-checks/test-all.c
+./test/kernel/tools/perf/config/feature-checks/test-all.c
 ./test/kernel/tools/perf/config/feature-checks/test-stackprotector-all.c
 ./test/kernel/tools/perf/config/feature-checks/test-libunwind.c
 ./test/kernel/tools/perf/config/feature-checks/test-libelf.c
