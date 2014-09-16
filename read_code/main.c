@@ -46,8 +46,9 @@ int main(int argc, char* argv[])
   struct file_info *tmp_file = NULL;
   while (file) {
 
+    printf("file : %s \n", file);
 
-    /* alloc and init struct */
+    /* tmp file : alloc and init struct */
     tmp_file = (struct file_info*)malloc(sizeof(struct file_info));
     init_file_struct(tmp_file, file);
 
@@ -56,7 +57,7 @@ int main(int argc, char* argv[])
     while (buf) {
 
       char *tmp = NULL;
-      if ((tmp = list_str(list, buf)) /* && (strstr(buf, "(") ) */ )
+      if ((tmp = list_str(list, buf)))
         printf("%s \n", tmp);
 
       /*
@@ -64,12 +65,17 @@ int main(int argc, char* argv[])
        */
 
       // next //
+      free(buf);
       buf = read_split(tmp_file, '\n');
     }
 
     close_file(tmp_file);
+    free(tmp_file->path);
+    free(tmp_file->buf);
     free(tmp_file);
+
     // next //
+    free(file);
     file = read_split(file_list, '\n');
 
   }
