@@ -31,15 +31,15 @@ int main(int argc, char* argv[])
 
   /* init list and add key word */
   struct dk_list *list = init_list();
-  add_lnode(list, "fs");
-  /* add_lnode(list, "for"); */
-  /* add_lnode(list, "while"); */
+  add_lnode(list, "if");
+  add_lnode(list, "for"); 
+  add_lnode(list, "while");
   print_list(list);
 
   /* file list : alloc and init struct */
   struct file_info *file_list = NULL;
   file_list = (struct file_info*)malloc(sizeof(struct file_info));
-  init_file_struct(file_list, "./test/kernel/file.list");
+  init_file_struct(file_list, "./test/file.list");
 
   file = read_split(file_list, '\n');
 
@@ -54,9 +54,9 @@ int main(int argc, char* argv[])
 
     /* CORE */
     buf = read_split(tmp_file, '\n');
+    printf("buf : %s\n", buf);
     while (buf) {
 
-      printf("buf : %s\n", buf);
 
       char *tmp = NULL;
       if ((tmp = list_str(list, buf)))
