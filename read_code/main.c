@@ -35,7 +35,7 @@ int main(int argc, char* argv[])
 
   /* init list and add key word */
   struct dk_list *list = init_list();
-  add_lnode(list, "if");
+  add_lnode(list, "while");
   print_list(list);
 
   /* file list : alloc and init struct */
@@ -62,7 +62,7 @@ int main(int argc, char* argv[])
       if (tmp = list_str(list, buf)) {
 
         count_con++;
-        if (strstr(tmp, "if(")) {
+        if (strstr(tmp, "while(")) {
           printf("%s \n", tmp);
           count_fail++;
         }
