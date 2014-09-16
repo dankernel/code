@@ -27,6 +27,7 @@ int main(int argc, char* argv[])
   int fd = -1;
   int ret = 0;
   char *buf = NULL;
+  char *file = NULL;
 
   /* init list and add key word */
   struct dk_list *list = init_list();
@@ -35,34 +36,43 @@ int main(int argc, char* argv[])
   /* add_lnode(list, "while"); */
   print_list(list);
 
-  /* alloc and init struct */
-  struct file_info *dk_file = NULL;
-  dk_file = (struct file_info*)malloc(sizeof(struct file_info));
-  init_file_struct(dk_file, "./test/kernel/file.list");
+  /* file list : alloc and init struct */
+  struct file_info *file_list = NULL;
+  file_list = (struct file_info*)malloc(sizeof(struct file_info));
+  init_file_struct(file_list, "./test/kernel/file.list");
 
-  /* alloc and init struct */
-  /* struct file_info *dk_file = NULL; */
-  /* dk_file = (struct file_info*)malloc(sizeof(struct file_info)); */
-  /* init_file_struct(dk_file, "./test/core.c"); */
+  file = read_split(file_list, '\n');
+
+  struct file_info *tmp_file = NULL;
+  while (file) {
 
 
-  /* CORE */
-  buf = read_split(dk_file, '\n');
-  while (buf) {
+    /* alloc and init struct */
+    tmp_file = (struct file_info*)malloc(sizeof(struct file_info));
+    init_file_struct(tmp_file, file);
 
-    char *tmp = NULL;
-    if ((tmp = list_str(list, buf)) && (strstr(buf, "(")))
-      printf("%s \n", tmp);
+    /* CORE */
+    buf = read_split(tmp_file, '\n');
+    while (buf) {
 
-    /*
-     * SOME CODE ...
-     */
+      char *tmp = NULL;
+      if ((tmp = list_str(list, buf)) /* && (strstr(buf, "(") ) */ )
+        printf("%s \n", tmp);
 
+      /*
+       * SOME CODE ...
+       */
+
+      // next //
+      buf = read_split(tmp_file, '\n');
+    }
+
+    close_file(tmp_file);
+    free(tmp_file);
     // next //
-    buf = read_split(dk_file, '\n');
-  }
+    file = read_split(file_list, '\n');
 
-  close_file(dk_file);
+  }
 
   return 0;
 }
