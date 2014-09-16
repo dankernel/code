@@ -56,6 +56,8 @@ int main(int argc, char* argv[])
     buf = read_split(tmp_file, '\n');
     while (buf) {
 
+      printf("buf : %s\n", buf);
+
       char *tmp = NULL;
       if ((tmp = list_str(list, buf)))
         printf("%s \n", tmp);
