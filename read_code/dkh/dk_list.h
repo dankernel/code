@@ -70,7 +70,7 @@ struct dk_list *init_list(void)
 
   /* init first node, new node = head = tail */
   nl->count = 1;
-  nl->head = init_lnode("INIT");
+  nl->head = init_lnode("DKDK_HEAD");
   nl->tail = nl->head;
 
   /* init buf node */
