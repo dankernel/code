@@ -31,8 +31,6 @@ int main(int argc, char* argv[])
 
   /* init list and add key word */
   struct dk_list *list = init_list();
-  add_lnode(list, "if");
-  add_lnode(list, "for"); 
   add_lnode(list, "while");
   print_list(list);
 
@@ -57,7 +55,7 @@ int main(int argc, char* argv[])
     while (buf) {
 
       char *tmp = NULL;
-      if ((tmp = list_str(list, buf)))
+      if ((tmp = list_str(list, buf)) && (strstr(tmp, "while(")))
         printf("%s \n", tmp);
 
       buf = read_split(tmp_file, '\n');
