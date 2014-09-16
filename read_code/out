@@ -1,977 +1,654 @@
-list print :      (nil) (  0x98c040       INIT)   0x98c060 
-list print :   0x98c040 (  0x98c060         if)   0x98c080 
-list print :   0x98c060 (  0x98c080        for)   0x98c0a0 
-list print :   0x98c080 (  0x98c0a0      while)      (nil) 
+list print :      (nil) ( 0x1bae040       INIT)  0x1bae060 
+list print :  0x1bae040 ( 0x1bae060         if)  0x1bae080 
+list print :  0x1bae060 ( 0x1bae080        for)  0x1bae0a0 
+list print :  0x1bae080 ( 0x1bae0a0      while)      (nil) 
 [ OK ] open : 3 ok... 
-list str ok : if :  *  1996-12-23  Modified by Dave Grothe to fix bugs in semaphores and : 
-list str ok : if : #include <linux/notifier.h> : 
-list str ok : if : #ifdef CONFIG_PARAVIRT : 
-list str ok : if : #endif : 
-list str ok : for : 	for (;;) { : 
-list str ok : for : 		hrtimer_forward(period_timer, now, period); : 
-list str ok : if : 	if (rq->skip_clock_update > 0) : 
-list str ok : if : #ifdef CONFIG_SCHED_DEBUG : 
-list str ok : for : 	for (i = 0; i < __SCHED_FEAT_NR; i++) { : 
-list str ok : if : #ifdef HAVE_JUMP_LABEL : 
-list str ok : INIT : #define jump_label_key__false STATIC_KEY_INIT_FALSE : 
-list str ok : if : 	if (static_key_enabled(&sched_feat_keys[i])) : 
-list str ok : if : 	if (!static_key_enabled(&sched_feat_keys[i])) : 
-list str ok : if : #endif /* HAVE_JUMP_LABEL */ : 
-list str ok : if : 	if (strncmp(cmp, "NO_", 3) == 0) { : 
-list str ok : for : 	for (i = 0; i < __SCHED_FEAT_NR; i++) { : 
-list str ok : if : 			if (neg) { : 
-list str ok : if : 	if (cnt > 63) : 
-list str ok : if : 	if (copy_from_user(&buf, ubuf, cnt)) : 
-list str ok : if : 	if (i == __SCHED_FEAT_NR) : 
-list str ok : if : #endif /* CONFIG_SCHED_DEBUG */ : 
-list str ok : for : 	for (;;) { : 
-list str ok : if : 		if (likely(rq == task_rq(p))) : 
-list str ok : for : 	for (;;) { : 
-list str ok : if : 		if (likely(rq == task_rq(p))) : 
-list str ok : if : #ifdef CONFIG_SCHED_HRTICK : 
-list str ok : if : 	if (hrtimer_active(&rq->hrtick_timer)) : 
-list str ok : if : #ifdef CONFIG_SMP : 
-list str ok : if : 	if (rq == this_rq()) { : 
-list str ok : if : 	} else if (!rq->hrtick_csd_pending) { : 
-list str ok : if : hotplug_hrtick(struct notifier_block *nfb, unsigned long action, void *hcpu) : 
-list str ok : if : 	hotcpu_notifier(hotplug_hrtick, 0); : 
-list str ok : if : #endif /* CONFIG_SMP */ : 
-list str ok : if : #ifdef CONFIG_SMP : 
-list str ok : if : #endif : 
-list str ok : if : #endif	/* CONFIG_SCHED_HRTICK */ : 
-list str ok : if : 	if (test_tsk_need_resched(p)) : 
-list str ok : if : 	if (cpu == smp_processor_id()) { : 
-list str ok : for : 	/* NEED_RESCHED must be visible before we test polling */ : 
-list str ok : if : 	if (!tsk_is_polling(p)) : 
-list str ok : if : 	if (!raw_spin_trylock_irqsave(&rq->lock, flags)) : 
-list str ok : if : #ifdef CONFIG_SMP : 
-list str ok : for :  * In the semi idle case, use the nearest busy cpu for migrating timers : 
-list str ok : for :  * We don't do similar optimization for completely idle system, as : 
-list str ok : if :  * (as that cpu's timer base may not be uptodate wrt jiffies etc). : 
-list str ok : for : 	for_each_domain(cpu, sd) { : 
-list str ok : if : 			if (!idle_cpu(i)) { : 
-list str ok : for :  * idle CPU then this timer might expire before the next timer event : 
-list str ok : for :  * wheel for the next timer event. : 
-list str ok : if : 	if (cpu == smp_processor_id()) : 
-list str ok : if : 	if (rq->curr != rq->idle) : 
-list str ok : for : 	/* NEED_RESCHED must be visible before we test polling */ : 
-list str ok : if : 	if (!tsk_is_polling(rq->idle)) : 
-list str ok : if : 	if (tick_nohz_full_cpu(cpu)) { : 
-list str ok : if : 	if (!wake_up_full_nohz_cpu(cpu)) : 
-list str ok : if : 	if (!test_bit(NOHZ_BALANCE_KICK, nohz_flags(cpu))) : 
-list str ok : if : 	if (idle_cpu(cpu) && !need_resched()) : 
-list str ok : for : 	 * We can't run Idle Load Balance on this CPU for this time so we : 
-list str ok : if : #endif /* CONFIG_NO_HZ_COMMON */ : 
-list str ok : if :        if (rq->nr_running > 1) : 
-list str ok : if : #endif /* CONFIG_NO_HZ_FULL */ : 
-list str ok : while : 	while ((s64)(rq_clock(rq) - rq->age_stamp) > period) { : 
-list str ok : for : 		 * See __iter_div_u64_rem() for another example of this. : 
-list str ok : if : #endif /* CONFIG_SMP */ : 
-list str ok : for :  * node and @up when leaving it for the final time. : 
-list str ok : if : 	if (ret) : 
-list str ok : for : 	list_for_each_entry_rcu(child, &parent->children, siblings) { : 
-list str ok : if : 	if (ret || parent == from) : 
-list str ok : if : 	if (parent) : 
-list str ok : if : #endif : 
-list str ok : if : 	if (p->policy == SCHED_IDLE) { : 
-list str ok : if : 	if (task_contributes_to_load(p)) : 
-list str ok : if : 	if (task_contributes_to_load(p)) : 
-list str ok : if : #if defined(CONFIG_IRQ_TIME_ACCOUNTING) || defined(CONFIG_PARAVIRT_TIME_ACCOUNTING) : 
-list str ok : if : #endif : 
-list str ok : for : 	 * prev_irq_time stamp to account for the part that fit, so that a next : 
-list str ok : if : 	if (irq_delta > delta) : 
-list str ok : if : #endif : 
-list str ok : if : 	if (static_key_false((&paravirt_steal_rq_enabled))) { : 
-list str ok : if : 		if (unlikely(steal > delta)) : 
-list str ok : if : #endif : 
-list str ok : if : #if defined(CONFIG_IRQ_TIME_ACCOUNTING) || defined(CONFIG_PARAVIRT_TIME_ACCOUNTING) : 
-list str ok : if : #endif : 
-list str ok : if : 	if (stop) { : 
-list str ok : if : 	if (old_stop) { : 
-list str ok : if :  * boosted by interactivity modifiers. Changes upon fork, : 
-list str ok : if : 	if (task_has_dl_policy(p)) : 
-list str ok : if : 	else if (task_has_rt_policy(p)) : 
-list str ok : if :  * interactivity modifiers. Will be RT if the task got : 
-list str ok : if : 	if (!rt_prio(p->prio)) : 
-list str ok : if :  * Return: 1 if the task is currently executing. 0 otherwise. : 
-list str ok : if : 	if (prev_class != p->sched_class) { : 
-list str ok : if : 	} else if (oldprio != p->prio || dl_task(p)) : 
-list str ok : if : 	if (p->sched_class == rq->curr->sched_class) { : 
-list str ok : for : 		for_each_class(class) { : 
-list str ok : if : 			if (class == p->sched_class) { : 
-list str ok : if : 	if (rq->curr->on_rq && test_tsk_need_resched(rq->curr)) : 
-list str ok : if : #ifdef CONFIG_SMP : 
-list str ok : if : #ifdef CONFIG_SCHED_DEBUG : 
-list str ok : if : #ifdef CONFIG_LOCKDEP : 
-list str ok : for : 	 * a task's CPU. ->pi_lock for waking tasks, rq->lock for runnable tasks. : 
-list str ok : if : #endif : 
-list str ok : if : 	if (task_cpu(p) != new_cpu) { : 
-list str ok : if : 	if (p->on_rq) { : 
-list str ok : for : 		 * it before it went to sleep. This means on wakeup we make the : 
-list str ok : if : 	if (task_cpu(arg->dst_task) != arg->dst_cpu) : 
-list str ok : if : 	if (task_cpu(arg->src_task) != arg->src_cpu) : 
-list str ok : if : 	if (!cpumask_test_cpu(arg->dst_cpu, tsk_cpus_allowed(arg->src_task))) : 
-list str ok : if : 	if (!cpumask_test_cpu(arg->src_cpu, tsk_cpus_allowed(arg->dst_task))) : 
-list str ok : if : 	if (arg.src_cpu == arg.dst_cpu) : 
-list str ok : if : 	if (!cpu_active(arg.src_cpu) || !cpu_active(arg.dst_cpu)) : 
-list str ok : if : 	if (!cpumask_test_cpu(arg.dst_cpu, tsk_cpus_allowed(arg.src_task))) : 
-list str ok : if : 	if (!cpumask_test_cpu(arg.src_cpu, tsk_cpus_allowed(arg.dst_task))) : 
-list str ok : for :  * wait_task_inactive - wait for a thread to unschedule. : 
-list str ok : for :  * then return zero.  When we succeed in waiting for @p to be off its CPU, : 
-list str ok : while :  * a short while later returns the same number, the caller can be sure that : 
-list str ok : for :  * else this function might spin for a *long* time. This function can't : 
-list str ok : if :  * smp_call_function() if an IPI is sent by the same process we are : 
-list str ok : for : 	for (;;) { : 
-list str ok : if : 		 * return false if the runqueue has changed and p : 
-list str ok : while : 		while (task_running(rq, p)) { : 
-list str ok : if : 		if (!match_state || p->state == match_state) : 
-list str ok : if : 		if (unlikely(!ncsw)) : 
-list str ok : if : 		if (unlikely(running)) { : 
-list str ok : if : 		 * So if it was still runnable (but just not actively : 
-list str ok : while : 		 * yield - it could be a while. : 
-list str ok : if : 		if (unlikely(on_rq)) { : 
-list str ok : if : 	if ((cpu != smp_processor_id()) && task_curr(p)) : 
-list str ok : if : #endif /* CONFIG_SMP */ : 
-list str ok : if : 	if (nid != -1) { : 
-list str ok : for : 		/* Look for allowed, online CPU in same node. */ : 
-list str ok : if : 			if (!cpu_online(dest_cpu)) : 
-list str ok : if : 			if (!cpu_active(dest_cpu)) : 
-list str ok : if : 			if (cpumask_test_cpu(dest_cpu, tsk_cpus_allowed(p))) : 
-list str ok : for : 	for (;;) { : 
-list str ok : for : 		for_each_cpu(dest_cpu, tsk_cpus_allowed(p)) { : 
-list str ok : if : 			if (!cpu_active(dest_cpu)) : 
-list str ok : if : 	if (state != cpuset) { : 
-list str ok : if : 		if (p->mm && printk_ratelimit()) { : 
-list str ok : for :  * The caller (fork, wakeup) owns p->pi_lock, ->cpus_allowed is stable. : 
-list str ok : if : 	if (unlikely(!cpumask_test_cpu(cpu, tsk_cpus_allowed(p)) || : 
-list str ok : if : 	s64 diff = sample - *avg; : 
-list str ok : if : #endif : 
-list str ok : if : #ifdef CONFIG_SCHEDSTATS : 
-list str ok : if : #ifdef CONFIG_SMP : 
-list str ok : if : 	if (cpu == this_cpu) { : 
-list str ok : for : 		for_each_domain(this_cpu, sd) { : 
-list str ok : if : 	if (wake_flags & WF_MIGRATED) : 
-list str ok : if : #endif /* CONFIG_SMP */ : 
-list str ok : if : 	if (wake_flags & WF_SYNC) : 
-list str ok : if : #endif /* CONFIG_SCHEDSTATS */ : 
-list str ok : if : 	/* if a worker is waking up, notify workqueue */ : 
-list str ok : for :  * Mark the task runnable and perform wakeup-preemption. : 
-list str ok : if : #ifdef CONFIG_SMP : 
-list str ok : if : 	if (rq->idle_stamp) { : 
-list str ok : if : 		if (rq->avg_idle > max) : 
-list str ok : if : #endif : 
-list str ok : if : #ifdef CONFIG_SMP : 
-list str ok : if : #endif : 
-list str ok : if : 	if (p->on_rq) { : 
-list str ok : if : #ifdef CONFIG_SMP : 
-list str ok : while : 	while (llist) { : 
-list str ok : for : 	 * TIF_NEED_RESCHED remotely (for the first time) will also send : 
-list str ok : if : 	if (llist_empty(&this_rq()->wake_list) : 
-list str ok : if : 	 * Check if someone kicked us for doing the nohz idle load balance. : 
-list str ok : if : 	if (unlikely(got_nohz_idle_kick())) { : 
-list str ok : if : 	if (llist_add(&p->wake_entry, &cpu_rq(cpu)->wake_list)) : 
-list str ok : if : #endif /* CONFIG_SMP */ : 
-list str ok : if : #if defined(CONFIG_SMP) : 
-list str ok : if : #endif : 
-list str ok : if :  * @wake_flags: wake modifier flags (WF_*) : 
-list str ok : if :  * Return: %true if @p was woken up, %false if it was already running. : 
-list str ok : for : 	 * If we are going to wake up a thread waiting for CONDITION we : 
-list str ok : for : 	smp_mb__before_spinlock(); : 
-list str ok : if : 	if (!(p->state & state)) : 
-list str ok : if : 	if (p->on_rq && ttwu_remote(p, wake_flags)) : 
-list str ok : if : #ifdef CONFIG_SMP : 
-list str ok : while : 	while (p->on_cpu) : 
-list str ok : if : 	if (p->sched_class->task_waking) : 
-list str ok : if : 	if (task_cpu(p) != cpu) { : 
-list str ok : if : #endif /* CONFIG_SMP */ : 
-list str ok : if :  * Put @p on the run-queue if it's not already there. The caller must : 
-list str ok : if : 	if (WARN_ON_ONCE(rq != this_rq()) || : 
-list str ok : if : 	if (!raw_spin_trylock(&p->pi_lock)) { : 
-list str ok : if : 	if (!(p->state & TASK_NORMAL)) : 
-list str ok : if : 	if (!p->on_rq) : 
-list str ok : if :  * wake_up_process - Wake up a specific process : 
-list str ok : if :  * Return: 1 if the process was woken up, 0 if it was already running. : 
-list str ok : for :  * It may be assumed that this function implies a write memory barrier before : 
-list str ok : for :  * Perform scheduler related setup for a newly forked process p. : 
-list str ok : for :  * __sched_fork() is basic setup used by init_idle() too: : 
-list str ok : for : static void __sched_fork(unsigned long clone_flags, struct task_struct *p) : 
-list str ok : INIT : 	INIT_LIST_HEAD(&p->se.group_node); : 
-list str ok : if : #ifdef CONFIG_SCHEDSTATS : 
-list str ok : if : #endif : 
-list str ok : INIT : 	INIT_LIST_HEAD(&p->rt.run_list); : 
-list str ok : if : #ifdef CONFIG_PREEMPT_NOTIFIERS : 
-list str ok : if : #endif : 
-list str ok : if : 	if (p->mm && atomic_read(&p->mm->mm_users) == 1) { : 
-list str ok : if : 	if (clone_flags & CLONE_VM) : 
-list str ok : INIT : 	INIT_LIST_HEAD(&p->numa_entry); : 
-list str ok : if : #endif /* CONFIG_NUMA_BALANCING */ : 
-list str ok : if : #ifdef CONFIG_SCHED_DEBUG : 
-list str ok : if : 	if (enabled) : 
-list str ok : if : #endif /* CONFIG_SCHED_DEBUG */ : 
-list str ok : if : 	if (write && !capable(CAP_SYS_ADMIN)) : 
-list str ok : if : 	if (err < 0) : 
-list str ok : if : 	if (write) : 
-list str ok : if : #endif : 
-list str ok : for :  * fork()/clone()-time setup: : 
-list str ok : for : int sched_fork(unsigned long clone_flags, struct task_struct *p) : 
-list str ok : for : 	__sched_fork(clone_flags, p); : 
-list str ok : if : 	 * Revert to default priority/policy on fork if requested. : 
-list str ok : if : 	if (unlikely(p->sched_reset_on_fork)) { : 
-list str ok : if : 		} else if (PRIO_TO_NICE(p->static_prio) < 0) : 
-list str ok : for : 		 * We don't need the reset flag anymore after the fork. It has : 
-list str ok : for : 		p->sched_reset_on_fork = 0; : 
-list str ok : if : 	} else if (rt_prio(p->prio)) { : 
-list str ok : if : 	if (p->sched_class->task_fork) : 
-list str ok : for : 		p->sched_class->task_fork(p); : 
-list str ok : for : 	 * and the cgroup is pinned to this child due to cgroup_fork() : 
-list str ok : if : #if defined(CONFIG_SCHEDSTATS) || defined(CONFIG_TASK_DELAY_ACCT) : 
-list str ok : if : #endif : 
-list str ok : if : #endif : 
-list str ok : if : #ifdef CONFIG_SMP : 
-list str ok : if : #endif : 
-list str ok : if : 	if (runtime == RUNTIME_INF) : 
-list str ok : for : 	 * safe for them anyway. : 
-list str ok : if : 	if (period == 0) : 
-list str ok : if : #ifdef CONFIG_SMP : 
-list str ok : for : 	for_each_cpu_and(i, rd->span, cpu_active_mask) : 
-list str ok : if : #endif : 
-list str ok : while :  * This function is called while holding p's rq->lock. : 
-list str ok : if : 	if (new_bw == p->dl.dl_bw) : 
-list str ok : if : 	 * Either if a task, enters, leave, or stays -deadline but changes : 
-list str ok : if : 	if (dl_policy(policy) && !task_has_dl_policy(p) && : 
-list str ok : if : 	} else if (dl_policy(policy) && task_has_dl_policy(p) && : 
-list str ok : if : 	} else if (!dl_policy(policy) && task_has_dl_policy(p)) { : 
-list str ok : for :  * wake_up_new_task - wake up a newly created task for the first time. : 
-list str ok : for :  * that must be done for every newly created context, then puts the task : 
-list str ok : if : #ifdef CONFIG_SMP : 
-list str ok : for : 	 *  - cpus_allowed can change in the fork path : 
-list str ok : if : #endif : 
-list str ok : if : #ifdef CONFIG_SMP : 
-list str ok : if : #endif : 
-list str ok : if : #ifdef CONFIG_PREEMPT_NOTIFIERS : 
-list str ok : if :  * preempt_notifier_register - tell me when current is being preempted & rescheduled : 
-list str ok : if : void preempt_notifier_register(struct preempt_notifier *notifier) : 
-list str ok : if : EXPORT_SYMBOL_GPL(preempt_notifier_register); : 
-list str ok : if :  * preempt_notifier_unregister - no longer interested in preemption notifications : 
-list str ok : if :  * This is safe to call from within a preemption notifier. : 
-list str ok : if : void preempt_notifier_unregister(struct preempt_notifier *notifier) : 
-list str ok : if : EXPORT_SYMBOL_GPL(preempt_notifier_unregister); : 
-list str ok : if : 	struct preempt_notifier *notifier; : 
-list str ok : for : 	hlist_for_each_entry(notifier, &curr->preempt_notifiers, link) : 
-list str ok : if : fire_sched_out_preempt_notifiers(struct task_struct *curr, : 
-list str ok : if : 	struct preempt_notifier *notifier; : 
-list str ok : for : 	hlist_for_each_entry(notifier, &curr->preempt_notifiers, link) : 
-list str ok : if : static void fire_sched_in_preempt_notifiers(struct task_struct *curr) : 
-list str ok : if : fire_sched_out_preempt_notifiers(struct task_struct *curr, : 
-list str ok : if : #endif /* CONFIG_PREEMPT_NOTIFIERS */ : 
-list str ok : if :  * prepare_task_switch sets up locking and calls architecture specific : 
-list str ok : if : 	fire_sched_out_preempt_notifiers(prev, next); : 
-list str ok : for :  * with a prepare_task_switch call before the context switch. : 
-list str ok : if :  * and do any other architecture-specific cleanup actions. : 
-list str ok : for :  * with the lock held can cause deadlocks; see schedule() for : 
-list str ok : for : 	 * A task struct has one reference for the use as "current". : 
-list str ok : for : 	 * The test for TASK_DEAD must occur while the runqueue locks are : 
-list str ok : for : 	 * there before we look at prev->state, and then the reference would : 
-list str ok : if : 	 *		Manfred Spraul <manfred@colorfullife.com> : 
-list str ok : if : 	fire_sched_in_preempt_notifiers(current); : 
-list str ok : if : 	if (unlikely(prev_state == TASK_DEAD)) { : 
-list str ok : if : 		if (prev->sched_class->task_dead) : 
-list str ok : if : #ifdef CONFIG_SMP : 
-list str ok : if : 	if (prev->sched_class->pre_schedule) : 
-list str ok : if : 	if (rq->post_schedule) { : 
-list str ok : if : 		if (rq->curr->sched_class->post_schedule) : 
-list str ok : if : #endif : 
-list str ok : for :  * schedule_tail - first thing a freshly forked thread must call. : 
-list str ok : if : #ifdef __ARCH_WANT_UNLOCKED_CTXSW : 
-list str ok : if : #endif : 
-list str ok : if : 	if (!mm) { : 
-list str ok : if : 	if (!prev->mm) { : 
-list str ok : if : #ifndef __ARCH_WANT_UNLOCKED_CTXSW : 
-list str ok : if : #endif : 
-list str ok : for :  * threads, total number of context switches performed since bootup. : 
-list str ok : for : 	for_each_online_cpu(i) : 
-list str ok : for : 	for_each_possible_cpu(i) : 
-list str ok : for : 	for_each_possible_cpu(i) : 
-list str ok : if : #ifdef CONFIG_SMP : 
-list str ok : if : 	if (dest_cpu == smp_processor_id()) : 
-list str ok : if : 	if (likely(cpu_active(dest_cpu))) { : 
-list str ok : if : #endif : 
-list str ok : if : 	if (task_current(rq, p)) { : 
-list str ok : if : 		if ((s64)ns < 0) : 
-list str ok : for :  * Return accounted runtime for the task. : 
-list str ok : if : #if defined(CONFIG_64BIT) && defined(CONFIG_SMP) : 
-list str ok : if : 	if (!p->on_cpu) : 
-list str ok : if : #endif : 
-list str ok : if : #ifdef CONFIG_SMP : 
-list str ok : if : #endif : 
-list str ok : if : #ifdef CONFIG_NO_HZ_FULL : 
-list str ok : for :  * balancing, etc... continue to move forward, even : 
-list str ok : if : 	unsigned long next, now = ACCESS_ONCE(jiffies); : 
-list str ok : if : 	if (time_before_eq(next, now)) : 
-list str ok : if : 	return jiffies_to_nsecs(next - now); : 
-list str ok : if : 	if (in_lock_functions(addr)) { : 
-list str ok : if : 		if (in_lock_functions(addr)) : 
-list str ok : if : #if defined(CONFIG_PREEMPT) && (defined(CONFIG_DEBUG_PREEMPT) || \ : 
-list str ok : if : #ifdef CONFIG_DEBUG_PREEMPT : 
-list str ok : if : 	if (DEBUG_LOCKS_WARN_ON((preempt_count() < 0))) : 
-list str ok : if : #endif : 
-list str ok : if : #ifdef CONFIG_DEBUG_PREEMPT : 
-list str ok : if : #endif : 
-list str ok : if : #ifdef CONFIG_DEBUG_PREEMPT : 
-list str ok : if : 	if (DEBUG_LOCKS_WARN_ON(val > preempt_count())) : 
-list str ok : if : 	if (DEBUG_LOCKS_WARN_ON((val < PREEMPT_MASK) && : 
-list str ok : if : #endif : 
-list str ok : if : #endif : 
-list str ok : while :  * Print scheduling while atomic bug: : 
-list str ok : if : 	if (oops_in_progress) : 
-list str ok : while : 	printk(KERN_ERR "BUG: scheduling while atomic: %s/%d/0x%08x\n", : 
-list str ok : if : 	if (irqs_disabled()) : 
-list str ok : if : 	 * Test if we are atomic. Since do_exit() needs to call into : 
-list str ok : if : 	 * if we are scheduling when we should not. : 
-list str ok : if : 	if (unlikely(in_atomic_preempt_off() && prev->state != TASK_DEAD)) : 
-list str ok : if : 	if (prev->on_rq || rq->skip_clock_update < 0) : 
-list str ok : if : 	 * Optimization: we know that if all tasks are in : 
-list str ok : if : 	if (likely(rq->nr_running == rq->cfs.h_nr_running)) { : 
-list str ok : if : 		if (likely(p)) : 
-list str ok : for : 	for_each_class(class) { : 
-list str ok : if : 		if (p) : 
-list str ok : if :  *      Now, if the new task added to the run-queue preempts the current : 
-list str ok : if : 	if (sched_feat(HRTICK)) : 
-list str ok : for : 	smp_mb__before_spinlock(); : 
-list str ok : if : 	if (prev->state && !(preempt_count() & PREEMPT_ACTIVE)) { : 
-list str ok : if : 			 * If a worker went to sleep, notify and ask workqueue : 
-list str ok : if : 			if (prev->flags & PF_WQ_WORKER) { : 
-list str ok : if : 				if (to_wakeup) : 
-list str ok : if : 	if (unlikely(!rq->nr_running)) : 
-list str ok : if : 	if (likely(prev != next)) { : 
-list str ok : if : 	if (need_resched()) : 
-list str ok : if : 	if (!tsk->state || tsk_is_pi_blocked(tsk)) : 
-list str ok : if : 	if (blk_needs_flush_plug(tsk)) : 
-list str ok : if : #ifdef CONFIG_CONTEXT_TRACKING : 
-list str ok : if : #endif : 
-list str ok : if : #ifdef CONFIG_PREEMPT : 
-list str ok : if : 	if (likely(!preemptible())) : 
-list str ok : while : 	} while (need_resched()); : 
-list str ok : if : #endif /* CONFIG_PREEMPT */ : 
-list str ok : while : 	} while (need_resched()); : 
-list str ok : if : #ifdef CONFIG_RT_MUTEXES : 
-list str ok : for :  * @prio: prio value (kernel-internal form) : 
-list str ok : if : 	if (unlikely(p == rq->idle)) { : 
-list str ok : if : 	if (on_rq) : 
-list str ok : if : 	if (running) : 
-list str ok : if : 	if (dl_prio(prio)) { : 
-list str ok : if : 	} else if (rt_prio(prio)) { : 
-list str ok : if : 		if (oldprio < prio) : 
-list str ok : if : 		if (dl_prio(oldprio)) : 
-list str ok : if : 	if (running) : 
-list str ok : if : 	if (on_rq) : 
-list str ok : if : #endif : 
-list str ok : if : 	if (TASK_NICE(p) == nice || nice < -20 || nice > 19) : 
-list str ok : if : 	 * We have to be careful, if called from sys_setpriority(), : 
-list str ok : if : 	if (task_has_dl_policy(p) || task_has_rt_policy(p)) { : 
-list str ok : if : 	if (on_rq) : 
-list str ok : if : 	if (on_rq) { : 
-list str ok : if : 		if (delta < 0 || (delta > 0 && task_running(rq, p))) : 
-list str ok : if :  * can_nice - check if a task can reduce its nice value : 
-list str ok : if : #ifdef __ARCH_WANT_SYS_NICE : 
-list str ok : if : 	if (increment < -40) : 
-list str ok : if : 	if (increment > 40) : 
-list str ok : if : 	if (nice < -20) : 
-list str ok : if : 	if (nice > 19) : 
-list str ok : if : 	if (increment < 0 && !can_nice(current, nice)) : 
-list str ok : if : 	if (retval) : 
-list str ok : if : #endif : 
-list str ok : if :  * Return: 1 if the CPU is currently idle. 0 otherwise. : 
-list str ok : if : 	if (rq->curr != rq->idle) : 
-list str ok : if : 	if (rq->nr_running) : 
-list str ok : if : #ifdef CONFIG_SMP : 
-list str ok : if : #endif : 
-list str ok : for :  * idle_task - return the idle task for a given cpu. : 
-list str ok : for :  * Return: The idle task for the cpu @cpu. : 
-list str ok : if :  * The task of @pid, if found. %NULL otherwise. : 
-list str ok : for :  * for the first time with its new policy. : 
-list str ok : if : 	if (policy == -1) /* setparam */ : 
-list str ok : if : 	if (dl_policy(policy)) : 
-list str ok : if : 	else if (fair_policy(policy)) : 
-list str ok : for : 	 * getparam()/getattr() don't report silly values for !rt tasks. : 
-list str ok : if : 	if (dl_prio(p->prio)) : 
-list str ok : if : 	else if (rt_prio(p->prio)) : 
-list str ok : for :  * We ask for the deadline not being zero, and greater or equal : 
-list str ok : if : 	if (attr->sched_deadline == 0) : 
-list str ok : if : 	if (attr->sched_runtime < (1ULL << DL_SCALE)) : 
-list str ok : for : 	 * Since we use the MSB for wrap-around and sign issues, make : 
-list str ok : if : 	if (attr->sched_deadline & (1ULL << 63) || : 
-list str ok : if : 	/* runtime <= deadline <= period (if period != 0) */ : 
-list str ok : for : 	int reset_on_fork; : 
-list str ok : if : 	if (policy < 0) { : 
-list str ok : for : 		reset_on_fork = p->sched_reset_on_fork; : 
-list str ok : for : 		reset_on_fork = !!(attr->sched_flags & SCHED_FLAG_RESET_ON_FORK); : 
-list str ok : if : 	if (attr->sched_flags & ~(SCHED_FLAG_RESET_ON_FORK)) : 
-list str ok : for : 	 * Valid priorities for SCHED_FIFO and SCHED_RR are : 
-list str ok : if : 	if ((p->mm && attr->sched_priority > MAX_USER_RT_PRIO-1) || : 
-list str ok : if : 	if ((dl_policy(policy) && !__checkparam_dl(attr)) || : 
-list str ok : if : 	if (user && !capable(CAP_SYS_NICE)) { : 
-list str ok : if : 			if (attr->sched_nice < TASK_NICE(p) && : 
-list str ok : if : 		if (rt_policy(policy)) { : 
-list str ok : if : 			if (policy != p->policy && !rlim_rtprio) : 
-list str ok : if : 			if (attr->sched_priority > p->rt_priority && : 
-list str ok : for : 		  * Can't set/change SCHED_DEADLINE policy at all for now : 
-list str ok : if : 		if (dl_policy(policy)) : 
-list str ok : if : 		 * SCHED_NORMAL if the RLIMIT_NICE would normally permit it. : 
-list str ok : if : 		if (p->policy == SCHED_IDLE && policy != SCHED_IDLE) { : 
-list str ok : if : 		if (!check_same_owner(p)) : 
-list str ok : for : 		/* Normal users shall not reset the sched_reset_on_fork flag */ : 
-list str ok : if : 	if (user) { : 
-list str ok : if : 		if (retval) : 
-list str ok : while : 	 * make sure no PI-waiters arrive (or leave) while we are : 
-list str ok : if : 	if (p == rq->stop) { : 
-list str ok : if : 	if (unlikely(policy == p->policy)) { : 
-list str ok : if : 		if (rt_policy(policy) && attr->sched_priority != p->rt_priority) : 
-list str ok : if : 		if (dl_policy(policy)) : 
-list str ok : if : 	if (user) { : 
-list str ok : if : 		if (rt_bandwidth_enabled() && rt_policy(policy) && : 
-list str ok : if : #endif : 
-list str ok : if : 		if (dl_bandwidth_enabled() && dl_policy(policy)) { : 
-list str ok : if : 			 * will also fail if there's no bandwidth available. : 
-list str ok : if : 			if (!cpumask_subset(span, &p->cpus_allowed) || : 
-list str ok : if : #endif : 
-list str ok : if : 	if (unlikely(oldpolicy != -1 && oldpolicy != p->policy)) { : 
-list str ok : if : 	 * of a SCHED_DEADLINE task) we need to check if enough bandwidth : 
-list str ok : if : 	if ((dl_policy(policy) || dl_task(p)) && dl_overflow(p, policy, attr)) { : 
-list str ok : if : 	if (on_rq) : 
-list str ok : if : 	if (running) : 
-list str ok : for : 	p->sched_reset_on_fork = reset_on_fork; : 
-list str ok : if : 	if (running) : 
-list str ok : if : 	if (on_rq) : 
-list str ok : if : 	if (policy & SCHED_RESET_ON_FORK) { : 
-list str ok : if :  * Just like sched_setscheduler, only don't bother checking if the : 
-list str ok : if : 	if (!param || pid < 0) : 
-list str ok : if : 	if (copy_from_user(&lparam, param, sizeof(struct sched_param))) : 
-list str ok : if : 	if (p != NULL) : 
-list str ok : if : 	if (!access_ok(VERIFY_WRITE, uattr, SCHED_ATTR_SIZE_VER0)) : 
-list str ok : if : 	if (ret) : 
-list str ok : if : 	if (size > PAGE_SIZE)	/* silly large */ : 
-list str ok : if : 	if (!size)		/* abi compat */ : 
-list str ok : if : 	if (size < SCHED_ATTR_SIZE_VER0) : 
-list str ok : if : 	if (size > sizeof(*attr)) { : 
-list str ok : for : 		for (; addr < end; addr++) { : 
-list str ok : if : 			if (ret) : 
-list str ok : if : 			if (val) : 
-list str ok : if : 	if (ret) : 
-list str ok : for : 	/* negative values for policy are not valid */ : 
-list str ok : if : 	if (!uattr || pid < 0 || flags) : 
-list str ok : if : 	if (retval) : 
-list str ok : if : 	if ((int)attr.sched_policy < 0) : 
-list str ok : if : 	if (p != NULL) : 
-list str ok : if : 	if (pid < 0) : 
-list str ok : if : 	if (p) { : 
-list str ok : if : 		if (!retval) : 
-list str ok : for : 				| (p->sched_reset_on_fork ? SCHED_RESET_ON_FORK : 0); : 
-list str ok : if : 	if (!param || pid < 0) : 
-list str ok : if : 	if (!p) : 
-list str ok : if : 	if (retval) : 
-list str ok : if : 	if (task_has_rt_policy(p)) : 
-list str ok : if : 	if (!access_ok(VERIFY_WRITE, uattr, usize)) : 
-list str ok : for : 	 * user-space does not get uncomplete information. : 
-list str ok : if : 	if (usize < sizeof(*attr)) { : 
-list str ok : for : 		for (; addr < end; addr++) { : 
-list str ok : if : 	if (ret) : 
-list str ok : for :  * @size: sizeof(attr) for fwd/bwd comp. : 
-list str ok : if : 	if (!uattr || pid < 0 || size > PAGE_SIZE || : 
-list str ok : if : 	if (!p) : 
-list str ok : if : 	if (retval) : 
-list str ok : if : 	if (p->sched_reset_on_fork) : 
-list str ok : if : 	if (task_has_dl_policy(p)) : 
-list str ok : if : 	else if (task_has_rt_policy(p)) : 
-list str ok : if : 	if (!p) { : 
-list str ok : INIT : 	if (p->flags & PF_NO_SETAFFINITY) { : 
-list str ok : if : 	if (!alloc_cpumask_var(&cpus_allowed, GFP_KERNEL)) { : 
-list str ok : if : 	if (!alloc_cpumask_var(&new_mask, GFP_KERNEL)) { : 
-list str ok : if : 	if (!check_same_owner(p)) { : 
-list str ok : if : 		if (!ns_capable(__task_cred(p)->user_ns, CAP_SYS_NICE)) { : 
-list str ok : if : 	if (retval) : 
-list str ok : if : 	 * if admission test is enabled, we only admit -deadline : 
-list str ok : if : #ifdef CONFIG_SMP : 
-list str ok : if : 		if (dl_bandwidth_enabled() && !cpumask_subset(span, new_mask)) { : 
-list str ok : if : #endif : 
-list str ok : if : 	if (!retval) { : 
-list str ok : if : 		if (!cpumask_subset(new_mask, cpus_allowed)) { : 
-list str ok : if : 	if (len < cpumask_size()) : 
-list str ok : if : 	else if (len > cpumask_size()) : 
-list str ok : if : 	if (!alloc_cpumask_var(&new_mask, GFP_KERNEL)) : 
-list str ok : if : 	if (retval == 0) : 
-list str ok : if : 	if (!p) : 
-list str ok : if : 	if (retval) : 
-list str ok : if : 	if ((len * BITS_PER_BYTE) < nr_cpu_ids) : 
-list str ok : if : 	if (len & (sizeof(unsigned long)-1)) : 
-list str ok : if : 	if (!alloc_cpumask_var(&mask, GFP_KERNEL)) : 
-list str ok : if : 	if (ret == 0) { : 
-list str ok : if : 		if (copy_to_user(user_mask_ptr, mask, retlen)) : 
-list str ok : if : 	if (should_resched()) { : 
-list str ok : if :  * __cond_resched_lock() - if a reschedule is pending, drop the given lock, : 
-list str ok : if : 	if (spin_needbreak(lock) || resched) { : 
-list str ok : if : 		if (resched) : 
-list str ok : if : 	if (should_resched()) { : 
-list str ok : if :  * eligible task to run, if removing the yield() call from your code breaks : 
-list str ok : while :  * while (!event) : 
-list str ok : for :  * If you want to use yield() to wait for something, use wait_event(). : 
-list str ok : for :  * can't go away on us before we can do any checks. : 
-list str ok : if :  *	true (>0) if we indeed boosted the target task. : 
-list str ok : if :  *	-ESRCH if there's no task to yield to. : 
-list str ok : if : 	if (rq->nr_running == 1 && p_rq->nr_running == 1) { : 
-list str ok : if : 	if (task_rq(p) != p_rq) { : 
-list str ok : if : 	if (!curr->sched_class->yield_to_task) : 
-list str ok : if : 	if (curr->sched_class != p->sched_class) : 
-list str ok : if : 	if (task_running(p_rq, p) || p->state) : 
-list str ok : if : 	if (yielded) { : 
-list str ok : if : 		if (preempt && rq != p_rq) : 
-list str ok : if : 	if (yielded > 0) : 
-list str ok : if : 	if (pid < 0) : 
-list str ok : if : 	if (!p) : 
-list str ok : if : 	if (retval) : 
-list str ok : if : 	if (p->sched_class->get_rr_interval) : 
-list str ok : if : 	jiffies_to_timespec(time_slice, &t); : 
-list str ok : if : #if BITS_PER_LONG == 32 : 
-list str ok : if : 	if (state == TASK_RUNNING) : 
-list str ok : if : #endif : 
-list str ok : if : #endif : 
-list str ok : if : #if BITS_PER_LONG == 32 : 
-list str ok : if : #endif : 
-list str ok : if : 		if (!state_filter || (p->state & state_filter)) : 
-list str ok : while : 	} while_each_thread(g, p); : 
-list str ok : if : #ifdef CONFIG_SCHED_DEBUG : 
-list str ok : if : #endif : 
-list str ok : if : 	 * Only show locks if all tasks are dumped: : 
-list str ok : if : 	if (!state_filter) : 
-list str ok : for :  * init_idle - set up an idle thread for a given CPU : 
-list str ok : for : 	__sched_fork(0, idle); : 
-list str ok : for : 	 * Similar case to sched_fork(). / Alternatively we could : 
-list str ok : if : #if defined(CONFIG_SMP) : 
-list str ok : if : #endif : 
-list str ok : if : #if defined(CONFIG_SMP) : 
-list str ok : if : #endif : 
-list str ok : if : 	if (p->sched_class && p->sched_class->set_cpus_allowed) : 
-list str ok : for :  * 2) stopper starts to run (implicitly forcing the migrated thread : 
-list str ok : if :  * 4) if it's in the wrong runqueue then the migration thread removes : 
-list str ok : if :  * proper CPU and schedule it away if the CPU it's executing on : 
-list str ok : if : 	if (cpumask_equal(&p->cpus_allowed, new_mask)) : 
-list str ok : if : 	if (!cpumask_intersects(new_mask, cpu_active_mask)) { : 
-list str ok : if : 	if (cpumask_test_cpu(task_cpu(p), new_mask)) : 
-list str ok : if : 	if (p->on_rq) { : 
-list str ok : if :  * Returns non-zero if task was successfully migrated. : 
-list str ok : if : 	if (unlikely(!cpu_active(dest_cpu))) : 
-list str ok : if : 	if (task_cpu(p) != src_cpu) : 
-list str ok : if : 	if (!cpumask_test_cpu(dest_cpu, tsk_cpus_allowed(p))) : 
-list str ok : if : 	if (p->on_rq) { : 
-list str ok : if : #ifdef CONFIG_NUMA_BALANCING : 
-list str ok : if : 	if (curr_cpu == target_cpu) : 
-list str ok : if : 	if (!cpumask_test_cpu(target_cpu, tsk_cpus_allowed(p))) : 
-list str ok : if : 	if (on_rq) : 
-list str ok : if : 	if (running) : 
-list str ok : if : 	if (running) : 
-list str ok : if : 	if (on_rq) : 
-list str ok : if : #endif : 
-list str ok : for :  * and performs thread migration by bumping thread off CPU then : 
-list str ok : if : #ifdef CONFIG_HOTPLUG_CPU : 
-list str ok : for :  * Ensures that the idle task is using init_mm right before its cpu goes : 
-list str ok : if : 	if (mm != &init_mm) : 
-list str ok : for :  * Since this CPU is going 'away' for a while, fold any nr_active delta : 
-list str ok : if : 	if (delta) : 
-list str ok : for :  * because of lock validation efforts. : 
-list str ok : for : 	for ( ; ; ) { : 
-list str ok : if : 		if (rq->nr_running == 1) : 
-list str ok : if : 		/* Find suitable destination for @next, with force if needed. */ : 
-list str ok : if : #endif /* CONFIG_HOTPLUG_CPU */ : 
-list str ok : for : 	for (entry = *tablep; entry->mode; entry++) { : 
-list str ok : if : 		if (entry->proc_handler == NULL) : 
-list str ok : if : 	if (load_idx) { : 
-list str ok : if : 	if (table == NULL) : 
-list str ok : for : 	set_table_entry(&table[6], "forkexec_idx", &sd->forkexec_idx, : 
-list str ok : for : 	for_each_domain(cpu, sd) : 
-list str ok : if : 	if (table == NULL) : 
-list str ok : for : 	for_each_domain(cpu, sd) { : 
-list str ok : if : 	if (entry == NULL) : 
-list str ok : for : 	for_each_possible_cpu(i) { : 
-list str ok : if : 	if (sd_sysctl_header) : 
-list str ok : if : 	if (sd_ctl_dir[0].child) : 
-list str ok : if : #endif : 
-list str ok : if : 	if (!rq->online) { : 
-list str ok : for : 		for_each_class(class) { : 
-list str ok : if : 	if (rq->online) { : 
-list str ok : for : 		for_each_class(class) { : 
-list str ok : for :  * Here we can start up the necessary migration thread for the new CPU. : 
-list str ok : if : migration_call(struct notifier_block *nfb, unsigned long action, void *hcpu) : 
-list str ok : if : 		if (rq->rd) { : 
-list str ok : if : #ifdef CONFIG_HOTPLUG_CPU : 
-list str ok : if : 		if (rq->rd) { : 
-list str ok : if : #endif : 
-list str ok : for :  * happens before everything else.  This has to be lower priority than : 
-list str ok : if : static struct notifier_block migration_notifier = { : 
-list str ok : if : static int sched_cpu_active(struct notifier_block *nfb, : 
-list str ok : if : static int sched_cpu_inactive(struct notifier_block *nfb, : 
-list str ok : if : 		if (!(action & CPU_TASKS_FROZEN)) { : 
-list str ok : if : 			if (overflow) : 
-list str ok : for : 	/* Initialize migration for the boot CPU */ : 
-list str ok : if : 	migration_call(&migration_notifier, CPU_ONLINE, cpu); : 
-list str ok : if : 	/* Register cpu active notifiers */ : 
-list str ok : if : 	cpu_notifier(sched_cpu_inactive, CPU_PRI_SCHED_INACTIVE); : 
-list str ok : if : #endif : 
-list str ok : if : #ifdef CONFIG_SCHED_DEBUG : 
-list str ok : if : 	if (!(sd->flags & SD_LOAD_BALANCE)) { : 
-list str ok : if : 		if (sd->parent) : 
-list str ok : if : 	if (!cpumask_test_cpu(cpu, sched_domain_span(sd))) { : 
-list str ok : if : 	if (!cpumask_test_cpu(cpu, sched_group_cpus(group))) { : 
-list str ok : if : 		if (!group) { : 
-list str ok : if : 		 * we leave power_orig unset. This allows us to detect if : 
-list str ok : if : 		if (!group->sgp->power_orig) { : 
-list str ok : if : 		if (!cpumask_weight(sched_group_cpus(group))) { : 
-list str ok : if : 		if (!(sd->flags & SD_OVERLAP) && : 
-list str ok : if : 		if (group->sgp->power != SCHED_POWER_SCALE) { : 
-list str ok : while : 	} while (group != sd->groups); : 
-list str ok : if : 	if (!cpumask_equal(sched_domain_span(sd), groupmask)) : 
-list str ok : if : 	if (sd->parent && : 
-list str ok : if : 	if (!sched_debug_enabled) : 
-list str ok : if : 	if (!sd) { : 
-list str ok : for : 	for (;;) { : 
-list str ok : if : 		if (!sd) : 
-list str ok : while : # define sched_domain_debug(sd, cpu) do { } while (0) : 
-list str ok : if : #endif /* CONFIG_SCHED_DEBUG */ : 
-list str ok : if : 	if (cpumask_weight(sched_domain_span(sd)) == 1) : 
-list str ok : if : 	if (sd->flags & (SD_LOAD_BALANCE | : 
-list str ok : if : 		if (sd->groups != sd->groups->next) : 
-list str ok : if : 	if (sd->flags & (SD_WAKE_AFFINE)) : 
-list str ok : if : 	if (sd_degenerate(parent)) : 
-list str ok : if : 	if (!cpumask_equal(sched_domain_span(sd), sched_domain_span(parent))) : 
-list str ok : if : 	/* Flags needing groups don't count if only 1 group in parent */ : 
-list str ok : if : 		if (nr_node_ids == 1) : 
-list str ok : if : 	if (~cflags & pflags) : 
-list str ok : if : 	if (rq->rd) { : 
-list str ok : if : 		if (cpumask_test_cpu(rq->cpu, old_rd->online)) : 
-list str ok : if : 		if (!atomic_dec_and_test(&old_rd->refcount)) : 
-list str ok : if : 	if (cpumask_test_cpu(rq->cpu, cpu_active_mask)) : 
-list str ok : if : 	if (old_rd) : 
-list str ok : if : 	if (!alloc_cpumask_var(&rd->span, GFP_KERNEL)) : 
-list str ok : if : 	if (!alloc_cpumask_var(&rd->online, GFP_KERNEL)) : 
-list str ok : if : 	if (!alloc_cpumask_var(&rd->dlo_mask, GFP_KERNEL)) : 
-list str ok : if : 	if (!alloc_cpumask_var(&rd->rto_mask, GFP_KERNEL)) : 
-list str ok : if : 	if (cpudl_init(&rd->cpudl) != 0) : 
-list str ok : if : 	if (cpupri_init(&rd->cpupri) != 0) : 
-list str ok : if : 	if (!rd) : 
-list str ok : if : 	if (init_rootdomain(rd) != 0) { : 
-list str ok : if : 	if (!sg) : 
-list str ok : if : 		if (free_sgp && atomic_dec_and_test(&sg->sgp->ref)) : 
-list str ok : while : 	} while (sg != first); : 
-list str ok : if : 	if (sd->flags & SD_OVERLAP) { : 
-list str ok : if : 	} else if (atomic_dec_and_test(&sd->groups->ref)) { : 
-list str ok : for : 	for (; sd; sd = sd->parent) : 
-list str ok : for :  * SD_SHARE_PKG_RESOURCE set (Last Level Cache Domain) for this : 
-list str ok : if :  * the cpumask of the domain), this allows us to quickly tell if : 
-list str ok : if : 	if (sd) { : 
-list str ok : for : 	for (tmp = sd; tmp; ) { : 
-list str ok : if : 		if (!parent) : 
-list str ok : if : 		if (sd_parent_degenerate(tmp, parent)) { : 
-list str ok : if : 			if (parent->parent) : 
-list str ok : for : 			 * degenerate parent; the spans match for this : 
-list str ok : if : 			if (parent->flags & SD_PREFER_SIBLING) : 
-list str ok : if : 	if (sd && sd_degenerate(sd)) { : 
-list str ok : if : 		if (sd) : 
-list str ok : for : /* Setup the mask of cpus configured for isolated domains */ : 
-list str ok : for : 	for_each_cpu(i, span) { : 
-list str ok : if : 		if (!cpumask_test_cpu(i, sched_domain_span(sibling))) : 
-list str ok : for :  * Return the canonical balance cpu for this group, this is the first cpu : 
-list str ok : for : 	for_each_cpu(i, span) { : 
-list str ok : if : 		if (cpumask_test_cpu(i, covered)) : 
-list str ok : if : 		if (!cpumask_test_cpu(i, sched_domain_span(child))) : 
-list str ok : if : 		if (!sg) : 
-list str ok : if : 		if (child->child) { : 
-list str ok : if : 		if (atomic_inc_return(&sg->sgp->ref) == 1) : 
-list str ok : if : 		 * Initialize sgp->power such that even if we mess up the : 
-list str ok : if : 		if ((!groups && cpumask_test_cpu(cpu, sg_span)) || : 
-list str ok : if : 		if (!first) : 
-list str ok : if : 		if (last) : 
-list str ok : if : 	if (child) : 
-list str ok : if : 	if (sg) { : 
-list str ok : for : 		atomic_set(&(*sg)->sgp->ref, 1); /* for claim_allocations */ : 
-list str ok : if : 	if (cpu != cpumask_first(span)) : 
-list str ok : for : 	for_each_cpu(i, span) { : 
-list str ok : if : 		if (cpumask_test_cpu(i, covered)) : 
-list str ok : for : 		for_each_cpu(j, span) { : 
-list str ok : if : 		if (!first) : 
-list str ok : if : 		if (last) : 
-list str ok : while :  * cpu_power indicates the capacity of sched group, which is used while : 
-list str ok : for :  * Typically cpu_power for all the groups in a sched domain will be same unless : 
-list str ok : while : 	} while (sg != sd->groups); : 
-list str ok : for :  * Initializers for schedule domains : 
-list str ok : if : #ifdef CONFIG_SCHED_DEBUG : 
-list str ok : INIT : # define SD_INIT_NAME(sd, type)		do { } while (0) : 
-list str ok : if : #endif : 
-list str ok : INIT : 	*sd = SD_##type##_INIT;						\ : 
-list str ok : INIT : SD_INIT_FUNC(CPU) : 
-list str ok : if : #ifdef CONFIG_SCHED_SMT : 
-list str ok : if : #endif : 
-list str ok : INIT :  SD_INIT_FUNC(MC) : 
-list str ok : if : #endif : 
-list str ok : INIT :  SD_INIT_FUNC(BOOK) : 
-list str ok : if : #endif : 
-list str ok : if : 	if (kstrtoint(str, 0, &default_relax_domain_level)) : 
-list str ok : if : 	if (!attr || attr->relax_domain_level < 0) { : 
-list str ok : if : 	if (request < sd->level) { : 
-list str ok : if : 		if (!atomic_read(&d->rd->refcount)) : 
-list str ok : if : 	if (__sdt_alloc(cpu_map)) : 
-list str ok : if : 	if (!d->sd) : 
-list str ok : if : 	if (!d->rd) : 
-list str ok : if : 	if (atomic_read(&(*per_cpu_ptr(sdd->sg, cpu))->ref)) : 
-list str ok : if : 	if (atomic_read(&(*per_cpu_ptr(sdd->sgp, cpu))->ref)) : 
-list str ok : if : #ifdef CONFIG_SCHED_SMT : 
-list str ok : if : #endif : 
-list str ok : if : #ifdef CONFIG_SCHED_SMT : 
-list str ok : if : #endif : 
-list str ok : if : #endif : 
-list str ok : if : #endif : 
-list str ok : for : #define for_each_sd_topology(tl)			\ : 
-list str ok : if : #ifdef CONFIG_NUMA : 
-list str ok : if : 	if (sched_domains_numa_distance[level] > RECLAIM_DISTANCE) : 
-list str ok : for : 		.forkexec_idx		= 0, : 
-list str ok : if : 		.last_balance		= jiffies, : 
-list str ok : INIT : 	SD_INIT_NAME(sd, NUMA); : 
-list str ok : if : 	if (done) : 
-list str ok : for : 	for (i = 0; i < nr_node_ids; i++) { : 
-list str ok : for : 		for (j = 0; j < nr_node_ids; j++) : 
-list str ok : if : 	if (distance == node_distance(0, 0)) : 
-list str ok : for : 	for (i = 0; i < sched_domains_numa_levels; i++) { : 
-list str ok : if : 	if (!sched_domains_numa_distance) : 
-list str ok : for : 	for (i = 0; i < nr_node_ids; i++) { : 
-list str ok : for : 			for (k = 0; k < nr_node_ids; k++) { : 
-list str ok : if : 				if (distance > curr_distance && : 
-list str ok : if : 				 * about cases where if node A is connected to B, B is not : 
-list str ok : if : 				if (sched_debug() && node_distance(k, i) != distance) : 
-list str ok : if : 				if (sched_debug() && i && !find_numa_distance(distance)) : 
-list str ok : if : 			if (next_distance != curr_distance) { : 
-list str ok : if : 		 * In case of sched_debug() we verify the above assumption. : 
-list str ok : if : 		if (!sched_debug()) : 
-list str ok : for : 	 * If it fails to allocate memory for array sched_domains_numa_masks[][], : 
-list str ok : if : 	if (!sched_domains_numa_masks) : 
-list str ok : for : 	 * Now for each level, construct a mask per node which contains all : 
-list str ok : for : 	for (i = 0; i < level; i++) { : 
-list str ok : if : 		if (!sched_domains_numa_masks[i]) : 
-list str ok : for : 		for (j = 0; j < nr_node_ids; j++) { : 
-list str ok : if : 			if (!mask) : 
-list str ok : for : 			for (k = 0; k < nr_node_ids; k++) { : 
-list str ok : if : 	if (!tl) : 
-list str ok : for : 	for (i = 0; default_topology[i].init; i++) : 
-list str ok : for : 	for (j = 0; j < level; i++, j++) { : 
-list str ok : for : 	for (i = 0; i < sched_domains_numa_levels; i++) { : 
-list str ok : if : 			if (node_distance(j, node) <= sched_domains_numa_distance[i]) : 
-list str ok : for : 	for (i = 0; i < sched_domains_numa_levels; i++) { : 
-list str ok : if : static int sched_domains_numa_masks_update(struct notifier_block *nfb, : 
-list str ok : if : static int sched_domains_numa_masks_update(struct notifier_block *nfb, : 
-list str ok : if : #endif /* CONFIG_NUMA */ : 
-list str ok : for : 	for_each_sd_topology(tl) { : 
-list str ok : if : 		if (!sdd->sd) : 
-list str ok : if : 		if (!sdd->sg) : 
-list str ok : if : 		if (!sdd->sgp) : 
-list str ok : for : 		for_each_cpu(j, cpu_map) { : 
-list str ok : if : 			if (!sd) : 
-list str ok : if : 			if (!sg) : 
-list str ok : if : 			if (!sgp) : 
-list str ok : for : 	for_each_sd_topology(tl) { : 
-list str ok : for : 		for_each_cpu(j, cpu_map) { : 
-list str ok : if : 			if (sdd->sd) { : 
-list str ok : if : 				if (sd && (sd->flags & SD_OVERLAP)) : 
-list str ok : if : 			if (sdd->sg) : 
-list str ok : if : 			if (sdd->sgp) : 
-list str ok : if : 	if (!sd) : 
-list str ok : if : 	if (child) { : 
-list str ok : for :  * Build sched domains for a given set of cpus and attach the sched domains : 
-list str ok : if : 	if (alloc_state != sa_rootdomain) : 
-list str ok : if : 	/* Set up domains for cpus specified by the cpu_map. */ : 
-list str ok : for : 	for_each_cpu(i, cpu_map) { : 
-list str ok : for : 		for_each_sd_topology(tl) { : 
-list str ok : if : 			if (tl == sched_domain_topology) : 
-list str ok : if : 			if (tl->flags & SDTL_OVERLAP || sched_feat(FORCE_SD_OVERLAP)) : 
-list str ok : if : 			if (cpumask_equal(cpu_map, sched_domain_span(sd))) : 
-list str ok : for : 	/* Build the groups for the domains */ : 
-list str ok : for : 		for (sd = *per_cpu_ptr(d.sd, i); sd; sd = sd->parent) { : 
-list str ok : if : 			if (sd->flags & SD_OVERLAP) { : 
-list str ok : if : 				if (build_sched_groups(sd, i)) : 
-list str ok : for : 	/* Calculate CPU power for physical packages and nodes */ : 
-list str ok : if : 		if (!cpumask_test_cpu(i, cpu_map)) : 
-list str ok : for : 		for (sd = *per_cpu_ptr(d.sd, i); sd; sd = sd->parent) { : 
-list str ok : for : 	for_each_cpu(i, cpu_map) { : 
-list str ok : if :  * cpu core maps. It is supposed to return 1 if the topology changed : 
-list str ok : if : 	if (!doms) : 
-list str ok : for : 	for (i = 0; i < ndoms; i++) { : 
-list str ok : for : 	for (i = 0; i < ndoms; i++) : 
-list str ok : if : 	if (!doms_cur) : 
-list str ok : if :  * Detach sched domains from a group of cpus specified in cpu_map : 
-list str ok : for : 	for_each_cpu(i, cpu_map) : 
-list str ok : if : 	if (!new && !cur) : 
-list str ok : INIT : 	tmp = SD_ATTR_INIT; : 
-list str ok : if :  * Partition sched domains as specified by the 'ndoms_new' : 
-list str ok : for :  * sched domain for each mask. CPUs not in any of the cpumasks will : 
-list str ok : for :  * 'fallback_doms', it also forces the domains to be rebuilt. : 
-list str ok : for :  * ndoms_new == 0 is a special case for destroying existing domains, : 
-list str ok : for : 	for (i = 0; i < ndoms_cur; i++) { : 
-list str ok : if : 			if (cpumask_equal(doms_cur[i], doms_new[j]) : 
-list str ok : if : 	if (doms_new == NULL) { : 
-list str ok : for : 	for (i = 0; i < ndoms_new; i++) { : 
-list str ok : if : 			if (cpumask_equal(doms_new[i], doms_cur[j]) : 
-list str ok : if : 	if (doms_cur != &fallback_doms) : 
-list str ok : if : static int cpuset_cpu_active(struct notifier_block *nfb, unsigned long action, : 
-list str ok : if : 		if (likely(num_cpus_frozen)) { : 
-list str ok : if : static int cpuset_cpu_inactive(struct notifier_block *nfb, unsigned long action, : 
-list str ok : if : 	if (cpumask_empty(non_isolated_cpus)) : 
-list str ok : if : 	hotcpu_notifier(sched_domains_numa_masks_update, CPU_PRI_SCHED_ACTIVE); : 
-list str ok : if : 	hotcpu_notifier(cpuset_cpu_inactive, CPU_PRI_CPUSET_INACTIVE); : 
-list str ok : if : 	if (set_cpus_allowed_ptr(current, non_isolated_cpus) < 0) : 
-list str ok : if : #endif /* CONFIG_SMP */ : 
-list str ok : if : #ifdef CONFIG_CGROUP_SCHED : 
-list str ok : if : #endif : 
-list str ok : if : #ifdef CONFIG_FAIR_GROUP_SCHED : 
-list str ok : if : #endif : 
-list str ok : if : #endif : 
-list str ok : if : #endif : 
-list str ok : if : #ifdef CONFIG_FAIR_GROUP_SCHED : 
-list str ok : if : #endif /* CONFIG_FAIR_GROUP_SCHED */ : 
-list str ok : if : #endif /* CONFIG_RT_GROUP_SCHED */ : 
-list str ok : for : 		for_each_possible_cpu(i) { : 
-list str ok : if : #endif /* CONFIG_CPUMASK_OFFSTACK */ : 
-list str ok : if : #ifdef CONFIG_SMP : 
-list str ok : if : #endif : 
-list str ok : if : #endif /* CONFIG_RT_GROUP_SCHED */ : 
-list str ok : INIT : 	INIT_LIST_HEAD(&root_task_group.children); : 
-list str ok : if : #endif /* CONFIG_CGROUP_SCHED */ : 
-list str ok : for : 	for_each_possible_cpu(i) { : 
-list str ok : if : 		rq->calc_load_update = jiffies + LOAD_FREQ; : 
-list str ok : if : #ifdef CONFIG_FAIR_GROUP_SCHED : 
-list str ok : INIT : 		INIT_LIST_HEAD(&rq->leaf_cfs_rq_list); : 
-list str ok : for : 		 * In case of task-groups formed thr' the cgroup filesystem, it : 
-list str ok : if : 		 * In other words, if root_task_group has 10 tasks of weight : 
-list str ok : if : #endif /* CONFIG_FAIR_GROUP_SCHED */ : 
-list str ok : if : #ifdef CONFIG_RT_GROUP_SCHED : 
-list str ok : if : #endif : 
-list str ok : for : 		for (j = 0; j < CPU_LOAD_IDX_MAX; j++) : 
-list str ok : if : 		rq->last_load_update_tick = jiffies; : 
-list str ok : if : 		rq->next_balance = jiffies; : 
-list str ok : INIT : 		INIT_LIST_HEAD(&rq->cfs_tasks); : 
-list str ok : if : #ifdef CONFIG_NO_HZ_COMMON : 
-list str ok : if : #endif : 
-list str ok : if : #endif : 
-list str ok : if : #ifdef CONFIG_PREEMPT_NOTIFIERS : 
-list str ok : if : #endif : 
-list str ok : if : 	calc_load_update = jiffies + LOAD_FREQ; : 
-list str ok : if : #ifdef CONFIG_SMP : 
-list str ok : if : 	if (cpu_isolated_map == NULL) : 
-list str ok : if : #endif : 
-list str ok : if : #ifdef CONFIG_DEBUG_ATOMIC_SLEEP : 
-list str ok : if : 	static unsigned long prev_jiffy;	/* ratelimiting */ : 
-list str ok : if : 	if ((preempt_count_equals(preempt_offset) && !irqs_disabled()) || : 
-list str ok : if : 	if (time_before(jiffies, prev_jiffy + HZ) && prev_jiffy) : 
-list str ok : if : 	prev_jiffy = jiffies; : 
-list str ok : if : 	if (irqs_disabled()) : 
-list str ok : if : #endif : 
-list str ok : if : 	if (on_rq) : 
-list str ok : if : 	if (on_rq) { : 
-list str ok : if : 		if (!p->mm) : 
-list str ok : if : #ifdef CONFIG_SCHEDSTATS : 
-list str ok : if : #endif : 
-list str ok : if : 			if (TASK_NICE(p) < 0 && p->mm) : 
-list str ok : while : 	} while_each_thread(g, p); : 
-list str ok : if : #endif /* CONFIG_MAGIC_SYSRQ */ : 
-list str ok : for :  * These functions are only useful for the IA64 MCA handling, or kdb. : 
-list str ok : for :  * activity can take place. Using them for anything else would : 
-list str ok : for :  * curr_task - return the current task for a given cpu. : 
-list str ok : for :  * Return: The current task for @cpu. : 
-list str ok : if : #endif /* defined(CONFIG_IA64) || defined(CONFIG_KGDB_KDB) */ : 
-list str ok : for :  * set_curr_task - set the current task for a given cpu. : 
-list str ok : for :  * curr_task() above) and restore that value before reenabling interrupts and : 
-list str ok : if : #endif : 
-list str ok : for : /* allocate runqueue etc for a new task group */ : 
-list str ok : if : 	if (!tg) : 
-list str ok : if : 	if (!alloc_fair_sched_group(tg, parent)) : 
-list str ok : if : 	if (!alloc_rt_sched_group(tg, parent)) : 
-list str ok : INIT : 	INIT_LIST_HEAD(&tg->children); : 
-list str ok : for : 	/* wait for possible concurrent references to cfs_rqs complete */ : 
-list str ok : for : 	for_each_possible_cpu(i) : 
-list str ok : if : 	if (on_rq) : 
-list str ok : if : 	if (unlikely(running)) : 
-list str ok : if : #ifdef CONFIG_FAIR_GROUP_SCHED : 
-list str ok : if : #endif : 
-list str ok : if : 	if (unlikely(running)) : 
-list str ok : if : 	if (on_rq) : 
-list str ok : if : #endif /* CONFIG_CGROUP_SCHED */ : 
-list str ok : if : 		if (rt_task(p) && task_rq(p)->rt.tg == tg) : 
-list str ok : while : 	} while_each_thread(g, p); : 
-list str ok : if : 	if (tg == d->tg) { : 
-list str ok : if : 	if (runtime > period && runtime != RUNTIME_INF) : 
-list str ok : if : 	if (rt_bandwidth_enabled() && !runtime && tg_has_rt_tasks(tg)) : 
-list str ok : if : 	if (total > to_ratio(global_rt_period(), global_rt_runtime())) : 
-list str ok : for : 	list_for_each_entry_rcu(child, &tg->children, siblings) { : 
-list str ok : if : 		if (child == d->tg) { : 
-list str ok : if : 	if (sum > total) : 
-list str ok : if : 	if (err) : 
-list str ok : for : 	for_each_possible_cpu(i) { : 
-list str ok : if : 	if (rt_runtime_us < 0) : 
-list str ok : if : 	if (tg->rt_bandwidth.rt_runtime == RUNTIME_INF) : 
-list str ok : if : 	if (rt_period == 0) : 
-list str ok : if : #endif /* CONFIG_RT_GROUP_SCHED */ : 
-list str ok : for : 	/* Don't accept realtime tasks when there is no way for them to run */ : 
-list str ok : for : 	for_each_possible_cpu(i) { : 
-list str ok : if : #endif /* CONFIG_RT_GROUP_SCHED */ : 
-list str ok : if : 	 * cycling on root_domains... Discussion on different/better : 
-list str ok : for : 	for_each_possible_cpu(cpu) { : 
-list str ok : if : 		if (new_bw < dl_b->total_bw) : 
-list str ok : if : 		if (ret) : 
-list str ok : if : 	if (global_rt_runtime() != RUNTIME_INF) : 
-list str ok : for : 	for_each_possible_cpu(cpu) { : 
-list str ok : if : 	if (sysctl_sched_rt_period <= 0) : 
-list str ok : if : 	if ((sysctl_sched_rt_runtime != RUNTIME_INF) && : 
-list str ok : if : 	if (!ret && write) { : 
-list str ok : if : 		if (ret) : 
-list str ok : if : 		if (ret) : 
-list str ok : if : 		if (ret) : 
-list str ok : if : 	if (0) { : 
-list str ok : if : 	/* make sure that internally we keep jiffies */ : 
-list str ok : if : 	if (!ret && write) { : 
-list str ok : if : 			RR_TIMESLICE : msecs_to_jiffies(sched_rr_timeslice); : 
-list str ok : if : #ifdef CONFIG_CGROUP_SCHED : 
-list str ok : if : 	if (!parent) { : 
-list str ok : for : 		/* This is early initialization for the top cgroup */ : 
-list str ok : if : 	if (IS_ERR(tg)) : 
-list str ok : if : 	if (parent) : 
-list str ok : for : 	cgroup_taskset_for_each(task, css, tset) { : 
-list str ok : if : 		if (!sched_rt_can_attach(css_tg(css), task)) : 
-list str ok : if : 		if (task->sched_class != &fair_sched_class) : 
-list str ok : if : #endif : 
-list str ok : for : 	cgroup_taskset_for_each(task, css, tset) : 
-list str ok : if : 	if (!(task->flags & PF_EXITING)) : 
-list str ok : if : #ifdef CONFIG_FAIR_GROUP_SCHED : 
-list str ok : if : #ifdef CONFIG_CFS_BANDWIDTH : 
-list str ok : if : 	if (tg == &root_task_group) : 
-list str ok : if : 	if (quota < min_cfs_quota_period || period < min_cfs_quota_period) : 
-list str ok : if : 	if (period > max_cfs_quota_period) : 
-list str ok : if : 	if (ret) : 
-list str ok : for : 	 * before making related changes, and on->off must occur afterwards : 
-list str ok : if : 	if (runtime_enabled && !runtime_was_enabled) : 
-list str ok : if : 	/* restart the period timer (if active) to handle new period expiry */ : 
-list str ok : for : 		/* force a reprogram */ : 
-list str ok : for : 	for_each_possible_cpu(i) { : 
-list str ok : if : 		if (cfs_rq->throttled) : 
-list str ok : if : 	if (runtime_was_enabled && !runtime_enabled) : 
-list str ok : if : 	if (cfs_quota_us < 0) : 
-list str ok : if : 	if (tg->cfs_bandwidth.quota == RUNTIME_INF) : 
-list str ok : if : 	if (tg == d->tg) { : 
-list str ok : if : 	if (quota == RUNTIME_INF || quota == -1) : 
-list str ok : if : 	if (!tg->parent) { : 
-list str ok : if : 		if (quota == RUNTIME_INF) : 
-list str ok : if : 		else if (parent_quota != RUNTIME_INF && quota > parent_quota) : 
-list str ok : if : 	if (quota != RUNTIME_INF) { : 
-list str ok : if : #endif /* CONFIG_CFS_BANDWIDTH */ : 
-list str ok : if : #ifdef CONFIG_RT_GROUP_SCHED : 
-list str ok : if : #endif /* CONFIG_RT_GROUP_SCHED */ : 
-list str ok : if : #ifdef CONFIG_FAIR_GROUP_SCHED : 
-list str ok : if : #endif : 
-list str ok : if : #endif : 
-list str ok : if : #endif : 
-list str ok : if : #endif	/* CONFIG_CGROUP_SCHED */ : 
-list str ok : for : 	pr_info("Task dump for CPU %d:\n", cpu); : 
+	for (;;) {
+		hrtimer_forward(period_timer, now, period);
+	if (rq->skip_clock_update > 0)
+	for (i = 0; i < __SCHED_FEAT_NR; i++) {
+	if (static_key_enabled(&sched_feat_keys[i]))
+	if (!static_key_enabled(&sched_feat_keys[i]))
+	if (strncmp(cmp, "NO_", 3) == 0) {
+	for (i = 0; i < __SCHED_FEAT_NR; i++) {
+			if (neg) {
+	if (cnt > 63)
+	if (copy_from_user(&buf, ubuf, cnt))
+	if (i == __SCHED_FEAT_NR)
+	for (;;) {
+		if (likely(rq == task_rq(p)))
+	for (;;) {
+		if (likely(rq == task_rq(p)))
+	if (hrtimer_active(&rq->hrtick_timer))
+	if (rq == this_rq()) {
+	} else if (!rq->hrtick_csd_pending) {
+hotplug_hrtick(struct notifier_block *nfb, unsigned long action, void *hcpu)
+	hotcpu_notifier(hotplug_hrtick, 0);
+	if (test_tsk_need_resched(p))
+	if (cpu == smp_processor_id()) {
+	if (!tsk_is_polling(p))
+	if (!raw_spin_trylock_irqsave(&rq->lock, flags))
+ * (as that cpu's timer base may not be uptodate wrt jiffies etc).
+	for_each_domain(cpu, sd) {
+			if (!idle_cpu(i)) {
+	if (cpu == smp_processor_id())
+	if (rq->curr != rq->idle)
+	if (!tsk_is_polling(rq->idle))
+	if (tick_nohz_full_cpu(cpu)) {
+	if (!wake_up_full_nohz_cpu(cpu))
+	if (!test_bit(NOHZ_BALANCE_KICK, nohz_flags(cpu)))
+	if (idle_cpu(cpu) && !need_resched())
+       if (rq->nr_running > 1)
+	while ((s64)(rq_clock(rq) - rq->age_stamp) > period) {
+		 * See __iter_div_u64_rem() for another example of this.
+	if (ret)
+	list_for_each_entry_rcu(child, &parent->children, siblings) {
+	if (ret || parent == from)
+	if (parent)
+	if (p->policy == SCHED_IDLE) {
+	if (task_contributes_to_load(p))
+	if (task_contributes_to_load(p))
+#if defined(CONFIG_IRQ_TIME_ACCOUNTING) || defined(CONFIG_PARAVIRT_TIME_ACCOUNTING)
+	if (irq_delta > delta)
+	if (static_key_false((&paravirt_steal_rq_enabled))) {
+		if (unlikely(steal > delta))
+#if defined(CONFIG_IRQ_TIME_ACCOUNTING) || defined(CONFIG_PARAVIRT_TIME_ACCOUNTING)
+	if (stop) {
+	if (old_stop) {
+	if (task_has_dl_policy(p))
+	else if (task_has_rt_policy(p))
+	if (!rt_prio(p->prio))
+	if (prev_class != p->sched_class) {
+	} else if (oldprio != p->prio || dl_task(p))
+	if (p->sched_class == rq->curr->sched_class) {
+		for_each_class(class) {
+			if (class == p->sched_class) {
+	if (rq->curr->on_rq && test_tsk_need_resched(rq->curr))
+	if (task_cpu(p) != new_cpu) {
+	if (p->on_rq) {
+	if (task_cpu(arg->dst_task) != arg->dst_cpu)
+	if (task_cpu(arg->src_task) != arg->src_cpu)
+	if (!cpumask_test_cpu(arg->dst_cpu, tsk_cpus_allowed(arg->src_task)))
+	if (!cpumask_test_cpu(arg->src_cpu, tsk_cpus_allowed(arg->dst_task)))
+	if (arg.src_cpu == arg.dst_cpu)
+	if (!cpu_active(arg.src_cpu) || !cpu_active(arg.dst_cpu))
+	if (!cpumask_test_cpu(arg.dst_cpu, tsk_cpus_allowed(arg.src_task)))
+	if (!cpumask_test_cpu(arg.src_cpu, tsk_cpus_allowed(arg.dst_task)))
+ * smp_call_function() if an IPI is sent by the same process we are
+	for (;;) {
+		while (task_running(rq, p)) {
+		if (!match_state || p->state == match_state)
+		if (unlikely(!ncsw))
+		if (unlikely(running)) {
+		 * So if it was still runnable (but just not actively
+		if (unlikely(on_rq)) {
+	if ((cpu != smp_processor_id()) && task_curr(p))
+	if (nid != -1) {
+			if (!cpu_online(dest_cpu))
+			if (!cpu_active(dest_cpu))
+			if (cpumask_test_cpu(dest_cpu, tsk_cpus_allowed(p)))
+	for (;;) {
+		for_each_cpu(dest_cpu, tsk_cpus_allowed(p)) {
+			if (!cpu_active(dest_cpu))
+	if (state != cpuset) {
+		if (p->mm && printk_ratelimit()) {
+ * The caller (fork, wakeup) owns p->pi_lock, ->cpus_allowed is stable.
+	if (unlikely(!cpumask_test_cpu(cpu, tsk_cpus_allowed(p)) ||
+	if (cpu == this_cpu) {
+		for_each_domain(this_cpu, sd) {
+	if (wake_flags & WF_MIGRATED)
+	if (wake_flags & WF_SYNC)
+	if (rq->idle_stamp) {
+		if (rq->avg_idle > max)
+	if (p->on_rq) {
+	while (llist) {
+	 * TIF_NEED_RESCHED remotely (for the first time) will also send
+	if (llist_empty(&this_rq()->wake_list)
+	if (unlikely(got_nohz_idle_kick())) {
+	if (llist_add(&p->wake_entry, &cpu_rq(cpu)->wake_list))
+#if defined(CONFIG_SMP)
+ * @wake_flags: wake modifier flags (WF_*)
+	smp_mb__before_spinlock();
+	if (!(p->state & state))
+	if (p->on_rq && ttwu_remote(p, wake_flags))
+	while (p->on_cpu)
+	if (p->sched_class->task_waking)
+	if (task_cpu(p) != cpu) {
+	if (WARN_ON_ONCE(rq != this_rq()) ||
+	if (!raw_spin_trylock(&p->pi_lock)) {
+	if (!(p->state & TASK_NORMAL))
+	if (!p->on_rq)
+ * __sched_fork() is basic setup used by init_idle() too:
+static void __sched_fork(unsigned long clone_flags, struct task_struct *p)
+	INIT_LIST_HEAD(&p->se.group_node);
+	INIT_LIST_HEAD(&p->rt.run_list);
+	if (p->mm && atomic_read(&p->mm->mm_users) == 1) {
+	if (clone_flags & CLONE_VM)
+	INIT_LIST_HEAD(&p->numa_entry);
+	if (enabled)
+	if (write && !capable(CAP_SYS_ADMIN))
+	if (err < 0)
+	if (write)
+ * fork()/clone()-time setup:
+int sched_fork(unsigned long clone_flags, struct task_struct *p)
+	__sched_fork(clone_flags, p);
+	if (unlikely(p->sched_reset_on_fork)) {
+		} else if (PRIO_TO_NICE(p->static_prio) < 0)
+	} else if (rt_prio(p->prio)) {
+	if (p->sched_class->task_fork)
+		p->sched_class->task_fork(p);
+	 * and the cgroup is pinned to this child due to cgroup_fork()
+#if defined(CONFIG_SCHEDSTATS) || defined(CONFIG_TASK_DELAY_ACCT)
+	if (runtime == RUNTIME_INF)
+	if (period == 0)
+	for_each_cpu_and(i, rd->span, cpu_active_mask)
+	if (new_bw == p->dl.dl_bw)
+	if (dl_policy(policy) && !task_has_dl_policy(p) &&
+	} else if (dl_policy(policy) && task_has_dl_policy(p) &&
+	} else if (!dl_policy(policy) && task_has_dl_policy(p)) {
+void preempt_notifier_register(struct preempt_notifier *notifier)
+EXPORT_SYMBOL_GPL(preempt_notifier_register);
+void preempt_notifier_unregister(struct preempt_notifier *notifier)
+EXPORT_SYMBOL_GPL(preempt_notifier_unregister);
+	hlist_for_each_entry(notifier, &curr->preempt_notifiers, link)
+fire_sched_out_preempt_notifiers(struct task_struct *curr,
+	hlist_for_each_entry(notifier, &curr->preempt_notifiers, link)
+static void fire_sched_in_preempt_notifiers(struct task_struct *curr)
+fire_sched_out_preempt_notifiers(struct task_struct *curr,
+	fire_sched_out_preempt_notifiers(prev, next);
+ * with the lock held can cause deadlocks; see schedule() for
+	fire_sched_in_preempt_notifiers(current);
+	if (unlikely(prev_state == TASK_DEAD)) {
+		if (prev->sched_class->task_dead)
+	if (prev->sched_class->pre_schedule)
+	if (rq->post_schedule) {
+		if (rq->curr->sched_class->post_schedule)
+	if (!mm) {
+	if (!prev->mm) {
+	for_each_online_cpu(i)
+	for_each_possible_cpu(i)
+	for_each_possible_cpu(i)
+	if (dest_cpu == smp_processor_id())
+	if (likely(cpu_active(dest_cpu))) {
+	if (task_current(rq, p)) {
+		if ((s64)ns < 0)
+#if defined(CONFIG_64BIT) && defined(CONFIG_SMP)
+	if (!p->on_cpu)
+	unsigned long next, now = ACCESS_ONCE(jiffies);
+	if (time_before_eq(next, now))
+	return jiffies_to_nsecs(next - now);
+	if (in_lock_functions(addr)) {
+		if (in_lock_functions(addr))
+#if defined(CONFIG_PREEMPT) && (defined(CONFIG_DEBUG_PREEMPT) || \
+	if (DEBUG_LOCKS_WARN_ON((preempt_count() < 0)))
+	if (DEBUG_LOCKS_WARN_ON(val > preempt_count()))
+	if (DEBUG_LOCKS_WARN_ON((val < PREEMPT_MASK) &&
+	if (oops_in_progress)
+	printk(KERN_ERR "BUG: scheduling while atomic: %s/%d/0x%08x\n",
+	if (irqs_disabled())
+	 * Test if we are atomic. Since do_exit() needs to call into
+	if (unlikely(in_atomic_preempt_off() && prev->state != TASK_DEAD))
+	if (prev->on_rq || rq->skip_clock_update < 0)
+	if (likely(rq->nr_running == rq->cfs.h_nr_running)) {
+		if (likely(p))
+	for_each_class(class) {
+		if (p)
+	if (sched_feat(HRTICK))
+	smp_mb__before_spinlock();
+	if (prev->state && !(preempt_count() & PREEMPT_ACTIVE)) {
+			if (prev->flags & PF_WQ_WORKER) {
+				if (to_wakeup)
+	if (unlikely(!rq->nr_running))
+	if (likely(prev != next)) {
+	if (need_resched())
+	if (!tsk->state || tsk_is_pi_blocked(tsk))
+	if (blk_needs_flush_plug(tsk))
+	if (likely(!preemptible()))
+	} while (need_resched());
+	} while (need_resched());
+ * @prio: prio value (kernel-internal form)
+	if (unlikely(p == rq->idle)) {
+	if (on_rq)
+	if (running)
+	if (dl_prio(prio)) {
+	} else if (rt_prio(prio)) {
+		if (oldprio < prio)
+		if (dl_prio(oldprio))
+	if (running)
+	if (on_rq)
+	if (TASK_NICE(p) == nice || nice < -20 || nice > 19)
+	 * We have to be careful, if called from sys_setpriority(),
+	if (task_has_dl_policy(p) || task_has_rt_policy(p)) {
+	if (on_rq)
+	if (on_rq) {
+		if (delta < 0 || (delta > 0 && task_running(rq, p)))
+	if (increment < -40)
+	if (increment > 40)
+	if (nice < -20)
+	if (nice > 19)
+	if (increment < 0 && !can_nice(current, nice))
+	if (retval)
+	if (rq->curr != rq->idle)
+	if (rq->nr_running)
+	if (policy == -1) /* setparam */
+	if (dl_policy(policy))
+	else if (fair_policy(policy))
+	 * getparam()/getattr() don't report silly values for !rt tasks.
+	if (dl_prio(p->prio))
+	else if (rt_prio(p->prio))
+	if (attr->sched_deadline == 0)
+	if (attr->sched_runtime < (1ULL << DL_SCALE))
+	if (attr->sched_deadline & (1ULL << 63) ||
+	/* runtime <= deadline <= period (if period != 0) */
+	if (policy < 0) {
+		reset_on_fork = !!(attr->sched_flags & SCHED_FLAG_RESET_ON_FORK);
+	if (attr->sched_flags & ~(SCHED_FLAG_RESET_ON_FORK))
+	if ((p->mm && attr->sched_priority > MAX_USER_RT_PRIO-1) ||
+	if ((dl_policy(policy) && !__checkparam_dl(attr)) ||
+	if (user && !capable(CAP_SYS_NICE)) {
+			if (attr->sched_nice < TASK_NICE(p) &&
+		if (rt_policy(policy)) {
+			if (policy != p->policy && !rlim_rtprio)
+			if (attr->sched_priority > p->rt_priority &&
+		if (dl_policy(policy))
+		if (p->policy == SCHED_IDLE && policy != SCHED_IDLE) {
+		if (!check_same_owner(p))
+	if (user) {
+		if (retval)
+	 * make sure no PI-waiters arrive (or leave) while we are
+	if (p == rq->stop) {
+	if (unlikely(policy == p->policy)) {
+		if (rt_policy(policy) && attr->sched_priority != p->rt_priority)
+		if (dl_policy(policy))
+	if (user) {
+		if (rt_bandwidth_enabled() && rt_policy(policy) &&
+		if (dl_bandwidth_enabled() && dl_policy(policy)) {
+			if (!cpumask_subset(span, &p->cpus_allowed) ||
+	if (unlikely(oldpolicy != -1 && oldpolicy != p->policy)) {
+	 * of a SCHED_DEADLINE task) we need to check if enough bandwidth
+	if ((dl_policy(policy) || dl_task(p)) && dl_overflow(p, policy, attr)) {
+	if (on_rq)
+	if (running)
+	if (running)
+	if (on_rq)
+	if (policy & SCHED_RESET_ON_FORK) {
+	if (!param || pid < 0)
+	if (copy_from_user(&lparam, param, sizeof(struct sched_param)))
+	if (p != NULL)
+	if (!access_ok(VERIFY_WRITE, uattr, SCHED_ATTR_SIZE_VER0))
+	if (ret)
+	if (size > PAGE_SIZE)	/* silly large */
+	if (!size)		/* abi compat */
+	if (size < SCHED_ATTR_SIZE_VER0)
+	if (size > sizeof(*attr)) {
+		for (; addr < end; addr++) {
+			if (ret)
+			if (val)
+	if (ret)
+	if (!uattr || pid < 0 || flags)
+	if (retval)
+	if ((int)attr.sched_policy < 0)
+	if (p != NULL)
+	if (pid < 0)
+	if (p) {
+		if (!retval)
+				| (p->sched_reset_on_fork ? SCHED_RESET_ON_FORK : 0);
+	if (!param || pid < 0)
+	if (!p)
+	if (retval)
+	if (task_has_rt_policy(p))
+	if (!access_ok(VERIFY_WRITE, uattr, usize))
+	if (usize < sizeof(*attr)) {
+		for (; addr < end; addr++) {
+	if (ret)
+ * @size: sizeof(attr) for fwd/bwd comp.
+	if (!uattr || pid < 0 || size > PAGE_SIZE ||
+	if (!p)
+	if (retval)
+	if (p->sched_reset_on_fork)
+	if (task_has_dl_policy(p))
+	else if (task_has_rt_policy(p))
+	if (!p) {
+	if (p->flags & PF_NO_SETAFFINITY) {
+	if (!alloc_cpumask_var(&cpus_allowed, GFP_KERNEL)) {
+	if (!alloc_cpumask_var(&new_mask, GFP_KERNEL)) {
+	if (!check_same_owner(p)) {
+		if (!ns_capable(__task_cred(p)->user_ns, CAP_SYS_NICE)) {
+	if (retval)
+		if (dl_bandwidth_enabled() && !cpumask_subset(span, new_mask)) {
+	if (!retval) {
+		if (!cpumask_subset(new_mask, cpus_allowed)) {
+	if (len < cpumask_size())
+	else if (len > cpumask_size())
+	if (!alloc_cpumask_var(&new_mask, GFP_KERNEL))
+	if (retval == 0)
+	if (!p)
+	if (retval)
+	if ((len * BITS_PER_BYTE) < nr_cpu_ids)
+	if (len & (sizeof(unsigned long)-1))
+	if (!alloc_cpumask_var(&mask, GFP_KERNEL))
+	if (ret == 0) {
+		if (copy_to_user(user_mask_ptr, mask, retlen))
+	if (should_resched()) {
+ * __cond_resched_lock() - if a reschedule is pending, drop the given lock,
+	if (spin_needbreak(lock) || resched) {
+		if (resched)
+	if (should_resched()) {
+ * eligible task to run, if removing the yield() call from your code breaks
+ * while (!event)
+ * If you want to use yield() to wait for something, use wait_event().
+ *	true (>0) if we indeed boosted the target task.
+	if (rq->nr_running == 1 && p_rq->nr_running == 1) {
+	if (task_rq(p) != p_rq) {
+	if (!curr->sched_class->yield_to_task)
+	if (curr->sched_class != p->sched_class)
+	if (task_running(p_rq, p) || p->state)
+	if (yielded) {
+		if (preempt && rq != p_rq)
+	if (yielded > 0)
+	if (pid < 0)
+	if (!p)
+	if (retval)
+	if (p->sched_class->get_rr_interval)
+	jiffies_to_timespec(time_slice, &t);
+	if (state == TASK_RUNNING)
+		if (!state_filter || (p->state & state_filter))
+	} while_each_thread(g, p);
+	if (!state_filter)
+	__sched_fork(0, idle);
+	 * Similar case to sched_fork(). / Alternatively we could
+#if defined(CONFIG_SMP)
+#if defined(CONFIG_SMP)
+	if (p->sched_class && p->sched_class->set_cpus_allowed)
+ * 2) stopper starts to run (implicitly forcing the migrated thread
+ * 4) if it's in the wrong runqueue then the migration thread removes
+	if (cpumask_equal(&p->cpus_allowed, new_mask))
+	if (!cpumask_intersects(new_mask, cpu_active_mask)) {
+	if (cpumask_test_cpu(task_cpu(p), new_mask))
+	if (p->on_rq) {
+	if (unlikely(!cpu_active(dest_cpu)))
+	if (task_cpu(p) != src_cpu)
+	if (!cpumask_test_cpu(dest_cpu, tsk_cpus_allowed(p)))
+	if (p->on_rq) {
+	if (curr_cpu == target_cpu)
+	if (!cpumask_test_cpu(target_cpu, tsk_cpus_allowed(p)))
+	if (on_rq)
+	if (running)
+	if (running)
+	if (on_rq)
+	if (mm != &init_mm)
+	if (delta)
+	for ( ; ; ) {
+		if (rq->nr_running == 1)
+	for (entry = *tablep; entry->mode; entry++) {
+		if (entry->proc_handler == NULL)
+	if (load_idx) {
+	if (table == NULL)
+	set_table_entry(&table[6], "forkexec_idx", &sd->forkexec_idx,
+	for_each_domain(cpu, sd)
+	if (table == NULL)
+	for_each_domain(cpu, sd) {
+	if (entry == NULL)
+	for_each_possible_cpu(i) {
+	if (sd_sysctl_header)
+	if (sd_ctl_dir[0].child)
+	if (!rq->online) {
+		for_each_class(class) {
+	if (rq->online) {
+		for_each_class(class) {
+migration_call(struct notifier_block *nfb, unsigned long action, void *hcpu)
+		if (rq->rd) {
+		if (rq->rd) {
+static int sched_cpu_active(struct notifier_block *nfb,
+static int sched_cpu_inactive(struct notifier_block *nfb,
+		if (!(action & CPU_TASKS_FROZEN)) {
+			if (overflow)
+	migration_call(&migration_notifier, CPU_ONLINE, cpu);
+	cpu_notifier(sched_cpu_inactive, CPU_PRI_SCHED_INACTIVE);
+	if (!(sd->flags & SD_LOAD_BALANCE)) {
+		if (sd->parent)
+	if (!cpumask_test_cpu(cpu, sched_domain_span(sd))) {
+	if (!cpumask_test_cpu(cpu, sched_group_cpus(group))) {
+		if (!group) {
+		if (!group->sgp->power_orig) {
+		if (!cpumask_weight(sched_group_cpus(group))) {
+		if (!(sd->flags & SD_OVERLAP) &&
+		if (group->sgp->power != SCHED_POWER_SCALE) {
+	} while (group != sd->groups);
+	if (!cpumask_equal(sched_domain_span(sd), groupmask))
+	if (sd->parent &&
+	if (!sched_debug_enabled)
+	if (!sd) {
+	for (;;) {
+		if (!sd)
+# define sched_domain_debug(sd, cpu) do { } while (0)
+	if (cpumask_weight(sched_domain_span(sd)) == 1)
+	if (sd->flags & (SD_LOAD_BALANCE |
+		if (sd->groups != sd->groups->next)
+	if (sd->flags & (SD_WAKE_AFFINE))
+	if (sd_degenerate(parent))
+	if (!cpumask_equal(sched_domain_span(sd), sched_domain_span(parent)))
+		if (nr_node_ids == 1)
+	if (~cflags & pflags)
+	if (rq->rd) {
+		if (cpumask_test_cpu(rq->cpu, old_rd->online))
+		if (!atomic_dec_and_test(&old_rd->refcount))
+	if (cpumask_test_cpu(rq->cpu, cpu_active_mask))
+	if (old_rd)
+	if (!alloc_cpumask_var(&rd->span, GFP_KERNEL))
+	if (!alloc_cpumask_var(&rd->online, GFP_KERNEL))
+	if (!alloc_cpumask_var(&rd->dlo_mask, GFP_KERNEL))
+	if (!alloc_cpumask_var(&rd->rto_mask, GFP_KERNEL))
+	if (cpudl_init(&rd->cpudl) != 0)
+	if (cpupri_init(&rd->cpupri) != 0)
+	if (!rd)
+	if (init_rootdomain(rd) != 0) {
+	if (!sg)
+		if (free_sgp && atomic_dec_and_test(&sg->sgp->ref))
+	} while (sg != first);
+	if (sd->flags & SD_OVERLAP) {
+	} else if (atomic_dec_and_test(&sd->groups->ref)) {
+	for (; sd; sd = sd->parent)
+ * SD_SHARE_PKG_RESOURCE set (Last Level Cache Domain) for this
+ * the cpumask of the domain), this allows us to quickly tell if
+	if (sd) {
+	for (tmp = sd; tmp; ) {
+		if (!parent)
+		if (sd_parent_degenerate(tmp, parent)) {
+			if (parent->parent)
+			if (parent->flags & SD_PREFER_SIBLING)
+	if (sd && sd_degenerate(sd)) {
+		if (sd)
+	for_each_cpu(i, span) {
+		if (!cpumask_test_cpu(i, sched_domain_span(sibling)))
+	for_each_cpu(i, span) {
+		if (cpumask_test_cpu(i, covered))
+		if (!cpumask_test_cpu(i, sched_domain_span(child)))
+		if (!sg)
+		if (child->child) {
+		if (atomic_inc_return(&sg->sgp->ref) == 1)
+		if ((!groups && cpumask_test_cpu(cpu, sg_span)) ||
+		if (!first)
+		if (last)
+	if (child)
+	if (sg) {
+		atomic_set(&(*sg)->sgp->ref, 1); /* for claim_allocations */
+	if (cpu != cpumask_first(span))
+	for_each_cpu(i, span) {
+		if (cpumask_test_cpu(i, covered))
+		for_each_cpu(j, span) {
+		if (!first)
+		if (last)
+	} while (sg != sd->groups);
+# define SD_INIT_NAME(sd, type)		do { } while (0)
+SD_INIT_FUNC(CPU)
+ SD_INIT_FUNC(MC)
+ SD_INIT_FUNC(BOOK)
+	if (kstrtoint(str, 0, &default_relax_domain_level))
+	if (!attr || attr->relax_domain_level < 0) {
+	if (request < sd->level) {
+		if (!atomic_read(&d->rd->refcount))
+	if (__sdt_alloc(cpu_map))
+	if (!d->sd)
+	if (!d->rd)
+	if (atomic_read(&(*per_cpu_ptr(sdd->sg, cpu))->ref))
+	if (atomic_read(&(*per_cpu_ptr(sdd->sgp, cpu))->ref))
+#define for_each_sd_topology(tl)			\
+	if (sched_domains_numa_distance[level] > RECLAIM_DISTANCE)
+	SD_INIT_NAME(sd, NUMA);
+	if (done)
+	for (i = 0; i < nr_node_ids; i++) {
+		for (j = 0; j < nr_node_ids; j++)
+	if (distance == node_distance(0, 0))
+	for (i = 0; i < sched_domains_numa_levels; i++) {
+	if (!sched_domains_numa_distance)
+	for (i = 0; i < nr_node_ids; i++) {
+			for (k = 0; k < nr_node_ids; k++) {
+				if (distance > curr_distance &&
+				if (sched_debug() && node_distance(k, i) != distance)
+				if (sched_debug() && i && !find_numa_distance(distance))
+			if (next_distance != curr_distance) {
+		 * In case of sched_debug() we verify the above assumption.
+		if (!sched_debug())
+	if (!sched_domains_numa_masks)
+	for (i = 0; i < level; i++) {
+		if (!sched_domains_numa_masks[i])
+		for (j = 0; j < nr_node_ids; j++) {
+			if (!mask)
+			for (k = 0; k < nr_node_ids; k++) {
+	if (!tl)
+	for (i = 0; default_topology[i].init; i++)
+	for (j = 0; j < level; i++, j++) {
+	for (i = 0; i < sched_domains_numa_levels; i++) {
+			if (node_distance(j, node) <= sched_domains_numa_distance[i])
+	for (i = 0; i < sched_domains_numa_levels; i++) {
+static int sched_domains_numa_masks_update(struct notifier_block *nfb,
+static int sched_domains_numa_masks_update(struct notifier_block *nfb,
+	for_each_sd_topology(tl) {
+		if (!sdd->sd)
+		if (!sdd->sg)
+		if (!sdd->sgp)
+		for_each_cpu(j, cpu_map) {
+			if (!sd)
+			if (!sg)
+			if (!sgp)
+	for_each_sd_topology(tl) {
+		for_each_cpu(j, cpu_map) {
+			if (sdd->sd) {
+				if (sd && (sd->flags & SD_OVERLAP))
+			if (sdd->sg)
+			if (sdd->sgp)
+	if (!sd)
+	if (child) {
+	if (alloc_state != sa_rootdomain)
+	for_each_cpu(i, cpu_map) {
+		for_each_sd_topology(tl) {
+			if (tl == sched_domain_topology)
+			if (tl->flags & SDTL_OVERLAP || sched_feat(FORCE_SD_OVERLAP))
+			if (cpumask_equal(cpu_map, sched_domain_span(sd)))
+		for (sd = *per_cpu_ptr(d.sd, i); sd; sd = sd->parent) {
+			if (sd->flags & SD_OVERLAP) {
+				if (build_sched_groups(sd, i))
+		if (!cpumask_test_cpu(i, cpu_map))
+		for (sd = *per_cpu_ptr(d.sd, i); sd; sd = sd->parent) {
+	for_each_cpu(i, cpu_map) {
+	if (!doms)
+	for (i = 0; i < ndoms; i++) {
+	for (i = 0; i < ndoms; i++)
+	if (!doms_cur)
+	for_each_cpu(i, cpu_map)
+	if (!new && !cur)
+	for (i = 0; i < ndoms_cur; i++) {
+			if (cpumask_equal(doms_cur[i], doms_new[j])
+	if (doms_new == NULL) {
+	for (i = 0; i < ndoms_new; i++) {
+			if (cpumask_equal(doms_new[i], doms_cur[j])
+	if (doms_cur != &fallback_doms)
+static int cpuset_cpu_active(struct notifier_block *nfb, unsigned long action,
+		if (likely(num_cpus_frozen)) {
+static int cpuset_cpu_inactive(struct notifier_block *nfb, unsigned long action,
+	if (cpumask_empty(non_isolated_cpus))
+	hotcpu_notifier(sched_domains_numa_masks_update, CPU_PRI_SCHED_ACTIVE);
+	hotcpu_notifier(cpuset_cpu_inactive, CPU_PRI_CPUSET_INACTIVE);
+	if (set_cpus_allowed_ptr(current, non_isolated_cpus) < 0)
+		for_each_possible_cpu(i) {
+	INIT_LIST_HEAD(&root_task_group.children);
+	for_each_possible_cpu(i) {
+		INIT_LIST_HEAD(&rq->leaf_cfs_rq_list);
+		for (j = 0; j < CPU_LOAD_IDX_MAX; j++)
+		INIT_LIST_HEAD(&rq->cfs_tasks);
+	if (cpu_isolated_map == NULL)
+	if ((preempt_count_equals(preempt_offset) && !irqs_disabled()) ||
+	if (time_before(jiffies, prev_jiffy + HZ) && prev_jiffy)
+	if (irqs_disabled())
+	if (on_rq)
+	if (on_rq) {
+		if (!p->mm)
+			if (TASK_NICE(p) < 0 && p->mm)
+	} while_each_thread(g, p);
+#endif /* defined(CONFIG_IA64) || defined(CONFIG_KGDB_KDB) */
+ * curr_task() above) and restore that value before reenabling interrupts and
+	if (!tg)
+	if (!alloc_fair_sched_group(tg, parent))
+	if (!alloc_rt_sched_group(tg, parent))
+	INIT_LIST_HEAD(&tg->children);
+	for_each_possible_cpu(i)
+	if (on_rq)
+	if (unlikely(running))
+	if (unlikely(running))
+	if (on_rq)
+		if (rt_task(p) && task_rq(p)->rt.tg == tg)
+	} while_each_thread(g, p);
+	if (tg == d->tg) {
+	if (runtime > period && runtime != RUNTIME_INF)
+	if (rt_bandwidth_enabled() && !runtime && tg_has_rt_tasks(tg))
+	if (total > to_ratio(global_rt_period(), global_rt_runtime()))
+	list_for_each_entry_rcu(child, &tg->children, siblings) {
+		if (child == d->tg) {
+	if (sum > total)
+	if (err)
+	for_each_possible_cpu(i) {
+	if (rt_runtime_us < 0)
+	if (tg->rt_bandwidth.rt_runtime == RUNTIME_INF)
+	if (rt_period == 0)
+	for_each_possible_cpu(i) {
+	for_each_possible_cpu(cpu) {
+		if (new_bw < dl_b->total_bw)
+		if (ret)
+	if (global_rt_runtime() != RUNTIME_INF)
+	for_each_possible_cpu(cpu) {
+	if (sysctl_sched_rt_period <= 0)
+	if ((sysctl_sched_rt_runtime != RUNTIME_INF) &&
+	if (!ret && write) {
+		if (ret)
+		if (ret)
+		if (ret)
+	if (0) {
+	if (!ret && write) {
+			RR_TIMESLICE : msecs_to_jiffies(sched_rr_timeslice);
+	if (!parent) {
+	if (IS_ERR(tg))
+	if (parent)
+	cgroup_taskset_for_each(task, css, tset) {
+		if (!sched_rt_can_attach(css_tg(css), task))
+		if (task->sched_class != &fair_sched_class)
+	cgroup_taskset_for_each(task, css, tset)
+	if (!(task->flags & PF_EXITING))
+	if (tg == &root_task_group)
+	if (quota < min_cfs_quota_period || period < min_cfs_quota_period)
+	if (period > max_cfs_quota_period)
+	if (ret)
+	if (runtime_enabled && !runtime_was_enabled)
+	/* restart the period timer (if active) to handle new period expiry */
+	for_each_possible_cpu(i) {
+		if (cfs_rq->throttled)
+	if (runtime_was_enabled && !runtime_enabled)
+	if (cfs_quota_us < 0)
+	if (tg->cfs_bandwidth.quota == RUNTIME_INF)
+	if (tg == d->tg) {
+	if (quota == RUNTIME_INF || quota == -1)
+	if (!tg->parent) {
+		if (quota == RUNTIME_INF)
+		else if (parent_quota != RUNTIME_INF && quota > parent_quota)
+	if (quota != RUNTIME_INF) {
+	pr_info("Task dump for CPU %d:\n", cpu);
