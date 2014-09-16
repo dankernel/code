@@ -54,10 +54,9 @@ int main(int argc, char* argv[])
 
     /* CORE */
     buf = read_split(tmp_file, '\n');
-    printf("buf : %s\n", buf);
     while (buf) {
 
-
+      printf("buf : %s\n", buf);
       char *tmp = NULL;
       if ((tmp = list_str(list, buf)))
         printf("%s \n", tmp);
@@ -70,7 +69,7 @@ int main(int argc, char* argv[])
       buf = read_split(tmp_file, '\n');
     }
 
-    close_file(tmp_file);
+    close(tmp_file->fd);
     free(tmp_file->path);
     free(tmp_file->buf);
     free(tmp_file);
