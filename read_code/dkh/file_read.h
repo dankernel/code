@@ -104,7 +104,7 @@ int open_file(char *path)
     return -EFAIL_FUNC;
 
 ret:
-  err_test(ret, "open");
+  //err_test(ret, "open");
   return ret;
 }/*}}}*/
 
