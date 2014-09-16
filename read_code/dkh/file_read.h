@@ -61,7 +61,7 @@ int init_file_struct(struct file_info *info, char *path)
     return -EARG_NULL;
   
   /* path */
-  info->path = malloc(sizeof(char) * strlen(path));
+  info->path = malloc(strlen(path) + 1);
   strcpy(info->path, path);
 
   /* fd */
