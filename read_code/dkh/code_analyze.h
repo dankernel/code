@@ -27,7 +27,7 @@
 #include "dk_str.h"
 #include "dk_list.h"
 
-char *list_str(struct dk_list *list, const char *str)
+char *list_str(struct dk_list *list, char *str)
 {
   struct dk_lnode *tmp = NULL;
   char *s = NULL;
@@ -39,8 +39,8 @@ char *list_str(struct dk_list *list, const char *str)
   while (tmp = next_lnode(list)) {
     s = (char *)tmp->p;
     if ((ret = strstr(str, s))) {
-      printf("list str ok : %s : %s : \n", s, str);
-      break;
+      //printf("list str ok : %s : %s : \n", s, str);
+      return ret;
     } 
 
   }
