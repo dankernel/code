@@ -30,15 +30,21 @@ int main(int argc, char* argv[])
 
   /* init list and add key word */
   struct dk_list *list = init_list();
-  add_lnode(list, "if");
-  add_lnode(list, "for");
-  add_lnode(list, "while");
+  add_lnode(list, "fs");
+  /* add_lnode(list, "for"); */
+  /* add_lnode(list, "while"); */
   print_list(list);
 
   /* alloc and init struct */
   struct file_info *dk_file = NULL;
   dk_file = (struct file_info*)malloc(sizeof(struct file_info));
-  init_file_struct(dk_file, "./test/core.c");
+  init_file_struct(dk_file, "./test/kernel/file.list");
+
+  /* alloc and init struct */
+  /* struct file_info *dk_file = NULL; */
+  /* dk_file = (struct file_info*)malloc(sizeof(struct file_info)); */
+  /* init_file_struct(dk_file, "./test/core.c"); */
+
 
   /* CORE */
   buf = read_split(dk_file, '\n');
