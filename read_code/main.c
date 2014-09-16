@@ -65,7 +65,6 @@ int main(int argc, char* argv[])
        */
 
       // next //
-      free(buf);
       buf = read_split(tmp_file, '\n');
     }
 
@@ -75,7 +74,6 @@ int main(int argc, char* argv[])
     free(tmp_file);
 
     // next //
-    free(file);
     file = read_split(file_list, '\n');
 
   }
