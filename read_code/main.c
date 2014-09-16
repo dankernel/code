@@ -28,13 +28,12 @@ int main(int argc, char* argv[])
   int ret = 0;
   char *buf = NULL;
 
-  /* list and add key word */
+  /* init list and add key word */
   struct dk_list *list = init_list();
   add_lnode(list, "if");
   add_lnode(list, "for");
   add_lnode(list, "while");
   print_list(list);
-
 
   /* alloc and init struct */
   struct file_info *dk_file = NULL;
@@ -45,17 +44,12 @@ int main(int argc, char* argv[])
   buf = read_split(dk_file, '\n');
   while (buf) {
 
-    // cheek //
-    //printf("%s\n", buf);
-
     char *tmp = NULL;
-    if ((tmp = list_str(list, buf)) && (strstr(buf, "(") || strstr(buf, ")")))
-      printf("%s\n", tmp);
-
+    if ((tmp = list_str(list, buf)) && (strstr(buf, "(")))
+      printf("%s \n", tmp);
 
     /*
      * SOME CODE ...
-     * ...
      */
 
     // next //
