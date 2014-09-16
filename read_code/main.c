@@ -29,9 +29,13 @@ int main(int argc, char* argv[])
   char *buf = NULL;
   char *file = NULL;
 
+  long count_all = 0;
+  long count_con = 0;
+  long count_fail = 0;
+
   /* init list and add key word */
   struct dk_list *list = init_list();
-  add_lnode(list, "while");
+  add_lnode(list, "for");
   print_list(list);
 
   /* file list : alloc and init struct */
@@ -55,8 +59,15 @@ int main(int argc, char* argv[])
     while (buf) {
 
       char *tmp = NULL;
-      if ((tmp = list_str(list, buf)) && (strstr(tmp, "while(")))
-        printf("%s \n", tmp);
+      if (tmp = list_str(list, buf)) {
+
+        count_con++;
+        if (strstr(tmp, "for(")) {
+          printf("%s \n", tmp);
+          count_fail;
+        }
+      }
+      count_all++;
 
       buf = read_split(tmp_file, '\n');
     }
@@ -71,6 +82,8 @@ int main(int argc, char* argv[])
     file = read_split(file_list, '\n');
 
   }
+  
+  printf("count : %d / %d / %d \n", count_fail, count_con, count_all);
 
   return 0;
 }
