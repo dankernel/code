@@ -48,7 +48,6 @@ int main(int argc, char* argv[])
   struct file_info *tmp_file = NULL;
   while (file) {
 
-
     /* tmp file : alloc and init struct */
     tmp_file = (struct file_info*)malloc(sizeof(struct file_info));
     init_file_struct(tmp_file, file);
@@ -62,6 +61,8 @@ int main(int argc, char* argv[])
 
         count_con++;
         if (strstr(tmp, "for(")) {
+
+          /* PRINT */
           printf("file : %s \n", file);
           printf("%s \n", tmp);
           count_fail++;
