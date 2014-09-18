@@ -27,6 +27,8 @@
 #include "dk_str.h"
 #include "dk_list.h"
 
+#define KEYWORD_NEXT_PADDING 0X00000001
+
 char *list_str(struct dk_list *list, char *str)
 {
   struct dk_lnode *tmp = NULL;
@@ -42,8 +44,31 @@ char *list_str(struct dk_list *list, char *str)
       //printf("list str ok : %s : %s : \n", s, str);
       return ret;
     } 
-
   }
 
   return NULL;
 }
+
+int cheek_code_line(struct dk_list *list, char *str, int option)
+{
+  struct dk_lnode *tmp = NULL;
+  char *s = NULL;
+  char *ret = 0;
+
+  if ((!str) || (strlen(str) < 3))
+    return NULL;
+
+  while (tmp = next_lnode(list)) {
+    s = (char *)tmp->p;
+    if ((ret = strstr(str, s))) {
+      //printf("list str ok : %s : %s : \n", s, str);
+
+      if (option == KEYWORD_NEXT_PADDING && *(ret + strlen(str)) == ' ')
+        return ret;
+    } 
+  }
+
+  return NULL;
+}
+
+
