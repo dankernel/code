@@ -39,7 +39,9 @@ char *list_str(struct dk_list *list, char *str)
     return NULL;
 
   while (tmp = next_lnode(list)) {
+    /* pic keyword in list */
     s = (char *)tmp->p;
+
     if ((ret = strstr(str, s))) {
       //printf("list str ok : %s : %s : \n", s, str);
       return ret;
@@ -49,7 +51,7 @@ char *list_str(struct dk_list *list, char *str)
   return NULL;
 }
 
-int cheek_code_line(struct dk_list *list, char *str, int option)
+char *cheek_code_line(struct dk_list *list, char *str, int option)
 {
   struct dk_lnode *tmp = NULL;
   char *s = NULL;
@@ -59,11 +61,11 @@ int cheek_code_line(struct dk_list *list, char *str, int option)
     return NULL;
 
   while (tmp = next_lnode(list)) {
+    /* pic keyword in list */
     s = (char *)tmp->p;
-    if ((ret = strstr(str, s))) {
-      //printf("list str ok : %s : %s : \n", s, str);
 
-      if (option == KEYWORD_NEXT_PADDING && *(ret + strlen(str)) == ' ')
+    if ((ret = strstr(str, s))) {
+      if (option == KEYWORD_NEXT_PADDING && *(ret + strlen(s)) == '(')
         return ret;
     } 
   }

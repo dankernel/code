@@ -57,16 +57,14 @@ int main(int argc, char* argv[])
     while (buf) {
 
       char *tmp = NULL;
-      if (tmp = list_str(list, buf)) {
+      //if (tmp = list_str(list, buf)) {
+      if (tmp = cheek_code_line(list, buf, KEYWORD_NEXT_PADDING)) {
 
         count_con++;
 
-        /* cheek */
-        if (strstr(tmp, "for(")) {
-          printf("file : %s \n", file);
-          printf("%s \n", tmp);
-          count_fail++;
-        }
+        printf("file : %s \n", file);
+        printf("%s \n\n", tmp);
+
       }
       count_all++;
 
