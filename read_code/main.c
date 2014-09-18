@@ -84,6 +84,7 @@ int main(int argc, char* argv[])
 
   }
   
+  /* Result */
   printf("count : %d / %d / %d \n", count_fail, count_con, count_all);
 
   return 0;
