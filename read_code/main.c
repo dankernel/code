@@ -60,9 +60,9 @@ int main(int argc, char* argv[])
       if (tmp = list_str(list, buf)) {
 
         count_con++;
-        if (strstr(tmp, "for(")) {
 
-          /* PRINT */
+        /* cheek */
+        if (strstr(tmp, "for(")) {
           printf("file : %s \n", file);
           printf("%s \n", tmp);
           count_fail++;
