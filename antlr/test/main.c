@@ -3,10 +3,12 @@
 
 int main()
 {
-  int a;
+  int n1 = 40;
+  int n2 = 20;
+  int n3 = 10;
 
-  a = 10.4 + 20 * 30 - 10;
+  n3 = n1 + n2 * n3;
 
-  return 0;
+  return n3;
 }
 
