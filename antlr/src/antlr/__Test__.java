@@ -13,17 +13,18 @@ public class __Test__ {
 		CLexer lex = new CLexer(new ANTLRFileStream("/home/dkdk/code/antlr/test/main.c", "UTF-8"));
 		CommonTokenStream tokens = new CommonTokenStream(lex);
 
+		/*
 		CParser g = new CParser(tokens, null);
 		translation_unit_return c = g.translation_unit();
 		System.out.println("Result : \n" + c.tree.toStringTree());
+		*/
 
-		/*
-		CParser g1 = new CParser(tokens, null);
 		try {
+			CParser g1 = new CParser(tokens, null);
 			translation_unit_return c1 = g1.translation_unit();
 			System.out.println("print : " + c1.tree.toStringTree());
-			System.out.println(c1.tree.toString());
 
+			/*
 			System.out.println("print : ");
 			for (int i=0; i<c1.tree.getChildCount(); i++) {
 				System.out.println(c1.tree.getChild(i));
@@ -34,9 +35,9 @@ public class __Test__ {
 				}
 				System.out.println();
 			}
+			*/
 		} catch (RecognitionException e) {
 			e.printStackTrace();
 		}
-		*/
 	}
 }
