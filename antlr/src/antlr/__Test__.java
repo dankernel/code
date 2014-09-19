@@ -24,7 +24,6 @@ public class __Test__ {
 			translation_unit_return c1 = g1.translation_unit();
 			System.out.println("print : " + c1.tree.toStringTree());
 
-			/*
 			System.out.println("print : ");
 			for (int i=0; i<c1.tree.getChildCount(); i++) {
 				System.out.println(c1.tree.getChild(i));
@@ -35,7 +34,7 @@ public class __Test__ {
 				}
 				System.out.println();
 			}
-			*/
+
 		} catch (RecognitionException e) {
 			e.printStackTrace();
 		}
