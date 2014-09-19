@@ -2,6 +2,7 @@ package antlr;
 
 import org.antlr.runtime.ANTLRFileStream;
 import org.antlr.runtime.CommonTokenStream;
+import org.antlr.runtime.RecognitionException;
 
 import antlr.CParser.translation_unit_return;
 
@@ -16,23 +17,23 @@ public class __Test__ {
 		translation_unit_return c = g.translation_unit();
 		System.out.println("print : " + c.tree.toStringTree());
 		System.out.println(c.tree.toString());
+		
 
-		/*
-        CParser g = new CParser(tokens, null);
+        CParser g1 = new CParser(tokens, null);
         try {
-            translation_unit_return c = g.translation_unit();
-            System.out.println("print : " + c.tree.toStringTree());
-            System.out.println(c.tree.toString());
+            translation_unit_return c1 = g1.translation_unit();
+            System.out.println("print : " + c1.tree.toStringTree());
+            System.out.println(c1.tree.toString());
 
             System.out.println("print : ");
-            for (int i=0; i<c.tree.getChildCount(); i++)
+            for (int i=0; i<c1.tree.getChildCount(); i++)
             {
-            	System.out.println(c.tree.getChild(i));
-            	if (c.tree.getChild(i).getChildCount()!=0)
+            	System.out.println(c1.tree.getChild(i));
+            	if (c1.tree.getChild(i).getChildCount()!=0)
             	{
-            		for (int j=0; j<c.tree.getChild(i).getChildCount(); j++)
+            		for (int j=0; j<c1.tree.getChild(i).getChildCount(); j++)
             		{
-            			System.out.println(">>" + c.tree.getChild(i).getChild(j));
+            			System.out.println(">>" + c1.tree.getChild(i).getChild(j));
             		}
 
             	}
@@ -42,6 +43,5 @@ public class __Test__ {
         } catch (RecognitionException e) {
             e.printStackTrace();
         }
-		*/
 	}
 }
