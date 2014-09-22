@@ -68,6 +68,24 @@ struct nlist *lookup(char *s)
   return NULL; /*  not found */
 }
 
+
+/*  install: put (name, defn) in hashtab */
+int _undef(char *name)
+{
+  struct nlist *np;
+  unsigned hashval;
+  if ((np = lookup(name)) == NULL) { /*  not found */
+
+    return -1;
+
+  } else { /*  already there */
+    printf("free np\n");
+    free((void *) np); /* free previous defn */
+
+    return 0;
+  }
+}
+
 /*  install: put (name, defn) in hashtab */
 struct nlist *_install(char *name, char *defn)
 {
@@ -108,7 +126,7 @@ int main(int argc, char* argv[])
   tmp = lookup("aa");
   printf("%s %s \n", tmp->name, tmp->defn);
 
-  _install("aa", "11");
+  _install("bb", "11");
   if (tmp = lookup("bb"))
     printf("%s %s \n", tmp->name, tmp->defn);
   else
