@@ -1,5 +1,7 @@
 package antlr;
 
+import antlr.Oper_type;
+
 public class Arg_interface extends v_argument {
 	
 	private Argument r;
@@ -11,7 +13,7 @@ public class Arg_interface extends v_argument {
 		
 		this.r = new Argument(null, null, null);
 		this.l = new Argument(null, null, null);
-		this.op = new Oper();
+		this.op = new Oper_ty
 		
 	}
 
