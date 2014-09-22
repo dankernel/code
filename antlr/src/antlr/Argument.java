@@ -26,6 +26,22 @@ public class Argument extends v_argument {
 			return null;
 		}
 	}
+	
+	public String get_name() {
+		try {
+			return this.name;
+		} catch (Exception e) {
+			return null;
+		}
+	}
+	
+	public Argument get_arg() {
+		try {
+			return this.arg;
+		} catch (Exception e) {
+			return null;
+		}
+	}
 
 }
 
