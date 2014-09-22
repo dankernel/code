@@ -29,6 +29,23 @@
 
 #define KEYWORD_NEXT_PADDING 0X00000001
 
+struct code_info
+{
+  /* info */
+  char *name;
+
+  /* nomal */
+  int line;
+  int open;
+  int close;
+
+  /* function */
+  int f_count;
+  int f_maxline;
+  int f_minline;
+
+};
+
 char *list_str(struct dk_list *list, char *str)
 {
   struct dk_lnode *tmp = NULL;
