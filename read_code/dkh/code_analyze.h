@@ -106,6 +106,7 @@ struct code_info *read_code(char *path)
   // init list and add key word 
   struct dk_list *list = init_list(); 
   add_lnode(list, "for"); 
+  add_lnode(list, "if"); 
   //print_list(list); 
 
   /* null */
@@ -168,16 +169,11 @@ int get_file_line(char *path)
 }
 
 
-int read_file_code(char *path, pthread_mutex_t *mutex)
+int read_file_code(char *path)
 {
   int fd = -1;
   int ret = 0;
   char *file = NULL;
-
-  // init list and add key word 
-  struct dk_list *list = init_list(); 
-  add_lnode(list, "for"); 
-  print_list(list); 
 
   /* file list : alloc and init struct */
   struct file_info *file_list = NULL;
@@ -189,12 +185,9 @@ int read_file_code(char *path, pthread_mutex_t *mutex)
   struct file_info *tmp_file = NULL;
   while (file) {
 
-    pthread_mutex_lock(mutex);
-      /* Read file */
-      read_code(file);
-    pthread_mutex_unlock(mutex);
+    read_code(file);
 
-    /* Next */
+   /* Next */
     file = read_split(file_list, '\n');
 
   }
