@@ -168,7 +168,7 @@ int get_file_line(char *path)
 }
 
 
-int read_file_code(char *path)
+int read_file_code(char *path, pthread_mutex_t *mutex)
 {
   int fd = -1;
   int ret = 0;
@@ -179,7 +179,7 @@ int read_file_code(char *path)
   add_lnode(list, "for"); 
   print_list(list); 
 
-  /*  file list : alloc and init struct */
+  /* file list : alloc and init struct */
   struct file_info *file_list = NULL;
   file_list = (struct file_info*)malloc(sizeof(struct file_info));
   init_file_struct(file_list, path);
@@ -189,8 +189,10 @@ int read_file_code(char *path)
   struct file_info *tmp_file = NULL;
   while (file) {
 
-    /* Read file */
-    read_code(file);
+    pthread_mutex_lock(mutex);
+      /* Read file */
+      read_code(file);
+    pthread_mutex_unlock(mutex);
 
     /* Next */
     file = read_split(file_list, '\n');
