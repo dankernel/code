@@ -1,6 +1,6 @@
 package antlr;
 
-public class Argument extends v_argument {
+public class Argument extends V_argument {
 	
 	private Val_type type;
 	private String name;
