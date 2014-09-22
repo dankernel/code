@@ -24,14 +24,14 @@ public class __Test__ {
 			try {
 				CParser g1 = new CParser(tokens, null);
 				translation_unit_return c1 = g1.translation_unit();
-				System.out.println("print1 : " + c1.tree.toStringTree());
-
-				System.out.println("print2 : ");
+				System.out.println("== print1 == " + c1.tree.toStringTree());
+				
+				System.out.println("== print2 == ");
 				for (int i=0; i<c1.tree.getChildCount(); i++) {
-					System.out.println(">>" + i + " / " + c1.tree.getChild(i));
+					System.out.println(i + " / - / " + c1.tree.getChild(i));
 					if (c1.tree.getChild(i).getChildCount()!=0) {
 						for (int j=0; j<c1.tree.getChild(i).getChildCount(); j++) {
-							System.out.println(">>" + i + " / " + j + " / " + c1.tree.getChild(i).getChild(j));
+							System.out.println(i + " / " + j + " / " + c1.tree.getChild(i).getChild(j));
 						}
 					}
 					System.out.println();
