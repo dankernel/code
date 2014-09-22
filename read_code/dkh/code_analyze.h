@@ -105,6 +105,7 @@ struct code_info *read_code(char *path)
 
   // init list and add key word 
   struct dk_list *list = init_list(); 
+  add_lnode(list, "while"); 
   add_lnode(list, "for"); 
   add_lnode(list, "if"); 
   //print_list(list); 
