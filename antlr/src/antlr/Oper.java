@@ -1,5 +1,7 @@
 package antlr;
 
-enum Oper_type {
+public enum Oper {
+
 	declaration, equal
+	
 }
