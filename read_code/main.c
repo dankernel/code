@@ -24,7 +24,7 @@
 
 int main(int argc, char* argv[])
 {
-  read_code("./test/file.list");
+  read_file_code("./test/file.list");
 
   /* int fd = -1; */
   /* int ret = 0; */

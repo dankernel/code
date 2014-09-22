@@ -95,7 +95,13 @@ char *cheek_code_line(struct dk_list *list, char *str, int option)
   return NULL;
 }
 
-int read_code(char *path)
+int read_code(struct code_info *c_info, struct file_info *f_info)
+{
+
+
+}
+
+int read_file_code(char *path)
 {
   int fd = -1;
   int ret = 0;
@@ -142,6 +148,10 @@ int read_code(char *path)
     free(tmp_file->buf);
     free(tmp_file->path);
     free(tmp_file);
+
+    /* Next */
+    file = read_split(file_list, '\n');
+
 
   }
 
