@@ -26,7 +26,7 @@
 #include "errno.h"
 #include "print_msg.h"
 
-#define MAX_BUFF_SIZE 1024
+#define MAX_BUFF_SIZE 512
 
 /*
  * file info struct
