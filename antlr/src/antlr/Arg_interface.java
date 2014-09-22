@@ -10,11 +10,15 @@ public class Arg_interface extends v_argument {
 	
 	
 	public Arg_interface() {
-		
 		this.r = new Argument(null, null, null);
 		this.l = new Argument(null, null, null);
-		this.op = new Oper_ty
-		
+		this.op = null;
+	}
+	
+	public Arg_interface(Argument r, Argument l, Oper_type op) {
+		this.r = r;
+		this.l = l;
+		this.op = op;
 	}
 
 }
