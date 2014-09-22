@@ -80,7 +80,13 @@ int _undef(char *name)
 
   } else { /*  already there */
     printf("free np\n");
-    free((void *) np); /* free previous defn */
+
+    memset(np, '\0', sizeof(HASHSIZE));
+    free(np);
+
+    hashval = hash(name);
+    np->next = hashtab[hashval];
+    hashtab[hashval] = NULL;
 
     return 0;
   }
@@ -122,15 +128,17 @@ int main(int argc, char* argv[])
   }
 
   _install("aa", "11");
-
   tmp = lookup("aa");
   printf("%s %s \n", tmp->name, tmp->defn);
 
-  _install("bb", "11");
-  if (tmp = lookup("bb"))
+  _install("bb", "22");
+  _undef("bb");
+  tmp = lookup("bb");
+  if (tmp)
     printf("%s %s \n", tmp->name, tmp->defn);
   else
-    printf("=>ret NULL\n");
+    printf("null\n");
+
 
   return 0;
 }
