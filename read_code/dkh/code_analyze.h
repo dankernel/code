@@ -27,6 +27,7 @@
 #include "dk_str.h"
 #include "dk_list.h"
 
+#define CPU_COUNT 4
 #define KEYWORD_NEXT_PADDING 0X00000001
 
 struct code_info
@@ -118,7 +119,7 @@ struct code_info *read_code(char *path)
   tmp_file = (struct file_info*)malloc(sizeof(struct file_info));
   init_file_struct(tmp_file, path);
 
-  /*  CORE */
+  /* CORE */
   buf = read_split(tmp_file, '\n');
   while (buf) {
 
@@ -142,7 +143,35 @@ struct code_info *read_code(char *path)
   return c_info;
 }
 
-int read_file_code(char *path)
+int get_file_line(char *path)
+{
+  int fd = -1;
+  int ret = 0;
+  char *file = NULL;
+
+  /* file list : alloc and init struct */
+  struct file_info *file_list = NULL;
+  file_list = (struct file_info*)malloc(sizeof(struct file_info));
+  init_file_struct(file_list, path);
+
+  file = read_split(file_list, '\n');
+
+  struct file_info *tmp_file = NULL;
+  while (file) {
+
+    /* Read file */
+    read_code(file);
+
+    /* Next */
+    file = read_split(file_list, '\n');
+
+  }
+
+  return file_list->line;
+}
+
+
+int read_file_code(char *path, int cpu)
 {
   int fd = -1;
   int ret = 0;
