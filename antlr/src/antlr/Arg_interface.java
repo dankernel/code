@@ -11,6 +11,7 @@ public class Arg_interface extends v_argument {
 		
 		this.r = new Argument(null, null, null);
 		this.l = new Argument(null, null, null);
+		this.op = new Oper();
 		
 	}
 
