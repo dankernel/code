@@ -95,17 +95,57 @@ char *cheek_code_line(struct dk_list *list, char *str, int option)
   return NULL;
 }
 
-int read_code(struct code_info *c_info, struct file_info *f_info)
+struct code_info *read_code(char *path)
 {
+  struct code_info *c_info = NULL;
+  struct file_info *tmp_file = NULL;
 
+  char *buf = NULL;
 
+  // init list and add key word 
+  struct dk_list *list = init_list(); 
+  add_lnode(list, "for"); 
+  //print_list(list); 
+
+  /* null */
+  if (!path)
+    return NULL;
+
+  /* Init code info */
+  c_info = (struct code_info*)malloc(sizeof(struct code_info));
+
+  /* Init file */
+  tmp_file = (struct file_info*)malloc(sizeof(struct file_info));
+  init_file_struct(tmp_file, path);
+
+  /*  CORE */
+  buf = read_split(tmp_file, '\n');
+  while (buf) {
+
+    char *tmp = NULL;
+    if (tmp = cheek_code_line(list, buf, KEYWORD_NEXT_PADDING)) {
+
+      printf("file : %s \n", path);
+      printf("%s \n\n", tmp);
+
+    }
+
+    buf = read_split(tmp_file, '\n');
+  }
+
+  close(tmp_file->fd);
+
+  free(tmp_file->buf);
+  free(tmp_file->path);
+  free(tmp_file);
+
+  return c_info;
 }
 
 int read_file_code(char *path)
 {
   int fd = -1;
   int ret = 0;
-  char *buf = NULL;
   char *file = NULL;
 
   // init list and add key word 
@@ -123,35 +163,11 @@ int read_file_code(char *path)
   struct file_info *tmp_file = NULL;
   while (file) {
 
-    /*  tmp file : alloc and init struct */
-    tmp_file = (struct file_info*)malloc(sizeof(struct file_info));
-    init_file_struct(tmp_file, file);
-
-    /*  CORE */
-    buf = read_split(tmp_file, '\n');
-    while (buf) {
-
-      char *tmp = NULL;
-      if (tmp = cheek_code_line(list, buf, KEYWORD_NEXT_PADDING)) {
-
-
-        printf("file : %s \n", file);
-        printf("%s \n\n", tmp);
-
-      }
-
-      buf = read_split(tmp_file, '\n');
-    }
-
-    close(tmp_file->fd);
-
-    free(tmp_file->buf);
-    free(tmp_file->path);
-    free(tmp_file);
+    /* Read file */
+    read_code(file);
 
     /* Next */
     file = read_split(file_list, '\n');
-
 
   }
 
