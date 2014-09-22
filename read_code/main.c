@@ -28,7 +28,10 @@ int main(int argc, char* argv[])
   line = get_file_line("./test/file.list");
   printf("line : %d \n", line);
 
-  read_file_code("./test/file.list", 0);
+  if (fork() == 0)
+    read_file_code("./test/file.list");
+  else 
+    read_file_code("./test/file.list");
 
   return 0;
 }

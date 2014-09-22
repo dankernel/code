@@ -159,9 +159,6 @@ int get_file_line(char *path)
   struct file_info *tmp_file = NULL;
   while (file) {
 
-    /* Read file */
-    read_code(file);
-
     /* Next */
     file = read_split(file_list, '\n');
 
@@ -171,7 +168,7 @@ int get_file_line(char *path)
 }
 
 
-int read_file_code(char *path, int cpu)
+int read_file_code(char *path)
 {
   int fd = -1;
   int ret = 0;
