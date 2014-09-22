@@ -4,6 +4,7 @@ package antlr;
 
 public enum Oper_type {
 
-	declaration, equal
+	/* add.. */
+	declaration, equal, _if, _for, _while
 
 }
