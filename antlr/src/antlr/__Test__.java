@@ -26,6 +26,8 @@ public class __Test__ {
 				translation_unit_return c1 = g1.translation_unit();
 				System.out.println("== print1 == " + c1.tree.toStringTree());
 				
+				System.out.println("Type : " + c1.tree);
+				
 				System.out.println("== print2 == ");
 				for (int i=0; i<c1.tree.getChildCount(); i++) {
 					System.out.println(i + " / - / " + c1.tree.getChild(i));

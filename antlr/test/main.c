@@ -1,5 +1,5 @@
 
-  char n1 = 40;
+  char n1 = 'd';
 
   /*  
   int n2 = n1 * 2;
