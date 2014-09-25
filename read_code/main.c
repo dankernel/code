@@ -28,6 +28,8 @@
 int main(int argc, char* argv[])
 {
   int line = 0;
+
+  /* get line */
   line = get_file_line("./test/file.list");
   printf("line : %d \n", line);
 

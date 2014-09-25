@@ -4,12 +4,11 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-CPU_COUNT	dkh/code_analyze.h	31;"	d
+CPU_COUNT	dkh/code_analyze.h	30;"	d
 CREATE_TRACE_POINTS	test/core.c	89;"	d	file:
 EARG_NULL	dkh/errno.h	19;"	d
 EFAIL_FUNC	dkh/errno.h	20;"	d
-KEYWORD_NEXT_PADDING	dkh/code_analyze.h	32;"	d
-KEYWORD_NEXT_PADDING	dkh/code_analyze.h	57;"	d
+KEYWORD_NEXT_PADDING	dkh/code_analyze.h	31;"	d
 MAX_BUFF_SIZE	dkh/file_read.h	29;"	d
 SCHED_FEAT	test/core.c	133;"	d	file:
 SCHED_FEAT	test/core.c	140;"	d	file:
@@ -72,6 +71,9 @@ alloc_rootdomain	test/core.c	/^static struct root_domain *alloc_rootdomain(void)
 alloc_sched_domains	test/core.c	/^cpumask_var_t *alloc_sched_domains(unsigned int ndoms)$/;"	f
 arch_sd_sibling_asym_packing	test/core.c	/^int __weak arch_sd_sibling_asym_packing(void)$/;"	f
 arch_update_cpu_topology	test/core.c	/^int __attribute__((weak)) arch_update_cpu_topology(void)$/;"	f
+b_l	dkh/code_analyze.h	/^  int b_l;$/;"	m	struct:code_info
+b_m	dkh/code_analyze.h	/^  int b_m;$/;"	m	struct:code_info
+b_s	dkh/code_analyze.h	/^  int b_s;$/;"	m	struct:code_info
 buf	dkh/file_read.h	/^  char *buf;$/;"	m	struct:file_info
 buf_size	dkh/file_read.h	/^  int buf_size;$/;"	m	struct:file_info
 build_group_mask	test/core.c	/^static void build_group_mask(struct sched_domain *sd, struct sched_group *sg)$/;"	f	file:
@@ -88,6 +90,7 @@ check_same_owner	test/core.c	/^static bool check_same_owner(struct task_struct *
 cheek_code_line	dkh/code_analyze.h	/^char *cheek_code_line(struct dk_list *list, char *str, int option)$/;"	f
 claim_allocations	test/core.c	/^static void claim_allocations(int cpu, struct sched_domain *sd)$/;"	f	file:
 close_file	dkh/file_read.h	/^int close_file(struct file_info *info)$/;"	f
+code_info	dkh/code_analyze.h	/^struct code_info$/;"	s
 context_switch	test/core.c	/^context_switch(struct rq *rq, struct task_struct *prev,$/;"	f	file:
 count	dkh/dk_list.h	/^  int count;$/;"	m	struct:dk_list
 cpu_attach_domain	test/core.c	/^cpu_attach_domain(struct sched_domain *sd, struct root_domain *rd, int cpu)$/;"	f	file:
@@ -149,6 +152,9 @@ dump_cpu_task	test/core.c	/^void dump_cpu_task(int cpu)$/;"	f
 effective_prio	test/core.c	/^static int effective_prio(struct task_struct *p)$/;"	f	file:
 enqueue_task	test/core.c	/^static void enqueue_task(struct rq *rq, struct task_struct *p, int flags)$/;"	f	file:
 err_test	dkh/print_msg.h	24;"	d
+f_count	dkh/code_analyze.h	/^  int f_count;$/;"	m	struct:code_info
+f_maxline	dkh/code_analyze.h	/^  int f_maxline;$/;"	m	struct:code_info
+f_minline	dkh/code_analyze.h	/^  int f_minline;$/;"	m	struct:code_info
 fallback_doms	test/core.c	/^static cpumask_var_t fallback_doms;$/;"	v	file:
 fd	dkh/file_read.h	/^  int fd;$/;"	m	struct:file_info
 file_info	dkh/file_read.h	/^struct file_info$/;"	s
@@ -165,6 +171,7 @@ free_sched_domains	test/core.c	/^void free_sched_domains(cpumask_var_t doms[], u
 free_sched_group	test/core.c	/^static void free_sched_group(struct task_group *tg)$/;"	f	file:
 free_sched_group_rcu	test/core.c	/^static void free_sched_group_rcu(struct rcu_head *rhp)$/;"	f	file:
 free_sched_groups	test/core.c	/^static void free_sched_groups(struct sched_group *sg, int free_sgp)$/;"	f	file:
+get_file_line	dkh/code_analyze.h	/^int get_file_line(char *path)$/;"	f
 get_group	test/core.c	/^static int get_group(int cpu, struct sd_data *sdd, struct sched_group **sg)$/;"	f	file:
 get_nohz_timer_target	test/core.c	/^int get_nohz_timer_target(void)$/;"	f
 get_parent_ip	test/core.c	/^notrace unsigned long get_parent_ip(unsigned long addr)$/;"	f
@@ -209,8 +216,10 @@ kernel_cpustat	test/core.c	/^EXPORT_PER_CPU_SYMBOL(kernel_cpustat);$/;"	v
 kick_process	test/core.c	/^EXPORT_SYMBOL_GPL(kick_process);$/;"	v
 kick_process	test/core.c	/^void kick_process(struct task_struct *p)$/;"	f
 kstat	test/core.c	/^EXPORT_PER_CPU_SYMBOL(kstat);$/;"	v
+line	dkh/code_analyze.h	/^  int line;$/;"	m	struct:code_info
 line	dkh/file_read.h	/^  int line;$/;"	m	struct:file_info
 list_str	dkh/code_analyze.h	/^char *list_str(struct dk_list *list, char *str)$/;"	f
+main	main.c	/^int main(int argc, char* argv[])$/;"	f
 mask	test/core.c	/^	sched_domain_mask_f mask;$/;"	m	struct:sched_domain_topology_level	file:
 max_cfs_quota_period	test/core.c	/^const u64 max_cfs_quota_period = 1 * NSEC_PER_SEC; \/* 1s *\/$/;"	v
 max_load_idx	test/core.c	/^static int max_load_idx = CPU_LOAD_IDX_MAX-1;$/;"	v	file:
@@ -227,6 +236,7 @@ migration_notifier	test/core.c	/^static struct notifier_block migration_notifier
 migration_swap_arg	test/core.c	/^struct migration_swap_arg {$/;"	s	file:
 min_cfs_quota_period	test/core.c	/^const u64 min_cfs_quota_period = 1 * NSEC_PER_MSEC; \/* 1ms *\/$/;"	v
 min_load_idx	test/core.c	/^static int min_load_idx = 0;$/;"	v	file:
+name	dkh/code_analyze.h	/^  char *name;$/;"	m	struct:code_info
 ndoms_cur	test/core.c	/^static int ndoms_cur;		\/* number of sched domains in 'doms_cur' *\/$/;"	v	file:
 next	dkh/dk_list.h	/^  struct dk_lnode *next;$/;"	m	struct:dk_lnode	typeref:struct:dk_lnode::dk_lnode
 next_lnode	dkh/dk_list.h	/^struct dk_lnode *next_lnode(struct dk_list *list)$/;"	f
@@ -272,6 +282,8 @@ put_prev_task	test/core.c	/^static void put_prev_task(struct rq *rq, struct task
 quota	test/core.c	/^	u64 period, quota;$/;"	m	struct:cfs_schedulable_data	file:
 r_cache	dkh/dk_list.h	/^  struct dk_lnode *r_cache;$/;"	m	struct:dk_list	typeref:struct:dk_list::dk_lnode
 rd	test/core.c	/^	struct root_domain	*rd;$/;"	m	struct:s_data	typeref:struct:s_data::root_domain	file:
+read_code	dkh/code_analyze.h	/^struct code_info *read_code(char *path)$/;"	f
+read_file_code	dkh/code_analyze.h	/^int read_file_code(char *path)$/;"	f
 read_split	dkh/file_read.h	/^char *read_split(struct file_info *info, char ch)$/;"	f
 register_sched_domain_sysctl	test/core.c	/^static void register_sched_domain_sysctl(void)$/;"	f	file:
 resched_cpu	test/core.c	/^void resched_cpu(int cpu)$/;"	f
@@ -445,7 +457,6 @@ tg_set_cfs_bandwidth	test/core.c	/^static int tg_set_cfs_bandwidth(struct task_g
 tg_set_cfs_period	test/core.c	/^int tg_set_cfs_period(struct task_group *tg, long cfs_period_us)$/;"	f
 tg_set_cfs_quota	test/core.c	/^int tg_set_cfs_quota(struct task_group *tg, long cfs_quota_us)$/;"	f
 tg_set_rt_bandwidth	test/core.c	/^static int tg_set_rt_bandwidth(struct task_group *tg,$/;"	f	file:
-tmp_file	dkh/code_analyze.h	/^  free(tmp_file);$/;"	v
 to_ratio	test/core.c	/^unsigned long to_ratio(u64 period, u64 runtime)$/;"	f
 try_to_wake_up	test/core.c	/^try_to_wake_up(struct task_struct *p, unsigned int state, int wake_flags)$/;"	f	file:
 try_to_wake_up_local	test/core.c	/^static void try_to_wake_up_local(struct task_struct *p)$/;"	f	file:
