@@ -144,14 +144,24 @@ char *read_split(struct file_info *info, char ch)
   int ret = 0;
   char tmp = '\0';
 
-  /* read and save buf */
-  memset(info->buf, '\0', info->buf_size);
-  read_size = read(info->fd, info->buf, info->buf_size);
-  i = 0;
+read:
+  /* read */
+  printf("%s\n", info->buf[info->seek]);
+  if (!info->buf[info->seek]) {
 
-  // err_test(read_size, "read");
-  if (read_size <= 0)
-    goto fail;
+    /* read and save buf */
+    memset(info->buf, '\0', info->buf_size);
+    read_size = read(info->fd, info->buf, info->buf_size);
+    info->seek = 0;
+    i = 0;
+
+    // err_test(read_size, "read");
+    if (read_size <= 0) {
+      goto fail;
+    }
+    err_test("read", read_size);
+
+  }
 
 loop:
   /* lookup char */
@@ -172,7 +182,7 @@ loop:
     i++;
   }
   printf("반복..\n");
-  goto loop;
+  goto read;
 
 fail:
   return NULL;
