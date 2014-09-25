@@ -34,10 +34,7 @@ int main(int argc, char* argv[])
   line = get_file_line("./test/file.list");
   printf("line : %d \n", line);
 
-  if (fork() == 0)
-    read_file_code("./test/file.list", mutex);
-  else 
-    read_file_code("./test/file.list", mutex);
+  read_file_code("./test/file.list", mutex);
 
   return 0;
 }
