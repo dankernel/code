@@ -1,0 +1,443 @@
+line : 36860 
+list print :      (nil) ( 0x1f795f0  DKDK_HEAD)  0x1f79610 
+list print :  0x1f795f0 ( 0x1f79610        for)      (nil) 
+file : ./test/kernel/fs/xfs/xfs_inode.c 
+for(j = i - 1; j >= 0; j--) { 
+
+file : ./test/kernel/fs/xfs/xfs_bmap.c 
+for( i = 1; i <= xfs_btree_get_numrecs(block); i++) { 
+
+file : ./test/kernel/fs/namei.c 
+for(;;) { 
+
+file : ./test/kernel/fs/ocfs2/extent_map.c 
+for(i = 0; i < le16_to_cpu(el->l_next_free_rec); i++) { 
+
+file : ./test/kernel/fs/ocfs2/slot_map.c 
+for(i = 0; i < si->si_num_slots; i++) { 
+
+file : ./test/kernel/fs/ocfs2/slot_map.c 
+for(i = 0; i < si->si_num_slots; i++) { 
+
+file : ./test/kernel/fs/ocfs2/file.c 
+for(;;) { 
+
+file : ./test/kernel/fs/ocfs2/namei.c 
+for(i = 0; i < blocks; i++) 
+
+file : ./test/kernel/fs/ocfs2/alloc.c 
+for(i = start; i < path_num_items(path); i++) { 
+
+file : ./test/kernel/fs/ocfs2/alloc.c 
+for(i = 1; i < OCFS2_MAX_PATH_DEPTH; i++) { 
+
+file : ./test/kernel/fs/ocfs2/alloc.c 
+for(i = 1; i < OCFS2_MAX_PATH_DEPTH; i++) { 
+
+file : ./test/kernel/fs/ocfs2/alloc.c 
+for(i = 0; i < path_num_items(path); i++) { 
+
+file : ./test/kernel/fs/ocfs2/alloc.c 
+for(i = 0; i < le16_to_cpu(el->l_next_free_rec); i++) { 
+
+file : ./test/kernel/fs/ocfs2/alloc.c 
+for(i = count;  i < (num_got + count); i++) { 
+
+file : ./test/kernel/fs/ocfs2/alloc.c 
+for(i = 0; i < wanted; i++) { 
+
+file : ./test/kernel/fs/ocfs2/alloc.c 
+for(i = 0; i < new_blocks; i++) { 
+
+file : ./test/kernel/fs/ocfs2/alloc.c 
+for(i = 0; i < (next_free - 1); i++) 
+
+file : ./test/kernel/fs/ocfs2/alloc.c 
+for(i = 0; i < next_free; i++) { 
+
+file : ./test/kernel/fs/ocfs2/alloc.c 
+for(i = 0; i < le16_to_cpu(el->l_next_free_rec) - 1; i++) { 
+
+file : ./test/kernel/fs/ocfs2/alloc.c 
+for(i = 0; i < le16_to_cpu(root_el->l_next_free_rec) - 1; i++) { 
+
+file : ./test/kernel/fs/ocfs2/alloc.c 
+for(i = left_path->p_tree_depth - 1; i > subtree_index; i--) { 
+
+file : ./test/kernel/fs/ocfs2/alloc.c 
+for(i = subtree_index + 1; i < path_num_items(right_path); i++) { 
+
+file : ./test/kernel/fs/ocfs2/alloc.c 
+for(j = 0; j < le16_to_cpu(el->l_next_free_rec); j++) { 
+
+file : ./test/kernel/fs/ocfs2/alloc.c 
+for(i = unlink_start; i < path_num_items(path); i++) { 
+
+file : ./test/kernel/fs/ocfs2/alloc.c 
+for(i = 1; i < le16_to_cpu(root_el->l_next_free_rec); i++) 
+
+file : ./test/kernel/fs/ocfs2/alloc.c 
+for(i = subtree_index + 1; i < path_num_items(right_path); i++) { 
+
+file : ./test/kernel/fs/ocfs2/alloc.c 
+for(j = 0; j < le16_to_cpu(el->l_next_free_rec); j++) { 
+
+file : ./test/kernel/fs/ocfs2/alloc.c 
+for(i = 0; i < le16_to_cpu(el->l_next_free_rec); i++) { 
+
+file : ./test/kernel/fs/ocfs2/alloc.c 
+for(i = 0; i < num_recs; i++) { 
+
+file : ./test/kernel/fs/ocfs2/alloc.c 
+for(i = 0; i < numpages; i++) { 
+
+file : ./test/kernel/fs/ocfs2/journal.c 
+for(i = 0; i < p_blocks; i++) { 
+
+file : ./test/kernel/fs/ocfs2/journal.c 
+for(i = 0; i < CONCURRENT_JOURNAL_FILL; i++) 
+
+file : ./test/kernel/fs/ocfs2/journal.c 
+for(slot = 0; slot < osb->max_slots; slot++) { 
+
+file : ./test/kernel/fs/ocfs2/dlmglue.c 
+for(i = 0; i < DLM_LVB_LEN; i++) 
+
+file : ./test/kernel/fs/ocfs2/aops.c 
+for(i = 0; i < num_pages; i++) { 
+
+file : ./test/kernel/fs/ocfs2/aops.c 
+for(i = 0; i < wc->w_num_pages; i++) { 
+
+file : ./test/kernel/fs/ocfs2/aops.c 
+for(i = 0; i < wc->w_num_pages; i++) { 
+
+file : ./test/kernel/fs/ocfs2/aops.c 
+for(i = 0; i < wc->w_num_pages; i++) { 
+
+file : ./test/kernel/fs/ocfs2/aops.c 
+for(i = 0; i < wc->w_num_pages; i++) { 
+
+file : ./test/kernel/fs/ocfs2/suballoc.c 
+for(i = 0; i < fe->id2.i_chain.cl_next_free_rec; i++) { 
+
+file : ./test/kernel/fs/ocfs2/cluster/heartbeat.c 
+for(i = 0; !reg->hr_unclean_stop && i < reg->hr_blocks; i++) 
+
+file : ./test/kernel/fs/ocfs2/cluster/heartbeat.c 
+for(i = 0; i < reg->hr_blocks; i++) { 
+
+file : ./test/kernel/fs/ocfs2/cluster/heartbeat.c 
+for(i = 0; i < reg->hr_num_pages; i++) { 
+
+file : ./test/kernel/fs/ocfs2/cluster/heartbeat.c 
+for(i = 0; i < reg->hr_blocks; i++) { 
+
+file : ./test/kernel/fs/ocfs2/localalloc.c 
+for(i = 0; i < le16_to_cpu(la->la_size); i++) 
+
+file : ./test/kernel/fs/lockd/clntproc.c 
+for(;;) { 
+
+file : ./test/kernel/fs/lockd/clntproc.c 
+for(;;) { 
+
+file : ./test/kernel/fs/nfs/nfs4state.c 
+for(;;) { 
+
+file : ./test/kernel/fs/nfs/nfs4proc.c 
+for(; rc > 0; rc--) 
+
+file : ./test/kernel/fs/locks.c 
+for(struct file_lock *block_fl) 
+
+file : ./test/kernel/fs/locks.c 
+for(block_fl))) { 
+
+file : ./test/kernel/fs/buffer.c 
+for(bh = head, block_start = 0; bh != head || !block_start; 
+
+file : ./test/kernel/fs/jffs2/build.c 
+for(fd = ic->scan_dents; fd; fd = fd->next) { 
+
+file : ./test/kernel/fs/jffs2/wbuf.c 
+for(i = 0; i < ops.ooblen; i++) { 
+
+file : ./test/kernel/fs/efs/inode.c 
+for(i = 0; i < EFS_DIRECTEXTENTS; i++) { 
+
+file : ./test/kernel/fs/efs/inode.c 
+for(dirext = 1; dirext < direxts; dirext++) { 
+
+file : ./test/kernel/fs/efs/inode.c 
+for(indext = 0; indext < indexts; indext++) { 
+
+file : ./test/kernel/fs/efs/inode.c 
+for(dirext = 0; cur < ibase && dirext < direxts; dirext++) { 
+
+file : ./test/kernel/fs/efs/namei.c 
+for(block = 0; block < inode->i_blocks; block++) { 
+
+file : ./test/kernel/fs/efs/namei.c 
+for(slot = 0; slot < dirblock->slots; slot++) { 
+
+file : ./test/kernel/fs/efs/super.c 
+for(csum = 0; ui >= ((__be32 *) vh);) { 
+
+file : ./test/kernel/fs/efs/super.c 
+for(i = 0; i < NVDIR; i++) { 
+
+file : ./test/kernel/fs/efs/super.c 
+for(j = 0; j < VDNAMESIZE; j++) { 
+
+file : ./test/kernel/fs/efs/super.c 
+for(i = 0; i < NPARTAB; i++) { 
+
+file : ./test/kernel/fs/efs/super.c 
+for(pt_entry = sgi_pt_types; pt_entry->pt_name; pt_entry++) { 
+
+file : ./test/kernel/fs/binfmt_elf.c 
+for(i = 0, elf_ppnt = elf_phdata; 
+
+file : ./test/kernel/fs/binfmt_elf.c 
+for(i = 0; i < len; i++) 
+
+file : ./test/kernel/fs/ceph/file.c 
+for(off, len); 
+
+file : ./test/kernel/fs/ceph/addr.c 
+for((u64)osd_data->alignment, 
+
+file : ./test/kernel/fs/ceph/addr.c 
+for(0, len); 
+
+file : ./test/kernel/fs/ceph/addr.c 
+for((u64)osd_data->alignment, 
+
+file : ./test/kernel/fs/ceph/addr.c 
+for(0, (u64)len); 
+
+file : ./test/kernel/fs/ceph/xattr.c 
+for(0, size); 
+
+file : ./test/kernel/fs/gfs2/dir.c 
+for(i = 0; i < leaf; i++) 
+
+file : ./test/kernel/fs/gfs2/bmap.c 
+for(i = branch_start; i < height; i++) { 
+
+file : ./test/kernel/fs/gfs2/glock.c 
+for(i = 0; i < GFS2_GL_HASH_SIZE; i++) { 
+
+file : ./test/kernel/fs/gfs2/aops.c 
+for(i = 0; i < nr_pages; i++) { 
+
+file : ./test/kernel/fs/gfs2/quota.c 
+for(i = 0; i < GFS2_QD_HASH_SIZE; i++) 
+
+file : ./test/kernel/kernel/power/snapshot.c 
+for(;;) { 
+
+file : ./test/kernel/kernel/power/swap.c 
+for(;;) { 
+
+file : ./test/kernel/kernel/locking/rtmutex-tester.c 
+for(;;) { 
+
+file : ./test/kernel/kernel/auditsc.c 
+for(;;) { 
+
+file : ./test/kernel/kernel/user.c 
+for(n = 0; n < UIDHASH_SZ; ++n) 
+
+file : ./test/kernel/kernel/resource.c 
+for(;;) { 
+
+file : ./test/kernel/tools/power/cpupower/utils/helpers/topology.c 
+for(cpu = 1; cpu < cpus; cpu++) { 
+
+file : ./test/kernel/tools/vm/slabinfo.c 
+for(a = aliasinfo;a < aliasinfo + aliases; a++) { 
+
+file : ./test/kernel/tools/vm/slabinfo.c 
+for(node = 0; node <= highest_node; node++) 
+
+file : ./test/kernel/tools/vm/slabinfo.c 
+for(node = 0; node <= highest_node; node++) 
+
+file : ./test/kernel/tools/vm/slabinfo.c 
+for(node = 0; node <= highest_node; node++) { 
+
+file : ./test/kernel/tools/vm/slabinfo.c 
+for(node = 0; node <= highest_node; node++) { 
+
+file : ./test/kernel/tools/vm/slabinfo.c 
+for(a = aliasinfo; a < aliasinfo + aliases; a++) { 
+
+file : ./test/kernel/include/uapi/linux/soundcard.h 
+for(ii=0;ii<ll;ii++)\ 
+
+file : ./test/kernel/include/uapi/linux/soundcard.h 
+for(ii=ll;ii<6;ii++)\ 
+
+file : ./test/kernel/include/linux/pnp.h 
+for((card) = global_to_pnp_card(pnp_cards.next); \ 
+
+file : ./test/kernel/include/linux/pnp.h 
+for((dev) = global_to_pnp_dev(pnp_global.next); \ 
+
+file : ./test/kernel/include/linux/pnp.h 
+for((dev) = card_to_pnp_dev((card)->devices.next); \ 
+
+file : ./test/kernel/include/linux/pnp.h 
+for((card) = protocol_to_pnp_card((protocol)->cards.next); \ 
+
+file : ./test/kernel/include/linux/pnp.h 
+for((dev) = protocol_to_pnp_dev((protocol)->devices.next); \ 
+
+file : ./test/kernel/include/linux/uwb/whci.h 
+for(struct device *dev, u32 __iomem *reg, 
+
+file : ./test/kernel/include/linux/posix_acl.h 
+for(pa=(acl)->a_entries, pe=pa+(acl)->a_count; pa<pe; pa++) 
+
+file : ./test/kernel/include/linux/ceph/libceph.h 
+for(u64 off, u64 len) 
+
+file : ./test/kernel/sound/arm/aaci.c 
+for( ; len > 0; len -= 16) { 
+
+file : ./test/kernel/sound/pci/cs46xx/cs46xx_lib.c 
+for(i = 0; i < 50; i++){ 
+
+file : ./test/kernel/sound/pci/cs46xx/cs46xx_lib.c 
+for(jst=0;jst<4;++jst) 
+
+file : ./test/kernel/sound/pci/cs46xx/cs46xx_lib.c 
+for(idx = 0x90; idx <= 0x9F; idx++) { 
+
+file : ./test/kernel/sound/pci/cs46xx/dsp_spos_scb_lib.c 
+for(i = scb->index + 1;i < ins->nscb; ++i) { 
+
+file : ./test/kernel/sound/pci/pcxhr/pcxhr.c 
+for(j = 0; j < chip->nb_streams_capt; j++) { 
+
+file : ./test/kernel/sound/pci/pcxhr/pcxhr_mixer.c 
+for(i = 0; i < 2; i++) { 
+
+file : ./test/kernel/sound/pci/pcxhr/pcxhr_mixer.c 
+for(i = 0; i < 3 + mgr->capture_chips; i++) { 
+
+file : ./test/kernel/sound/pci/pcxhr/pcxhr_mixer.c 
+for(i = 0; i < 5; i++) { 
+
+file : ./test/kernel/sound/pci/pcxhr/pcxhr_hwdep.c 
+for(j = 0; j < chip->nb_streams_play; j++) 
+
+file : ./test/kernel/sound/pci/asihpi/hpi6205.c 
+for(i=0; i<dwLength; i++) */ 
+
+file : ./test/kernel/sound/pci/asihpi/hpi6205.c 
+for(j) */ 
+
+file : ./test/kernel/sound/pci/mixart/mixart_core.c 
+for(i=0; i < size; i++) { 
+
+file : ./test/kernel/sound/pci/mixart/mixart_core.c 
+for( i=0; i < msg->size; i+=4 ) { 
+
+file : ./test/kernel/sound/pci/mixart/mixart_core.c 
+for(i=0; i<notify->stream_count; i++) { 
+
+file : ./test/kernel/sound/pci/mixart/mixart_core.c 
+for(i=0; i<(resp.size/4); i++) { 
+
+file : ./test/kernel/sound/pci/mixart/mixart_hwdep.c 
+for( i=0; i<4; i++ ) 
+
+file : ./test/kernel/sound/pci/mixart/mixart_hwdep.c 
+for( i=0; i < be16_to_cpu(elf_header->e_phnum); i++ ) { 
+
+file : ./test/kernel/sound/pci/mixart/mixart_hwdep.c 
+for(k=0; k < connector->uid_count; k++) { 
+
+file : ./test/kernel/sound/pci/mixart/mixart_hwdep.c 
+for(k=0; k < connector->uid_count; k++) { 
+
+file : ./test/kernel/sound/pci/mixart/mixart_hwdep.c 
+for(k=0; k<mgr->num_cards; k++) { 
+
+file : ./test/kernel/sound/pci/mixart/mixart_mixer.c 
+for(i=0; i<2; i++) { 
+
+file : ./test/kernel/sound/pci/mixart/mixart_mixer.c 
+for(i=0; i<2; i++) { 
+
+file : ./test/kernel/sound/pci/mixart/mixart_mixer.c 
+for(i=0; i<2; i++) { 
+
+file : ./test/kernel/sound/pci/mixart/mixart_mixer.c 
+for(i=0; i<mgr->num_cards; i++) { 
+
+file : ./test/kernel/sound/pci/ca0106/ca0106_main.c 
+for(i=0; i < runtime->periods; i++) { 
+
+file : ./test/kernel/sound/pci/ca0106/ca0106_main.c 
+for(i = 0; i < 4; i++) { 
+
+file : ./test/kernel/sound/pci/ca0106/ca0106_main.c 
+for(i = 0; i < 4; i++) { 
+
+file : ./test/kernel/sound/pci/ca0106/ca0106_main.c 
+for(substream = pcm->streams[SNDRV_PCM_STREAM_PLAYBACK].substream;  
+
+file : ./test/kernel/sound/pci/ca0106/ca0106_proc.c 
+for(i = 0; i < 0x20; i+=4) { 
+
+file : ./test/kernel/sound/pci/ca0106/ca0106_proc.c 
+for(i = 0; i < 0x20; i+=2) { 
+
+file : ./test/kernel/sound/pci/ca0106/ca0106_proc.c 
+for(i = 0; i < 0x20; i+=1) { 
+
+file : ./test/kernel/sound/pci/ca0106/ca0106_proc.c 
+for(i = 0; i < 0x40; i++) { 
+
+file : ./test/kernel/sound/pci/ca0106/ca0106_proc.c 
+for(i = 0x40; i < 0x80; i++) { 
+
+file : ./test/kernel/sound/pci/emu10k1/p16v.c 
+for(i = 0; i < runtime->periods; i++) { 
+
+file : ./test/kernel/sound/pci/emu10k1/p16v.c 
+for(substream = pcm->streams[SNDRV_PCM_STREAM_PLAYBACK].substream;  
+
+file : ./test/kernel/sound/pci/emu10k1/emuproc.c 
+for(i = 0; i < 0x40; i+=1) { 
+
+file : ./test/kernel/sound/pci/emu10k1/emuproc.c 
+for(i = 0; i < 0x40; i+=4) { 
+
+file : ./test/kernel/sound/pci/emu10k1/emuproc.c 
+for(i = offset; i < offset+length; i++) { 
+
+file : ./test/kernel/sound/pci/emu10k1/emu10k1x.c 
+for(i = 0; i < runtime->periods; i++) { 
+
+file : ./test/kernel/sound/pci/emu10k1/emu10k1x.c 
+for(ch = 0; ch < 3; ch++) { 
+
+file : ./test/kernel/sound/pci/emu10k1/emu10k1x.c 
+for(i = 0; i < 0x20; i+=4) { 
+
+file : ./test/kernel/sound/pci/emu10k1/emu10k1x.c 
+for(i = 0; i <= 0x48; i++) { 
+
+file : ./test/kernel/sound/isa/es18xx.c 
+for(i = MILLISECOND; i; i--) 
+
+file : ./test/kernel/sound/isa/es18xx.c 
+for(i = MILLISECOND/10; i; i--) 
+
+file : ./test/kernel/sound/isa/es18xx.c 
+for(i = 

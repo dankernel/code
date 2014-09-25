@@ -27,16 +27,13 @@
 
 int main(int argc, char* argv[])
 {
-  /* pthread_mutex_t *mutex; */
-  /* pthread_mutex_init(mutex, NULL); */
-
   /* get file line */
   int line = 0;
   line = get_file_line("./test/file.list");
   printf("line : %d \n", line);
 
   /* read file, Thus file is file list */
-  read_file_code("./test/file.list", mutex);
+  read_file_code("./test/file.list");
 
   return 0;
 }

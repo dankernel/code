@@ -53,8 +53,9 @@ struct code_info
 
 };
 
-
-
+/*
+ * TODO : ...??
+ */
 char *list_str(struct dk_list *list, char *str)
 {
   struct dk_lnode *tmp = NULL;
@@ -168,29 +169,34 @@ struct code_info *read_code(char *path)
   return c_info;
 }
 
+/* 
+ * get file line
+ * path : target file path
+ * return : file line count nuber
+ */
 int get_file_line(char *path)
 {
-  int fd = -1;
-  int ret = 0;
-  char *file = NULL;
+  int ret = -1;
+  char *buf = NULL;
 
   /* file list : alloc and init struct */
   struct file_info *file_list = NULL;
   file_list = (struct file_info*)malloc(sizeof(struct file_info));
   init_file_struct(file_list, path);
 
-  file = read_split(file_list, '\n');
+  buf = read_split(file_list, '\n');
 
-  while (file) {
+  while (buf) {
 
     /* Next */
-    file = read_split(file_list, '\n');
+    buf = read_split(file_list, '\n');
 
   }
 
-  close_file_info(file_info);
+  ret = file_list->line;
+  close_file_info(file_list);
 
-  return file_list->line;
+  return ret;
 }
 
 
@@ -198,10 +204,9 @@ int get_file_line(char *path)
  * main function.
  * read file list and analysis(분석)
  * @path : file list (file)
- * @mutrx : TODO : ...
  * return : errer code
  */
-int read_file_code(char *path, pthread_mutex_t *mutex)
+int read_file_code(char *path)
 {
   int fd = -1;
   int ret = 0;
