@@ -127,16 +127,15 @@ struct code_info *read_code(char *path)
   // init list and. add key word 
   struct dk_list *list = init_list(); 
   add_lnode(list, "for"); 
-  // add_lnode(list, "if"); 
-  // add_lnode(list, "while"); 
-  // print_list(list); 
+  //add_lnode(list, "if"); 
+  //add_lnode(list, "while"); 
+  //print_list(list); 
 
   /* exception */
   if (!path)
     return NULL;
 
-  /* 
-   * Init code info
+  /* Init code info
    * TODO : Analysis and make code info
    */
   c_info = (struct code_info*)malloc(sizeof(struct code_info));
@@ -181,14 +180,13 @@ int get_file_line(char *path)
 
   file = read_split(file_list, '\n');
 
+  struct file_info *tmp_file = NULL;
   while (file) {
 
     /* Next */
     file = read_split(file_list, '\n');
 
   }
-
-  close_file_info(file_info);
 
   return file_list->line;
 }
@@ -222,13 +220,11 @@ int read_file_code(char *path, pthread_mutex_t *mutex)
 
   struct file_info *tmp_file = NULL;
   while (file) {
-
     /* Read file */
     read_code(file);
 
     /* Next, Pic one file */
     file = read_split(file_list, '\n');
-
   }
 
   return 0;
