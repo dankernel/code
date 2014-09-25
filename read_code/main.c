@@ -20,23 +20,18 @@
 #include <string.h>
 #include <fcntl.h>
 
-<<<<<<< HEAD
 /* Mutex */
 #include <pthread.h>
 
-=======
->>>>>>> efa454de0e7684f6123208f0c79a72281671d0b6
 #include "dkh/code_analyze.h"
 
 int main(int argc, char* argv[])
 {
-<<<<<<< HEAD
   int line = 0;
   line = get_file_line("./test/file.list");
   printf("line : %d \n", line);
 
   read_file_code("./test/file.list");
-=======
   int fd = -1;
   int ret = 0;
   char *buf = NULL;
@@ -97,7 +92,6 @@ int main(int argc, char* argv[])
   
   /* Result */
   printf("count : %d / %d / %d \n", count_fail, count_con, count_all);
->>>>>>> efa454de0e7684f6123208f0c79a72281671d0b6
 
   return 0;
 }

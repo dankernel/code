@@ -4,9 +4,12 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
+CPU_COUNT	dkh/code_analyze.h	31;"	d
 CREATE_TRACE_POINTS	test/core.c	89;"	d	file:
 EARG_NULL	dkh/errno.h	19;"	d
 EFAIL_FUNC	dkh/errno.h	20;"	d
+KEYWORD_NEXT_PADDING	dkh/code_analyze.h	32;"	d
+KEYWORD_NEXT_PADDING	dkh/code_analyze.h	57;"	d
 MAX_BUFF_SIZE	dkh/file_read.h	29;"	d
 SCHED_FEAT	test/core.c	133;"	d	file:
 SCHED_FEAT	test/core.c	140;"	d	file:
@@ -64,6 +67,7 @@ _cond_resched	test/core.c	/^EXPORT_SYMBOL(_cond_resched);$/;"	v
 _cond_resched	test/core.c	/^int __sched _cond_resched(void)$/;"	f
 _sched_setscheduler	test/core.c	/^static int _sched_setscheduler(struct task_struct *p, int policy,$/;"	f	file:
 activate_task	test/core.c	/^void activate_task(struct rq *rq, struct task_struct *p, int flags)$/;"	f
+add_lnode	dkh/dk_list.h	/^struct dk_lnode *add_lnode(struct dk_list *list, void *p)$/;"	f
 alloc_rootdomain	test/core.c	/^static struct root_domain *alloc_rootdomain(void)$/;"	f	file:
 alloc_sched_domains	test/core.c	/^cpumask_var_t *alloc_sched_domains(unsigned int ndoms)$/;"	f
 arch_sd_sibling_asym_packing	test/core.c	/^int __weak arch_sd_sibling_asym_packing(void)$/;"	f
@@ -81,8 +85,11 @@ cfs_schedulable_data	test/core.c	/^struct cfs_schedulable_data {$/;"	s	file:
 check_class_changed	test/core.c	/^static inline void check_class_changed(struct rq *rq, struct task_struct *p,$/;"	f	file:
 check_preempt_curr	test/core.c	/^void check_preempt_curr(struct rq *rq, struct task_struct *p, int flags)$/;"	f
 check_same_owner	test/core.c	/^static bool check_same_owner(struct task_struct *p)$/;"	f	file:
+cheek_code_line	dkh/code_analyze.h	/^char *cheek_code_line(struct dk_list *list, char *str, int option)$/;"	f
 claim_allocations	test/core.c	/^static void claim_allocations(int cpu, struct sched_domain *sd)$/;"	f	file:
+close_file	dkh/file_read.h	/^int close_file(struct file_info *info)$/;"	f
 context_switch	test/core.c	/^context_switch(struct rq *rq, struct task_struct *prev,$/;"	f	file:
+count	dkh/dk_list.h	/^  int count;$/;"	m	struct:dk_list
 cpu_attach_domain	test/core.c	/^cpu_attach_domain(struct sched_domain *sd, struct root_domain *rd, int cpu)$/;"	f	file:
 cpu_cfs_period_read_u64	test/core.c	/^static u64 cpu_cfs_period_read_u64(struct cgroup_subsys_state *css,$/;"	f	file:
 cpu_cfs_period_write_u64	test/core.c	/^static int cpu_cfs_period_write_u64(struct cgroup_subsys_state *css,$/;"	f	file:
@@ -111,6 +118,7 @@ cpus_share_cache	test/core.c	/^bool cpus_share_cache(int this_cpu, int that_cpu)
 cpuset_cpu_active	test/core.c	/^static int cpuset_cpu_active(struct notifier_block *nfb, unsigned long action,$/;"	f	file:
 cpuset_cpu_inactive	test/core.c	/^static int cpuset_cpu_inactive(struct notifier_block *nfb, unsigned long action,$/;"	f	file:
 css_tg	test/core.c	/^static inline struct task_group *css_tg(struct cgroup_subsys_state *css)$/;"	f	file:
+ctrc_handler	dkh/handler.h	/^void ctrc_handler(int s)$/;"	f
 curr_task	test/core.c	/^struct task_struct *curr_task(int cpu)$/;"	f
 data	test/core.c	/^	struct sd_data      data;$/;"	m	struct:sched_domain_topology_level	typeref:struct:sched_domain_topology_level::sd_data	file:
 dattr_cur	test/core.c	/^static struct sched_domain_attr *dattr_cur;$/;"	v	typeref:struct:sched_domain_attr	file:
@@ -126,6 +134,8 @@ dest_cpu	test/core.c	/^	int dest_cpu;$/;"	m	struct:migration_arg	file:
 destroy_sched_domain	test/core.c	/^static void destroy_sched_domain(struct sched_domain *sd, int cpu)$/;"	f	file:
 destroy_sched_domains	test/core.c	/^static void destroy_sched_domains(struct sched_domain *sd, int cpu)$/;"	f	file:
 detach_destroy_domains	test/core.c	/^static void detach_destroy_domains(const struct cpumask *cpu_map)$/;"	f	file:
+dk_list	dkh/dk_list.h	/^struct dk_list {$/;"	s
+dk_lnode	dkh/dk_list.h	/^struct dk_lnode {$/;"	s
 dl_bw_cpus	test/core.c	/^static inline int dl_bw_cpus(int i)$/;"	f	file:
 dl_bw_of	test/core.c	/^inline struct dl_bw *dl_bw_of(int i)$/;"	f
 dl_overflow	test/core.c	/^static int dl_overflow(struct task_struct *p, int policy,$/;"	f	file:
@@ -161,6 +171,7 @@ get_parent_ip	test/core.c	/^notrace unsigned long get_parent_ip(unsigned long ad
 get_user_cpu_mask	test/core.c	/^static int get_user_cpu_mask(unsigned long __user *user_mask_ptr, unsigned len,$/;"	f	file:
 got_nohz_idle_kick	test/core.c	/^static inline bool got_nohz_idle_kick(void)$/;"	f	file:
 group_balance_cpu	test/core.c	/^int group_balance_cpu(struct sched_group *sg)$/;"	f
+head	dkh/dk_list.h	/^  struct dk_lnode *head;$/;"	m	struct:dk_list	typeref:struct:dk_list::dk_lnode
 hotplug_hrtick	test/core.c	/^hotplug_hrtick(struct notifier_block *nfb, unsigned long action, void *hcpu)$/;"	f	file:
 hrtick	test/core.c	/^static enum hrtimer_restart hrtick(struct hrtimer *timer)$/;"	f	file:
 hrtick_clear	test/core.c	/^static inline void hrtick_clear(struct rq *rq)$/;"	f	file:
@@ -177,6 +188,8 @@ init_hrtick	test/core.c	/^static __init void init_hrtick(void)$/;"	f	file:
 init_hrtick	test/core.c	/^static inline void init_hrtick(void)$/;"	f	file:
 init_idle	test/core.c	/^void init_idle(struct task_struct *idle, int cpu)$/;"	f
 init_idle_bootup_task	test/core.c	/^void init_idle_bootup_task(struct task_struct *idle)$/;"	f
+init_list	dkh/dk_list.h	/^struct dk_list *init_list(void)$/;"	f
+init_lnode	dkh/dk_list.h	/^struct dk_lnode *init_lnode(void *val)$/;"	f
 init_rootdomain	test/core.c	/^static int init_rootdomain(struct root_domain *rd)$/;"	f	file:
 init_rq_hrtick	test/core.c	/^static inline void init_rq_hrtick(struct rq *rq)$/;"	f	file:
 init_rq_hrtick	test/core.c	/^static void init_rq_hrtick(struct rq *rq)$/;"	f	file:
@@ -197,7 +210,7 @@ kick_process	test/core.c	/^EXPORT_SYMBOL_GPL(kick_process);$/;"	v
 kick_process	test/core.c	/^void kick_process(struct task_struct *p)$/;"	f
 kstat	test/core.c	/^EXPORT_PER_CPU_SYMBOL(kstat);$/;"	v
 line	dkh/file_read.h	/^  int line;$/;"	m	struct:file_info
-main	main.c	/^int main(int argc, char* argv[])$/;"	f
+list_str	dkh/code_analyze.h	/^char *list_str(struct dk_list *list, char *str)$/;"	f
 mask	test/core.c	/^	sched_domain_mask_f mask;$/;"	m	struct:sched_domain_topology_level	file:
 max_cfs_quota_period	test/core.c	/^const u64 max_cfs_quota_period = 1 * NSEC_PER_SEC; \/* 1s *\/$/;"	v
 max_load_idx	test/core.c	/^static int max_load_idx = CPU_LOAD_IDX_MAX-1;$/;"	v	file:
@@ -215,6 +228,8 @@ migration_swap_arg	test/core.c	/^struct migration_swap_arg {$/;"	s	file:
 min_cfs_quota_period	test/core.c	/^const u64 min_cfs_quota_period = 1 * NSEC_PER_MSEC; \/* 1ms *\/$/;"	v
 min_load_idx	test/core.c	/^static int min_load_idx = 0;$/;"	v	file:
 ndoms_cur	test/core.c	/^static int ndoms_cur;		\/* number of sched domains in 'doms_cur' *\/$/;"	v	file:
+next	dkh/dk_list.h	/^  struct dk_lnode *next;$/;"	m	struct:dk_lnode	typeref:struct:dk_lnode::dk_lnode
+next_lnode	dkh/dk_list.h	/^struct dk_lnode *next_lnode(struct dk_list *list)$/;"	f
 normal_prio	test/core.c	/^static inline int normal_prio(struct task_struct *p)$/;"	f	file:
 normalize_cfs_quota	test/core.c	/^static u64 normalize_cfs_quota(struct task_group *tg,$/;"	f	file:
 normalize_rt_tasks	test/core.c	/^void normalize_rt_tasks(void)$/;"	f
@@ -227,6 +242,7 @@ num_cpus_frozen	test/core.c	/^static int num_cpus_frozen;	\/* used to mark begin
 numa_level	test/core.c	/^	int		    numa_level;$/;"	m	struct:sched_domain_topology_level	file:
 numabalancing_enabled	test/core.c	/^__read_mostly bool numabalancing_enabled;$/;"	v
 open_file	dkh/file_read.h	/^int open_file(char *path)$/;"	f
+p	dkh/dk_list.h	/^  int *p;$/;"	m	struct:dk_lnode
 partition_sched_domains	test/core.c	/^void partition_sched_domains(int ndoms_new, cpumask_var_t doms_new[],$/;"	f
 path	dkh/file_read.h	/^  char *path;$/;"	m	struct:file_info
 period	test/core.c	/^	u64 period, quota;$/;"	m	struct:cfs_schedulable_data	file:
@@ -247,10 +263,14 @@ preempt_schedule	test/core.c	/^EXPORT_SYMBOL(preempt_schedule);$/;"	v
 preempt_schedule	test/core.c	/^asmlinkage void __sched notrace preempt_schedule(void)$/;"	f
 preempt_schedule_irq	test/core.c	/^asmlinkage void __sched preempt_schedule_irq(void)$/;"	f
 prepare_task_switch	test/core.c	/^prepare_task_switch(struct rq *rq, struct task_struct *prev,$/;"	f	file:
+prev	dkh/dk_list.h	/^  struct dk_lnode *prev;$/;"	m	struct:dk_lnode	typeref:struct:dk_lnode::dk_lnode
 print_f	dkh/print_msg.h	20;"	d
+print_list	dkh/dk_list.h	/^int print_list(struct dk_list *list)$/;"	f
+print_node	dkh/dk_list.h	/^inline void print_node(struct dk_lnode *n)$/;"	f
 print_o	dkh/print_msg.h	21;"	d
 put_prev_task	test/core.c	/^static void put_prev_task(struct rq *rq, struct task_struct *prev)$/;"	f	file:
 quota	test/core.c	/^	u64 period, quota;$/;"	m	struct:cfs_schedulable_data	file:
+r_cache	dkh/dk_list.h	/^  struct dk_lnode *r_cache;$/;"	m	struct:dk_list	typeref:struct:dk_list::dk_lnode
 rd	test/core.c	/^	struct root_domain	*rd;$/;"	m	struct:s_data	typeref:struct:s_data::root_domain	file:
 read_split	dkh/file_read.h	/^char *read_split(struct file_info *info, char ch)$/;"	f
 register_sched_domain_sysctl	test/core.c	/^static void register_sched_domain_sysctl(void)$/;"	f	file:
@@ -386,6 +406,7 @@ setup_relax_domain_level	test/core.c	/^static int __init setup_relax_domain_leve
 sg	test/core.c	/^	struct sched_group **__percpu sg;$/;"	m	struct:sd_data	typeref:struct:sd_data::__percpu	file:
 sgp	test/core.c	/^	struct sched_group_power **__percpu sgp;$/;"	m	struct:sd_data	typeref:struct:sd_data::__percpu	file:
 show_state_filter	test/core.c	/^void show_state_filter(unsigned long state_filter)$/;"	f
+signal_handler	dkh/handler.h	/^int signal_handler(void)$/;"	f
 sleep_on	test/core.c	/^EXPORT_SYMBOL(sleep_on);$/;"	v
 sleep_on	test/core.c	/^void __sched sleep_on(wait_queue_head_t *q)$/;"	f
 sleep_on_common	test/core.c	/^sleep_on_common(wait_queue_head_t *q, int state, long timeout)$/;"	f	file:
@@ -395,6 +416,7 @@ src_cpu	test/core.c	/^	int src_cpu, dst_cpu;$/;"	m	struct:migration_swap_arg	fil
 src_task	test/core.c	/^	struct task_struct *src_task, *dst_task;$/;"	m	struct:migration_swap_arg	typeref:struct:migration_swap_arg::task_struct	file:
 start_bandwidth_timer	test/core.c	/^void start_bandwidth_timer(struct hrtimer *period_timer, ktime_t period)$/;"	f
 stat_nam	test/core.c	/^static const char stat_nam[] = TASK_STATE_TO_CHAR_STR;$/;"	v	file:
+str_contain	dkh/dk_str.h	/^int str_contain(char *str, char c)$/;"	f
 sysctl_numa_balancing	test/core.c	/^int sysctl_numa_balancing(struct ctl_table *table, int write,$/;"	f
 sysctl_sched_features	test/core.c	/^const_debug unsigned int sysctl_sched_features =$/;"	v
 sysctl_sched_nr_migrate	test/core.c	/^const_debug unsigned int sysctl_sched_nr_migrate = 32;$/;"	v
@@ -402,6 +424,7 @@ sysctl_sched_rt_period	test/core.c	/^unsigned int sysctl_sched_rt_period = 10000
 sysctl_sched_rt_runtime	test/core.c	/^int sysctl_sched_rt_runtime = 950000;$/;"	v
 sysctl_sched_time_avg	test/core.c	/^const_debug unsigned int sysctl_sched_time_avg = MSEC_PER_SEC;$/;"	v
 sysctl_timer_migration	test/core.c	/^const_debug unsigned int sysctl_timer_migration = 1;$/;"	v
+tail	dkh/dk_list.h	/^  struct dk_lnode *tail;$/;"	m	struct:dk_list	typeref:struct:dk_list::dk_lnode
 task	test/core.c	/^	struct task_struct *task;$/;"	m	struct:migration_arg	typeref:struct:migration_arg::task_struct	file:
 task_curr	test/core.c	/^inline int task_curr(const struct task_struct *p)$/;"	f
 task_delta_exec	test/core.c	/^unsigned long long task_delta_exec(struct task_struct *p)$/;"	f
@@ -422,6 +445,7 @@ tg_set_cfs_bandwidth	test/core.c	/^static int tg_set_cfs_bandwidth(struct task_g
 tg_set_cfs_period	test/core.c	/^int tg_set_cfs_period(struct task_group *tg, long cfs_period_us)$/;"	f
 tg_set_cfs_quota	test/core.c	/^int tg_set_cfs_quota(struct task_group *tg, long cfs_quota_us)$/;"	f
 tg_set_rt_bandwidth	test/core.c	/^static int tg_set_rt_bandwidth(struct task_group *tg,$/;"	f	file:
+tmp_file	dkh/code_analyze.h	/^  free(tmp_file);$/;"	v
 to_ratio	test/core.c	/^unsigned long to_ratio(u64 period, u64 runtime)$/;"	f
 try_to_wake_up	test/core.c	/^try_to_wake_up(struct task_struct *p, unsigned int state, int wake_flags)$/;"	f	file:
 try_to_wake_up_local	test/core.c	/^static void try_to_wake_up_local(struct task_struct *p)$/;"	f	file:
@@ -437,6 +461,7 @@ update_avg	test/core.c	/^static void update_avg(u64 *avg, u64 sample)$/;"	f	file
 update_rq_clock	test/core.c	/^void update_rq_clock(struct rq *rq)$/;"	f
 update_rq_clock_task	test/core.c	/^static void update_rq_clock_task(struct rq *rq, s64 delta)$/;"	f	file:
 update_top_cache_domain	test/core.c	/^static void update_top_cache_domain(int cpu)$/;"	f	file:
+w_cache	dkh/dk_list.h	/^  struct dk_lnode *w_cache;$/;"	m	struct:dk_list	typeref:struct:dk_list::dk_lnode
 wait_task_inactive	test/core.c	/^unsigned long wait_task_inactive(struct task_struct *p, long match_state)$/;"	f
 wake_up_full_nohz_cpu	test/core.c	/^static bool wake_up_full_nohz_cpu(int cpu)$/;"	f	file:
 wake_up_idle_cpu	test/core.c	/^static void wake_up_idle_cpu(int cpu)$/;"	f	file:

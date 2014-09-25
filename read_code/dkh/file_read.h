@@ -104,11 +104,7 @@ int open_file(char *path)
     return -EFAIL_FUNC;
 
 ret:
-<<<<<<< HEAD
-  // err_test(ret, "open");
-=======
   //err_test(ret, "open");
->>>>>>> efa454de0e7684f6123208f0c79a72281671d0b6
   return ret;
 }/*}}}*/
 
