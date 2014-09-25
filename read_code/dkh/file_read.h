@@ -144,12 +144,11 @@ char *read_split(struct file_info *info, char ch)
   int ret = 0;
   char tmp = '\0';
 
-read:
-  /* read */
   printf("start\n");
-  printf("seek : %d \n", info->seek);
-  printf("buf  : %p \n", info->buf);
-  if (!info->buf[info->seek]) {
+
+read:
+
+  if (info->buf[info->seek] == EOF) {
 
     /* read and save buf */
     memset(info->buf, '\0', info->buf_size);
@@ -157,7 +156,6 @@ read:
     info->seek = 0;
     i = 0;
 
-    // err_test(read_size, "read");
     if (read_size <= 0) {
       goto fail;
     }
@@ -169,12 +167,18 @@ read:
     printf("read size : %d\n", read_size);
   }
 
+
 loop:
   /* lookup char */
   while (i < read_size) {
 
+    printf(" i   : %d \n", i);
+    printf("buf  : %p \n", info->buf);
+
+
     /* pic char */
     tmp = *((info->buf) + i);
+    printf("tmp : %c\n", tmp);
 
     /* new line count */
     if (tmp == '\n')
@@ -205,7 +209,6 @@ ret :
   info->seek = i;
 
   printf("ret : %s\n", info->buf);
-
   return info->buf;
 }
 
