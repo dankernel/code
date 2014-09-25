@@ -138,7 +138,7 @@ int close_file_info(struct file_info *s)
  * return : result string
  */
 char *read_split(struct file_info *info, char ch)
-{/*{{{*/
+{
   int read_size = 0;
   int i = 0;
   int ret = 0;
@@ -146,7 +146,9 @@ char *read_split(struct file_info *info, char ch)
 
 read:
   /* read */
-  printf("%s\n", info->buf[info->seek]);
+  printf("start\n");
+  printf("seek : %d \n", info->seek);
+  printf("buf  : %p \n", info->buf);
   if (!info->buf[info->seek]) {
 
     /* read and save buf */
@@ -159,8 +161,12 @@ read:
     if (read_size <= 0) {
       goto fail;
     }
-    err_test("read", read_size);
 
+  } else {
+    read_size = info->buf_size;
+    i = info->seek;
+
+    printf("read size : %d\n", read_size);
   }
 
 loop:
@@ -181,7 +187,7 @@ loop:
     /* next */
     i++;
   }
-  printf("반복..\n");
+  printf("반복.. i : %d \n", i);
   goto read;
 
 fail:
@@ -196,8 +202,10 @@ ret :
 
   /* seek */
   ret = lseek(info->fd, -(read_size - i), SEEK_CUR);
-  info->seek = ret;
+  info->seek = i;
+
+  printf("ret : %s\n", info->buf);
 
   return info->buf;
-}/*}}}*/
+}
 

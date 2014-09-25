@@ -175,7 +175,7 @@ struct code_info *read_code(char *path)
  * return : file line count nuber
  */
 int get_file_line(char *path)
-{/*{{{*/
+{
   int ret = -1;
   char *buf = NULL;
 
@@ -185,7 +185,6 @@ int get_file_line(char *path)
   init_file_struct(file_list, path);
 
   buf = read_split(file_list, '\n');
-
   while (buf) {
 
     /* Next */
@@ -193,11 +192,12 @@ int get_file_line(char *path)
 
   }
 
+
   ret = file_list->line;
   close_file_info(file_list);
 
   return ret;
-}/*}}}*/
+}
 
 
 /* 
