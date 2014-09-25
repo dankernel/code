@@ -144,20 +144,20 @@ char *read_split(struct file_info *info, char ch)
   int ret = 0;
   char tmp = '\0';
 
-loop:
   /* read and save buf */
   memset(info->buf, '\0', info->buf_size);
   read_size = read(info->fd, info->buf, info->buf_size);
+  i = 0;
 
   // err_test(read_size, "read");
   if (read_size <= 0)
     goto fail;
 
+loop:
   /* lookup char */
-  i = 0;
   while (i < read_size) {
 
-    /* next char */
+    /* pic char */
     tmp = *((info->buf) + i);
 
     /* new line count */
@@ -171,6 +171,7 @@ loop:
     /* next */
     i++;
   }
+  printf("반복..\n");
   goto loop;
 
 fail:
