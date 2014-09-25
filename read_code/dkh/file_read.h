@@ -148,11 +148,12 @@ char *read_split(struct file_info *info, char ch)
   int start = -1;
   char tmp = '\0';
 
-  printf("start \n");
 
 read:
 
-  if (*info->buf == '\0' || info->seek == info->buf_size) {
+  printf("start %d : %d \n", info->seek, info->buf_size);
+  if (*info->buf == '\0' || i == info->buf_size) {
+
 
     /* read and save buf */
     memset(info->buf, '\0', info->buf_size);
@@ -163,6 +164,7 @@ read:
     if (read_size <= 0) {
       goto fail;
     }
+    printf("READ !! \n");
 
   } else {
     read_size = info->buf_size;
@@ -177,7 +179,7 @@ loop:
 
     /* pic char */
     tmp = *((info->buf) + i);
-    printf("tmp : %d = %c\n", i, tmp);
+    // printf("tmp : %d = %c\n", i, tmp);
 
     /* new line count */
     if (tmp == '\n')
@@ -190,7 +192,7 @@ loop:
     /* next */
     i++;
   }
-  printf("반복.. i : %d \n", i);
+  printf("반복.. i : %d : %d  \n", i, read_size);
   goto read;
 
 fail:
@@ -199,6 +201,7 @@ fail:
 ret : 
   /* string end */
   // info->buf[i] = '\0';
+  memset(info->result, '\0', info->buf_size);
   strncpy(info->result, info->buf + start, i - start);
 
   /* prevent re-find */
