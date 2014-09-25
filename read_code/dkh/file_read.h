@@ -83,6 +83,7 @@ int init_file_struct(struct file_info *info, char *path)
 
   /* buffer */
   info->buf = malloc(info->buf_size);
+  memset(info->buf, '\0', info->buf_size);
 
   return 0;
 }/*}}}*/
@@ -148,8 +149,13 @@ char *read_split(struct file_info *info, char ch)
 
 read:
 
-  if (info->buf[info->seek] == EOF) {
+  printf("info->buf %s \n", info->buf);
+  printf("== %d : %d\n", info->seek, info->buf_size);
 
+
+  if (*info->buf == '\0' || info->seek == info->buf_size) {
+
+    printf("READ!!\n");
     /* read and save buf */
     memset(info->buf, '\0', info->buf_size);
     read_size = read(info->fd, info->buf, info->buf_size);
