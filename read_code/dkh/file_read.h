@@ -191,7 +191,7 @@ loop:
     i++;
   }
   lseek(info->fd, start, SEEK_CUR);
-  printf("goto read\n");
+  printf("goto read start : %d \n", start);
   goto read;
 
 fail:
