@@ -34,7 +34,7 @@
 #define KEYWORD_NEXT_R_PARENTHESES 0X00000008     /* parentheses = ')' */
 
 struct code_info
-{
+{/*{{{*/
   /* info */
   char *name;
 
@@ -51,13 +51,13 @@ struct code_info
   int f_maxline;
   int f_minline;
 
-};
+};/*}}}*/
 
 /*
  * TODO : ...??
  */
 char *list_str(struct dk_list *list, char *str)
-{
+{/*{{{*/
   struct dk_lnode *tmp = NULL;
   char *s = NULL;
   char *ret = 0;
@@ -76,7 +76,7 @@ char *list_str(struct dk_list *list, char *str)
   }
 
   return NULL;
-}
+}/*}}}*/
 
 /*  
  * lookup option at str. reference list
@@ -86,7 +86,7 @@ char *list_str(struct dk_list *list, char *str)
  * return : result string
  */
 char *cheek_code_line(char *str, struct dk_list *list, int option)
-{
+{/*{{{*/
   struct dk_lnode *tmp = NULL;
   char *s = NULL;
   char *ret = 0;
@@ -112,7 +112,7 @@ char *cheek_code_line(char *str, struct dk_list *list, int option)
   }
 
   return NULL;
-}
+}/*}}}*/
 
 /* 
  * read one source code(file). and analysis
@@ -120,7 +120,7 @@ char *cheek_code_line(char *str, struct dk_list *list, int option)
  * return : Analysis result(= code_info)
  */
 struct code_info *read_code(char *path)
-{
+{/*{{{*/
   struct code_info *c_info = NULL;    // TODO : Analysis and make code info
   struct file_info *tmp_file = NULL;
   char *buf = NULL;
@@ -167,7 +167,7 @@ struct code_info *read_code(char *path)
   close_file_info(tmp_file);
 
   return c_info;
-}
+}/*}}}*/
 
 /* 
  * get file line
@@ -175,7 +175,7 @@ struct code_info *read_code(char *path)
  * return : file line count nuber
  */
 int get_file_line(char *path)
-{
+{/*{{{*/
   int ret = -1;
   char *buf = NULL;
 
@@ -197,7 +197,7 @@ int get_file_line(char *path)
   close_file_info(file_list);
 
   return ret;
-}
+}/*}}}*/
 
 
 /* 
@@ -207,7 +207,7 @@ int get_file_line(char *path)
  * return : errer code
  */
 int read_file_code(char *path)
-{
+{/*{{{*/
   int fd = -1;
   int ret = 0;
   char *file = NULL;
@@ -237,5 +237,5 @@ int read_file_code(char *path)
   }
 
   return 0;
-}
+}/*}}}*/
 

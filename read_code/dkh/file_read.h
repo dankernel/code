@@ -114,7 +114,7 @@ ret:
  * return : errer code
  */
 int close_file_info(struct file_info *s)
-{
+{/*{{{*/
   int ret = 0;
 
   if (!s)
@@ -129,7 +129,7 @@ int close_file_info(struct file_info *s)
   free(s);
 
   return ret;
-}
+}/*}}}*/
 
 /*
  * read (next) string, split to ch
