@@ -29,6 +29,9 @@
 
 #define CPU_COUNT 4
 #define KEYWORD_NEXT_PADDING 0X00000001
+#define KEYWORD_NEXT_PARENTHESES 0X00000002       /* parentheses = '(' or ')' */
+#define KEYWORD_NEXT_L_PARENTHESES 0X00000004     /* parentheses = '(' */
+#define KEYWORD_NEXT_R_PARENTHESES 0X00000008     /* parentheses = ')' */
 
 struct code_info
 {
@@ -74,7 +77,10 @@ char *list_str(struct dk_list *list, char *str)
   return NULL;
 }
 
-char *cheek_code_line(struct dk_list *list, char *str, int option)
+/*  
+ * 
+ */
+char *cheek_code_line(char *str, struct dk_list *list, int option)
 {
   struct dk_lnode *tmp = NULL;
   char *s = NULL;
@@ -88,7 +94,7 @@ char *cheek_code_line(struct dk_list *list, char *str, int option)
     s = (char *)tmp->p;
 
     if ((ret = strstr(str, s))) {
-      if (option == KEYWORD_NEXT_PADDING && *(ret + strlen(s)) == '(')
+      if (option == KEYWORD_NEXT_PARENTHESES && *(ret + strlen(s)) == '(')
         return ret;
     } 
   }
@@ -132,8 +138,9 @@ struct code_info *read_code(char *path)
   while (buf) {
 
     char *tmp = NULL;
-    if (tmp = cheek_code_line(list, buf, KEYWORD_NEXT_PADDING)) {
+    if (tmp = cheek_code_line(buf, list, KEYWORD_NEXT_PARENTHESES)) {
 
+      /* print */
       printf("file : %s \n", path);
       printf("%s \n\n", tmp);
 
@@ -143,11 +150,8 @@ struct code_info *read_code(char *path)
     buf = read_split(tmp_file, '\n');
   }
 
-  close(tmp_file->fd);
-
-  free(tmp_file->buf);
-  free(tmp_file->path);
-  free(tmp_file);
+  /* close and free file_info */
+  close_file_info(tmp_file);
 
   return c_info;
 }
