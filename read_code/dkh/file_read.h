@@ -43,6 +43,7 @@ struct file_info
 
   int buf_size;
   char *buf;
+  char *result;
 
 };/*}}}*/
 
@@ -83,6 +84,7 @@ int init_file_struct(struct file_info *info, char *path)
 
   /* buffer */
   info->buf = malloc(info->buf_size);
+  info->result = malloc(info->buf_size);
   memset(info->buf, '\0', info->buf_size);
 
   return 0;
@@ -143,6 +145,7 @@ char *read_split(struct file_info *info, char ch)
   int read_size = 0;
   int i = 0;
   int ret = 0;
+  int start = -1;
   char tmp = '\0';
 
   printf("start \n");
@@ -151,7 +154,6 @@ read:
 
   if (*info->buf == '\0' || info->seek == info->buf_size) {
 
-    printf("READ!!\n");
     /* read and save buf */
     memset(info->buf, '\0', info->buf_size);
     read_size = read(info->fd, info->buf, info->buf_size);
@@ -166,6 +168,8 @@ read:
     read_size = info->buf_size;
     i = info->seek;
   }
+
+  start = i;
 
 loop:
   /* lookup char */
@@ -194,7 +198,8 @@ fail:
 
 ret : 
   /* string end */
-  info->buf[i] = '\0';
+  // info->buf[i] = '\0';
+  strncpy(info->result, info->buf + start, i - start);
 
   /* prevent re-find */
   i++;
@@ -203,7 +208,7 @@ ret :
   ret = lseek(info->fd, -(read_size - i), SEEK_CUR);
   info->seek = i;
 
-  printf("ret : %d : %s\n", i, info->buf);
-  return info->buf;
+  printf("ret : %d : %s\n", i, info->result);
+  return info->result;
 }
 
