@@ -27,7 +27,6 @@
 #include "dk_str.h"
 #include "dk_list.h"
 
-<<<<<<< HEAD
 #define CPU_COUNT 4
 #define KEYWORD_NEXT_PADDING 0X00000001
 
@@ -51,12 +50,6 @@ struct code_info
 
 };
 
-
-
-=======
-#define KEYWORD_NEXT_PADDING 0X00000001
-
->>>>>>> efa454de0e7684f6123208f0c79a72281671d0b6
 char *list_str(struct dk_list *list, char *str)
 {
   struct dk_lnode *tmp = NULL;
@@ -101,7 +94,6 @@ char *cheek_code_line(struct dk_list *list, char *str, int option)
   return NULL;
 }
 
-<<<<<<< HEAD
 struct code_info *read_code(char *path)
 {
   struct code_info *c_info = NULL;
@@ -201,6 +193,4 @@ int read_file_code(char *path)
 
   return 0;
 }
-=======
->>>>>>> efa454de0e7684f6123208f0c79a72281671d0b6
 
