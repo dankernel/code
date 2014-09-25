@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 line : 36860 
 file : ./test/kernel/fs/ext4/namei.c 
 while(more); 
@@ -38015,3 +38016,128 @@ if((++(bs)->bit)>7){(bs)->cur++;(bs)->bit=0;}
 file : ./test/kernel/net/netfilter/nf_conntrack_h323_asn1.c 
 if((bs)->bit){(bs)->cur++;(bs)->bit=0;} 
 
+=======
+list print :      (nil) (  0xdab040  DKDK_HEAD)   0xdab060 
+list print :   0xdab040 (  0xdab060        for)      (nil) 
+file : ./test/kernel/fs/ntfs/dir.c 
+for all directories. */ 
+file : ./test/kernel/fs/ntfs/inode.h 
+for syncing later. 
+file : ./test/kernel/fs/ntfs/inode.c 
+for the attribute list. */ 
+file : ./test/kernel/fs/ntfs/inode.c 
+for i_ino 0x%lx.", vi->i_ino); 
+file : ./test/kernel/fs/ntfs/inode.c 
+for the attribute list. */ 
+file : ./test/kernel/fs/ntfs/inode.c 
+formation attribute. */ 
+file : ./test/kernel/fs/ntfs/lcnalloc.c 
+for 
+file : ./test/kernel/fs/ntfs/mft.c 
+fore being 
+file : ./test/kernel/fs/ntfs/aops.c 
+for_writepage(wbc, page); 
+file : ./test/kernel/fs/ntfs/aops.c 
+for_writepage(wbc, page); 
+file : ./test/kernel/fs/ntfs/super.c 
+for which to setup the allocators 
+file : ./test/kernel/fs/ntfs/attrib.c 
+formed elsewhere. */ 
+file : ./test/kernel/fs/ntfs/attrib.c 
+for now... 
+file : ./test/kernel/fs/ntfs/mst.c 
+formed 
+file : ./test/kernel/fs/ext4/ext4_jbd2.c 
+forget and return */ 
+file : ./test/kernel/fs/ext4/extents.c 
+for extents based files 
+file : ./test/kernel/fs/ext4/indirect.c 
+for non extent file based file 
+file : ./test/kernel/fs/ext4/inode.c 
+for_writepage(wbc, page); 
+file : ./test/kernel/fs/ext4/inode.c 
+for jbd2 */ 
+file : ./test/kernel/fs/ext4/inode.c 
+for new inodes. */ 
+file : ./test/kernel/fs/ext4/namei.c 
+for '..'"); 
+file : ./test/kernel/fs/ext4/mballoc.c 
+for inode %lu\n", inode->i_ino); 
+file : ./test/kernel/fs/ext4/super.c 
+for_completion(&sbi->s_kobj_unregister); 
+file : ./test/kernel/fs/ext4/super.c 
+for storing quotafile name"); 
+file : ./test/kernel/fs/ext4/super.c 
+for a read-write mount */ 
+file : ./test/kernel/fs/ext4/super.c 
+format_id, path); 
+file : ./test/kernel/fs/ext4/move_extent.c 
+for the donor extents */ 
+file : ./test/kernel/fs/ext4/move_extent.c 
+for donor must be found. */ 
+file : ./test/kernel/fs/afs/dir.c 
+for the new vnode */ 
+file : ./test/kernel/fs/afs/dir.c 
+for the new vnode */ 
+file : ./test/kernel/fs/afs/dir.c 
+for the new vnode */ 
+file : ./test/kernel/fs/afs/vnode.c 
+fore we saw it */ 
+file : ./test/kernel/fs/logfs/dev_mtd.c 
+for_completion(&complete); 
+file : ./test/kernel/fs/logfs/segment.c 
+for this area.  Effectively takes a 
+file : ./test/kernel/fs/mpage.c 
+fore we reach the platter. 
+file : ./test/kernel/fs/file_table.c 
+fore 
+file : ./test/kernel/fs/xfs/xfs_dir2_readdir.c 
+for the 
+file : ./test/kernel/fs/xfs/xfs_log_recover.c 
+for_each_entry(trans, head, r_list) { 
+file : ./test/kernel/fs/xfs/xfs_bmap_btree.c 
+forksize, level == 0); 
+file : ./test/kernel/fs/xfs/xfs_bmap_btree.c 
+fork == XFS_DATA_FORK) 
+file : ./test/kernel/fs/xfs/xfs_dir2_block.c 
+fore the first leaf entry. 
+file : ./test/kernel/fs/xfs/xfs_dir2_block.c 
+for our new entry. 
+file : ./test/kernel/fs/xfs/xfs_bmap_util.c 
+format... 
+file : ./test/kernel/fs/xfs/xfs_inode_fork.c 
+fork)) { 
+file : ./test/kernel/fs/xfs/xfs_alloc.c 
+for the by-size tree. 
+file : ./test/kernel/fs/xfs/xfs_trace.h 
+fore = be32_to_cpu(btree->before); 
+file : ./test/kernel/fs/xfs/xfs_buf.c 
+for IO to complete. */ 
+file : ./test/kernel/fs/xfs/xfs_dir2_data.c 
+fore us is free, merge with it. 
+file : ./test/kernel/fs/xfs/xfs_format.h 
+for the finobt reserved root btree 
+file : ./test/kernel/fs/xfs/xfs_discard.c 
+format we use for filesystem block 
+file : ./test/kernel/fs/xfs/xfs_ialloc.c 
+forward 1 record. */ 
+file : ./test/kernel/fs/xfs/xfs_aops.c 
+for_writepage(wbc, page); 
+file : ./test/kernel/fs/xfs/xfs_aops.c 
+for the 
+file : ./test/kernel/fs/xfs/xfs_btree.c 
+for reasons better left unknown 
+file : ./test/kernel/fs/xfs/xfs_super.c 
+for all modifications to complete */ 
+file : ./test/kernel/fs/xfs/xfs_super.c 
+fork_zone = kmem_zone_init(sizeof(xfs_ifork_t), "xfs_ifork"); 
+file : ./test/kernel/fs/xfs/xfs_rtalloc.c 
+for one that's long enough. 
+file : ./test/kernel/fs/xfs/xfs_log.c 
+for log space after we have moved the log tail. 
+file : ./test/kernel/fs/xfs/xfs_log.c 
+form callbacks in the order given */ 
+file : ./test/kernel/fs/xfs/xfs_trans_buf.c 
+format.blf_flags & XFS_BLF_CANCEL)); 
+file : ./test/ke
+>>>>>>> efa454de0e7684f6123208f0c79a72281671d0b6
