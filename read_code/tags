@@ -283,7 +283,11 @@ quota	test/core.c	/^	u64 period, quota;$/;"	m	struct:cfs_schedulable_data	file:
 r_cache	dkh/dk_list.h	/^  struct dk_lnode *r_cache;$/;"	m	struct:dk_list	typeref:struct:dk_list::dk_lnode
 rd	test/core.c	/^	struct root_domain	*rd;$/;"	m	struct:s_data	typeref:struct:s_data::root_domain	file:
 read_code	dkh/code_analyze.h	/^struct code_info *read_code(char *path)$/;"	f
+<<<<<<< HEAD
 read_file_code	dkh/code_analyze.h	/^int read_file_code(char *path)$/;"	f
+=======
+read_file_code	dkh/code_analyze.h	/^int read_file_code(char *path, pthread_mutex_t *mutex)$/;"	f
+>>>>>>> newbranch
 read_split	dkh/file_read.h	/^char *read_split(struct file_info *info, char ch)$/;"	f
 register_sched_domain_sysctl	test/core.c	/^static void register_sched_domain_sysctl(void)$/;"	f	file:
 resched_cpu	test/core.c	/^void resched_cpu(int cpu)$/;"	f

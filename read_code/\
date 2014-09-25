@@ -34,7 +34,7 @@
 #define KEYWORD_NEXT_R_PARENTHESES 0X00000008     /* parentheses = ')' */
 
 struct code_info
-{/*{{{*/
+{
   /* info */
   char *name;
 
@@ -51,18 +51,12 @@ struct code_info
   int f_maxline;
   int f_minline;
 
-<<<<<<< HEAD
 };
 
-=======
-};/*}}}*/
 
-/*
- * TODO : ...??
- */
->>>>>>> newbranch
+
 char *list_str(struct dk_list *list, char *str)
-{/*{{{*/
+{
   struct dk_lnode *tmp = NULL;
   char *s = NULL;
   char *ret = 0;
@@ -81,7 +75,7 @@ char *list_str(struct dk_list *list, char *str)
   }
 
   return NULL;
-}/*}}}*/
+}
 
 /*  
  * lookup option at str. reference list
@@ -91,7 +85,7 @@ char *list_str(struct dk_list *list, char *str)
  * return : result string
  */
 char *cheek_code_line(char *str, struct dk_list *list, int option)
-{/*{{{*/
+{
   struct dk_lnode *tmp = NULL;
   char *s = NULL;
   char *ret = 0;
@@ -117,7 +111,7 @@ char *cheek_code_line(char *str, struct dk_list *list, int option)
   }
 
   return NULL;
-}/*}}}*/
+}
 
 /* 
  * read one source code(file). and analysis
@@ -125,30 +119,23 @@ char *cheek_code_line(char *str, struct dk_list *list, int option)
  * return : Analysis result(= code_info)
  */
 struct code_info *read_code(char *path)
-{/*{{{*/
+{
   struct code_info *c_info = NULL;    // TODO : Analysis and make code info
   struct file_info *tmp_file = NULL;
   char *buf = NULL;
 
   // init list and. add key word 
   struct dk_list *list = init_list(); 
-  add_lnode(list, "while"); 
   add_lnode(list, "for"); 
-<<<<<<< HEAD
-  add_lnode(list, "if"); 
+  //add_lnode(list, "if"); 
+  //add_lnode(list, "while"); 
   //print_list(list); 
-=======
-  // add_lnode(list, "if"); 
-  // add_lnode(list, "while"); 
-  // print_list(list); 
->>>>>>> newbranch
 
   /* exception */
   if (!path)
     return NULL;
 
-  /* 
-   * Init code info
+  /* Init code info
    * TODO : Analysis and make code info
    */
   c_info = (struct code_info*)malloc(sizeof(struct code_info));
@@ -178,55 +165,50 @@ struct code_info *read_code(char *path)
   close_file_info(tmp_file);
 
   return c_info;
-}/*}}}*/
+}
 
-/* 
- * get file line
- * path : target file path
- * return : file line count nuber
- */
 int get_file_line(char *path)
-{/*{{{*/
-  int ret = -1;
-  char *buf = NULL;
+{
+  int fd = -1;
+  int ret = 0;
+  char *file = NULL;
 
   /* file list : alloc and init struct */
   struct file_info *file_list = NULL;
   file_list = (struct file_info*)malloc(sizeof(struct file_info));
   init_file_struct(file_list, path);
 
-  buf = read_split(file_list, '\n');
+  file = read_split(file_list, '\n');
 
-  while (buf) {
+  struct file_info *tmp_file = NULL;
+  while (file) {
 
     /* Next */
-    buf = read_split(file_list, '\n');
+    file = read_split(file_list, '\n');
 
   }
 
-  ret = file_list->line;
-  close_file_info(file_list);
+  return file_list->line;
+}
 
-  return ret;
-}/*}}}*/
-
-<<<<<<< HEAD
-int read_file_code(char *path)
-{
-=======
 
 /* 
  * main function.
  * read file list and analysis(분석)
  * @path : file list (file)
+ * @mutrx : TODO : ...
  * return : errer code
  */
-int read_file_code(char *path)
-{/*{{{*/
->>>>>>> newbranch
+int read_file_code(char *path, pthread_mutex_t *mutex)
+{
   int fd = -1;
   int ret = 0;
   char *file = NULL;
+
+  // init list and add key word 
+  struct dk_list *list = init_list(); 
+  add_lnode(list, "for"); 
+  print_list(list); 
 
   /* file list : alloc and init struct */
   struct file_info *file_list = NULL;
@@ -238,21 +220,13 @@ int read_file_code(char *path)
 
   struct file_info *tmp_file = NULL;
   while (file) {
-
-<<<<<<< HEAD
-    read_code(file);
-
-   /* Next */
-=======
     /* Read file */
     read_code(file);
 
     /* Next, Pic one file */
->>>>>>> newbranch
     file = read_split(file_list, '\n');
-
   }
 
   return 0;
-}/*}}}*/
+}
 

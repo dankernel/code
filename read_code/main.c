@@ -27,12 +27,17 @@
 
 int main(int argc, char* argv[])
 {
+<<<<<<< HEAD
+=======
+  /* get file line */
+>>>>>>> newbranch
   int line = 0;
 
   /* get line */
   line = get_file_line("./test/file.list");
   printf("line : %d \n", line);
 
+<<<<<<< HEAD
   read_file_code("./test/file.list");
   int fd = -1;
   int ret = 0;
@@ -94,6 +99,10 @@ int main(int argc, char* argv[])
   
   /* Result */
   printf("count : %d / %d / %d \n", count_fail, count_con, count_all);
+=======
+  /* read file, Thus file is file list */
+  read_file_code("./test/file.list");
+>>>>>>> newbranch
 
   return 0;
 }

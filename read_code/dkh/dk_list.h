@@ -23,7 +23,8 @@
 
 #include "errno.h"
 
-struct dk_list {
+struct dk_list 
+{/*{{{*/
   int count;
   struct dk_lnode *head;
   struct dk_lnode *tail;
@@ -31,13 +32,14 @@ struct dk_list {
   /* For buffer node */
   struct dk_lnode *r_cache;
   struct dk_lnode *w_cache;
-};
+};/*}}}*/
 
-struct dk_lnode {
+struct dk_lnode
+{/*{{{*/
   int *p;
   struct dk_lnode *next;
   struct dk_lnode *prev;
-};
+};/*}}}*/
 
 /*
  * make new node
@@ -45,7 +47,7 @@ struct dk_lnode {
  * return : new node
  */
 struct dk_lnode *init_lnode(void *val)
-{
+{/*{{{*/
   /* allocation new node */
   struct dk_lnode *nn = NULL;
   nn = malloc(sizeof(struct dk_lnode));
@@ -56,14 +58,14 @@ struct dk_lnode *init_lnode(void *val)
   nn->prev = NULL;
 
   return nn;
-}
+}/*}}}*/
 
 /*
  * make new list
  * return : new list
  */
 struct dk_list *init_list(void)
-{
+{/*{{{*/
   /* allocation */
   struct dk_list *nl = NULL;
   nl = malloc(sizeof(struct dk_list));
@@ -78,7 +80,7 @@ struct dk_list *init_list(void)
   nl->w_cache = nl->head;
 
   return nl;
-}
+}/*}}}*/
 
 /*  
  * make new node, and linking new node
@@ -87,7 +89,7 @@ struct dk_list *init_list(void)
  * return : new node
  */
 struct dk_lnode *add_lnode(struct dk_list *list, void *p)
-{
+{/*{{{*/
   struct dk_lnode *nn = NULL;
 
   if (!list)
@@ -108,7 +110,7 @@ struct dk_lnode *add_lnode(struct dk_list *list, void *p)
   list->w_cache = nn;
 
   return nn;
-}
+}/*}}}*/
 
 /* 
  * get next node of read cache 
@@ -116,7 +118,7 @@ struct dk_lnode *add_lnode(struct dk_list *list, void *p)
  * return : next node
  */
 struct dk_lnode *next_lnode(struct dk_list *list)
-{
+{/*{{{*/
   if (!list)
     return NULL;
 
@@ -124,19 +126,19 @@ struct dk_lnode *next_lnode(struct dk_list *list)
     return list->r_cache = list->head;
 
   return list->r_cache = list->r_cache->next;
-}
+}/*}}}*/
 
 /* 
  * print node to form 
  * @n : target node
  */
 inline void print_node(struct dk_lnode *n)
-{
+{/*{{{*/
   if ((n->prev || n->next) && !strstr((char *)n->p, "\n"))
     printf("list print : %10p (%10p %10s) %10p \n", n->prev, &n->p, n->p, n->next);
   else
     printf("fail\n");
-}
+}/*}}}*/
 
 /* 
  * print list. head to tail. only char type 
@@ -144,7 +146,7 @@ inline void print_node(struct dk_lnode *n)
  * return : error code
  * */
 int print_list(struct dk_list *list)
-{
+{/*{{{*/
   int ret = 0;
   struct dk_lnode *root = NULL;
   struct dk_lnode *tmp = NULL;
@@ -165,4 +167,4 @@ int print_list(struct dk_list *list)
   } while (tmp = tmp->next);
 
   return ret;
-}
+}/*}}}*/

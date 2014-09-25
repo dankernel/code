@@ -21,13 +21,13 @@
 #include <unistd.h>
 
 void ctrc_handler(int s)
-{
+{/*{{{*/
   printf("Caught signal %d\n",s);
   exit(1); 
-}
+}/*}}}*/
 
 int signal_handler(void)
-{
+{/*{{{*/
   struct sigaction sigIntHandler;
 
   sigIntHandler.sa_handler = ctrc_handler;
@@ -37,4 +37,4 @@ int signal_handler(void)
   sigaction(SIGINT, &sigIntHandler, NULL);
 
   return 0;
-}
+}/*}}}*/

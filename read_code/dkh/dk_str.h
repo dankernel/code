@@ -20,7 +20,7 @@
 #include "errno.h"
 
 int str_contain(char *str, char c)
-{ 
+{ /*{{{*/
   int i = 0;
 
   if (!str)
@@ -33,4 +33,4 @@ int str_contain(char *str, char c)
   }
   return 0;
 
-}
+}/*}}}*/

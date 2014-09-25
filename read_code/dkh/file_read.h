@@ -108,17 +108,28 @@ ret:
   return ret;
 }/*}}}*/
 
-int close_file(struct file_info *info)
-{
+/*
+ * close and free file_info
+ * s : struct
+ * return : errer code
+ */
+int close_file_info(struct file_info *s)
+{/*{{{*/
   int ret = 0;
 
-  if (!info)
+  if (!s)
     return -EARG_NULL;
 
-  close(info->fd);
+  /* close */
+  close(s->fd);
+
+  /* free */
+  free(s->buf);
+  free(s->path);
+  free(s);
 
   return ret;
-}
+}/*}}}*/
 
 /*
  * read (next) string, split to ch
