@@ -96,30 +96,38 @@ char *cheek_code_line(struct dk_list *list, char *str, int option)
   return NULL;
 }
 
+/* 
+ * read one source code(file). and analysis
+ * path : source code(file) path
+ * return : Analysis result(= code_info)
+ */
 struct code_info *read_code(char *path)
 {
-  struct code_info *c_info = NULL;
+  struct code_info *c_info = NULL;    // TODO : Analysis and make code info
   struct file_info *tmp_file = NULL;
-
   char *buf = NULL;
 
-  // init list and add key word 
+  // init list and. add key word 
   struct dk_list *list = init_list(); 
   add_lnode(list, "for"); 
+  //add_lnode(list, "if"); 
+  //add_lnode(list, "while"); 
   //print_list(list); 
 
-  /* null */
+  /* exception */
   if (!path)
     return NULL;
 
-  /* Init code info */
+  /* Init code info
+   * TODO : Analysis and make code info
+   */
   c_info = (struct code_info*)malloc(sizeof(struct code_info));
 
-  /* Init file */
+  /* Init file info */
   tmp_file = (struct file_info*)malloc(sizeof(struct file_info));
   init_file_struct(tmp_file, path);
 
-  /* CORE */
+  /* CORE, get one line */
   buf = read_split(tmp_file, '\n');
   while (buf) {
 
@@ -131,6 +139,7 @@ struct code_info *read_code(char *path)
 
     }
 
+    /* get next one line */
     buf = read_split(tmp_file, '\n');
   }
 
@@ -168,6 +177,13 @@ int get_file_line(char *path)
 }
 
 
+/* 
+ * main function.
+ * read file list and analysis(분석)
+ * @path : file list (file)
+ * @mutrx : TODO : ...
+ * return : errer code
+ */
 int read_file_code(char *path, pthread_mutex_t *mutex)
 {
   int fd = -1;
@@ -184,19 +200,16 @@ int read_file_code(char *path, pthread_mutex_t *mutex)
   file_list = (struct file_info*)malloc(sizeof(struct file_info));
   init_file_struct(file_list, path);
 
+  /* Pic one file */
   file = read_split(file_list, '\n');
 
   struct file_info *tmp_file = NULL;
   while (file) {
+    /* Read file */
+    read_code(file);
 
-    pthread_mutex_lock(mutex);
-      /* Read file */
-      read_code(file);
-    pthread_mutex_unlock(mutex);
-
-    /* Next */
+    /* Next, Pic one file */
     file = read_split(file_list, '\n');
-
   }
 
   return 0;
