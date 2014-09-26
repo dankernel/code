@@ -128,8 +128,6 @@ struct code_info *read_code(char *path)
   // init list and. add key word 
   struct dk_list *list = init_list(); 
   add_lnode(list, "for"); 
-  add_lnode(list, "if"); 
-  add_lnode(list, "while"); 
   // print_list(list); 
 
   /* exception */
@@ -212,6 +210,9 @@ int read_file_code(char *path)
   int ret = 0;
   char *file = NULL;
 
+  // TODO : Analysis and make code info
+  struct code_info *c_info = NULL;    
+
   /* file list : alloc and init struct */
   struct file_info *file_list = NULL;
   file_list = (struct file_info*)malloc(sizeof(struct file_info));
@@ -224,12 +225,15 @@ int read_file_code(char *path)
   while (file) {
 
     /* Read file */
-    read_code(file);
+    c_info = read_code(file);
+    free(c_info);
 
     /* Next, Pic one file */
     file = read_split(file_list, '\n');
 
   }
+
+  close_file_info(file_list);
 
   return 0;
 }/*}}}*/
