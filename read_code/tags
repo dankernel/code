@@ -8,7 +8,10 @@ CPU_COUNT	dkh/code_analyze.h	30;"	d
 CREATE_TRACE_POINTS	test/core.c	89;"	d	file:
 EARG_NULL	dkh/errno.h	19;"	d
 EFAIL_FUNC	dkh/errno.h	20;"	d
+KEYWORD_NEXT_L_PARENTHESES	dkh/code_analyze.h	33;"	d
 KEYWORD_NEXT_PADDING	dkh/code_analyze.h	31;"	d
+KEYWORD_NEXT_PARENTHESES	dkh/code_analyze.h	32;"	d
+KEYWORD_NEXT_R_PARENTHESES	dkh/code_analyze.h	34;"	d
 MAX_BUFF_SIZE	dkh/file_read.h	29;"	d
 SCHED_FEAT	test/core.c	133;"	d	file:
 SCHED_FEAT	test/core.c	140;"	d	file:
@@ -87,9 +90,9 @@ cfs_schedulable_data	test/core.c	/^struct cfs_schedulable_data {$/;"	s	file:
 check_class_changed	test/core.c	/^static inline void check_class_changed(struct rq *rq, struct task_struct *p,$/;"	f	file:
 check_preempt_curr	test/core.c	/^void check_preempt_curr(struct rq *rq, struct task_struct *p, int flags)$/;"	f
 check_same_owner	test/core.c	/^static bool check_same_owner(struct task_struct *p)$/;"	f	file:
-cheek_code_line	dkh/code_analyze.h	/^char *cheek_code_line(struct dk_list *list, char *str, int option)$/;"	f
+cheek_code_line	dkh/code_analyze.h	/^char *cheek_code_line(char *str, struct dk_list *list, int option)$/;"	f
 claim_allocations	test/core.c	/^static void claim_allocations(int cpu, struct sched_domain *sd)$/;"	f	file:
-close_file	dkh/file_read.h	/^int close_file(struct file_info *info)$/;"	f
+close_file_info	dkh/file_read.h	/^int close_file_info(struct file_info *s)$/;"	f
 code_info	dkh/code_analyze.h	/^struct code_info$/;"	s
 context_switch	test/core.c	/^context_switch(struct rq *rq, struct task_struct *prev,$/;"	f	file:
 count	dkh/dk_list.h	/^  int count;$/;"	m	struct:dk_list
@@ -137,8 +140,8 @@ dest_cpu	test/core.c	/^	int dest_cpu;$/;"	m	struct:migration_arg	file:
 destroy_sched_domain	test/core.c	/^static void destroy_sched_domain(struct sched_domain *sd, int cpu)$/;"	f	file:
 destroy_sched_domains	test/core.c	/^static void destroy_sched_domains(struct sched_domain *sd, int cpu)$/;"	f	file:
 detach_destroy_domains	test/core.c	/^static void detach_destroy_domains(const struct cpumask *cpu_map)$/;"	f	file:
-dk_list	dkh/dk_list.h	/^struct dk_list {$/;"	s
-dk_lnode	dkh/dk_list.h	/^struct dk_lnode {$/;"	s
+dk_list	dkh/dk_list.h	/^struct dk_list $/;"	s
+dk_lnode	dkh/dk_list.h	/^struct dk_lnode$/;"	s
 dl_bw_cpus	test/core.c	/^static inline int dl_bw_cpus(int i)$/;"	f	file:
 dl_bw_of	test/core.c	/^inline struct dl_bw *dl_bw_of(int i)$/;"	f
 dl_overflow	test/core.c	/^static int dl_overflow(struct task_struct *p, int policy,$/;"	f	file:
@@ -283,11 +286,12 @@ quota	test/core.c	/^	u64 period, quota;$/;"	m	struct:cfs_schedulable_data	file:
 r_cache	dkh/dk_list.h	/^  struct dk_lnode *r_cache;$/;"	m	struct:dk_list	typeref:struct:dk_list::dk_lnode
 rd	test/core.c	/^	struct root_domain	*rd;$/;"	m	struct:s_data	typeref:struct:s_data::root_domain	file:
 read_code	dkh/code_analyze.h	/^struct code_info *read_code(char *path)$/;"	f
-read_file_code	dkh/code_analyze.h	/^int read_file_code(char *path, pthread_mutex_t *mutex)$/;"	f
+read_file_code	dkh/code_analyze.h	/^int read_file_code(char *path)$/;"	f
 read_split	dkh/file_read.h	/^char *read_split(struct file_info *info, char ch)$/;"	f
 register_sched_domain_sysctl	test/core.c	/^static void register_sched_domain_sysctl(void)$/;"	f	file:
 resched_cpu	test/core.c	/^void resched_cpu(int cpu)$/;"	f
 resched_task	test/core.c	/^void resched_task(struct task_struct *p)$/;"	f
+result	dkh/file_read.h	/^  char *result;$/;"	m	struct:file_info
 root_task_group	test/core.c	/^struct task_group root_task_group;$/;"	v	typeref:struct:task_group
 rq_attach_root	test/core.c	/^static void rq_attach_root(struct rq *rq, struct root_domain *rd)$/;"	f	file:
 rt_mutex_setprio	test/core.c	/^void rt_mutex_setprio(struct task_struct *p, int prio)$/;"	f

@@ -28,9 +28,9 @@
 int main(int argc, char* argv[])
 {
   /* get file line */
-  int line = 0;
-  line = get_file_line("./test/file.list");
-  printf("line : %d \n", line);
+  /* int line = 0; */
+  /* line = get_file_line("./test/file.list"); */
+  /* printf("line : %d \n", line); */
 
   /* read file, Thus file is file list */
   read_file_code("./test/file.list");

@@ -128,8 +128,8 @@ struct code_info *read_code(char *path)
   // init list and. add key word 
   struct dk_list *list = init_list(); 
   add_lnode(list, "for"); 
-  // add_lnode(list, "if"); 
-  // add_lnode(list, "while"); 
+  add_lnode(list, "if"); 
+  add_lnode(list, "while"); 
   // print_list(list); 
 
   /* exception */
@@ -211,11 +211,6 @@ int read_file_code(char *path)
   int fd = -1;
   int ret = 0;
   char *file = NULL;
-
-  // init list and add key word 
-  struct dk_list *list = init_list(); 
-  add_lnode(list, "for"); 
-  print_list(list); 
 
   /* file list : alloc and init struct */
   struct file_info *file_list = NULL;

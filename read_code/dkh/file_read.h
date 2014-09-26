@@ -26,7 +26,7 @@
 #include "errno.h"
 #include "print_msg.h"
 
-#define MAX_BUFF_SIZE 512
+#define MAX_BUFF_SIZE 1024 * 1024 * 4
 
 /*
  * file info struct
@@ -144,7 +144,6 @@ char *read_split(struct file_info *info, char ch)
 {
   int read_size = 0;
   int i = 0;
-  int ret = 0;
   int start = -1;
   char tmp = '\0';
 
@@ -162,15 +161,15 @@ read:
       goto fail;
     }
 
-    printf(" read %d \n", info->buf_size);
+    // printf("read result : %s \n", info->buf);
+
   } else {
     read_size = info->buf_size;
     i = info->seek;
   }
 
   start = i;
-
-  printf("%s\n", info->buf);
+  // printf("start : %d\n", start);
 
 loop:
   /* lookup char */
@@ -190,27 +189,25 @@ loop:
     /* next */
     i++;
   }
-  lseek(info->fd, start, SEEK_CUR);
-  printf("goto read start : %d \n", start);
+  lseek(info->fd, start - i, SEEK_CUR);
+  // printf("goto re-read, start : %4d  \n", start);
   goto read;
 
 fail:
-  printf("fail\n");
   return NULL;
 
 ret : 
   /* return string copy */
-  memset(info->result, '\0', info->buf_size);
   strncpy(info->result, info->buf + start, i - start);
+  info->result[i - start] = '\0';
 
   /* prevent re-find */
   i++;
 
   /* seek */
-  ret = lseek(info->fd, i, SEEK_CUR);
   info->seek = i;
 
-  printf("ret : %s\n", info->result);
+  // printf("ret : %4d [%s] \n", i, info->result);
   return info->result;
 }
 
