@@ -196,6 +196,21 @@ int get_file_line(char *path)
   return ret;
 }
 
+/*
+ * passing mutex arg
+ * @f_name : file name
+ * @f_list : read file list
+ * @result : result code_info strut
+ * @mutex : mutex
+ */
+struct mutex_arg{
+  char *f_name;
+  struct file_info *f_list;
+  struct code_info *result;
+
+  /* mutex */
+  pthread_mutex_t *mutex;
+}
 
 /* 
  * main function.
