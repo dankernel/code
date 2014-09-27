@@ -190,7 +190,6 @@ int get_file_line(char *path)
 
   }
 
-
   ret = file_list->line;
   close_file_info(file_list);
 
@@ -221,7 +220,6 @@ int read_file_code(char *path)
   /* Pic one file */
   file = read_split(file_list, '\n');
 
-  struct file_info *tmp_file = NULL;
   while (file) {
 
     /* Read file */
