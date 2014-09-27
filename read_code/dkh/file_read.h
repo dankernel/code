@@ -161,15 +161,12 @@ read:
       goto fail;
     }
 
-    // printf("read result : %s \n", info->buf);
-
   } else {
     read_size = info->buf_size;
     i = info->seek;
   }
 
   start = i;
-  // printf("start : %d\n", start);
 
 loop:
   /* lookup char */
@@ -190,7 +187,6 @@ loop:
     i++;
   }
   lseek(info->fd, start - i, SEEK_CUR);
-  // printf("goto re-read, start : %4d  \n", start);
   goto read;
 
 fail:
