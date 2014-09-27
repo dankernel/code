@@ -78,6 +78,21 @@ char *list_str(struct dk_list *list, char *str)
   return NULL;
 }/*}}}*/
 
+/*
+ * passing mutex arg
+ * @f_name : file name
+ * @f_list : read file list
+ * @result : result code_info strut
+ * @mutex : mutex
+ */
+struct analysis_arg{
+  char *f_name;
+  struct file_info *f_list;
+
+  /* mutex */
+  pthread_mutex_t *mutex;
+};
+
 /*  
  * lookup option at str. reference list
  * str : target string
@@ -167,13 +182,41 @@ struct code_info *read_code(char *path)
   return c_info;
 }/*}}}*/
 
+int analysis_code_thread(struct analysis_arg *arg)
+{
+  char *f_name;
+  struct file_info *f_list;
+  struct code_info *result;
+  pthread_mutex_t *mutex;
+
+  if (!arg)
+    return -EARG_NULL;
+
+  f_name = arg->f_name;
+  f_liat = arg->f_list;
+  mutex = arg->mutex;
+
+  while (f_name) {
+
+    /* Read file */
+    result = read_code(f_name);
+    free(result);
+
+    /* Next, Pic one file */
+    file = read_split(f_list, '\n');
+
+  }
+
+  return 0;
+}
+
 /* 
  * get file line
  * path : target file path
  * return : file line count nuber
  */
 int get_file_line(char *path)
-{
+{/*{{{*/
   int ret = -1;
   char *buf = NULL;
 
@@ -194,23 +237,8 @@ int get_file_line(char *path)
   close_file_info(file_list);
 
   return ret;
-}
+}/*}}}*/
 
-/*
- * passing mutex arg
- * @f_name : file name
- * @f_list : read file list
- * @result : result code_info strut
- * @mutex : mutex
- */
-struct mutex_arg{
-  char *f_name;
-  struct file_info *f_list;
-  struct code_info *result;
-
-  /* mutex */
-  pthread_mutex_t *mutex;
-}
 
 /* 
  * main function.
