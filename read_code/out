@@ -1,848 +1,205 @@
-1 3929 : 4197232 
-fname : ./test/kernel/fs/ntfs/quota.h
-1 3929 : 4197232 
-fname : ./test/kernel/fs/ntfs/endian.h
-1 3929 : 4197232 
-fname : ./test/kernel/fs/ntfs/file.c
-fname : ./test/kernel/fs/ntfs/index.h
-fname : ./test/kernel/fs/ntfs/ntfs.h
-fname : ./test/kernel/fs/ntfs/bitmap.h
-fname : ./test/kernel/fs/ntfs/index.c
-fname : ./test/kernel/fs/ntfs/layout.h
-fname : ./test/kernel/fs/ntfs/layout.h
-fname : ./test/kernel/fs/ntfs/compress.c
-fname : ./test/kernel/fs/ntfs/dir.c
-fname : ./test/kernel/fs/ntfs/inode.h
-fname : ./test/kernel/fs/ntfs/usnjrnl.h
-fname : ./test/kernel/fs/ntfs/inode.c
-fname : ./test/kernel/fs/ntfs/namei.c
-fname : ./test/kernel/fs/ntfs/namei.c
-fname : ./test/kernel/fs/ntfs/types.h
-fname : ./test/kernel/fs/ntfs/types.h
-fname : ./test/kernel/fs/ntfs/debug.c
-fname : ./test/kernel/fs/ntfs/usnjrnl.c
-fname : ./test/kernel/fs/ntfs/sysctl.h
-fname : ./test/kernel/fs/ntfs/lcnalloc.c
-fname : ./test/kernel/fs/ntfs/mft.h
-fname : ./test/kernel/fs/ntfs/volume.h
-fname : ./test/kernel/fs/ntfs/bitmap.c
-fname : ./test/kernel/fs/ntfs/mft.c
-fname : ./test/kernel/fs/ntfs/aops.h
-fname : ./test/kernel/fs/ntfs/logfile.h
-fname : ./test/kernel/fs/ntfs/runlist.c
-fname : ./test/kernel/fs/ntfs/aops.c
-fname : ./test/kernel/fs/ntfs/debug.h
-fname : ./test/kernel/fs/ntfs/super.c
-fname : ./test/kernel/fs/ntfs/collate.h
-fname : ./test/kernel/fs/ntfs/malloc.h
-fname : ./test/kernel/fs/ntfs/collate.c
-fname : ./test/kernel/fs/ntfs/attrib.c
-fname : ./test/kernel/fs/ntfs/upcase.c
-fname : ./test/kernel/fs/ntfs/sysctl.c
-fname : ./test/kernel/fs/ntfs/lcnalloc.h
-fname : ./test/kernel/fs/ntfs/unistr.c
-fname : ./test/kernel/fs/ntfs/time.h
-fname : ./test/kernel/fs/ntfs/runlist.h
-fname : ./test/kernel/fs/ntfs/mst.c
-fname : ./test/kernel/fs/ntfs/quota.c
-fname : ./test/kernel/fs/ext4/xattr_user.c
-fname : ./test/kernel/fs/ext4/extents_status.c
-fname : ./test/kernel/fs/ext4/file.c
-fname : ./test/kernel/fs/ext4/ext4_jbd2.c
-fname : ./test/kernel/fs/ext4/ioctl.c
-fname : ./test/kernel/fs/ext4/extents.c
-fname : ./test/kernel/fs/ext4/dir.c
-fname : ./test/kernel/fs/ext4/indirect.c
-fname : ./test/kernel/fs/ext4/inode.c
-fname : ./test/kernel/fs/ext4/ext4_extents.h
-fname : ./test/kernel/fs/ext4/namei.c
-fname : ./test/kernel/fs/ext4/balloc.c
-fname : ./test/kernel/fs/ext4/mballoc.c
-fname : ./test/kernel/fs/ext4/block_validity.c
-fname : ./test/kernel/fs/ext4/xattr_trusted.c
-fname : ./test/kernel/fs/ext4/symlink.c
-fname : ./test/kernel/fs/ext4/hash.c
-fname : ./test/kernel/fs/ext4/ext4.h
-fname : ./test/kernel/fs/ext4/bitmap.c
-fname : ./test/kernel/fs/ext4/ialloc.c
-fname : ./test/kernel/fs/ext4/fsync.c
-fname : ./test/kernel/fs/ext4/acl.h
-fname : ./test/kernel/fs/ext4/ext4_jbd2.h
-fname : ./test/kernel/fs/ext4/inline.c
-fname : ./test/kernel/fs/ext4/xattr_security.c
-fname : ./test/kernel/fs/ext4/mballoc.h
-fname : ./test/kernel/fs/ext4/acl.c
-fname : ./test/kernel/fs/ext4/migrate.c
-fname : ./test/kernel/fs/ext4/resize.c
-fname : ./test/kernel/fs/ext4/super.c
-fname : ./test/kernel/fs/ext4/truncate.h
-fname : ./test/kernel/fs/ext4/xattr.h
-fname : ./test/kernel/fs/ext4/mmp.c
-fname : ./test/kernel/fs/ext4/move_extent.c
-fname : ./test/kernel/fs/ext4/page-io.c
-fname : ./test/kernel/fs/ext4/xattr.c
-fname : ./test/kernel/fs/ext4/extents_status.h
-fname : ./test/kernel/fs/afs/afs_cm.h
-fname : ./test/kernel/fs/afs/cell.c
-fname : ./test/kernel/fs/afs/afs_fs.h
-fname : ./test/kernel/fs/afs/vlocation.c
-fname : ./test/kernel/fs/afs/file.c
-fname : ./test/kernel/fs/afs/dir.c
-fname : ./test/kernel/fs/afs/afs_vl.h
-fname : ./test/kernel/fs/afs/server.c
-fname : ./test/kernel/fs/afs/inode.c
-fname : ./test/kernel/fs/afs/afs.h
-fname : ./test/kernel/fs/afs/netdevices.c
-fname : ./test/kernel/fs/afs/cache.c
-fname : ./test/kernel/fs/afs/security.c
-fname : ./test/kernel/fs/afs/internal.h
-fname : ./test/kernel/fs/afs/rxrpc.c
-fname : ./test/kernel/fs/afs/volume.c
-fname : ./test/kernel/fs/afs/cmservice.c
-fname : ./test/kernel/fs/afs/main.c
-fname : ./test/kernel/fs/afs/proc.c
-fname : ./test/kernel/fs/afs/callback.c
-fname : ./test/kernel/fs/afs/vnode.c
-fname : ./test/kernel/fs/afs/super.c
-fname : ./test/kernel/fs/afs/misc.c
-fname : ./test/kernel/fs/afs/vlclient.c
-fname : ./test/kernel/fs/afs/flock.c
-fname : ./test/kernel/fs/afs/write.c
-fname : ./test/kernel/fs/afs/fsclient.c
-fname : ./test/kernel/fs/afs/mntpt.c
-fname : ./test/kernel/fs/posix_acl.c
-fname : ./test/kernel/fs/logfs/file.c
-fname : ./test/kernel/fs/logfs/compr.c
-fname : ./test/kernel/fs/logfs/dir.c
-fname : ./test/kernel/fs/logfs/inode.c
-fname : ./test/kernel/fs/logfs/dev_mtd.c
-fname : ./test/kernel/fs/logfs/logfs.h
-fname : ./test/kernel/fs/logfs/journal.c
-fname : ./test/kernel/fs/logfs/gc.c
-fname : ./test/kernel/fs/logfs/segment.c
-fname : ./test/kernel/fs/logfs/super.c
-fname : ./test/kernel/fs/logfs/dev_bdev.c
-fname : ./test/kernel/fs/logfs/logfs_abi.h
-fname : ./test/kernel/fs/logfs/readwrite.c
-fname : ./test/kernel/fs/mpage.c
-fname : ./test/kernel/fs/debugfs/file.c
-fname : ./test/kernel/fs/debugfs/inode.c
-fname : ./test/kernel/fs/file.c
-fname : ./test/kernel/fs/file_table.c
-fname : ./test/kernel/fs/kernfs/file.c
-fname : ./test/kernel/fs/kernfs/dir.c
-fname : ./test/kernel/fs/kernfs/inode.c
-fname : ./test/kernel/fs/kernfs/symlink.c
-fname : ./test/kernel/fs/kernfs/mount.c
-fname : ./test/kernel/fs/kernfs/kernfs-internal.h
-fname : ./test/kernel/fs/cramfs/inode.c
-fname : ./test/kernel/fs/cramfs/internal.h
-fname : ./test/kernel/fs/cramfs/uncompress.c
-fname : ./test/kernel/fs/libfs.c
-fname : ./test/kernel/fs/qnx4/dir.c
-fname : ./test/kernel/fs/qnx4/inode.c
-fname : ./test/kernel/fs/qnx4/namei.c
-fname : ./test/kernel/fs/qnx4/bitmap.c
-fname : ./test/kernel/fs/qnx4/qnx4.h
-fname : ./test/kernel/fs/ioctl.c
-fname : ./test/kernel/fs/xfs/xfs_extent_busy.h
-fname : ./test/kernel/fs/xfs/xfs_bmap.h
-fname : ./test/kernel/fs/xfs/xfs_qm.h
-fname : ./test/kernel/fs/xfs/xfs_dir2_readdir.c
-fname : ./test/kernel/fs/xfs/xfs_trans_ail.c
-fname : ./test/kernel/fs/xfs/xfs_sysctl.c
-fname : ./test/kernel/fs/xfs/xfs_log_recover.c
-fname : ./test/kernel/fs/xfs/xfs_dquot_item.c
-fname : ./test/kernel/fs/xfs/xfs_file.c
-fname : ./test/kernel/fs/xfs/xfs_log_rlimit.c
-fname : ./test/kernel/fs/xfs/xfs_filestream.c
-fname : ./test/kernel/fs/xfs/xfs_bmap_btree.c
-fname : ./test/kernel/fs/xfs/xfs_iops.h
-fname : ./test/kernel/fs/xfs/xfs_ialloc_btree.c
-fname : ./test/kernel/fs/xfs/xfs_inode_buf.c
-fname : ./test/kernel/fs/xfs/xfs_ialloc.h
-fname : ./test/kernel/fs/xfs/xfs_types.h
-fname : ./test/kernel/fs/xfs/xfs_da_format.c
-fname : ./test/kernel/fs/xfs/xfs_iops.c
-fname : ./test/kernel/fs/xfs/xfs_dir2_block.c
-fname : ./test/kernel/fs/xfs/xfs_sb.c
-fname : ./test/kernel/fs/xfs/xfs_itable.h
-fname : ./test/kernel/fs/xfs/xfs_trans.h
-fname : ./test/kernel/fs/xfs/xfs_bmap_util.c
-fname : ./test/kernel/fs/xfs/xfs_bmap_util.h
-fname : ./test/kernel/fs/xfs/xfs_inode_fork.c
-fname : ./test/kernel/fs/xfs/xfs_quotaops.c
-fname : ./test/kernel/fs/xfs/xfs_alloc.c
-fname : ./test/kernel/fs/xfs/xfs_trace.h
-fname : ./test/kernel/fs/xfs/xfs_super.h
-fname : ./test/kernel/fs/xfs/xfs_buf.c
-fname : ./test/kernel/fs/xfs/xfs_attr_remote.c
-fname : ./test/kernel/fs/xfs/xfs_dir2_data.c
-fname : ./test/kernel/fs/xfs/xfs_trans_resv.c
-fname : ./test/kernel/fs/xfs/xfs_dquot.h
-fname : ./test/kernel/fs/xfs/xfs_aops.h
-fname : ./test/kernel/fs/xfs/xfs_dquot_buf.c
-fname : ./test/kernel/fs/xfs/xfs_alloc.h
-fname : ./test/kernel/fs/xfs/xfs_dir2.c
-fname : ./test/kernel/fs/xfs/xfs_format.h
-fname : ./test/kernel/fs/xfs/xfs_bit.h
-fname : ./test/kernel/fs/xfs/xfs_dir2_node.c
-fname : ./test/kernel/fs/xfs/xfs_discard.c
-fname : ./test/kernel/fs/xfs/xfs_ialloc.c
-fname : ./test/kernel/fs/xfs/xfs_attr_list.c
-fname : ./test/kernel/fs/xfs/xfs_qm.c
-fname : ./test/kernel/fs/xfs/uuid.c
-fname : ./test/kernel/fs/xfs/xfs_dquot_item.h
-fname : ./test/kernel/fs/xfs/xfs_log_priv.h
-fname : ./test/kernel/fs/xfs/xfs_linux.h
-fname : ./test/kernel/fs/xfs/uuid.h
-fname : ./test/kernel/fs/xfs/xfs_shared.h
-fname : ./test/kernel/fs/xfs/xfs_aops.c
-fname : ./test/kernel/fs/xfs/xfs_trans_priv.h
-fname : ./test/kernel/fs/xfs/xfs_alloc_btree.h
-fname : ./test/kernel/fs/xfs/xfs_xattr.c
-fname : ./test/kernel/fs/xfs/xfs_dir2.h
-fname : ./test/kernel/fs/xfs/xfs_qm_bhv.c
-fname : ./test/kernel/fs/xfs/xfs_fsops.h
-fname : ./test/kernel/fs/xfs/xfs_btree.c
-fname : ./test/kernel/fs/xfs/xfs_trans_space.h
-fname : ./test/kernel/fs/xfs/xfs_super.c
-fname : ./test/kernel/fs/xfs/xfs_trans.c
-fname : ./test/kernel/fs/xfs/xfs_inode_item.h
-fname : ./test/kernel/fs/xfs/xfs_dquot.c
-fname : ./test/kernel/fs/xfs/xfs_rtalloc.h
-fname : ./test/kernel/fs/xfs/xfs_bit.c
-fname : ./test/kernel/fs/xfs/xfs_buf_item.h
-fname : ./test/kernel/fs/xfs/xfs_symlink.h
-fname : ./test/kernel/fs/xfs/xfs_rtalloc.c
-fname : ./test/kernel/fs/xfs/xfs_trace.c
-fname : ./test/kernel/fs/xfs/xfs_ag.h
-fname : ./test/kernel/fs/xfs/xfs_mru_cache.h
-fname : ./test/kernel/fs/xfs/xfs_icache.h
-fname : ./test/kernel/fs/xfs/xfs_vnode.h
-fname : ./test/kernel/fs/xfs/xfs_error.c
-fname : ./test/kernel/fs/xfs/xfs_log.c
-fname : ./test/kernel/fs/xfs/xfs_acl.c
-fname : ./test/kernel/fs/xfs/xfs_inode.c
-file : ./test/kernel/fs/xfs/xfs_inode.c 
-for(j = i - 1; j >= 0; j--) { 
+Flat profile:
 
-fname : ./test/kernel/fs/xfs/xfs_trans_buf.c
-fname : ./test/kernel/fs/xfs/mrlock.h
-fname : ./test/kernel/fs/xfs/xfs_itable.c
-fname : ./test/kernel/fs/xfs/xfs_trans_resv.h
-fname : ./test/kernel/fs/xfs/xfs_inode_fork.h
-fname : ./test/kernel/fs/xfs/xfs_dinode.h
-fname : ./test/kernel/fs/xfs/xfs_fsops.c
-fname : ./test/kernel/fs/xfs/xfs_acl.h
-fname : ./test/kernel/fs/xfs/xfs_dir2_leaf.c
-fname : ./test/kernel/fs/xfs/xfs_attr.c
-fname : ./test/kernel/fs/xfs/xfs_cksum.h
-fname : ./test/kernel/fs/xfs/xfs_extfree_item.h
-fname : ./test/kernel/fs/xfs/xfs_buf_item.c
-fname : ./test/kernel/fs/xfs/xfs_extfree_item.c
-fname : ./test/kernel/fs/xfs/xfs_iomap.h
-fname : ./test/kernel/fs/xfs/xfs_message.h
-fname : ./test/kernel/fs/xfs/xfs_ioctl.c
-fname : ./test/kernel/fs/xfs/xfs_dir2_priv.h
-fname : ./test/kernel/fs/xfs/xfs_qm_syscalls.c
-fname : ./test/kernel/fs/xfs/xfs_buf.h
-fname : ./test/kernel/fs/xfs/xfs.h
-fname : ./test/kernel/fs/xfs/xfs_ioctl.h
-fname : ./test/kernel/fs/xfs/xfs_log_cil.c
-fname : ./test/kernel/fs/xfs/xfs_quota.h
-fname : ./test/kernel/fs/xfs/xfs_mount.h
-fname : ./test/kernel/fs/xfs/xfs_export.c
-fname : ./test/kernel/fs/xfs/xfs_stats.h
-fname : ./test/kernel/fs/xfs/xfs_da_format.h
-fname : ./test/kernel/fs/xfs/xfs_icreate_item.c
-fname : ./test/kernel/fs/xfs/xfs_bmap.c
-file : ./test/kernel/fs/xfs/xfs_bmap.c 
-for( i = 1; i <= xfs_btree_get_numrecs(block); i++) { 
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  us/call  us/call  name    
+ 82.14      2.24     2.24 17209957     0.13     0.13  read_split
+  8.07      2.46     0.22 17136236     0.01     0.02  cheek_code_line
+  7.33      2.66     0.20 39629902     0.01     0.01  next_lnode
+  2.20      2.72     0.06    36860     1.63    73.74  read_code
+  0.00      2.72     0.00    73720     0.00     0.00  init_lnode
+  0.00      2.72     0.00    36861     0.00     0.00  close_file_info
+  0.00      2.72     0.00    36861     0.00     0.00  init_file_struct
+  0.00      2.72     0.00    36861     0.00     0.00  open_file
+  0.00      2.72     0.00    36860     0.00     0.00  add_lnode
+  0.00      2.72     0.00    36860     0.00     0.00  init_list
+  0.00      2.72     0.00        1     0.00     0.00  read_file_code
 
-fname : ./test/kernel/fs/xfs/xfs_mount.c
-fname : ./test/kernel/fs/xfs/xfs_inode.h
-fname : ./test/kernel/fs/xfs/xfs_log_recover.h
-fname : ./test/kernel/fs/xfs/xfs_bmap_btree.h
-fname : ./test/kernel/fs/xfs/xfs_attr_inactive.c
-fname : ./test/kernel/fs/xfs/xfs_attr.h
-fname : ./test/kernel/fs/xfs/xfs_discard.h
-fname : ./test/kernel/fs/xfs/xfs_log.h
-fname : ./test/kernel/fs/xfs/xfs_trans_dquot.c
-fname : ./test/kernel/fs/xfs/xfs_log_format.h
-fname : ./test/kernel/fs/xfs/xfs_sb.h
-fname : ./test/kernel/fs/xfs/xfs_ialloc_btree.h
-fname : ./test/kernel/fs/xfs/xfs_symlink_remote.c
-fname : ./test/kernel/fs/xfs/xfs_attr_remote.h
-fname : ./test/kernel/fs/xfs/kmem.h
-fname : ./test/kernel/fs/xfs/kmem.c
-fname : ./test/kernel/fs/xfs/xfs_quota_defs.h
-fname : ./test/kernel/fs/xfs/xfs_icreate_item.h
-fname : ./test/kernel/fs/xfs/xfs_da_btree.c
-fname : ./test/kernel/fs/xfs/xfs_ioctl32.c
-fname : ./test/kernel/fs/xfs/xfs_trans_extfree.c
-fname : ./test/kernel/fs/xfs/xfs_sysctl.h
-fname : ./test/kernel/fs/xfs/xfs_inode_buf.h
-fname : ./test/kernel/fs/xfs/xfs_mru_cache.c
-fname : ./test/kernel/fs/xfs/xfs_filestream.h
-fname : ./test/kernel/fs/xfs/xfs_iomap.c
-fname : ./test/kernel/fs/xfs/xfs_dir2_sf.c
-fname : ./test/kernel/fs/xfs/xfs_globals.c
-fname : ./test/kernel/fs/xfs/xfs_fs.h
-fname : ./test/kernel/fs/xfs/xfs_message.c
-fname : ./test/kernel/fs/xfs/xfs_btree.h
-fname : ./test/kernel/fs/xfs/xfs_attr_sf.h
-fname : ./test/kernel/fs/xfs/xfs_export.h
-fname : ./test/kernel/fs/xfs/xfs_da_btree.h
-fname : ./test/kernel/fs/xfs/xfs_extent_busy.c
-fname : ./test/kernel/fs/xfs/xfs_stats.c
-fname : ./test/kernel/fs/xfs/xfs_symlink.c
-fname : ./test/kernel/fs/xfs/xfs_rtbitmap.c
-fname : ./test/kernel/fs/xfs/xfs_attr_leaf.c
-fname : ./test/kernel/fs/xfs/xfs_ioctl32.h
-fname : ./test/kernel/fs/xfs/time.h
-fname : ./test/kernel/fs/xfs/xfs_icache.c
-fname : ./test/kernel/fs/xfs/xfs_inode_item.c
-fname : ./test/kernel/fs/xfs/xfs_attr_leaf.h
-fname : ./test/kernel/fs/xfs/xfs_error.h
-fname : ./test/kernel/fs/xfs/xfs_trans_inode.c
-fname : ./test/kernel/fs/xfs/xfs_inum.h
-fname : ./test/kernel/fs/xfs/xfs_alloc_btree.c
-fname : ./test/kernel/fs/adfs/file.c
-fname : ./test/kernel/fs/adfs/adfs.h
-fname : ./test/kernel/fs/adfs/dir.c
-fname : ./test/kernel/fs/adfs/inode.c
-fname : ./test/kernel/fs/adfs/map.c
-fname : ./test/kernel/fs/adfs/dir_f.c
-fname : ./test/kernel/fs/adfs/dir_f.h
-fname : ./test/kernel/fs/adfs/super.c
-fname : ./test/kernel/fs/adfs/dir_fplus.h
-fname : ./test/kernel/fs/adfs/dir_fplus.c
-fname : ./test/kernel/fs/minix/minix.h
-fname : ./test/kernel/fs/minix/file.c
-fname : ./test/kernel/fs/minix/dir.c
-fname : ./test/kernel/fs/minix/inode.c
-fname : ./test/kernel/fs/minix/itree_v1.c
-fname : ./test/kernel/fs/minix/namei.c
-fname : ./test/kernel/fs/minix/bitmap.c
-fname : ./test/kernel/fs/minix/itree_v2.c
-fname : ./test/kernel/fs/minix/itree_common.c
-fname : ./test/kernel/fs/namespace.c
-fname : ./test/kernel/fs/binfmt_flat.c
-fname : ./test/kernel/fs/romfs/storage.c
-fname : ./test/kernel/fs/romfs/internal.h
-fname : ./test/kernel/fs/romfs/mmap-nommu.c
-fname : ./test/kernel/fs/romfs/super.c
-fname : ./test/kernel/fs/freevxfs/vxfs_fshead.h
-fname : ./test/kernel/fs/freevxfs/vxfs_lookup.c
-fname : ./test/kernel/fs/freevxfs/vxfs_inode.h
-fname : ./test/kernel/fs/freevxfs/vxfs_immed.c
-fname : ./test/kernel/fs/freevxfs/vxfs_extern.h
-fname : ./test/kernel/fs/freevxfs/vxfs.h
-fname : ./test/kernel/fs/freevxfs/vxfs_subr.c
-fname : ./test/kernel/fs/freevxfs/vxfs_inode.c
-fname : ./test/kernel/fs/freevxfs/vxfs_olt.h
-fname : ./test/kernel/fs/freevxfs/vxfs_olt.c
-fname : ./test/kernel/fs/freevxfs/vxfs_bmap.c
-fname : ./test/kernel/fs/freevxfs/vxfs_dir.h
-fname : ./test/kernel/fs/freevxfs/vxfs_fshead.c
-fname : ./test/kernel/fs/freevxfs/vxfs_super.c
-fname : ./test/kernel/fs/anon_inodes.c
-fname : ./test/kernel/fs/select.c
-fname : ./test/kernel/fs/nfsd/nfs3xdr.c
-fname : ./test/kernel/fs/nfsd/nfsxdr.c
-fname : ./test/kernel/fs/nfsd/xdr4.h
-fname : ./test/kernel/fs/nfsd/xdr3.h
-fname : ./test/kernel/fs/nfsd/lockd.c
-fname : ./test/kernel/fs/nfsd/auth.c
-fname : ./test/kernel/fs/nfsd/nfsfh.c
-fname : ./test/kernel/fs/nfsd/nfs4acl.c
-fname : ./test/kernel/fs/nfsd/auth.h
-fname : ./test/kernel/fs/nfsd/state.h
-fname : ./test/kernel/fs/nfsd/nfsfh.h
-fname : ./test/kernel/fs/nfsd/nfs3proc.c
-fname : ./test/kernel/fs/nfsd/fault_inject.c
-fname : ./test/kernel/fs/nfsd/cache.h
-fname : ./test/kernel/fs/nfsd/current_stateid.h
-fname : ./test/kernel/fs/nfsd/nfs3acl.c
-fname : ./test/kernel/fs/nfsd/xdr4cb.h
-fname : ./test/kernel/fs/nfsd/stats.c
-fname : ./test/kernel/fs/nfsd/nfs4state.c
-fname : ./test/kernel/fs/nfsd/idmap.h
-fname : ./test/kernel/fs/nfsd/nfs4recover.c
-fname : ./test/kernel/fs/nfsd/nfs4callback.c
-fname : ./test/kernel/fs/nfsd/xdr.h
-fname : ./test/kernel/fs/nfsd/nfsd.h
-fname : ./test/kernel/fs/nfsd/export.c
-fname : ./test/kernel/fs/nfsd/vfs.h
-fname : ./test/kernel/fs/nfsd/nfssvc.c
-fname : ./test/kernel/fs/nfsd/acl.h
-fname : ./test/kernel/fs/nfsd/vfs.c
-fname : ./test/kernel/fs/nfsd/nfscache.c
-fname : ./test/kernel/fs/nfsd/nfs4proc.c
-fname : ./test/kernel/fs/nfsd/nfsproc.c
-fname : ./test/kernel/fs/nfsd/export.h
-fname : ./test/kernel/fs/nfsd/nfs4xdr.c
-fname : ./test/kernel/fs/nfsd/nfs2acl.c
-fname : ./test/kernel/fs/nfsd/nfsctl.c
-fname : ./test/kernel/fs/nfsd/nfs4idmap.c
-fname : ./test/kernel/fs/nfsd/stats.h
-fname : ./test/kernel/fs/nfsd/netns.h
-fname : ./test/kernel/fs/inode.c
-fname : ./test/kernel/fs/affs/file.c
-fname : ./test/kernel/fs/affs/amigaffs.c
-fname : ./test/kernel/fs/affs/dir.c
-fname : ./test/kernel/fs/affs/inode.c
-fname : ./test/kernel/fs/affs/namei.c
-fname : ./test/kernel/fs/affs/symlink.c
-fname : ./test/kernel/fs/affs/bitmap.c
-fname : ./test/kernel/fs/affs/affs.h
-fname : ./test/kernel/fs/affs/super.c
-fname : ./test/kernel/fs/sync.c
-fname : ./test/kernel/fs/namei.c
-file : ./test/kernel/fs/namei.c 
-for(;;) { 
+ %         the percentage of the total running time of the
+time       program used by this function.
 
-fname : ./test/kernel/fs/9p/xattr_user.c
-fname : ./test/kernel/fs/9p/vfs_inode_dotl.c
-fname : ./test/kernel/fs/9p/v9fs_vfs.h
-fname : ./test/kernel/fs/9p/fid.h
-fname : ./test/kernel/fs/9p/cache.c
-fname : ./test/kernel/fs/9p/cache.h
-fname : ./test/kernel/fs/9p/xattr_trusted.c
-fname : ./test/kernel/fs/9p/vfs_addr.c
-fname : ./test/kernel/fs/9p/v9fs.h
-fname : ./test/kernel/fs/9p/vfs_dentry.c
-fname : ./test/kernel/fs/9p/v9fs.c
-fname : ./test/kernel/fs/9p/acl.h
-fname : ./test/kernel/fs/9p/xattr_security.c
-fname : ./test/kernel/fs/9p/acl.c
-fname : ./test/kernel/fs/9p/xattr.h
-fname : ./test/kernel/fs/9p/vfs_dir.c
-fname : ./test/kernel/fs/9p/xattr.c
-fname : ./test/kernel/fs/9p/fid.c
-fname : ./test/kernel/fs/9p/vfs_super.c
-fname : ./test/kernel/fs/9p/vfs_file.c
-fname : ./test/kernel/fs/9p/vfs_inode.c
-fname : ./test/kernel/fs/qnx6/qnx6.h
-fname : ./test/kernel/fs/qnx6/dir.c
-fname : ./test/kernel/fs/qnx6/inode.c
-fname : ./test/kernel/fs/qnx6/namei.c
-fname : ./test/kernel/fs/qnx6/super_mmi.c
-fname : ./test/kernel/fs/exec.c
-fname : ./test/kernel/fs/dlm/lock.c
-fname : ./test/kernel/fs/dlm/midcomms.h
-fname : ./test/kernel/fs/dlm/memory.c
-fname : ./test/kernel/fs/dlm/member.c
-fname : ./test/kernel/fs/dlm/dir.h
-fname : ./test/kernel/fs/dlm/recover.h
-fname : ./test/kernel/fs/dlm/dir.c
-fname : ./test/kernel/fs/dlm/lowcomms.h
-fname : ./test/kernel/fs/dlm/ast.c
-fname : ./test/kernel/fs/dlm/midcomms.c
-fname : ./test/kernel/fs/dlm/lock.h
-fname : ./test/kernel/fs/dlm/requestqueue.h
-fname : ./test/kernel/fs/dlm/member.h
-fname : ./test/kernel/fs/dlm/recover.c
-fname : ./test/kernel/fs/dlm/netlink.c
-fname : ./test/kernel/fs/dlm/plock.c
-fname : ./test/kernel/fs/dlm/main.c
-fname : ./test/kernel/fs/dlm/ast.h
-fname : ./test/kernel/fs/dlm/config.c
-fname : ./test/kernel/fs/dlm/util.h
-fname : ./test/kernel/fs/dlm/requestqueue.c
-fname : ./test/kernel/fs/dlm/recoverd.h
-fname : ./test/kernel/fs/dlm/lvb_table.h
-fname : ./test/kernel/fs/dlm/lockspace.h
-fname : ./test/kernel/fs/dlm/memory.h
-fname : ./test/kernel/fs/dlm/rcom.c
-fname : ./test/kernel/fs/dlm/debug_fs.c
-fname : ./test/kernel/fs/dlm/dlm_internal.h
-fname : ./test/kernel/fs/dlm/config.h
-fname : ./test/kernel/fs/dlm/lockspace.c
-fname : ./test/kernel/fs/dlm/rcom.h
-fname : ./test/kernel/fs/dlm/recoverd.c
-fname : ./test/kernel/fs/dlm/user.c
-fname : ./test/kernel/fs/dlm/util.c
-fname : ./test/kernel/fs/dlm/lowcomms.c
-fname : ./test/kernel/fs/dlm/user.h
-fname : ./test/kernel/fs/binfmt_elf_fdpic.c
-fname : ./test/kernel/fs/binfmt_som.c
-fname : ./test/kernel/fs/proc_namespace.c
-fname : ./test/kernel/fs/sysfs/file.c
-fname : ./test/kernel/fs/sysfs/dir.c
-fname : ./test/kernel/fs/sysfs/symlink.c
-fname : ./test/kernel/fs/sysfs/mount.c
-fname : ./test/kernel/fs/sysfs/sysfs.h
-fname : ./test/kernel/fs/sysfs/group.c
-fname : ./test/kernel/fs/ramfs/file-mmu.c
-fname : ./test/kernel/fs/ramfs/inode.c
-fname : ./test/kernel/fs/ramfs/internal.h
-fname : ./test/kernel/fs/ramfs/file-nommu.c
-fname : ./test/kernel/fs/dcookies.c
-fname : ./test/kernel/fs/pnode.c
-fname : ./test/kernel/fs/cachefiles/interface.c
-fname : ./test/kernel/fs/cachefiles/namei.c
-fname : ./test/kernel/fs/cachefiles/daemon.c
-fname : ./test/kernel/fs/cachefiles/security.c
-fname : ./test/kernel/fs/cachefiles/internal.h
-fname : ./test/kernel/fs/cachefiles/main.c
-fname : ./test/kernel/fs/cachefiles/proc.c
-fname : ./test/kernel/fs/cachefiles/key.c
-fname : ./test/kernel/fs/cachefiles/rdwr.c
-fname : ./test/kernel/fs/cachefiles/bind.c
-fname : ./test/kernel/fs/cachefiles/xattr.c
-fname : ./test/kernel/fs/proc/task_mmu.c
-fname : ./test/kernel/fs/proc/vmcore.c
-fname : ./test/kernel/fs/proc/page.c
-fname : ./test/kernel/fs/proc/loadavg.c
-fname : ./test/kernel/fs/proc/nommu.c
-fname : ./test/kernel/fs/proc/proc_sysctl.c
-fname : ./test/kernel/fs/proc/inode.c
-fname : ./test/kernel/fs/proc/proc_net.c
-fname : ./test/kernel/fs/proc/meminfo.c
-fname : ./test/kernel/fs/proc/array.c
-fname : ./test/kernel/fs/proc/base.c
-fname : ./test/kernel/fs/proc/kcore.c
-fname : ./test/kernel/fs/proc/internal.h
-fname : ./test/kernel/fs/proc/stat.c
-fname : ./test/kernel/fs/proc/consoles.c
-fname : ./test/kernel/fs/proc/task_nommu.c
-fname : ./test/kernel/fs/proc/devices.c
-fname : ./test/kernel/fs/proc/self.c
-fname : ./test/kernel/fs/proc/kmsg.c
-fname : ./test/kernel/fs/proc/uptime.c
-fname : ./test/kernel/fs/proc/fd.c
-fname : ./test/kernel/fs/proc/proc_tty.c
-fname : ./test/kernel/fs/proc/fd.h
-fname : ./test/kernel/fs/proc/interrupts.c
-fname : ./test/kernel/fs/proc/root.c
-fname : ./test/kernel/fs/proc/cpuinfo.c
-fname : ./test/kernel/fs/proc/version.c
-fname : ./test/kernel/fs/proc/generic.c
-fname : ./test/kernel/fs/proc/softirqs.c
-fname : ./test/kernel/fs/proc/namespaces.c
-fname : ./test/kernel/fs/proc/cmdline.c
-fname : ./test/kernel/fs/ocfs2/super.h
-fname : ./test/kernel/fs/ocfs2/quota.h
-fname : ./test/kernel/fs/ocfs2/heartbeat.h
-fname : ./test/kernel/fs/ocfs2/extent_map.c
-file : ./test/kernel/fs/ocfs2/extent_map.c 
-for(i = 0; i < le16_to_cpu(el->l_next_free_rec); i++) { 
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
 
-fname : ./test/kernel/fs/ocfs2/mmap.h
-fname : ./test/kernel/fs/ocfs2/slot_map.c
-file : ./test/kernel/fs/ocfs2/slot_map.c 
-for(i = 0; i < si->si_num_slots; i++) { 
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
 
-file : ./test/kernel/fs/ocfs2/slot_map.c 
-for(i = 0; i < si->si_num_slots; i++) { 
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+ 
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
 
-fname : ./test/kernel/fs/ocfs2/file.c
-file : ./test/kernel/fs/ocfs2/file.c 
-for(;;) { 
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this 
+	   function is profiled, else blank.
 
-fname : ./test/kernel/fs/ocfs2/ocfs2_ioctl.h
-fname : ./test/kernel/fs/ocfs2/symlink.h
-fname : ./test/kernel/fs/ocfs2/slot_map.h
-fname : ./test/kernel/fs/ocfs2/ioctl.c
-fname : ./test/kernel/fs/ocfs2/stackglue.h
-fname : ./test/kernel/fs/ocfs2/stackglue.c
-fname : ./test/kernel/fs/ocfs2/stack_o2cb.c
-fname : ./test/kernel/fs/ocfs2/suballoc.h
-fname : ./test/kernel/fs/ocfs2/refcounttree.h
-fname : ./test/kernel/fs/ocfs2/ocfs2_trace.h
-fname : ./test/kernel/fs/ocfs2/dir.h
-fname : ./test/kernel/fs/ocfs2/dlmglue.h
-fname : ./test/kernel/fs/ocfs2/reservations.h
-fname : ./test/kernel/fs/ocfs2/dir.c
-fname : ./test/kernel/fs/ocfs2/inode.h
-fname : ./test/kernel/fs/ocfs2/inode.c
-fname : ./test/kernel/fs/ocfs2/move_extents.c
-fname : ./test/kernel/fs/ocfs2/namei.c
-file : ./test/kernel/fs/ocfs2/namei.c 
-for(i = 0; i < blocks; i++) 
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+Copyright (C) 2012 Free Software Foundation, Inc.
 
-fname : ./test/kernel/fs/ocfs2/ocfs2_fs.h
-fname : ./test/kernel/fs/ocfs2/alloc.c
-file : ./test/kernel/fs/ocfs2/alloc.c 
-for(i = start; i < path_num_items(path); i++) { 
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+		     Call graph (explanation follows)
 
-file : ./test/kernel/fs/ocfs2/alloc.c 
-for(i = 1; i < OCFS2_MAX_PATH_DEPTH; i++) { 
 
-file : ./test/kernel/fs/ocfs2/alloc.c 
-for(i = 1; i < OCFS2_MAX_PATH_DEPTH; i++) { 
+granularity: each sample hit covers 2 byte(s) for 0.37% of 2.72 seconds
 
-file : ./test/kernel/fs/ocfs2/alloc.c 
-for(i = 0; i < path_num_items(path); i++) { 
+index % time    self  children    called     name
+                                                 <spontaneous>
+[1]    100.0    0.00    2.72                 analysis_code_thread [1]
+                0.06    2.66   36860/36860       read_code [2]
+                0.00    0.00   36861/17209957     read_split [3]
+-----------------------------------------------
+                0.06    2.66   36860/36860       analysis_code_thread [1]
+[2]     99.8    0.06    2.66   36860         read_code [2]
+                2.24    0.00 17173096/17209957     read_split [3]
+                0.22    0.20 17136236/17136236     cheek_code_line [4]
+                0.00    0.00   36860/36860       init_list [11]
+                0.00    0.00   36860/36860       add_lnode [10]
+                0.00    0.00   36860/36861       init_file_struct [8]
+                0.00    0.00   36860/36861       close_file_info [7]
+-----------------------------------------------
+                0.00    0.00   36861/17209957     analysis_code_thread [1]
+                2.24    0.00 17173096/17209957     read_code [2]
+[3]     82.4    2.24    0.00 17209957         read_split [3]
+-----------------------------------------------
+                0.22    0.20 17136236/17136236     read_code [2]
+[4]     15.4    0.22    0.20 17136236         cheek_code_line [4]
+                0.20    0.00 39629902/39629902     next_lnode [5]
+-----------------------------------------------
+                0.20    0.00 39629902/39629902     cheek_code_line [4]
+[5]      7.4    0.20    0.00 39629902         next_lnode [5]
+-----------------------------------------------
+                0.00    0.00   36860/73720       init_list [11]
+                0.00    0.00   36860/73720       add_lnode [10]
+[6]      0.0    0.00    0.00   73720         init_lnode [6]
+-----------------------------------------------
+                0.00    0.00       1/36861       read_file_code [12]
+                0.00    0.00   36860/36861       read_code [2]
+[7]      0.0    0.00    0.00   36861         close_file_info [7]
+-----------------------------------------------
+                0.00    0.00       1/36861       read_file_code [12]
+                0.00    0.00   36860/36861       read_code [2]
+[8]      0.0    0.00    0.00   36861         init_file_struct [8]
+                0.00    0.00   36861/36861       open_file [9]
+-----------------------------------------------
+                0.00    0.00   36861/36861       init_file_struct [8]
+[9]      0.0    0.00    0.00   36861         open_file [9]
+-----------------------------------------------
+                0.00    0.00   36860/36860       read_code [2]
+[10]     0.0    0.00    0.00   36860         add_lnode [10]
+                0.00    0.00   36860/73720       init_lnode [6]
+-----------------------------------------------
+                0.00    0.00   36860/36860       read_code [2]
+[11]     0.0    0.00    0.00   36860         init_list [11]
+                0.00    0.00   36860/73720       init_lnode [6]
+-----------------------------------------------
+                0.00    0.00       1/1           main [20]
+[12]     0.0    0.00    0.00       1         read_file_code [12]
+                0.00    0.00       1/36861       init_file_struct [8]
+                0.00    0.00       1/36861       close_file_info [7]
+-----------------------------------------------
 
-file : ./test/kernel/fs/ocfs2/alloc.c 
-for(i = 0; i < le16_to_cpu(el->l_next_free_rec); i++) { 
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
 
-file : ./test/kernel/fs/ocfs2/alloc.c 
-for(i = count;  i < (num_got + count); i++) { 
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function is in the table.
 
-file : ./test/kernel/fs/ocfs2/alloc.c 
-for(i = 0; i < wanted; i++) { 
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
 
-file : ./test/kernel/fs/ocfs2/alloc.c 
-for(i = 0; i < new_blocks; i++) { 
+     self	This is the total amount of time spent in this function.
 
-file : ./test/kernel/fs/ocfs2/alloc.c 
-for(i = 0; i < (next_free - 1); i++) 
+     children	This is the total amount of time propagated into this
+		function by its children.
 
-file : ./test/kernel/fs/ocfs2/alloc.c 
-for(i = 0; i < next_free; i++) { 
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
 
-file : ./test/kernel/fs/ocfs2/alloc.c 
-for(i = 0; i < le16_to_cpu(el->l_next_free_rec) - 1; i++) { 
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
 
-file : ./test/kernel/fs/ocfs2/alloc.c 
-for(i = 0; i < le16_to_cpu(root_el->l_next_free_rec) - 1; i++) { 
 
-file : ./test/kernel/fs/ocfs2/alloc.c 
-for(i = left_path->p_tree_depth - 1; i > subtree_index; i--) { 
+ For the function's parents, the fields have the following meanings:
 
-file : ./test/kernel/fs/ocfs2/alloc.c 
-for(i = subtree_index + 1; i < path_num_items(right_path); i++) { 
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
 
-file : ./test/kernel/fs/ocfs2/alloc.c 
-for(j = 0; j < le16_to_cpu(el->l_next_free_rec); j++) { 
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
 
-file : ./test/kernel/fs/ocfs2/alloc.c 
-for(i = unlink_start; i < path_num_items(path); i++) { 
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
 
-file : ./test/kernel/fs/ocfs2/alloc.c 
-for(i = 1; i < le16_to_cpu(root_el->l_next_free_rec); i++) 
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
 
-file : ./test/kernel/fs/ocfs2/alloc.c 
-for(i = subtree_index + 1; i < path_num_items(right_path); i++) { 
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
 
-file : ./test/kernel/fs/ocfs2/alloc.c 
-for(j = 0; j < le16_to_cpu(el->l_next_free_rec); j++) { 
+ For the function's children, the fields have the following meanings:
 
-file : ./test/kernel/fs/ocfs2/alloc.c 
-for(i = 0; i < le16_to_cpu(el->l_next_free_rec); i++) { 
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
 
-file : ./test/kernel/fs/ocfs2/alloc.c 
-for(i = 0; i < num_recs; i++) { 
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
 
-file : ./test/kernel/fs/ocfs2/alloc.c 
-for(i = 0; i < numpages; i++) { 
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
 
-fname : ./test/kernel/fs/ocfs2/sysfile.c
-fname : ./test/kernel/fs/ocfs2/dlm/dlmconvert.h
-fname : ./test/kernel/fs/ocfs2/dlm/dlmcommon.h
-fname : ./test/kernel/fs/ocfs2/dlm/dlmrecovery.c
-fname : ./test/kernel/fs/ocfs2/dlm/dlmapi.h
-fname : ./test/kernel/fs/ocfs2/dlm/dlmunlock.c
-fname : ./test/kernel/fs/ocfs2/dlm/dlmdebug.h
-fname : ./test/kernel/fs/ocfs2/dlm/dlmdebug.c
-fname : ./test/kernel/fs/ocfs2/dlm/dlmconvert.c
-fname : ./test/kernel/fs/ocfs2/dlm/dlmthread.c
-fname : ./test/kernel/fs/ocfs2/dlm/dlmdomain.h
-fname : ./test/kernel/fs/ocfs2/dlm/dlmlock.c
-fname : ./test/kernel/fs/ocfs2/dlm/dlmast.c
-fname : ./test/kernel/fs/ocfs2/dlm/dlmmaster.c
-fname : ./test/kernel/fs/ocfs2/dlm/dlmdomain.c
-fname : ./test/kernel/fs/ocfs2/journal.h
-fname : ./test/kernel/fs/ocfs2/sysfile.h
-fname : ./test/kernel/fs/ocfs2/mmap.c
-fname : ./test/kernel/fs/ocfs2/uptodate.c
-fname : ./test/kernel/fs/ocfs2/locks.c
-fname : ./test/kernel/fs/ocfs2/quota_global.c
-fname : ./test/kernel/fs/ocfs2/symlink.c
-fname : ./test/kernel/fs/ocfs2/heartbeat.c
-fname : ./test/kernel/fs/ocfs2/dcache.h
-fname : ./test/kernel/fs/ocfs2/buffer_head_io.c
-fname : ./test/kernel/fs/ocfs2/namei.h
-fname : ./test/kernel/fs/ocfs2/journal.c
-file : ./test/kernel/fs/ocfs2/journal.c 
-for(i = 0; i < p_blocks; i++) { 
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
 
-file : ./test/kernel/fs/ocfs2/journal.c 
-for(i = 0; i < CONCURRENT_JOURNAL_FILL; i++) 
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+Copyright (C) 2012 Free Software Foundation, Inc.
 
-file : ./test/kernel/fs/ocfs2/journal.c 
-for(slot = 0; slot < osb->max_slots; slot++) { 
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+Index by function name
 
-fname : ./test/kernel/fs/ocfs2/buffer_head_io.h
-fname : ./test/kernel/fs/ocfs2/blockcheck.c
-fname : ./test/kernel/fs/ocfs2/ocfs1_fs_compat.h
-fname : ./test/kernel/fs/ocfs2/ocfs2_lockid.h
-fname : ./test/kernel/fs/ocfs2/aops.h
-fname : ./test/kernel/fs/ocfs2/export.c
-fname : ./test/kernel/fs/ocfs2/dcache.c
-fname : ./test/kernel/fs/ocfs2/uptodate.h
-fname : ./test/kernel/fs/ocfs2/refcounttree.c
-fname : ./test/kernel/fs/ocfs2/localalloc.h
-fname : ./test/kernel/fs/ocfs2/ocfs2.h
-fname : ./test/kernel/fs/ocfs2/dlmglue.c
-file : ./test/kernel/fs/ocfs2/dlmglue.c 
-for(i = 0; i < DLM_LVB_LEN; i++) 
-
-fname : ./test/kernel/fs/ocfs2/acl.h
-fname : ./test/kernel/fs/ocfs2/aops.c
-file : ./test/kernel/fs/ocfs2/aops.c 
-for(i = 0; i < num_pages; i++) { 
-
-file : ./test/kernel/fs/ocfs2/aops.c 
-for(i = 0; i < wc->w_num_pages; i++) { 
-
-file : ./test/kernel/fs/ocfs2/aops.c 
-for(i = 0; i < wc->w_num_pages; i++) { 
-
-file : ./test/kernel/fs/ocfs2/aops.c 
-for(i = 0; i < wc->w_num_pages; i++) { 
-
-file : ./test/kernel/fs/ocfs2/aops.c 
-for(i = 0; i < wc->w_num_pages; i++) { 
-
-fname : ./test/kernel/fs/ocfs2/acl.c
-fname : ./test/kernel/fs/ocfs2/resize.c
-fname : ./test/kernel/fs/ocfs2/super.c
-fname : ./test/kernel/fs/ocfs2/quota_local.c
-fname : ./test/kernel/fs/ocfs2/ocfs2_lockingver.h
-fname : ./test/kernel/fs/ocfs2/xattr.h
-fname : ./test/kernel/fs/ocfs2/ioctl.h
-fname : ./test/kernel/fs/ocfs2/stack_user.c
-fname : ./test/kernel/fs/ocfs2/suballoc.c
-file : ./test/kernel/fs/ocfs2/suballoc.c 
-for(i = 0; i < fe->id2.i_chain.cl_next_free_rec; i++) { 
-
-fname : ./test/kernel/fs/ocfs2/resize.h
-fname : ./test/kernel/fs/ocfs2/cluster/heartbeat.h
-fname : ./test/kernel/fs/ocfs2/cluster/netdebug.c
-fname : ./test/kernel/fs/ocfs2/cluster/sys.h
-fname : ./test/kernel/fs/ocfs2/cluster/masklog.c
-fname : ./test/kernel/fs/ocfs2/cluster/quorum.c
-fname : ./test/kernel/fs/ocfs2/cluster/heartbeat.c
-file : ./test/kernel/fs/ocfs2/cluster/heartbeat.c 
-for(i = 0; !reg->hr_unclean_stop && i < reg->hr_blocks; i++) 
-
-file : ./test/kernel/fs/ocfs2/cluster/heartbeat.c 
-for(i = 0; i < reg->hr_blocks; i++) { 
-
-file : ./test/kernel/fs/ocfs2/cluster/heartbeat.c 
-for(i = 0; i < reg->hr_num_pages; i++) { 
-
-file : ./test/kernel/fs/ocfs2/cluster/heartbeat.c 
-for(i = 0; i < reg->hr_blocks; i++) { 
-
-fname : ./test/kernel/fs/ocfs2/cluster/masklog.h
-fname : ./test/kernel/fs/ocfs2/cluster/tcp.c
-fname : ./test/kernel/fs/ocfs2/cluster/quorum.h
-fname : ./test/kernel/fs/ocfs2/cluster/ocfs2_heartbeat.h
-fname : ./test/kernel/fs/ocfs2/cluster/tcp.h
-fname : ./test/kernel/fs/ocfs2/cluster/sys.c
-fname : ./test/kernel/fs/ocfs2/cluster/ocfs2_nodemanager.h
-fname : ./test/kernel/fs/ocfs2/cluster/nodemanager.c
-fname : ./test/kernel/fs/ocfs2/cluster/nodemanager.h
-fname : ./test/kernel/fs/ocfs2/cluster/tcp_internal.h
-fname : ./test/kernel/fs/ocfs2/export.h
-fname : ./test/kernel/fs/ocfs2/xattr.c
-fname : ./test/kernel/fs/ocfs2/extent_map.h
-fname : ./test/kernel/fs/ocfs2/locks.h
-fname : ./test/kernel/fs/ocfs2/alloc.h
-fname : ./test/kernel/fs/ocfs2/blockcheck.h
-fname : ./test/kernel/fs/ocfs2/dlmfs/userdlm.h
-fname : ./test/kernel/fs/ocfs2/dlmfs/dlmfs.c
-fname : ./test/kernel/fs/ocfs2/dlmfs/userdlm.c
-fname : ./test/kernel/fs/ocfs2/file.h
-fname : ./test/kernel/fs/ocfs2/move_extents.h
-fname : ./test/kernel/fs/ocfs2/reservations.c
-fname : ./test/kernel/fs/ocfs2/localalloc.c
-file : ./test/kernel/fs/ocfs2/localalloc.c 
-for(i = 0; i < le16_to_cpu(la->la_size); i++) 
-
-fname : ./test/kernel/fs/lockd/xdr.c
-fname : ./test/kernel/fs/lockd/clnt4xdr.c
-fname : ./test/kernel/fs/lockd/svclock.c
-fname : ./test/kernel/fs/lockd/grace.c
-fname : ./test/kernel/fs/lockd/clntproc.c
-file : ./test/kernel/fs/lockd/clntproc.c 
-for(;;) { 
-
-file : ./test/kernel/fs/lockd/clntproc.c 
-for(;;) { 
-
-fname : ./test/kernel/fs/lockd/clntlock.c
-fname : ./test/kernel/fs/lockd/clntxdr.c
-fname : ./test/kernel/fs/lockd/svcproc.c
-fname : ./test/kernel/fs/lockd/svcshare.c
-fname : ./test/kernel/fs/lockd/host.c
-fname : ./test/kernel/fs/lockd/xdr4.c
-fname : ./test/kernel/fs/lockd/mon.c
-fname : ./test/kernel/fs/lockd/svc.c
-fname : ./test/kernel/fs/lockd/svcsubs.c
-fname : ./test/kernel/fs/lockd/svc4proc.c
-fname : ./test/kernel/fs/lockd/netns.h
-fname : ./test/kernel/fs/bfs/file.c
-fname : ./test/kernel/fs/bfs/dir.c
-fname : ./test/kernel/fs/bfs/inode.c
-fname : ./test/kernel/fs/bfs/bfs.h
-fname : ./test/kernel/fs/nfs/callback_xdr.c
-fname : ./test/kernel/fs/nfs/getroot.c
-fname : ./test/kernel/fs/nfs/nfs3xdr.c
-fname : ./test/kernel/fs/nfs/file.c
-fname : ./test/kernel/fs/nfs/pnfs.h
-fname : ./test/kernel/fs/nfs/nfs4session.c
-fname : ./test/kernel/fs/nfs/nfs4super.c
-fname : ./test/kernel/fs/nfs/pagelist.c
-fname : ./test/kernel/fs/nfs/namespace.c
-fname : ./test/kernel/fs/nfs/unlink.c
-fname : ./test/kernel/fs/nfs/dir.c
-fname : ./test/kernel/fs/nfs/nfsroot.c
-fname : ./test/kernel/fs/nfs/inode.c
-fname : ./test/kernel/fs/nfs/nfs4renewd.c
-fname : ./test/kernel/fs/nfs/nfs3proc.c
-fname : ./test/kernel/fs/nfs/fscache-index.c
-fname : ./test/kernel/fs/nfs/nfs4trace.c
-fname : ./test/kernel/fs/nfs/nfs4_fs.h
-fname : ./test/kernel/fs/nfs/read.c
-fname : ./test/kernel/fs/nfs/fscache.h
-fname : ./test/kernel/fs/nfs/nfs4sysctl.c
-fname : ./test/kernel/fs/nfs/dns_resolve.h
-fname : ./test/kernel/fs/nfs/nfs3acl.c
-fname : ./test/kernel/fs/nfs/symlink.c
-fname : ./test/kernel/fs/nfs/internal.h
-fname : ./test/kernel/fs/nfs/nfs3super.c
-fname : ./test/kernel/fs/nfs/cache_lib.h
-fname : ./test/kernel/fs/nfs/pnfs.c
-fname : ./test/kernel/fs/nfs/objlayout/objlayout.c
-fname : ./test/kernel/fs/nfs/objlayout/objio_osd.c
-fname : ./test/kernel/fs/nfs/objlayout/objlayout.h
-fname : ./test/kernel/fs/nfs/objlayout/pnfs_osd_xdr_cli.c
-fname : ./test/kernel/fs/nfs/callback.h
-fname : ./test/kernel/fs/nfs/idmap.c
-fname : ./test/kernel/fs/nfs/cache_lib.c
-fname : ./test/kernel/fs/nfs/delegation.h
-fname : ./test/kernel/fs/nfs/nfs2xdr.c
-fname : ./test/kernel/fs/nfs/nfs4state.c
-file : ./test/kernel/fs/nfs/nfs4state.c 
-for(;;) { 
-
-fname : ./test/kernel/fs/nfs/fscache.c
-fname : ./test/kernel/fs/nfs/nfs.h
-fname : ./test/kernel/fs/nfs/proc.c
-fname : ./test/kernel/fs/nfs/callback.c
-fname : ./test/kernel/fs/nfs/nfs4session.h
-fname : ./test/kernel/fs/nfs/mount_clnt.c
-fname : ./test/kernel/fs/nfs/nfs3client.c
-fname : ./test/kernel/fs/nfs/super.c
-fname : ./test/kernel/fs/nfs/iostat.h
-fname : ./test/kernel/fs/nfs/nfstrace.c
-fname : ./test/kernel/fs/nfs/nfs4proc.c
-file : ./test/kernel/fs/nfs/nfs4proc.c 
-for(; rc > 0; rc--) 
-
-fname : ./test/kernel/fs/nfs/nfs4getroot.c
-fname : ./test/kernel/fs/nfs/blocklayout/extents.c
-fname : ./test/kernel/fs/nfs/blocklayout/blocklayoutdm.c
-fname : ./test/kernel/fs/nfs/blocklayout/blocklayout.h
-fname : ./test/kernel/fs/nfs/blocklayout/blocklayout.c
-fname : ./test/kernel/fs/nfs/blocklayout/blocklayoutdev.c
-fname : ./test/kernel/fs/nfs/direct.c
-fname : ./test/kernel/fs/nfs/delegation.c
-fname : ./test/kernel/fs/n
+  [10] add_lnode              [11] init_list               [2] read_code
+   [4] cheek_code_line         [6] init_lnode             [12] read_file_code
+   [7] close_file_info         [5] next_lnode              [3] read_split
+   [8] init_file_struct        [9] open_file
