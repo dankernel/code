@@ -211,10 +211,11 @@ void *analysis_code_thread(void *a)
   while (f_name) {
 
     /* Read file */
-    result = read_code(f_name);
-    free(result);
+    //result = read_code(f_name);
+    //free(result);
     
     printf("fname : %s\n", f_name);
+
     /* Next, Pic one file */
     pthread_mutex_lock(mutex);
     f_name = read_split(f_list, '\n');
@@ -223,7 +224,8 @@ void *analysis_code_thread(void *a)
   }
   
 end:
-  close_file_info(f_list);
+
+  pthread_exit((void *)0);
 
 }
 
@@ -296,6 +298,8 @@ int read_file_code(char *path)
   pthread_join(pthread[1], (void *)arg);
   // pthread_join(pthread[2], (void *)arg);
   // pthread_join(pthread[3], (void *)arg);
+
+  close_file_info(file_list);
 
   return 0;
 }/*}}}*/
