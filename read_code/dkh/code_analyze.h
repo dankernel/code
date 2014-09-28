@@ -220,8 +220,9 @@ void *analysis_code_thread(void *a)
   while (f_name) {
 
     /* Read file */
-    printf("fname : %s\n", f_name);
-    read_code(f_name);
+    printf("%d : %s\n", pthread_self(), f_name);
+    if (f_list)
+      read_code(f_name);
     // free(result);
 
     /* Next, Pic one file */
