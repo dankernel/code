@@ -17,11 +17,11 @@
  */
 
 
+#include <pthread.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 #include <fcntl.h>
-#include <pthread.h>
 
 #include "file_read.h"
 #include "print_msg.h"
@@ -203,7 +203,9 @@ void *analysis_code_thread(void *a)
   mutex = arg->mutex;
 
   /* Pic one file */
+  pthread_mutex_lock(mutex);
   f_name = read_split(f_list, '\n');
+  pthread_mutex_unlock(mutex);
 
   while (f_name) {
 
@@ -212,7 +214,9 @@ void *analysis_code_thread(void *a)
     free(result);
 
     /* Next, Pic one file */
+    pthread_mutex_lock(mutex);
     f_name = read_split(f_list, '\n');
+    pthread_mutex_unlock(mutex);
 
   }
   
@@ -273,7 +277,7 @@ int read_file_code(char *path)
 
   /* mutex */
   pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
-  pthread_t pthread[2];
+  pthread_t pthread[4];
 
   struct analysis_arg *arg = NULL;
   arg = (struct analysis_arg*)malloc(sizeof(struct analysis_arg));
@@ -283,9 +287,13 @@ int read_file_code(char *path)
 
   pthread_create(&pthread[0], NULL, analysis_code_thread, (void *)arg);
   pthread_create(&pthread[1], NULL, analysis_code_thread, (void *)arg);
+  pthread_create(&pthread[2], NULL, analysis_code_thread, (void *)arg);
+  pthread_create(&pthread[3], NULL, analysis_code_thread, (void *)arg);
 
   pthread_join(pthread[0], (void *)arg);
   pthread_join(pthread[1], (void *)arg);
+  pthread_join(pthread[2], (void *)arg);
+  pthread_join(pthread[3], (void *)arg);
 
   return 0;
 }/*}}}*/
