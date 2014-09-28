@@ -206,13 +206,12 @@ void *analysis_code_thread(void *a)
   pthread_mutex_lock(mutex);
   f_name = read_split(f_list, '\n');
   pthread_mutex_unlock(mutex);
-  printf("1 %d : %d \n", getpid(), pthread_self);
 
   while (f_name) {
 
     /* Read file */
     printf("fname : %s\n", f_name);
-    read_code(f_name);
+    // read_code(f_name);
     // free(result);
 
     /* Next, Pic one file */
