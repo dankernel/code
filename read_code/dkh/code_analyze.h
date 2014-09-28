@@ -211,10 +211,9 @@ void *analysis_code_thread(void *a)
   while (f_name) {
 
     /* Read file */
-    //result = read_code(f_name);
-    //free(result);
-    
     printf("fname : %s\n", f_name);
+    read_code(f_name);
+    // free(result);
 
     /* Next, Pic one file */
     pthread_mutex_lock(mutex);
@@ -225,6 +224,7 @@ void *analysis_code_thread(void *a)
   
 end:
 
+  printf("end!!!!!\n");
   pthread_exit((void *)0);
 
 }
