@@ -206,17 +206,19 @@ void *analysis_code_thread(void *a)
   pthread_mutex_lock(mutex);
   f_name = read_split(f_list, '\n');
   pthread_mutex_unlock(mutex);
+  printf("1\n");
 
   while (f_name) {
 
     /* Read file */
     result = read_code(f_name);
     free(result);
-
+    
+    printf("fname : %s\n", f_name);
     /* Next, Pic one file */
-    // pthread_mutex_lock(mutex);
+    pthread_mutex_lock(mutex);
     f_name = read_split(f_list, '\n');
-    // pthread_mutex_unlock(mutex);
+    pthread_mutex_unlock(mutex);
 
   }
   
@@ -287,13 +289,13 @@ int read_file_code(char *path)
 
   pthread_create(&pthread[0], NULL, analysis_code_thread, (void *)arg);
   pthread_create(&pthread[1], NULL, analysis_code_thread, (void *)arg);
-  pthread_create(&pthread[2], NULL, analysis_code_thread, (void *)arg);
-  pthread_create(&pthread[3], NULL, analysis_code_thread, (void *)arg);
-
+  // pthread_create(&pthread[2], NULL, analysis_code_thread, (void *)arg);
+  // pthread_create(&pthread[3], NULL, analysis_code_thread, (void *)arg);
+  
   pthread_join(pthread[0], (void *)arg);
   pthread_join(pthread[1], (void *)arg);
-  pthread_join(pthread[2], (void *)arg);
-  pthread_join(pthread[3], (void *)arg);
+  // pthread_join(pthread[2], (void *)arg);
+  // pthread_join(pthread[3], (void *)arg);
 
   return 0;
 }/*}}}*/

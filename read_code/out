@@ -3,18 +3,16 @@ Flat profile:
 Each sample counts as 0.01 seconds.
   %   cumulative   self              self     total           
  time   seconds   seconds    calls  us/call  us/call  name    
- 80.17      2.17     2.17 17209957     0.13     0.13  init_file_struct
-  7.02      2.36     0.19 39703622     0.00     0.00  read_split
-  6.65      2.54     0.18    36860     4.89    10.04  print_node
-  2.22      2.60     0.06 17136236     0.00     0.00  next_lnode
-  1.85      2.65     0.05                             open_file
-  1.48      2.69     0.04                             list_str
-  0.74      2.71     0.02                             print_list
-  0.00      2.71     0.00    73720     0.00     0.00  close_file_info
-  0.00      2.71     0.00    36861     0.00     0.00  __do_global_dtors_aux
-  0.00      2.71     0.00    36861     0.00     0.00  _init
-  0.00      2.71     0.00    36861     0.00     0.00  register_tm_clones
-  0.00      2.71     0.00        1     0.00     0.13  cheek_code_line
+ 83.10      2.15     2.15 17209957     0.13     0.13  read_split
+  6.57      2.32     0.17 39629902     0.00     0.00  next_lnode
+  6.57      2.49     0.17 17136236     0.01     0.02  cheek_code_line
+  2.71      2.56     0.07    36860     1.90    70.22  read_code
+  0.77      2.58     0.02    36861     0.54     0.54  close_file_info
+  0.39      2.59     0.01    36860     0.27     0.27  add_lnode
+  0.00      2.59     0.00    73720     0.00     0.00  init_lnode
+  0.00      2.59     0.00    36861     0.00     0.00  init_file_struct
+  0.00      2.59     0.00    36861     0.00     0.00  open_file
+  0.00      2.59     0.00    36860     0.00     0.00  init_list
 
  %         the percentage of the total running time of the
 time       program used by this function.
@@ -52,68 +50,66 @@ notice and this notice are preserved.
 		     Call graph (explanation follows)
 
 
-granularity: each sample hit covers 2 byte(s) for 0.37% of 2.71 seconds
+granularity: each sample hit covers 2 byte(s) for 0.39% of 2.59 seconds
 
 index % time    self  children    called     name
                                                  <spontaneous>
-[1]     81.2    0.04    2.16                 list_str [1]
-                2.16    0.00 17136236/17209957     init_file_struct [2]
-                0.00    0.00   36860/36861       __do_global_dtors_aux [26]
+[1]    100.0    0.00    2.59                 analysis_code_thread [1]
+                0.07    2.52   36860/36860       read_code [2]
+                0.00    0.00   36861/17209957     read_split [3]
 -----------------------------------------------
-                0.00    0.00       1/17209957     cheek_code_line [9]
-                0.00    0.00   36860/17209957     print_list [6]
-                0.00    0.00   36860/17209957     read_code [3]
-                2.16    0.00 17136236/17209957     list_str [1]
-[2]     80.1    2.17    0.00 17209957         init_file_struct [2]
+                0.07    2.52   36860/36860       analysis_code_thread [1]
+[2]     99.8    0.07    2.52   36860         read_code [2]
+                2.15    0.00 17173096/17209957     read_split [3]
+                0.17    0.17 17136236/17136236     cheek_code_line [4]
+                0.02    0.00   36860/36861       close_file_info [6]
+                0.01    0.00   36860/36860       add_lnode [7]
+                0.00    0.00   36860/36860       init_list [12]
+                0.00    0.00   36860/36861       init_file_struct [10]
 -----------------------------------------------
-                                                 <spontaneous>
-[3]     13.8    0.00    0.37                 read_code [3]
-                0.18    0.19   36860/36860       print_node [4]
-                0.00    0.00   36860/17209957     init_file_struct [2]
-                0.00    0.00       1/1           cheek_code_line [9]
-                0.00    0.00       1/36861       __do_global_dtors_aux [26]
+                0.00    0.00   36861/17209957     analysis_code_thread [1]
+                2.15    0.00 17173096/17209957     read_code [2]
+[3]     83.0    2.15    0.00 17209957         read_split [3]
 -----------------------------------------------
-                0.18    0.19   36860/36860       read_code [3]
-[4]     13.6    0.18    0.19   36860         print_node [4]
-                0.19    0.00 39629902/39703622     read_split [5]
+                0.17    0.17 17136236/17136236     read_code [2]
+[4]     13.1    0.17    0.17 17136236         cheek_code_line [4]
+                0.17    0.00 39629902/39629902     next_lnode [5]
 -----------------------------------------------
-                0.00    0.00   73720/39703622     print_list [6]
-                0.19    0.00 39629902/39703622     print_node [4]
-[5]      7.0    0.19    0.00 39703622         read_split [5]
-                0.00    0.00   73720/73720       close_file_info [10]
+                0.17    0.00 39629902/39629902     cheek_code_line [4]
+[5]      6.6    0.17    0.00 39629902         next_lnode [5]
 -----------------------------------------------
-                                                 <spontaneous>
-[6]      3.1    0.02    0.07                 print_list [6]
-                0.06    0.00 17136236/17136236     next_lnode [7]
-                0.00    0.00   36860/17209957     init_file_struct [2]
-                0.00    0.00   73720/39703622     read_split [5]
-                0.00    0.00   36860/36861       _init [27]
+                0.00    0.00       1/36861       get_file_line [8]
+                0.02    0.00   36860/36861       read_code [2]
+[6]      0.8    0.02    0.00   36861         close_file_info [6]
 -----------------------------------------------
-                0.06    0.00 17136236/17136236     print_list [6]
-[7]      2.2    0.06    0.00 17136236         next_lnode [7]
+                0.01    0.00   36860/36860       read_code [2]
+[7]      0.4    0.01    0.00   36860         add_lnode [7]
+                0.00    0.00   36860/73720       init_lnode [9]
 -----------------------------------------------
                                                  <spontaneous>
-[8]      1.8    0.05    0.00                 open_file [8]
+[8]      0.0    0.00    0.00                 get_file_line [8]
+                0.00    0.00       1/36861       close_file_info [6]
 -----------------------------------------------
-                0.00    0.00       1/1           read_code [3]
-[9]      0.0    0.00    0.00       1         cheek_code_line [9]
-                0.00    0.00       1/17209957     init_file_struct [2]
-                0.00    0.00       1/36861       _init [27]
+                0.00    0.00   36860/73720       init_list [12]
+                0.00    0.00   36860/73720       add_lnode [7]
+[9]      0.0    0.00    0.00   73720         init_lnode [9]
 -----------------------------------------------
-                0.00    0.00   73720/73720       read_split [5]
-[10]     0.0    0.00    0.00   73720         close_file_info [10]
+                0.00    0.00       1/36861       read_file_code [22]
+                0.00    0.00   36860/36861       read_code [2]
+[10]     0.0    0.00    0.00   36861         init_file_struct [10]
+                0.00    0.00   36861/36861       open_file [11]
 -----------------------------------------------
-                0.00    0.00   36861/36861       _init [27]
-[11]     0.0    0.00    0.00   36861         register_tm_clones [11]
+                0.00    0.00   36861/36861       init_file_struct [10]
+[11]     0.0    0.00    0.00   36861         open_file [11]
 -----------------------------------------------
-                0.00    0.00       1/36861       read_code [3]
-                0.00    0.00   36860/36861       list_str [1]
-[26]     0.0    0.00    0.00   36861         __do_global_dtors_aux [26]
+                0.00    0.00   36860/36860       read_code [2]
+[12]     0.0    0.00    0.00   36860         init_list [12]
+                0.00    0.00   36860/73720       init_lnode [9]
 -----------------------------------------------
-                0.00    0.00       1/36861       cheek_code_line [9]
-                0.00    0.00   36860/36861       print_list [6]
-[27]     0.0    0.00    0.00   36861         _init [27]
-                0.00    0.00   36861/36861       register_tm_clones [11]
+                                   1             read_file_code [22]
+[22]     0.0    0.00    0.00       0+1       read_file_code [22]
+                0.00    0.00       1/36861       init_file_struct [10]
+                                   1             read_file_code [22]
 -----------------------------------------------
 
  This table describes the call tree of the program, and was sorted by
@@ -206,7 +202,7 @@ notice and this notice are preserved.
 
 Index by function name
 
-  [26] __do_global_dtors_aux   [2] init_file_struct        [6] print_list
-  [27] _init                   [1] list_str                [4] print_node
-   [9] cheek_code_line         [7] next_lnode              [5] read_split
-  [10] close_file_info         [8] open_file              [11] register_tm_clones
+   [7] add_lnode              [12] init_list               [2] read_code
+   [4] cheek_code_line         [9] init_lnode              [3] read_split
+   [6] close_file_info         [5] next_lnode
+  [10] init_file_struct       [11] open_file
