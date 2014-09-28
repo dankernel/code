@@ -164,16 +164,14 @@ struct code_info *read_code(char *path)
   buf = read_split(tmp_file, '\n');
   while (buf) {
 
-    char *tmp = NULL;
-    if (tmp = cheek_code_line(buf, list, KEYWORD_NEXT_PARENTHESES)) {
-
-      printf("== %s\n", buf);
-
-      /* print */
-      printf("file : %s \n", path);
-      printf("%s \n\n", tmp);
-
-    }
+    // char *tmp = NULL;
+    // if (tmp = cheek_code_line(buf, list, KEYWORD_NEXT_PARENTHESES)) {
+    //
+    //   /* print */
+    //   printf("file : %s \n", path);
+    //   printf("%s \n\n", tmp);
+    //
+    // }
 
     /* get next one line */
     buf = read_split(tmp_file, '\n');
@@ -213,7 +211,7 @@ void *analysis_code_thread(void *a)
   while (f_name) {
 
     /* Read file */
-    // printf("fname : %s\n", f_name);
+    printf("fname : %s\n", f_name);
     read_code(f_name);
     // free(result);
 
@@ -225,8 +223,6 @@ void *analysis_code_thread(void *a)
   }
   
 end:
-
-  pthread_mutex_unlock(mutex);
   printf("end!!!!!\n");
   pthread_exit((void *)0);
 
