@@ -205,32 +205,30 @@ void *analysis_code_thread(void *a)
   if (!a)
     goto end;
 
-  arg = (struct analysis_arg*)a;
+  printf("TID : %u\n", gettid());
 
-  /* get struxt node */
+  /* get struct node */
+  arg = (struct analysis_arg*)a;
   f_name = arg->f_name;
   f_list = arg->f_list;
   mutex = arg->mutex;
 
   /* Pic one file */
-  // pthread_mutex_lock(mutex);
+  pthread_mutex_lock(mutex);
   f_name = read_split(f_list, '\n');
-  // pthread_mutex_unlock(mutex);
+  pthread_mutex_unlock(mutex);
 
   while (f_list && f_name) {
 
     /* Read file */
-    printf("%u : %s\n", pthread_self(), f_name);
+    printf("%u : %d : %s \n", gettid()%4, thread_count++, f_name);
     read_code(f_name);
     // free(result);
 
     /* Next, Pic one file */
-
-    printf("%u : %d \n", pthread_self(), thread_count++);
-
-    // pthread_mutex_lock(mutex);
+    pthread_mutex_lock(mutex);
     f_name = read_split(f_list, '\n');
-    // pthread_mutex_unlock(mutex);
+    pthread_mutex_unlock(mutex);
 
   }
 
