@@ -291,12 +291,12 @@ int read_file_code(char *path)
 
   pthread_create(&pthread[0], NULL, analysis_code_thread, (void *)arg);
   pthread_create(&pthread[1], NULL, analysis_code_thread, (void *)arg);
-  // pthread_create(&pthread[2], NULL, analysis_code_thread, (void *)arg);
+  pthread_create(&pthread[2], NULL, analysis_code_thread, (void *)arg);
   // pthread_create(&pthread[3], NULL, analysis_code_thread, (void *)arg);
   
   pthread_join(pthread[0], (void *)arg);
   pthread_join(pthread[1], (void *)arg);
-  // pthread_join(pthread[2], (void *)arg);
+  pthread_join(pthread[2], (void *)arg);
   // pthread_join(pthread[3], (void *)arg);
 
   close_file_info(file_list);
