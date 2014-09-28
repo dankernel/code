@@ -214,9 +214,9 @@ void *analysis_code_thread(void *a)
     free(result);
 
     /* Next, Pic one file */
-    pthread_mutex_lock(mutex);
+    // pthread_mutex_lock(mutex);
     f_name = read_split(f_list, '\n');
-    pthread_mutex_unlock(mutex);
+    // pthread_mutex_unlock(mutex);
 
   }
   
