@@ -21,6 +21,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <fcntl.h>
+#include <pthread.h>
 
 #include "file_read.h"
 #include "print_msg.h"
@@ -182,25 +183,27 @@ struct code_info *read_code(char *path)
   return c_info;
 }/*}}}*/
 
-void *analysis_code_thread(void *arg)
+void *analysis_code_thread(void *a)
 {
-  // struct analysis_arg *arg;
+  struct analysis_arg *arg;
 
   char *f_name;
   struct file_info *f_list;
   struct code_info *result;
   pthread_mutex_t *mutex;
 
-  if (!arg)
-    return -EARG_NULL;
+  if (!a)
+    goto end;
+
+  arg = (struct analysis_arg*)a;
 
   /* get struxt node */
   f_name = arg->f_name;
-  f_liat = arg->f_list;
+  f_list = arg->f_list;
   mutex = arg->mutex;
 
   /* Pic one file */
-  file = read_split(file_list, '\n');
+  f_name = read_split(f_list, '\n');
 
   while (f_name) {
 
@@ -213,7 +216,8 @@ void *analysis_code_thread(void *arg)
 
   }
   
-  close_file_info(file_list);
+end:
+  close_file_info(f_list);
 
 }
 
@@ -268,20 +272,20 @@ int read_file_code(char *path)
   init_file_struct(file_list, path);
 
   /* mutex */
-  pthread_mutex_t *mutex = PTHREAD_MUTEX_INITIALIZER;
-  pthread_t thread[2];
+  pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
+  pthread_t pthread[2];
 
   struct analysis_arg *arg = NULL;
   arg = (struct analysis_arg*)malloc(sizeof(struct analysis_arg));
   arg->f_name = NULL;
   arg->f_list = file_list;
-  arg->mutex = mutex;
+  arg->mutex = &mutex;
 
-  pthread_create(thread[0], NULL, analysis_arg, (void *)arg);
-  pthread_create(thread[1], NULL, analysis_arg, (void *)arg);
+  pthread_create(&pthread[0], NULL, analysis_code_thread, (void *)arg);
+  pthread_create(&pthread[1], NULL, analysis_code_thread, (void *)arg);
 
-  pthread_join(thread[0], (void *)arg);
-  pthread_join(thread[1], (void *)arg);
+  pthread_join(pthread[0], (void *)arg);
+  pthread_join(pthread[1], (void *)arg);
 
   return 0;
 }/*}}}*/

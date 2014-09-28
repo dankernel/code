@@ -1,0 +1,7 @@
+/tmp/ccFq63Wc.o: In function `read_file_code':
+main.c:(.text+0xbb2): undefined reference to `pthread_create'
+main.c:(.text+0xbd0): undefined reference to `pthread_create'
+main.c:(.text+0xbe3): undefined reference to `pthread_join'
+main.c:(.text+0xbf6): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+./compile.sh: line 2: ./main: 그런 파일이나 디렉터리가 없습니다

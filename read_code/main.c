@@ -20,9 +20,6 @@
 #include <string.h>
 #include <fcntl.h>
 
-/* Mutex */
-#include <pthread.h>
-
 #include "dkh/code_analyze.h"
 
 int main(int argc, char* argv[])
