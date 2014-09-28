@@ -213,9 +213,9 @@ void *analysis_code_thread(void *a)
   mutex = arg->mutex;
 
   /* Pic one file */
-  pthread_mutex_lock(mutex);
+  // pthread_mutex_lock(mutex);
   f_name = read_split(f_list, '\n');
-  pthread_mutex_unlock(mutex);
+  // pthread_mutex_unlock(mutex);
 
   while (f_list && f_name) {
 
@@ -228,9 +228,9 @@ void *analysis_code_thread(void *a)
 
     printf("%u : %d \n", pthread_self(), thread_count++);
 
-    pthread_mutex_lock(mutex);
+    // pthread_mutex_lock(mutex);
     f_name = read_split(f_list, '\n');
-    pthread_mutex_unlock(mutex);
+    // pthread_mutex_unlock(mutex);
 
   }
 
