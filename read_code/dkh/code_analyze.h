@@ -167,6 +167,8 @@ struct code_info *read_code(char *path)
     char *tmp = NULL;
     if (tmp = cheek_code_line(buf, list, KEYWORD_NEXT_PARENTHESES)) {
 
+      printf("== %s\n", buf);
+
       /* print */
       printf("file : %s \n", path);
       printf("%s \n\n", tmp);
@@ -211,8 +213,8 @@ void *analysis_code_thread(void *a)
   while (f_name) {
 
     /* Read file */
-    printf("fname : %s\n", f_name);
-    // read_code(f_name);
+    // printf("fname : %s\n", f_name);
+    read_code(f_name);
     // free(result);
 
     /* Next, Pic one file */
