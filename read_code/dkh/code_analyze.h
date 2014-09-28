@@ -216,7 +216,10 @@ void *analysis_code_thread(void *a)
 
     /* Next, Pic one file */
     pthread_mutex_lock(mutex);
-    f_name = read_split(f_list, '\n');
+    if (f_list->seek > 0) {
+      printf("%d : %d\n",gettid(), f_list->seek);
+      f_name = read_split(f_list, '\n');
+    }
     pthread_mutex_unlock(mutex);
 
   }

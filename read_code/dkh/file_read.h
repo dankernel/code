@@ -190,6 +190,8 @@ loop:
   goto read;
 
 fail:
+  /* end */
+  info->seek = -i;
   return NULL;
 
 ret : 
