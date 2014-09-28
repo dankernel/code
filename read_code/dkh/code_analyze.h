@@ -23,6 +23,9 @@
 #include <string.h>
 #include <fcntl.h>
 
+#include <sys/syscall.h> /*  For SYS_xxx definitions */
+#include <sys/types.h>   /*  For pid_t */
+
 #include "file_read.h"
 #include "print_msg.h"
 #include "dk_str.h"
@@ -93,6 +96,11 @@ struct analysis_arg{
   /* mutex */
   pthread_mutex_t *mutex;
 };
+
+static inline pid_t gettid (void)
+{
+    return (pid_t) syscall (SYS_gettid); /*  or __NR_gettid */
+}
 
 /*  
  * lookup option at str. reference list
@@ -192,6 +200,8 @@ void *analysis_code_thread(void *a)
   struct code_info *result;
   pthread_mutex_t *mutex;
 
+  int thread_count = 0;
+
   if (!a)
     goto end;
 
@@ -211,20 +221,24 @@ void *analysis_code_thread(void *a)
 
     /* Read file */
     printf("fname : %s\n", f_name);
-    // read_code(f_name);
+    read_code(f_name);
     // free(result);
 
     /* Next, Pic one file */
-    pthread_mutex_lock(mutex);
-    if (f_list->seek > 0) {
-      printf("%d : %d\n",gettid(), f_list->seek);
+    if (f_list) {
+
+      printf("%d : %d \n", gettid(), thread_count++);
+
+      pthread_mutex_lock(mutex);
       f_name = read_split(f_list, '\n');
-    }
-    pthread_mutex_unlock(mutex);
+      pthread_mutex_unlock(mutex);
+    } else
+      goto end;
 
   }
   
 end:
+  // close_file_info(f_list);
   printf("end!!!!!\n");
   pthread_exit((void *)0);
 
