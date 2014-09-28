@@ -182,8 +182,10 @@ struct code_info *read_code(char *path)
   return c_info;
 }/*}}}*/
 
-int analysis_code_thread(struct analysis_arg *arg)
+void *analysis_code_thread(void *arg)
 {
+  // struct analysis_arg *arg;
+
   char *f_name;
   struct file_info *f_list;
   struct code_info *result;
@@ -192,9 +194,13 @@ int analysis_code_thread(struct analysis_arg *arg)
   if (!arg)
     return -EARG_NULL;
 
+  /* get struxt node */
   f_name = arg->f_name;
   f_liat = arg->f_list;
   mutex = arg->mutex;
+
+  /* Pic one file */
+  file = read_split(file_list, '\n');
 
   while (f_name) {
 
@@ -203,11 +209,12 @@ int analysis_code_thread(struct analysis_arg *arg)
     free(result);
 
     /* Next, Pic one file */
-    file = read_split(f_list, '\n');
+    f_name = read_split(f_list, '\n');
 
   }
+  
+  close_file_info(file_list);
 
-  return 0;
 }
 
 /* 
@@ -260,21 +267,21 @@ int read_file_code(char *path)
   file_list = (struct file_info*)malloc(sizeof(struct file_info));
   init_file_struct(file_list, path);
 
-  /* Pic one file */
-  file = read_split(file_list, '\n');
+  /* mutex */
+  pthread_mutex_t *mutex = PTHREAD_MUTEX_INITIALIZER;
+  pthread_t thread[2];
 
-  while (file) {
+  struct analysis_arg *arg = NULL;
+  arg = (struct analysis_arg*)malloc(sizeof(struct analysis_arg));
+  arg->f_name = NULL;
+  arg->f_list = file_list;
+  arg->mutex = mutex;
 
-    /* Read file */
-    c_info = read_code(file);
-    free(c_info);
+  pthread_create(thread[0], NULL, analysis_arg, (void *)arg);
+  pthread_create(thread[1], NULL, analysis_arg, (void *)arg);
 
-    /* Next, Pic one file */
-    file = read_split(file_list, '\n');
-
-  }
-
-  close_file_info(file_list);
+  pthread_join(thread[0], (void *)arg);
+  pthread_join(thread[1], (void *)arg);
 
   return 0;
 }/*}}}*/
