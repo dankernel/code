@@ -168,3 +168,36 @@ int print_list(struct dk_list *list)
 
   return ret;
 }/*}}}*/
+
+/* 
+ * remove list. head to tail.
+ * @list : target list struct
+ * return : error code
+ * */
+int remove_list(struct dk_list *list)
+{
+  int ret = 0;
+  struct dk_lnode *root = NULL;
+  struct dk_lnode *tmp = NULL;
+
+  if (!list)
+    return -EARG_NULL;
+
+  root = list->head;
+  tmp = root;
+
+  /* Print loop */
+  do {
+    if ((tmp->prev || tmp->next) && !strstr((char *)tmp->p, "\n")) {
+      tmp = tmp->next;
+      free(tmp);
+      // print_node(tmp);
+    } else
+      printf("fail : NULL node or Not string type\n");
+
+  } while (tmp);
+
+  return ret;
+}/*}}}*/
+
+
