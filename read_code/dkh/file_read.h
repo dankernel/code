@@ -141,7 +141,7 @@ int close_file_info(struct file_info *s)
  * return : result string
  */
 char *read_split(struct file_info *info, char ch)
-{
+{/*{{{*/
   int read_size = 0;
   int i = 0;
   int start = -1;
@@ -207,5 +207,5 @@ ret :
 
   // printf("ret : %4d [%s] \n", i, info->result);
   return info->result;
-}
+}/*}}}*/
 

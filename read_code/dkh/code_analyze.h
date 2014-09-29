@@ -191,6 +191,16 @@ struct code_info *read_code(char *path)
   return c_info;
 }/*}}}*/
 
+
+/*
+ * XXX : Just test. KILL ME!
+ */
+void *test_thread(void *a)
+{
+  if (a)
+    printf("TID : %5u : %5d \n", gettid(), a);
+}
+
 void *analysis_code_thread(void *a)
 {
   struct analysis_arg *arg;
@@ -221,8 +231,8 @@ void *analysis_code_thread(void *a)
   while (f_list && f_name) {
 
     /* Read file */
-    printf("%u : %d : %s \n", gettid()%4, thread_count++, f_name);
-    // read_code(f_name);
+    printf("%u : %d : %s \n", gettid(), thread_count++, f_name);
+    read_code(f_name);
     // free(result);
 
     /* Next, Pic one file */
@@ -234,7 +244,7 @@ void *analysis_code_thread(void *a)
 
 end:
   // close_file_info(f_list);
-  printf("end!!!!!\n");
+  printf("end!!!!! %u \n", gettid());
   pthread_exit((void *)0);
 
 }
@@ -310,7 +320,7 @@ int read_file_code(char *path)
   // pthread_join(pthread[2], (void *)arg);
   // pthread_join(pthread[3], (void *)arg);
 
-  close_file_info(file_list);
+  // close_file_info(file_list);
 
   return 0;
 }/*}}}*/
