@@ -152,8 +152,10 @@ struct code_info *read_code(char *path, pthread_mutex_t *mutex)
 
   // init list and. add key word 
   struct dk_list *list = init_list(); 
+  add_lnode(list, "if"); 
   add_lnode(list, "for"); 
-  print_list(list); 
+  add_lnode(list, "while"); 
+  // print_list(list); 
 
   /* exception */
   if (!path)
@@ -242,7 +244,8 @@ void *analysis_code_thread(void *a)
   while (f_list && f_name) {
 
     /* Read file */
-    printf("%2u : %5d : %s \n", thread_num, thread_count++, f_name);
+    // printf("%2u : %5d : %s \n", thread_num, thread_count++, f_name);
+    thread_count++;
     result = read_code(f_name, mutex);
     // free(result);
 
@@ -255,7 +258,7 @@ void *analysis_code_thread(void *a)
 
 end:
   // close_file_info(f_list);
-  printf("end! : thread num : %u \n", thread_num);
+  printf("end! : thread num : %u : %d \n", thread_num, thread_count);
   pthread_exit((void *)0);
 
   return (void *)1;

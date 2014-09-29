@@ -56,8 +56,6 @@ struct file_info
 int init_file_struct(struct file_info *info, char *path)
 {/*{{{*/
 
-  printf("==1\n");
-
   struct stat stat_info;
 
   if (!info || !path)
@@ -84,15 +82,11 @@ int init_file_struct(struct file_info *info, char *path)
   else 
     info->buf_size = MAX_BUFF_SIZE;
 
-  printf("==2\n");
-
   /* buffer */
   info->buf = malloc(info->buf_size);
   info->result = malloc(info->buf_size);
   memset(info->buf, '\0', info->buf_size);
   memset(info->result, '\0', info->buf_size);
-
-  printf("==3\n");
 
   return 0;
 }/*}}}*/
