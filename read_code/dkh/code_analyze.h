@@ -144,16 +144,16 @@ char *cheek_code_line(char *str, struct dk_list *list, int option)
  * path : source code(file) path
  * return : Analysis result(= code_info)
  */
-struct code_info *read_code(char *path)
+struct code_info *read_code(char *path, pthread_mutex_t *mutex)
 {/*{{{*/
   struct code_info *c_info = NULL;    // TODO : Analysis and make code info
   struct file_info *tmp_file = NULL;
   char *buf = NULL;
 
   // init list and. add key word 
-  // struct dk_list *list = init_list(); 
-  // add_lnode(list, "for"); 
-  // print_list(list); 
+  struct dk_list *list = init_list(); 
+  add_lnode(list, "for"); 
+  print_list(list); 
 
   /* exception */
   if (!path)
@@ -167,28 +167,31 @@ struct code_info *read_code(char *path)
 
   /* Init file info */
   tmp_file = (struct file_info*)malloc(sizeof(struct file_info));
+
+  pthread_mutex_lock(mutex);
   init_file_struct(tmp_file, path);
+  pthread_mutex_unlock(mutex);
 
   /* CORE, get one line */
-  // buf = read_split(tmp_file, '\n');
-  // while (buf) {
+  buf = read_split(tmp_file, '\n');
+  while (buf) {
 
-    // char *tmp = NULL;
-    // if (tmp = cheek_code_line(buf, list, KEYWORD_NEXT_PARENTHESES)) {
-    //
-    //   /* print */
-    //   printf("file : %s \n", path);
-    //   printf("%s \n\n", tmp);
-    //
-    // }
+    char *tmp = NULL;
+    if (tmp = cheek_code_line(buf, list, KEYWORD_NEXT_PARENTHESES)) {
+
+      /* print */
+      printf("file : %s \n", path);
+      printf("%s \n\n", tmp);
+
+    }
 
     /* get next one line */
-    // buf = read_split(tmp_file, '\n');
-  // }
+    buf = read_split(tmp_file, '\n');
+  }
 
   /* close and free file_info and list struct */
   close_file_info(tmp_file);
-  // remove_list(list);
+  remove_list(list);
 
   return c_info;
 }/*}}}*/
@@ -240,7 +243,7 @@ void *analysis_code_thread(void *a)
 
     /* Read file */
     printf("%2u : %5d : %s \n", thread_num, thread_count++, f_name);
-    result = read_code(f_name);
+    result = read_code(f_name, mutex);
     // free(result);
 
     /* Next, Pic one file */
@@ -325,13 +328,13 @@ int read_file_code(char *path)
   /* create thread */
   pthread_create(&pthread[0], NULL, analysis_code_thread, (void *)arg);
   pthread_create(&pthread[1], NULL, analysis_code_thread, (void *)arg);
-  // pthread_create(&pthread[2], NULL, analysis_code_thread, (void *)arg);
-  // pthread_create(&pthread[3], NULL, analysis_code_thread, (void *)arg);
+  pthread_create(&pthread[2], NULL, analysis_code_thread, (void *)arg);
+  pthread_create(&pthread[3], NULL, analysis_code_thread, (void *)arg);
   
   pthread_join(pthread[0], (void *)&ret);
   pthread_join(pthread[1], (void *)&ret);
-  // pthread_join(pthread[2], (void *)arg);
-  // pthread_join(pthread[3], (void *)arg);
+  pthread_join(pthread[2], (void *)&ret);
+  pthread_join(pthread[3], (void *)&ret);
 
   // close_file_info(file_list);
 
