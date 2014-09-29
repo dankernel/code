@@ -239,14 +239,18 @@ void *analysis_code_thread(void *a)
   while (f_list && f_name) {
 
     /* Read file */
+    pthread_mutex_lock(mutex);
     printf("%u : %d : %s \n", thread_num, thread_count++, f_name);
     read_code(f_name);
+    pthread_mutex_unlock(mutex);
     // free(result);
 
     /* Next, Pic one file */
     pthread_mutex_lock(mutex);
     f_name = read_split(f_list, '\n');
     pthread_mutex_unlock(mutex);
+
+    usleep(0);
 
   }
 
