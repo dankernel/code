@@ -86,6 +86,7 @@ int init_file_struct(struct file_info *info, char *path)
   info->buf = malloc(info->buf_size);
   info->result = malloc(info->buf_size);
   memset(info->buf, '\0', info->buf_size);
+  memset(info->result, '\0', info->buf_size);
 
   return 0;
 }/*}}}*/
