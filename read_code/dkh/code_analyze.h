@@ -92,6 +92,7 @@ char *list_str(struct dk_list *list, char *str)
 struct analysis_arg{
   char *f_name;
   struct file_info *f_list;
+  int num;
 
   /* mutex */
   pthread_mutex_t *mutex;
@@ -215,7 +216,10 @@ void *analysis_code_thread(void *a)
   if (!a)
     goto end;
 
+  /* Thread number count */
+  pthread_mutex_lock(mutex);
   printf("TID : %u\n", gettid());
+  pthread_mutex_unlock(mutex);
 
   /* get struct node */
   arg = (struct analysis_arg*)a;
@@ -246,6 +250,8 @@ end:
   // close_file_info(f_list);
   printf("end!!!!! %u \n", gettid());
   pthread_exit((void *)0);
+
+  return (void *)1;
 
 }
 
@@ -306,6 +312,7 @@ int read_file_code(char *path)
   struct analysis_arg *arg = NULL;
   arg = (struct analysis_arg*)malloc(sizeof(struct analysis_arg));
   arg->f_name = NULL;
+  arg->num = 0;
   arg->f_list = file_list;
   arg->mutex = &mutex;
 
@@ -315,8 +322,8 @@ int read_file_code(char *path)
   // pthread_create(&pthread[2], NULL, analysis_code_thread, (void *)arg);
   // pthread_create(&pthread[3], NULL, analysis_code_thread, (void *)arg);
   
-  pthread_join(pthread[0], (void *)arg);
-  pthread_join(pthread[1], (void *)arg);
+  pthread_join(pthread[0], (void *)&ret);
+  pthread_join(pthread[1], (void *)&ret);
   // pthread_join(pthread[2], (void *)arg);
   // pthread_join(pthread[3], (void *)arg);
 
