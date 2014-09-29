@@ -129,6 +129,7 @@ int close_file_info(struct file_info *s)
   /* free */
   free(s->buf);
   free(s->path);
+  free(s->result);
   free(s);
 
   return ret;

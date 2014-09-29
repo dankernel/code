@@ -257,6 +257,7 @@ nr_context_switches	test/core.c	/^unsigned long long nr_context_switches(void)$/
 nr_iowait	test/core.c	/^unsigned long nr_iowait(void)$/;"	f
 nr_iowait_cpu	test/core.c	/^unsigned long nr_iowait_cpu(int cpu)$/;"	f
 nr_running	test/core.c	/^unsigned long nr_running(void)$/;"	f
+num	dkh/code_analyze.h	/^  int num;$/;"	m	struct:analysis_arg
 num_cpus_frozen	test/core.c	/^static int num_cpus_frozen;	\/* used to mark begin\/end of suspend\/resume *\/$/;"	v	file:
 numa_level	test/core.c	/^	int		    numa_level;$/;"	m	struct:sched_domain_topology_level	file:
 numabalancing_enabled	test/core.c	/^__read_mostly bool numabalancing_enabled;$/;"	v
@@ -295,6 +296,7 @@ read_code	dkh/code_analyze.h	/^struct code_info *read_code(char *path)$/;"	f
 read_file_code	dkh/code_analyze.h	/^int read_file_code(char *path)$/;"	f
 read_split	dkh/file_read.h	/^char *read_split(struct file_info *info, char ch)$/;"	f
 register_sched_domain_sysctl	test/core.c	/^static void register_sched_domain_sysctl(void)$/;"	f	file:
+remove_list	dkh/dk_list.h	/^int remove_list(struct dk_list *list)$/;"	f
 resched_cpu	test/core.c	/^void resched_cpu(int cpu)$/;"	f
 resched_task	test/core.c	/^void resched_task(struct task_struct *p)$/;"	f
 result	dkh/file_read.h	/^  char *result;$/;"	m	struct:file_info
@@ -455,6 +457,7 @@ task_nice	test/core.c	/^EXPORT_SYMBOL(task_nice);$/;"	v
 task_nice	test/core.c	/^int task_nice(const struct task_struct *p)$/;"	f
 task_prio	test/core.c	/^int task_prio(const struct task_struct *p)$/;"	f
 task_sched_runtime	test/core.c	/^unsigned long long task_sched_runtime(struct task_struct *p)$/;"	f
+test_thread	dkh/code_analyze.h	/^void *test_thread(void *a)$/;"	f
 tg	test/core.c	/^	struct task_group *tg;$/;"	m	struct:cfs_schedulable_data	typeref:struct:cfs_schedulable_data::task_group	file:
 tg	test/core.c	/^	struct task_group *tg;$/;"	m	struct:rt_schedulable_data	typeref:struct:rt_schedulable_data::task_group	file:
 tg_cfs_schedulable_down	test/core.c	/^static int tg_cfs_schedulable_down(struct task_group *tg, void *data)$/;"	f	file:

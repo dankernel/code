@@ -179,6 +179,7 @@ int remove_list(struct dk_list *list)
   int ret = 0;
   struct dk_lnode *root = NULL;
   struct dk_lnode *tmp = NULL;
+  struct dk_lnode *cur = NULL;
 
   if (!list)
     return -EARG_NULL;
@@ -189,9 +190,9 @@ int remove_list(struct dk_list *list)
   /* Print loop */
   do {
     if ((tmp->prev || tmp->next) && !strstr((char *)tmp->p, "\n")) {
+      cur = tmp;
       tmp = tmp->next;
-      free(tmp);
-      // print_node(tmp);
+      free(cur);
     } else
       printf("fail : NULL node or Not string type\n");
 

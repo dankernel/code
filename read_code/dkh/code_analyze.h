@@ -151,8 +151,8 @@ struct code_info *read_code(char *path)
   char *buf = NULL;
 
   // init list and. add key word 
-  struct dk_list *list = init_list(); 
-  add_lnode(list, "for"); 
+  // struct dk_list *list = init_list(); 
+  // add_lnode(list, "for"); 
   // print_list(list); 
 
   /* exception */
@@ -186,8 +186,9 @@ struct code_info *read_code(char *path)
     buf = read_split(tmp_file, '\n');
   }
 
-  /* close and free file_info */
+  /* close and free file_info and list struct */
   close_file_info(tmp_file);
+  // remove_list(list);
 
   return c_info;
 }/*}}}*/
@@ -239,8 +240,8 @@ void *analysis_code_thread(void *a)
   while (f_list && f_name) {
 
     /* Read file */
-    printf("%u : %d : %s \n", thread_num, thread_count++, f_name);
-    read_code(f_name);
+    printf("%2u : %5d : %s \n", thread_num, thread_count++, f_name);
+    result = read_code(f_name);
     // free(result);
 
     /* Next, Pic one file */
@@ -248,7 +249,6 @@ void *analysis_code_thread(void *a)
     f_name = read_split(f_list, '\n');
     pthread_mutex_unlock(mutex);
 
-    usleep(0);
 
   }
 
