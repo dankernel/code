@@ -248,7 +248,6 @@ void *analysis_code_thread(void *a)
     f_name = read_split(f_list, '\n');
     pthread_mutex_unlock(mutex);
 
-
   }
 
 end:

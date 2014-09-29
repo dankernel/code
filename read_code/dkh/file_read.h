@@ -74,6 +74,8 @@ int init_file_struct(struct file_info *info, char *path)
   stat(path, &stat_info);
   info->file_size = stat_info.st_size;
 
+  printf("==2\n");
+
   /* seek and line */
   info->seek = 0;
   info->line = 0;
@@ -90,7 +92,6 @@ int init_file_struct(struct file_info *info, char *path)
   memset(info->buf, '\0', info->buf_size);
   memset(info->result, '\0', info->buf_size);
 
-  printf("==2\n");
 
   return 0;
 }/*}}}*/
