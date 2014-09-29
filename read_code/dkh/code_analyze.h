@@ -153,7 +153,7 @@ struct code_info *read_code(char *path)
   // init list and. add key word 
   struct dk_list *list = init_list(); 
   add_lnode(list, "for"); 
-  print_list(list); 
+  // print_list(list); 
 
   /* exception */
   if (!path)
@@ -170,8 +170,8 @@ struct code_info *read_code(char *path)
   init_file_struct(tmp_file, path);
 
   /* CORE, get one line */
-  buf = read_split(tmp_file, '\n');
-  while (buf) {
+  // buf = read_split(tmp_file, '\n');
+  // while (buf) {
 
     // char *tmp = NULL;
     // if (tmp = cheek_code_line(buf, list, KEYWORD_NEXT_PARENTHESES)) {
@@ -183,7 +183,7 @@ struct code_info *read_code(char *path)
     // }
 
     /* get next one line */
-    buf = read_split(tmp_file, '\n');
+    // buf = read_split(tmp_file, '\n');
   // }
 
   /* close and free file_info and list struct */
@@ -240,7 +240,7 @@ void *analysis_code_thread(void *a)
 
     /* Read file */
     printf("%2u : %5d : %s \n", thread_num, thread_count++, f_name);
-    // result = read_code(f_name);
+    result = read_code(f_name);
     // free(result);
 
     /* Next, Pic one file */

@@ -125,13 +125,21 @@ int close_file_info(struct file_info *s)
     return -EARG_NULL;
 
   /* close */
-  close(s->fd);
+  if (s->fd)
+    close(s->fd);
 
   /* free */
-  free(s->buf);
-  free(s->path);
-  free(s->result);
-  free(s);
+  if (s->buf)
+    free(s->buf);
+
+  if (s->path)
+    free(s->path);
+
+  if (s->result)
+    free(s->result);
+
+  if (s)
+    free(s);
 
   return ret;
 }/*}}}*/
