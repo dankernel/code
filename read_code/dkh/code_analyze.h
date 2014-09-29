@@ -151,8 +151,8 @@ struct code_info *read_code(char *path)
   char *buf = NULL;
 
   // init list and. add key word 
-  struct dk_list *list = init_list(); 
-  add_lnode(list, "for"); 
+  // struct dk_list *list = init_list(); 
+  // add_lnode(list, "for"); 
   // print_list(list); 
 
   /* exception */
@@ -188,7 +188,7 @@ struct code_info *read_code(char *path)
 
   /* close and free file_info and list struct */
   close_file_info(tmp_file);
-  remove_list(list);
+  // remove_list(list);
 
   return c_info;
 }/*}}}*/
