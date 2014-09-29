@@ -222,7 +222,7 @@ void *analysis_code_thread(void *a)
 
     /* Read file */
     printf("%u : %d : %s \n", gettid()%4, thread_count++, f_name);
-    read_code(f_name);
+    // read_code(f_name);
     // free(result);
 
     /* Next, Pic one file */
@@ -299,6 +299,7 @@ int read_file_code(char *path)
   arg->f_list = file_list;
   arg->mutex = &mutex;
 
+  /* create thread */
   pthread_create(&pthread[0], NULL, analysis_code_thread, (void *)arg);
   pthread_create(&pthread[1], NULL, analysis_code_thread, (void *)arg);
   // pthread_create(&pthread[2], NULL, analysis_code_thread, (void *)arg);

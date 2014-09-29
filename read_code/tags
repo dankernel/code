@@ -4,14 +4,14 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-CPU_COUNT	dkh/code_analyze.h	30;"	d
+CPU_COUNT	dkh/code_analyze.h	34;"	d
 CREATE_TRACE_POINTS	test/core.c	89;"	d	file:
 EARG_NULL	dkh/errno.h	19;"	d
 EFAIL_FUNC	dkh/errno.h	20;"	d
-KEYWORD_NEXT_L_PARENTHESES	dkh/code_analyze.h	33;"	d
-KEYWORD_NEXT_PADDING	dkh/code_analyze.h	31;"	d
-KEYWORD_NEXT_PARENTHESES	dkh/code_analyze.h	32;"	d
-KEYWORD_NEXT_R_PARENTHESES	dkh/code_analyze.h	34;"	d
+KEYWORD_NEXT_L_PARENTHESES	dkh/code_analyze.h	37;"	d
+KEYWORD_NEXT_PADDING	dkh/code_analyze.h	35;"	d
+KEYWORD_NEXT_PARENTHESES	dkh/code_analyze.h	36;"	d
+KEYWORD_NEXT_R_PARENTHESES	dkh/code_analyze.h	38;"	d
 MAX_BUFF_SIZE	dkh/file_read.h	29;"	d
 SCHED_FEAT	test/core.c	133;"	d	file:
 SCHED_FEAT	test/core.c	140;"	d	file:
@@ -72,6 +72,8 @@ activate_task	test/core.c	/^void activate_task(struct rq *rq, struct task_struct
 add_lnode	dkh/dk_list.h	/^struct dk_lnode *add_lnode(struct dk_list *list, void *p)$/;"	f
 alloc_rootdomain	test/core.c	/^static struct root_domain *alloc_rootdomain(void)$/;"	f	file:
 alloc_sched_domains	test/core.c	/^cpumask_var_t *alloc_sched_domains(unsigned int ndoms)$/;"	f
+analysis_arg	dkh/code_analyze.h	/^struct analysis_arg{$/;"	s
+analysis_code_thread	dkh/code_analyze.h	/^void *analysis_code_thread(void *a)$/;"	f
 arch_sd_sibling_asym_packing	test/core.c	/^int __weak arch_sd_sibling_asym_packing(void)$/;"	f
 arch_update_cpu_topology	test/core.c	/^int __attribute__((weak)) arch_update_cpu_topology(void)$/;"	f
 b_l	dkh/code_analyze.h	/^  int b_l;$/;"	m	struct:code_info
@@ -156,8 +158,10 @@ effective_prio	test/core.c	/^static int effective_prio(struct task_struct *p)$/;
 enqueue_task	test/core.c	/^static void enqueue_task(struct rq *rq, struct task_struct *p, int flags)$/;"	f	file:
 err_test	dkh/print_msg.h	24;"	d
 f_count	dkh/code_analyze.h	/^  int f_count;$/;"	m	struct:code_info
+f_list	dkh/code_analyze.h	/^  struct file_info *f_list;$/;"	m	struct:analysis_arg	typeref:struct:analysis_arg::file_info
 f_maxline	dkh/code_analyze.h	/^  int f_maxline;$/;"	m	struct:code_info
 f_minline	dkh/code_analyze.h	/^  int f_minline;$/;"	m	struct:code_info
+f_name	dkh/code_analyze.h	/^  char *f_name;$/;"	m	struct:analysis_arg
 fallback_doms	test/core.c	/^static cpumask_var_t fallback_doms;$/;"	v	file:
 fd	dkh/file_read.h	/^  int fd;$/;"	m	struct:file_info
 file_info	dkh/file_read.h	/^struct file_info$/;"	s
@@ -179,6 +183,7 @@ get_group	test/core.c	/^static int get_group(int cpu, struct sd_data *sdd, struc
 get_nohz_timer_target	test/core.c	/^int get_nohz_timer_target(void)$/;"	f
 get_parent_ip	test/core.c	/^notrace unsigned long get_parent_ip(unsigned long addr)$/;"	f
 get_user_cpu_mask	test/core.c	/^static int get_user_cpu_mask(unsigned long __user *user_mask_ptr, unsigned len,$/;"	f	file:
+gettid	dkh/code_analyze.h	/^static inline pid_t gettid (void)$/;"	f
 got_nohz_idle_kick	test/core.c	/^static inline bool got_nohz_idle_kick(void)$/;"	f	file:
 group_balance_cpu	test/core.c	/^int group_balance_cpu(struct sched_group *sg)$/;"	f
 head	dkh/dk_list.h	/^  struct dk_lnode *head;$/;"	m	struct:dk_list	typeref:struct:dk_list::dk_lnode
@@ -239,6 +244,7 @@ migration_notifier	test/core.c	/^static struct notifier_block migration_notifier
 migration_swap_arg	test/core.c	/^struct migration_swap_arg {$/;"	s	file:
 min_cfs_quota_period	test/core.c	/^const u64 min_cfs_quota_period = 1 * NSEC_PER_MSEC; \/* 1ms *\/$/;"	v
 min_load_idx	test/core.c	/^static int min_load_idx = 0;$/;"	v	file:
+mutex	dkh/code_analyze.h	/^  pthread_mutex_t *mutex;$/;"	m	struct:analysis_arg
 name	dkh/code_analyze.h	/^  char *name;$/;"	m	struct:code_info
 ndoms_cur	test/core.c	/^static int ndoms_cur;		\/* number of sched domains in 'doms_cur' *\/$/;"	v	file:
 next	dkh/dk_list.h	/^  struct dk_lnode *next;$/;"	m	struct:dk_lnode	typeref:struct:dk_lnode::dk_lnode
