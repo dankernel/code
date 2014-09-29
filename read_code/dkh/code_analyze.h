@@ -213,7 +213,6 @@ void *analysis_code_thread(void *a)
   pthread_mutex_t *mutex;
 
   int thread_num = -1;
-
   int thread_count = 0;
 
   if (!a)
