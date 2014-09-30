@@ -36,6 +36,8 @@ while(remaining > 0);
 
 while(partial > p) 
 
+while(partial > p) 
+
 while(d_mountpoint(root.dentry) && follow_down_one(&root)) 
 
 while(0) 
@@ -64,15 +66,15 @@ while(head) {
 
 while(wait_bh > wait) { 
 
+while((offset = ocfs2_find_next_zero_bit(bitmap, total_bits, start)) != -1) { 
+
+while(num_bits--) 
+
 while(num--) { 
 
 while(cs < max_slots) { 
 
 while(current_slot < max_slots) { 
-
-while((offset = ocfs2_find_next_zero_bit(bitmap, total_bits, start)) != -1) { 
-
-while(num_bits--) 
 
 while((i = find_next_bit(configured_nodes, 
 
@@ -105,6 +107,8 @@ while(0)
 while(0) 
 
 while(0) 
+
+while((tmp >>= 1UL) != 0UL) 
 
 while(wait_bh > wait) { 
 
@@ -144,9 +148,9 @@ while(ret == -EAGAIN) {
 
 while(fds) { 
 
-while(0) 
-
 while(raw->next_in_ino) 
+
+while(0) 
 
 while(0) 
 
@@ -320,8 +324,6 @@ while(0)
 
 while(0) 
 
-while(0) 
-
 while(pnfs_osd_xdr_decode_layout_comp(&comp, &iter, xdr, &status)) { 
 
 while(0) 
@@ -380,9 +382,11 @@ while(s && s->unit_minor <= unit)
 
 while(0) 
 
+while( env && *env ) { 
+
 while(YY_CURRENT_BUFFER){ 
 
-while( env && *env ) { 
+while(0) 
 
 while(i--) { 
 
@@ -434,6 +438,10 @@ while(0)
 
 while(0) 
 
+while(__raw_readl(SDGENCNTA)) ; 
+
+while(0) 
+
 while(0) 
 
 while(0) 
@@ -470,6 +478,12 @@ while(0)
 
 while(0) 
 
+while(0) 
+
+while(0) 
+
+while(0) 
+
 while(1); }); 
 
 while(1); }); 
@@ -498,9 +512,15 @@ while(0)
 
 while(0) 
 
+while(0) 
+
+while(0) 
+
 while(start < end) { 
 
 while(start < end) { 
+
+while(0) 
 
 while(0) 
 
@@ -598,6 +618,8 @@ while(0)
 
 while(0) 
 
+while(0) 
+
 while(kexec_all_irq_disabled == 0) 
 
 while(node) { 
@@ -608,9 +630,9 @@ while(0)
 
 while(0) 
 
-while(error == 0); 
-
 while(0) 
+
+while(error == 0); 
 
 while(n && !IO_CHECK_ALIGN(p, 4)) { 
 
@@ -656,13 +678,11 @@ while(0)
 
 while(0) 
 
-while(0) 
-
-while(0) 
-
-while(0) 
-
 while(0); } } while(0) 
+
+while(0) 
+
+while(0) 
 
 while(0) 
 
@@ -686,19 +706,19 @@ while(0)
 
 while(0) 
 
-while(test_bit(HPTE_LOCK_BIT, word)) 
-
-while(0) 
-
 while( c == ' ' || c == '\t' ) 
 
 while( c != '\n' ) 
 
 while( c != ' ' && c != '\t' && c != '\n' ); 
 
+while(test_bit(HPTE_LOCK_BIT, word)) 
+
 while(0) 
 
 while(size > 0) { 
+
+while(0) 
 
 while(0) 
 
@@ -709,8 +729,6 @@ while(0)
 while(per_cpu(split_state, i).step < step) 
 
 while(per_cpu(split_state, cpu).step < SYNC_STEP_FINISHED) 
-
-while(test_and_set_bit(pe, phb->ioda.pe_alloc)); 
 
 while(c--) 
 
@@ -760,13 +778,13 @@ while(*ppp) {
 
 while(0) 
 
-while(*cpp) { 
-
 while(!tb_req) 
 
 while(*cpp) { 
 
 while(!tb_req) 
+
+while(*cpp) { 
 
 while(0) 
 
@@ -858,8 +876,6 @@ while(1);
 
 while(1) ; 
 
-while(1) ; 
-
 while(0) 
 
 while(stall--) barrier(); 
@@ -898,8 +914,6 @@ while(*p) {
 
 while(0) 
 
-while(0) 
-
 while(1) 
 
 while(0) 
@@ -921,6 +935,10 @@ while(0)
 while(0) 
 
 while(!FLOWCTL_QUERY(LINE)) 
+
+while(0) 
+
+while(0) 
 
 while(0); 
 
@@ -1014,19 +1032,21 @@ while(0)
 
 while(0) 
 
+while(0) 
+
+while(0) 
+
+while(0) 
+
+while(0) 
+
+while(0) 
+
+while(0) 
+
+while(0) 
+
 while(1) 
-
-while(0) 
-
-while(0) 
-
-while(0) 
-
-while(0) 
-
-while(0) 
-
-while(0) 
 
 while(0) 
 
@@ -1094,14 +1114,6 @@ while(0)
 
 while(0) 
 
-while(0) 
-
-while(0) 
-
-while(0) 
-
-while(0) 
-
 while(1) 
 
 while(0) 
@@ -1118,9 +1130,11 @@ while(Dbl_iszero_hiddenhigh7mantissa(dbl_opndA)) {		\
 
 while(Dbl_iszero_hidden(dbl_opndA)) {				\ 
 
-while(Dbl_iszero_hiddenhigh7mantissa(resultp1)) 
+while(Dbl_iszero_hiddenhigh7mantissa(dbl_opndA)) {		\ 
 
-while(Sgl_iszero_hiddenhigh7mantissa(result)) 
+while(Dbl_iszero_hidden(dbl_opndA)) {				\ 
+
+while(Dbl_iszero_hiddenhigh7mantissa(resultp1)) 
 
 while(Sgl_iszero_hiddenhigh7mantissa(opnd2)) { 
 
@@ -1156,7 +1170,9 @@ while(0)
 
 while(0) 
 
-while(1);	/* Halt */ 
+while(0) 
+
+while(0) 
 
 while(0) 
 
@@ -1191,6 +1207,10 @@ while((n < len) && (n != 0));
 while(start < nsectors); 
 
 while(1){ 
+
+while(0) 
+
+while(0) 
 
 while(0) 
 
@@ -1278,6 +1298,8 @@ while(0)
 
 while(1);	/* Halt */ 
 
+while(node) { 
+
 while(rw					&& 
 
 while(0) 
@@ -1312,25 +1334,9 @@ while(0)
 
 while(0) 
 
-while(0) 
-
-while(0) 
-
-while(0) 
-
-while(0) 
-
-while(0) 
-
-while(0) 
-
-while(0) 
-
 while(count >= 2) { 
 
 while(count >= 2) { 
-
-while(n--) { 
 
 while(0) 
 
@@ -1368,29 +1374,29 @@ while(0)
 
 while(0) 
 
-while(0) 
+while(!list_empty(&sat->sensors)) { 
 
 while(cmd->status == 1) 
 
-while(!list_empty(&sat->sensors)) { 
+while(0) 
 
 while(0); 
 
 while(--i >= 0) 
 
+while(0) 
+
 while(*label == ' ') 
+
+while(0) 
 
 while(*val && (*val != '=')) { 
 
 while(*val == ' ') 
 
-while(0) 
-
-while(0) 
-
-while(0) 
-
 while((pmu_state != idle && pmu_state != locked) || !req->complete) 
+
+while(0) 
 
 while(!req.complete) 
 
@@ -1470,9 +1476,21 @@ while(ret==1)
 
 while(index != 0xFFFF); 
 
+while(delay--) { 
+
+while(delay--) { 
+
 while(sisbios_mode[i++].mode_no[0] != 0) { 
 
 while(sisbios_mode[i].mode_no[0] != 0) { 
+
+while((SiS_GetRegByte(SiS_Pr->SiS_P3da) & 0x08) && --watchdog); 
+
+while((!(SiS_GetRegByte(SiS_Pr->SiS_P3da) & 0x08)) && --watchdog); 
+
+while((SiS_GetReg(SiS_Pr->SiS_Part1Port,reg) & 0x02) && --watchdog); 
+
+while((!(SiS_GetReg(SiS_Pr->SiS_Part1Port,reg) & 0x02)) && --watchdog); 
 
 while(sis_crt2type[i].type_no != -1) { 
 
@@ -1484,25 +1502,13 @@ while(mycustomttable[i].chipID != 0) {
 
 while(mycustomttable[i].chipID); 
 
-while(delay--) { 
-
-while(delay--) { 
-
 while((temp) && i--); 
-
-while((SiS_GetRegByte(SiS_Pr->SiS_P3da) & 0x08) && --watchdog); 
-
-while((!(SiS_GetRegByte(SiS_Pr->SiS_P3da) & 0x08)) && --watchdog); 
-
-while((SiS_GetReg(SiS_Pr->SiS_Part1Port,reg) & 0x02) && --watchdog); 
-
-while((!(SiS_GetReg(SiS_Pr->SiS_Part1Port,reg) & 0x02)) && --watchdog); 
 
 while((sisfb_vrate[i].idx != 0) && (sisfb_vrate[i].xres <= xres)) { 
 
-while( (sisbios_mode[ivideo->sisfb_mode_idx].mode_no[0] != 0) && 
-
 while(nonscalingmodes[i] != 0xff) { 
+
+while( (sisbios_mode[ivideo->sisfb_mode_idx].mode_no[0] != 0) && 
 
 while( (sisbios_mode[search_idx].mode_no[0] != 0) && 
 
@@ -1522,17 +1528,17 @@ while(pohThis != &memheap->oh_free) {
 
 while(0); 
 
-while((p2_01 <= 0) || (p2_02 <= 0)) { 
-
 while(queuedata[i] != 0xFF); 
 
-while((this_opt = strsep(&options, ",")) != NULL) { 
+while((p2_01 <= 0) || (p2_02 <= 0)) { 
 
-while(SiS_Pr->SiS_EModeIDTable[j].Ext_ModeID != 0xff) { 
+while((this_opt = strsep(&options, ",")) != NULL) { 
 
 while((!(ivideo->video_vbase = ioremap(ivideo->video_base, (*mapsize))))) { 
 
 while((pdev = pci_get_class(PCI_CLASS_BRIDGE_HOST, pdev))) { 
+
+while(SiS_Pr->SiS_EModeIDTable[j].Ext_ModeID != 0xff) { 
 
 while((ranksize >>= 1)) reg += 0x10; 
 
@@ -1544,13 +1550,13 @@ while( (MMIO_IN16(ivideo->mmio_vbase, Q_STATUS+2) & 0x8000) != 0x8000){}; \
 
 while( (MMIO_IN16(ivideo->mmio_vbase, Q_STATUS+2) & 0x8000) != 0x8000){}; \ 
 
+while((tableptr[p] | tableptr[p+1] << 8) != 0xffff); 
+
 while(0) 
 
 while((countvideo = countvideo->next) != NULL) 
 
 while(mychswtable[i].subsysVendor != 0); 
-
-while((tableptr[p] | tableptr[p+1] << 8) != 0xffff); 
 
 while(0) 
 
@@ -1558,9 +1564,9 @@ while((i810_readw(INSTDONE, mmio) & 0x7B) != 0x7B && --count);
 
 while((i810_readw(DISP_SL, mmio) & 0xFFF) && count--); 
 
-while(!((1000000 * p_divisor)/(16 * 24 * target_freq)) &&  
-
 while(0); 
+
+while(!((1000000 * p_divisor)/(16 * 24 * target_freq)) &&  
 
 while(*dataptr) { 
 
@@ -1711,8 +1717,6 @@ while(time_before(jiffies, timeout)) {
 while(time_before(jiffies, timeout)) { 
 
 while(!(tda1004x_read_byte(state, TDA1004X_STATUS_CD) & 0x20)) { 
-
-while(0) 
 
 while(0) 
 
@@ -1920,6 +1924,8 @@ while(owner);
 
 while(0) 
 
+while(0) 
+
 while(idx--); 
 
 while(0) 
@@ -1969,8 +1975,6 @@ while(0)
 while(i_InterruptFlag==1) */ 
 
 while(!((inb(usp->usp_iobase + 0)) & TxBE)); */ 
-
-while(0) 
 
 while(0) 
 
@@ -2092,11 +2096,11 @@ while(!channel_map[ch]);
 
 while(!channel_map[ieee->current_network.channel]); 
 
+while(!GET_DOT11D_INFO(ieee)->channel_map[ch]); 
+
 while(pList->next != &pTS->RxPendingPktList) 
 
 while(!list_empty(&pTS->RxPendingPktList)) { 
-
-while(!GET_DOT11D_INFO(ieee)->channel_map[ch]); 
 
 while(skb->len > ETHERNET_HEADER_SIZE) { 
 
@@ -2105,6 +2109,10 @@ while(0)
 while(!list_empty(&pRxTs->RxPendingPktList)) 
 
 while(!list_empty(&pRxTS->RxPendingPktList)) 
+
+while(0) 
+
+while(0) 
 
 while(0) 
 
@@ -2196,13 +2204,13 @@ while(time_before(jiffies, i) && (inb(base + PIO_INT_REG) & FULL) && timeout)
 
 while(time_before(jiffies, i) && !(inb(base + STATUS_REG) & SCI)) 
 
+while(0) 
+
+while(0) 
+
+while(0) 
+
 while((idev=pnp_find_dev(NULL, id_table[i].vendor, 
-
-while(0) 
-
-while(0) 
-
-while(0) 
 
 while(curnode != NULL) { 
 
@@ -2258,11 +2266,11 @@ while(*status == 0){
 
 while(sg_index) { 
 
-while(did_work); 
-
 while((volatile u32) pHba->state & DPTI_STATE_RESET ) 
 
 while( readl(pHba->irq_mask) & I2O_INTERRUPT_PENDING_B) { 
+
+while(did_work); 
 
 while(pDev) { 
 
@@ -2286,11 +2294,11 @@ while() loops	*
 
 while(0) 
 
+while( bval & 0x1f ) 
+
 while( n-- > 0) 
 
 while(time_before(jiffies, end)) 
-
-while( bval & 0x1f ) 
 
 while( pdcb != pDCB ); 
 
@@ -2504,9 +2512,9 @@ while(info) {
 
 while(count == 0 || count == -EAGAIN); 
 
-while(temp_open_count) { 
-
 while(count == 0); 
+
+while(temp_open_count) { 
 
 while(!done) { 
 
@@ -2598,8 +2606,6 @@ while(i < num) {
 
 while(!list_empty(&blkif->persistent_purge_list)) { 
 
-while(!list_empty(&blkif->persistent_purge_list)) { 
-
 while(0) 
 
 while(0) 
@@ -2638,9 +2644,9 @@ while(1) {
 
 while(0) 
 
-while(0) 
-
 while(pd->bio_queue_size > pd->write_congestion_off); 
+
+while((gpio & 0x02) == 0); 
 
 while(!time_after(jiffies, timeout)) { 
 
@@ -2784,11 +2790,11 @@ while( 0 )
 
 while( 0 ) 
 
+while( len-- ) { 
+
 while( old_tx != lp->new_tx) { 
 
 while( (MEM->rx_head[entry].flag & RMD1_OWN) == RMD1_OWN_HOST ) { 
-
-while( len-- ) { 
 
 while(0) 
 
@@ -2822,13 +2828,13 @@ while((inb(ioaddr+DAYNA_CARD_STATUS)&DAYNA_TX_READY)==0)
 
 while(inb(ioaddr+TANG_CARD_STATUS)&TANG_RX_READY) 
 
-while(time_before(jiffies, timeout)) { 
-
-while(time_before(jiffies, timeout)) { 
-
 while(lp->node_acquire==0)	/* Get *True* nodeid finally. */ 
 
 while((++boguscount < 20) && (status&(TANG_RX_READY|TANG_TX_READY))); 
+
+while(time_before(jiffies, timeout)) { 
+
+while(time_before(jiffies, timeout)) { 
 
 while(++boguscount < 20); 
 
@@ -2836,11 +2842,11 @@ while((++boguscount < 20) && (status&(TANG_RX_READY|TANG_TX_READY)));
 
 while(++boguscount<1000000) 
 
-while(time_before(jiffies, timeout)) { 
+while((tmp = *r) != NULL) 
 
 while(pkt_len--)        /* Discard packet */ 
 
-while((tmp = *r) != NULL) 
+while(time_before(jiffies, timeout)) { 
 
 while((inb(ioaddr+DAYNA_CARD_STATUS)&DAYNA_TX_READY)==0) 
 
@@ -2852,6 +2858,10 @@ while((stat = sca_intr_status(card)) != 0) {
 
 while(0) 
 
+while(0) 
+
+while(*hw++ == ':'); 
+
 while(*hw++ == ':'); 
 
 while(1) 
@@ -2862,15 +2872,15 @@ while(len)
 
 while(len) 
 
-while(++work<5000) 
-
 while(len) 
+
+while(++work<5000) 
 
 while( (pdev = pci_get_class( PCI_CLASS_NETWORK_OTHER << 8, pdev )) 
 
-while( repeat ); 
-
 while(*rtable!=255) 
+
+while( repeat ); 
 
 while(c->txcount && (read_zsreg(c,R0)&Tx_BUF_EMP)) 
 
@@ -2918,8 +2928,6 @@ while(!endit) {
 
 while(1) { 
 
-while(1) { 
-
 while(*stack) 
 
 while(true) { 
@@ -2941,6 +2949,8 @@ while((lsap_todo--) &&
 while(*name) { 
 
 while(hash < cd->hash_size && 
+
+while(1) { 
 
 while(1) { 
 
@@ -2972,15 +2982,9 @@ while(*pos && (sk = dn_socket_get_next(seq, sk)))
 
 while((f = *fp) != NULL) { 
 
-while(tmp) { 
+while((f = *fp) != NULL) { 
 
 while(*str && !ISNUM(*str)) str++; 
-
-while(*pos && (rt = dn_rt_cache_get_next(seq, rt))) 
-
-while(order && ((((1UL << order) * PAGE_SIZE) / 
-
-while(dn_rt_hash_mask & (dn_rt_hash_mask - 1)) 
 
 while(0) 
 
@@ -3028,7 +3032,7 @@ while((skb = skb_dequeue(&c->mfc_un.unres.unresolved)) != NULL) {
 
 while((skb = __skb_dequeue(&uc->mfc_un.unres.unresolved))) { 
 
-end! : thread num : 3 : 8971 
-end! : thread num : 0 : 9169 
-end! : thread num : 2 : 9221 
-end! : thread num : 1 : 9499 
+end! : thread num : 1 : 9352 
+end! : thread num : 0 : 9120 
+end! : thread num : 2 : 9260 
+end! : thread num : 3 : 9128 

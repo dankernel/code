@@ -240,7 +240,7 @@ void *analysis_code_thread(void *a)
   while (f_list && f_name) {
 
     /* Read file */
-    printf("%2u : %5d : %s \n", thread_num, thread_count++, f_name);
+    // printf("%2u : %5d : %s \n", thread_num, thread_count++, f_name);
     thread_count++;
     result = read_code(f_name, mutex);
     // free(result);
@@ -252,7 +252,7 @@ void *analysis_code_thread(void *a)
   }
 
 end:
-  close_file_info(f_list);
+  // close_file_info(f_list);
   printf("end! : thread num : %u : %d \n", thread_num, thread_count);
   pthread_exit((void *)0);
 
@@ -326,12 +326,12 @@ int read_file_code(char *path)
   /* create thread */
   pthread_create(&pthread[0], NULL, analysis_code_thread, (void *)arg);
   pthread_create(&pthread[1], NULL, analysis_code_thread, (void *)arg);
-  // pthread_create(&pthread[2], NULL, analysis_code_thread, (void *)arg);
+  pthread_create(&pthread[2], NULL, analysis_code_thread, (void *)arg);
   // pthread_create(&pthread[3], NULL, analysis_code_thread, (void *)arg);
   
   pthread_join(pthread[0], (void *)&ret);
   pthread_join(pthread[1], (void *)&ret);
-  // pthread_join(pthread[2], (void *)&ret);
+  pthread_join(pthread[2], (void *)&ret);
   // pthread_join(pthread[3], (void *)&ret);
   
   // close_file_info(file_list);

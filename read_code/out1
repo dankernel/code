@@ -64,19 +64,19 @@ while(*p) {
 
 while(wait_bh > wait) { 
 
+while((offset = ocfs2_find_next_zero_bit(bitmap, total_bits, start)) != -1) { 
+
+while(num_bits--) 
+
+while(tmp--) { 
+
 while(num--) { 
 
 while(cs < max_slots) { 
 
 while(current_slot < max_slots) { 
 
-while((offset = ocfs2_find_next_zero_bit(bitmap, total_bits, start)) != -1) { 
-
-while(num_bits--) 
-
 while((i = find_next_bit(configured_nodes, 
-
-while(tmp--) { 
 
 while(bits_wanted--) 
 
@@ -94,9 +94,9 @@ while(0)
 
 while(0) 
 
-while(more); 
-
 while(partial > p) { 
+
+while(more); 
 
 while(--n); 
 
@@ -120,17 +120,11 @@ while( 0 )
 
 while(0) 
 
+while(0) 
+
 while(--n);						\ 
 
 while(0) 
-
-while(0) 
-
-while(0) 
-
-while(0) 
-
-while(0); (void)(c), 0; }) 
 
 while(0) 
 
@@ -140,27 +134,37 @@ while(ofs < jeb->offset + c->sector_size) {
 
 while(count--) { 
 
+while(0) 
+
+while(0); (void)(c), 0; }) 
+
+while(0) 
+
 while(fds) { 
 
-while(ret == -EAGAIN) { 
+while(offset < end) { 
 
 while(ret == -EAGAIN) { 
 
 while(this) { 
 
+while(next) { 
+
 while(raw->next_in_ino) 
 
 while(0) 
-
-while(next) { 
-
-while(next) { 
 
 while(0) 
 
 while((ret = zlib_inflate(&inf_strm, Z_FINISH)) == Z_OK) 
 
 while(ref_obsolete(raw)) { 
+
+while((frag = frag_prev(frag)) && frag->ofs >= min) { 
+
+while((frag = frag_next(frag)) && frag->ofs+frag->size <= max) { 
+
+while(offset < orig_end) { 
 
 while(this) { 
 
@@ -172,31 +176,21 @@ while(ic->scan_dents) {
 
 while(ic->scan_dents) { 
 
-while((frag = frag_prev(frag)) && frag->ofs >= min) { 
-
-while((frag = frag_next(frag)) && frag->ofs+frag->size <= max) { 
-
-while(offset < orig_end) { 
-
 while(writelen) { 
 
 while(repeat) { 
 
-while(val) { 
-
 while(free_blocks <= wanted); 
-
-while(size > 0); 
 
 while(atomic_read(&sdp->sd_log_in_flight)); 
 
 while(t && !gfs2_ail_flush_reqd(sdp) && 
 
-while(bh && size); 
+while(val) { 
+
+while(size > 0); 
 
 while(1); 
-
-while(total) { 
 
 while(!error); 
 
@@ -207,6 +201,10 @@ while(lfn);
 while(1); 
 
 while(1) { 
+
+while(bh && size); 
+
+while(total) { 
 
 while(tmp == 0 && ptr < end) { 
 
@@ -222,15 +220,17 @@ while(size > 0);
 
 while(size > 0); 
 
+while(!list_empty(list)) { 
+
 while(atomic_read(&sdp->sd_log_freeze)); 
 
 while(copied < size); 
 
-while(!list_empty(list)) { 
-
 while(bh != head); 
 
 while(0) 
+
+while(1) { 
 
 while(src_cnt > 0) { 
 
@@ -244,9 +244,9 @@ while(1) {
 
 while(0) 
 
-while(cont); 
-
 while(1) loop here. 
+
+while(cont); 
 
 while(1); 
 
@@ -263,6 +263,10 @@ while(0)
 while(0) 
 
 while(count > 0 && pc < len); 
+
+while(0) 
+
+while(0) 
 
 while(0) 
 
@@ -378,9 +382,9 @@ while(s && s->unit_minor <= unit)
 
 while(0) 
 
-while( env && *env ) { 
-
 while(YY_CURRENT_BUFFER){ 
+
+while( env && *env ) { 
 
 while(0) 
 
@@ -395,8 +399,6 @@ while(k<(n)){b|=((ulg)NEXTBYTE())<<k;k+=8;}}
 while(pattern[x--] == pattern[y--]) { 
 
 while(0) 
-
-while(1) { 
 
 while(1) { 
 
@@ -456,19 +458,15 @@ while(0);
 
 while(0) 
 
+while((!(cmd.resp[0] & OCR_BUSY)) && --timeout); 
+
+while((!(cmd.resp[0] & OCR_BUSY)) && --timeout); 
+
 while(1);	/* Halt */ 
-
-while((!(cmd.resp[0] & OCR_BUSY)) && --timeout); 
-
-while((!(cmd.resp[0] & OCR_BUSY)) && --timeout); 
-
-while(0) 
 
 while(0) 
 
 while(per_cpu(cpu_state, cpu) != CPU_ONLINE) { 
-
-while(0) 
 
 while(0) 
 
@@ -536,13 +534,11 @@ while(0)
 
 while(0) 
 
-while(0) 
-
-while( tt_microwire.mask != 0x7ff) 
-
 while(vaddr < end3); 
 
 while(vaddr < end); 
+
+while( tt_microwire.mask != 0x7ff) 
 
 while(0) 
 
@@ -550,7 +546,17 @@ while( RTC_READ(RTC_FREQ_SELECT) & RTC_UIP ) {
 
 while((id != CISTPL_END) && (pos < 0x10000)) { 
 
+while(new < CONTEXTS_NUM) { 
+
 while((ch = *(bptr++)) != 0) { 
+
+while((character = prom_nbgetchar()) == -1) ; 
+
+while(prom_nbputchar(c) == -1) ; 
+
+while(*p) p++; p -= 2; 
+
+while(*p) p++; p -= 2; 
 
 while(vaddr < end) { 
 
@@ -652,8 +658,6 @@ while(0)
 
 while(0); } } while(0) 
 
-while(0); } } while(0) 
-
 while(0) 
 
 while(0) 
@@ -690,19 +694,19 @@ while(test_bit(HPTE_LOCK_BIT, word))
 
 while(0) 
 
-while(0) 
-
 while(size > 0) { 
+
+while(0) 
 
 while(0) 
 
 while(old_pte != __cmpxchg_u64((unsigned long *)ptep, 
 
-while(0) 
-
 while(per_cpu(split_state, i).step < step) 
 
 while(per_cpu(split_state, cpu).step < SYNC_STEP_FINISHED) 
+
+while(0) 
 
 while(test_and_set_bit(pe, phb->ioda.pe_alloc)); 
 
@@ -760,31 +764,31 @@ while(0)
 
 while(*cpp) { 
 
-while(0) 
-
-while(0) 
-
 while(*cpp) { 
 
 while(0) 
 
-while(child) { 
+while(0) 
+
+while(0) 
 
 while(host->state != state_idle) { 
 
 while(p) { 
 
+while(child) { 
+
+while(np) { 
+
+while(np) { 
+
+while(np) { 
+
+while(np) { 
+
+while(np) { 
+
 while(size-->0) 
-
-while(np) { 
-
-while(np) { 
-
-while(np) { 
-
-while(np) { 
-
-while(np) { 
 
 while(0) 
 
@@ -1070,6 +1074,10 @@ while(0)
 
 while(0) 
 
+while(0) 
+
+while(0) 
+
 while(1) 
 
 while(0) 
@@ -1105,6 +1113,8 @@ while(*(vulp)PYXIS_RT_COUNT - pyxis_cc < 4096);
 while((result.bits.status & 1) && (++loops < 10)); 
 
 while((ret2 >> 61) == 1); 
+
+while(*str); 
 
 while(0); 
 
@@ -1155,8 +1165,6 @@ while((n < len) && (n != 0));
 while(start < nsectors); 
 
 while(1){ 
-
-while(1) { 
 
 while(1) { 
 
@@ -1220,10 +1228,6 @@ while(0)
 
 while(1);	/* Halt */ 
 
-while(1);	/* Halt */ 
-
-while(1); 
-
 while(1); 
 
 while(1) /* waiting for RETRIBUTION! */ ; 
@@ -1234,11 +1238,11 @@ while(kgdb_started && (getDebugChar() != '+'));
 
 while(length > 0) { 
 
+while(error && cntr--); 
+
+while(error && cntr--); 
+
 while(0) 
-
-while(error && cntr--); 
-
-while(error && cntr--); 
 
 while( (written < count) && (p < eeprom.size)) 
 
@@ -1264,13 +1268,11 @@ while(0)
 
 while(0) 
 
-while(0) 
-
-while(0) 
-
-while(0) 
-
 while(n--) { 
+
+while(0) 
+
+while(0) 
 
 while(0) 
 
@@ -1290,7 +1292,9 @@ while(0)
 
 while(0) 
 
-while(0) 
+while(count >= 2) { 
+
+while(count >= 2) { 
 
 while(n--) { 
 
@@ -1328,13 +1332,13 @@ while(0)
 
 while(0) 
 
-while(0) 
-
 while(cmd->status == 1) 
 
-while(!list_empty(&sat->sensors)) { 
-
 while(0); 
+
+while(0) 
+
+while(!list_empty(&sat->sensors)) { 
 
 while(0) 
 
@@ -1344,23 +1348,21 @@ while(*val && (*val != '=')) {
 
 while(*val == ' ') 
 
+while((pmu_state != idle && pmu_state != locked) || !req->complete) 
+
+while(!req.complete) 
+
 while(--i >= 0) 
 
 while(0) 
 
 while(0) 
 
-while((pmu_state != idle && pmu_state != locked) || !req->complete) 
-
-while(!req.complete) 
-
 while(0) 
 
 while(1) 
 
 while(!kthread_should_stop()) { 
-
-while(0) 
 
 while(0) 
 
@@ -1380,11 +1382,15 @@ while(0)
 
 while(0) 
 
+while(0) 
+
 while((bay->state != mb_empty) && 
 
 while(0) 
 
 while(0)". 
+
+while(0) 
 
 while(0) 
 
@@ -1442,13 +1448,21 @@ while((SiS_GetReg(SiS_Pr->SiS_Part1Port,reg) & 0x02) && --watchdog);
 
 while((!(SiS_GetReg(SiS_Pr->SiS_Part1Port,reg) & 0x02)) && --watchdog); 
 
+while(nonscalingmodes[i] != 0xff) { 
+
+while((tableptr[p] | tableptr[p+1] << 8) != 0xffff); 
+
+while(0); 
+
+while(*dataptr) { 
+
+while((!(temp & SiS_Pr->SiS_DDC_Clk)) && --watchdog); 
+
 while(sisbios_mode[i++].mode_no[0] != 0) { 
 
 while(sisbios_mode[i].mode_no[0] != 0) { 
 
 while(sis_crt2type[i].type_no != -1) { 
-
-while(nonscalingmodes[i] != 0xff) { 
 
 while(sis_tvtype[i].type_no != -1) { 
 
@@ -1484,27 +1498,19 @@ while((p2_01 <= 0) || (p2_02 <= 0)) {
 
 while((this_opt = strsep(&options, ",")) != NULL) { 
 
-while((tableptr[p] | tableptr[p+1] << 8) != 0xffff); 
-
 while((!(ivideo->video_vbase = ioremap(ivideo->video_base, (*mapsize))))) { 
-
-while(0); 
-
-while(queuedata[i] != 0xFF); 
 
 while((pdev = pci_get_class(PCI_CLASS_BRIDGE_HOST, pdev))) { 
 
 while((ranksize >>= 1)) reg += 0x10; 
 
-while(0); 
-
 while((countvideo = countvideo->next) != NULL) 
-
-while(*dataptr) { 
 
 while(mychswtable[i].subsysVendor != 0); 
 
-while((!(temp & SiS_Pr->SiS_DDC_Clk)) && --watchdog); 
+while(0); 
+
+while(queuedata[i] != 0xFF); 
 
 while(SiS_Pr->SiS_EModeIDTable[j].Ext_ModeID != 0xff) { 
 
@@ -1610,8 +1616,6 @@ while(len) {
 
 while(len) { 
 
-while(mtd->size & (mtd->erasesize - 1)) 
-
 while(len >= map_bankwidth(map)) { 
 
 while(z < words * map_bankwidth(map)) { 
@@ -1619,6 +1623,8 @@ while(z < words * map_bankwidth(map)) {
 while(len) { 
 
 while(len) { 
+
+while(mtd->size & (mtd->erasesize - 1)) 
 
 while(len) { 
 
@@ -1702,51 +1708,15 @@ while(0)
 
 while(0) 
 
-while(0); 
-
-while(0); 
-
-while(0); 
-
-while(0); 
-
 while(0) 
 
-while(0) 
+while(0); 
 
-while(0); LOCK_GIVE(cptr->hdw->big_lock); 
+while(0); 
 
-while(0); LOCK_GIVE(cptr->hdw->big_lock); 
+while(0); 
 
-while(0); LOCK_GIVE(cptr->hdw->big_lock); 
-
-while(0); LOCK_GIVE(cptr->hdw->big_lock); 
-
-while(0); LOCK_GIVE(cptr->hdw->big_lock); 
-
-while(0); LOCK_GIVE(cptr->hdw->big_lock); 
-
-while(0); LOCK_GIVE(cptr->hdw->big_lock); 
-
-while(0); LOCK_GIVE(cptr->hdw->big_lock); 
-
-while(0); LOCK_GIVE(cptr->hdw->big_lock); 
-
-while(0); mutex_unlock(&sp->mutex); 
-
-while(0); mutex_unlock(&sp->mutex); 
-
-while(0); LOCK_GIVE(cptr->hdw->big_lock); 
-
-while(0); mutex_unlock(&sp->mutex); 
-
-while(0); mutex_unlock(&sp->mutex); 
-
-while(0); mutex_unlock(&sp->mutex); 
-
-while(0); mutex_unlock(&sp->mutex); 
-
-while(0) 
+while(0); 
 
 while(0) 
 
@@ -1755,6 +1725,44 @@ while(0); LOCK_GIVE(hdw->ctl_lock);
 while(0); LOCK_GIVE(hdw->ctl_lock); 
 
 while(0); LOCK_GIVE(hdw->ctl_lock); 
+
+while(0) 
+
+while(0); mutex_unlock(&sp->mutex); 
+
+while(0); mutex_unlock(&sp->mutex); 
+
+while(0); mutex_unlock(&sp->mutex); 
+
+while(0); mutex_unlock(&sp->mutex); 
+
+while(0); mutex_unlock(&sp->mutex); 
+
+while(0); mutex_unlock(&sp->mutex); 
+
+while(0); LOCK_GIVE(cptr->hdw->big_lock); 
+
+while(0); LOCK_GIVE(cptr->hdw->big_lock); 
+
+while(0); LOCK_GIVE(cptr->hdw->big_lock); 
+
+while(0); LOCK_GIVE(cptr->hdw->big_lock); 
+
+while(0); LOCK_GIVE(cptr->hdw->big_lock); 
+
+while(0); LOCK_GIVE(cptr->hdw->big_lock); 
+
+while(0); LOCK_GIVE(cptr->hdw->big_lock); 
+
+while(0); LOCK_GIVE(cptr->hdw->big_lock); 
+
+while(0); LOCK_GIVE(cptr->hdw->big_lock); 
+
+while(0); LOCK_GIVE(cptr->hdw->big_lock); 
+
+while(0) 
+
+while(0) 
 
 while(0); LOCK_GIVE(hdw->ctl_lock); 
 
@@ -1872,9 +1880,9 @@ while(0)
 
 while(0) 
 
-while(0) 
-
 while(owner); 
+
+while(0) 
 
 while(0) 
 
@@ -1894,15 +1902,11 @@ while(0)
 
 while(0) 
 
-while(0) 
-
-while(0) 
+while( num_aps >= 1 ) { 
 
 while( num_aps >= 1 ) { 
 
 while( numAPs >= 1 ) { 
-
-while( num_aps >= 1 ) { 
 
 while( (*p).scan_complete == FALSE && ret == HCF_SUCCESS ) { 
 
@@ -1958,6 +1962,14 @@ while(nbytes > 0)
 
 while(pmicdata->nBytesInM != 0) 
 
+while((i < try_cnt) && ((ret == _FAIL) || (wait_ms == 0))); 
+
+while((i < try_cnt) && ((ret == _FAIL) || (wait_ms == 0))); 
+
+while((i < try_cnt) && ((ret == _FAIL)||(wait_ms == 0))); 
+
+while((i < try_cnt) && ((ret == _FAIL)||(wait_ms == 0))); 
+
 while(!(((value32 >> 24) & 0xff) & 0x80)  && (retry<10)) */ 
 
 while(!(Bytetemp & 0x80)) 
@@ -1967,14 +1979,6 @@ while(Bytetemp & 0x80)
 while(!(0x80 &rtl8723au_read8(pAdapter, EFUSE_CTRL+3)) && (tmpidx<100)) 
 
 while((0x80 & rtl8723au_read8(pAdapter, EFUSE_CTRL+3)) && 
-
-while((i < try_cnt) && ((ret == _FAIL) || (wait_ms == 0))); 
-
-while((i < try_cnt) && ((ret == _FAIL) || (wait_ms == 0))); 
-
-while((i < try_cnt) && ((ret == _FAIL)||(wait_ms == 0))); 
-
-while((i < try_cnt) && ((ret == _FAIL)||(wait_ms == 0))); 
 
 while(1) */ 
 
@@ -2002,6 +2006,22 @@ while(0)
 
 while(0) 
 
+while(1){ 
+
+while(1){ 
+
+while(1){ 
+
+while(1){ 
+
+while(1){ 
+
+while(1){ 
+
+while(1){ 
+
+while(1){ 
+
 while(0); 
 
 while(0); 
@@ -2010,27 +2030,11 @@ while(0);
 
 while(0); 
 
-while(1){ 
-
-while(1){ 
-
-while(1){ 
-
-while(1){ 
-
-while(1){ 
-
-while(1){ 
-
-while(1){ 
-
-while(1){ 
+while(false); 
 
 while(false); 
 
 while(*tmp_p != 0x00) { 
-
-while(false); 
 
 while(frag_offset < buffer_len); 
 
@@ -2152,6 +2156,12 @@ while(0)
 
 while(0) 
 
+while(0) 
+
+while(0) 
+
+while(0) 
+
 while(len && timeout) 
 
 while(time_before(jiffies, i) && (inb(base + PIO_INT_REG) & EMPTY) && timeout) 
@@ -2159,12 +2169,6 @@ while(time_before(jiffies, i) && (inb(base + PIO_INT_REG) & EMPTY) && timeout)
 while(len && timeout) 
 
 while(time_before(jiffies, i) && (inb(base + PIO_INT_REG) & FULL) && timeout) 
-
-while(0) 
-
-while(0) 
-
-while(0) 
 
 while(time_before(jiffies, i) && !(inb(base + STATUS_REG) & SCI)) 
 
@@ -2198,13 +2202,13 @@ while(0)
 
 while(((flag_ccb = readl(&reg->outbound_queueport)) != 0xFFFFFFFF) 
 
-while((siop = ffz(sir)) < p->siops) { 
-
 while(count){ 
 
 while(count){ 
 
 while(1){ 
+
+while((siop = ffz(sir)) < p->siops) { 
 
 while(!list_empty(&(dev->queues->queue[HostNormCmdQueue].cmdq))) { 
 
@@ -2216,13 +2220,13 @@ while(aac_consumer_get(dev, q, &entry))
 
 while(aac_consumer_get(dev, q, &entry)) 
 
+while(did_work); 
+
 while(d) { 
 
 while(m == EMPTY_QUEUE); 
 
 while(*status == 0){ 
-
-while(did_work); 
 
 while(sg_index) { 
 
@@ -2244,9 +2248,9 @@ while(status_block[87]!=0xff){
 
 while(pHba->hrt == NULL); 
 
-while(pos != NULL && (next = strchr(pos, ':')) != NULL) { 
-
 while( ((int)readb(&dp6m_ptr->i960r.sema0_reg) ) & 3 ) 
+
+while(pos != NULL && (next = strchr(pos, ':')) != NULL) { 
 
 while() loops	* 
 
@@ -2474,17 +2478,17 @@ while(copy_count) {
 
 while(timeout-- && !info->irq_occurred) 
 
-while(count == 0); 
-
 while(temp_open_count) { 
+
+while(count == 0 || count == -EAGAIN); 
+
+while(count == 0); 
 
 while((action = mgsl_bh_action(info)) != 0) { 
 
 while(get_rx_frame(info)); 
 
 while( (Fifocount = (usc_InReg(info,RICR) >> 8)) ) { 
-
-while(0); 
 
 while( info ) { 
 
@@ -2510,13 +2514,13 @@ while( EndTime-- && !info->irq_occurred ) {
 
 while(count) { 
 
+while(0); 
+
 while(res_ptr < res_end) 
 
 while(unlikely(size > 0)); 
 
 while(--nents > 0) { 
-
-while(card->next) { 
 
 while(byte_cnt > chain_size) { 
 
@@ -2525,6 +2529,8 @@ while(byte_cnt > 0) {
 while(size > 0) { 
 
 while(sg_dma_len(sglist) && nents--) { 
+
+while(card->next) { 
 
 while(0) 
 
@@ -2696,25 +2702,11 @@ while(unlikely(typhoon_num_free_tx(txRing) < (numDesc + 2)))
 
 while(section_len) { 
 
-while((idev = pnp_find_dev(NULL, 
-
 while(lastRead != le32_to_cpu(*index)) { 
 
 while(rxaddr != local_ready && budget > 0) { 
 
-while(0) 
-
-while(0) 
-
-while(0) 
-
-while(0) 
-
-while(0) 
-
-while(0) 
-
-while(0) 
+while((idev = pnp_find_dev(NULL, 
 
 while(0) 
 
@@ -2727,6 +2719,20 @@ while(0)
 while(0) 
 
 while((np = of_find_all_nodes(np)) != NULL) { 
+
+while(0) 
+
+while(0) 
+
+while(0) 
+
+while(0) 
+
+while(0) 
+
+while(0) 
+
+while(0) 
 
 while( (readreg(dev, PP_SelfST) & INIT_DONE) == 0 && jiffies - reset_start_time < 2) 
 
@@ -2744,11 +2750,11 @@ while(db->rx_avail_cnt < RX_DESC_CNT) {
 
 while( 0 ) 
 
-while( 0 ) 
-
 while( old_tx != lp->new_tx) { 
 
 while( (MEM->rx_head[entry].flag & RMD1_OWN) == RMD1_OWN_HOST ) { 
+
+while( 0 ) 
 
 while( len-- ) { 
 
@@ -2806,9 +2812,9 @@ while((inb(ioaddr+DAYNA_CARD_STATUS)&DAYNA_TX_READY)==0)
 
 while((inb(ioaddr+TANG_CARD_STATUS)&TANG_TX_READY)==0) 
 
-while((tmp = *r) != NULL) 
-
 while((inb(ioaddr+DAYNA_CARD_STATUS)&DAYNA_TX_READY)==0); 
+
+while((tmp = *r) != NULL) 
 
 while((stat = sca_intr_status(card)) != 0) { 
 
@@ -2822,15 +2828,15 @@ while(c->txcount) {
 
 while(++work<5000) 
 
-while(len) 
-
-while(len) 
-
-while(len) 
-
 while(*rtable!=255) 
 
 while(c->txcount && (read_zsreg(c,R0)&Tx_BUF_EMP)) 
+
+while(len) 
+
+while(len) 
+
+while(len) 
 
 while( (pdev = pci_get_class( PCI_CLASS_NETWORK_OTHER << 8, pdev )) 
 
@@ -2844,13 +2850,13 @@ while( num < SBNI_MAX_NUM_CARDS ) {
 
 while( len-- ) 
 
+while( (LMC_CSR_READ(sc, csr_gp) & LMC_GEP_INIT) == 0 && 
+
+while( (LMC_CSR_READ(sc, csr_gp) & LMC_GEP_INIT) == 0 && 
+
 while( n >= 0 ) { \ 
 
 while(0) 
-
-while( (LMC_CSR_READ(sc, csr_gp) & LMC_GEP_INIT) == 0 && 
-
-while( (LMC_CSR_READ(sc, csr_gp) & LMC_GEP_INIT) == 0 && 
 
 while(iLen > 0)  
 
@@ -2890,15 +2896,15 @@ while(new !=(irnet_socket *) NULL)
 
 while(new !=(irnet_socket *) NULL) 
 
+while(self != NULL) 
+
 while(next != NULL) 
 
 while(isspace(start[length - 1])) 
 
-while(self != NULL) 
+while((lsap_todo--) && 
 
 while(*name) { 
-
-while((lsap_todo--) && 
 
 while(hash < cd->hash_size && 
 
@@ -2930,17 +2936,17 @@ while(sent < size) {
 
 while(*pos && (sk = dn_socket_get_next(seq, sk))) 
 
-while(*str && !ISNUM(*str)) str++; 
-
 while(tmp) { 
-
-while((f = *fp) != NULL) { 
 
 while(*pos && (rt = dn_rt_cache_get_next(seq, rt))) 
 
 while(order && ((((1UL << order) * PAGE_SIZE) / 
 
 while(dn_rt_hash_mask & (dn_rt_hash_mask - 1)) 
+
+while((f = *fp) != NULL) { 
+
+while(*str && !ISNUM(*str)) str++; 
 
 while(0) 
 
@@ -2988,6 +2994,4 @@ while((skb = skb_dequeue(&c->mfc_un.unres.unresolved)) != NULL) {
 
 while((skb = __skb_dequeue(&uc->mfc_un.unres.unresolved))) { 
 
-end! : thread num : 0 : 12262 
-end! : thread num : 1 : 12329 
-end! : thread num : 2 : 12269 
+end! : thread num : 0 : 36860 
