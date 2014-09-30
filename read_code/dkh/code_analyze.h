@@ -180,7 +180,7 @@ struct code_info *read_code(char *path, pthread_mutex_t *mutex)
     if (tmp = cheek_code_line(buf, list, KEYWORD_NEXT_PARENTHESES)) {
 
       /* print */
-      printf("file : %s \n", path);
+      // printf("file : %s \n", path);
       printf("%s \n\n", tmp);
 
     }
@@ -228,11 +228,9 @@ void *analysis_code_thread(void *a)
   mutex = arg->mutex;
 
   /* Thread number count */
-  pthread_mutex_lock(mutex);
   thread_num = arg->num;
-  printf("TID : %d\n", thread_num);
+  // printf("TID : %d\n", thread_num);
   arg->num++;
-  pthread_mutex_unlock(mutex);
 
   /* Pic one file */
   pthread_mutex_lock(mutex);
@@ -242,7 +240,7 @@ void *analysis_code_thread(void *a)
   while (f_list && f_name) {
 
     /* Read file */
-    // printf("%2u : %5d : %s \n", thread_num, thread_count++, f_name);
+    printf("%2u : %5d : %s \n", thread_num, thread_count++, f_name);
     thread_count++;
     result = read_code(f_name, mutex);
     // free(result);
@@ -251,11 +249,10 @@ void *analysis_code_thread(void *a)
     pthread_mutex_lock(mutex);
     f_name = read_split(f_list, '\n');
     pthread_mutex_unlock(mutex);
-
   }
 
 end:
-  // close_file_info(f_list);
+  close_file_info(f_list);
   printf("end! : thread num : %u : %d \n", thread_num, thread_count);
   pthread_exit((void *)0);
 
