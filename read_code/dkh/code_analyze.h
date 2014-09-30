@@ -149,8 +149,6 @@ int init_code_info(struct code_info *c_info, char *file)
   c_info->name = malloc(strlen(file) + 1);
   strcpy(c_info->name, file);
 
-  printf("malloc ok %4d : %s \n",strlen(file) + 1, file);
-
   /* nomal */
   c_info->line = 0;
 
@@ -200,7 +198,6 @@ struct code_info *read_code_file(char *file, pthread_mutex_t *mutex)
 
   /* Init file info */
   tmp_file = (struct file_info*)malloc(sizeof(struct file_info));
-
   init_file_struct(tmp_file, file);
   pthread_mutex_unlock(mutex);
 
@@ -208,9 +205,7 @@ struct code_info *read_code_file(char *file, pthread_mutex_t *mutex)
   buf = read_split(tmp_file, '\n');
   while (buf) {
 
-    pthread_mutex_lock(mutex);
     line++;
-    pthread_mutex_unlock(mutex);
 
     char *tmp = NULL;
     if (tmp = cheek_code_line(buf, list, KEYWORD_NEXT_PARENTHESES)) {
@@ -226,7 +221,7 @@ struct code_info *read_code_file(char *file, pthread_mutex_t *mutex)
   }
 
 end:
-  printf("line : %5d : %s\n", line, file);
+  printf("%5d : %s \n", line, file);
   c_info->line = line;
 
   /* close and free file_info and list struct */
@@ -286,7 +281,7 @@ void *analysis_code_thread(void *a)
     read_file_count++;
     result = read_code_file(f_name, mutex);
 
-    printf("result : %d\n", result->line);
+    printf("result : %5d : %s \n", result->line, f_name);
     if (result) {
       free(result->name);
       free(result);
