@@ -139,16 +139,33 @@ char *cheek_code_line(char *str, struct dk_list *list, int option)
   return NULL;
 }/*}}}*/
 
+
+int init_code_info(struct code_info *c_info, char *file)
+{
+  if (!c_info || !file)
+    return EARG_NULL;
+
+  c_info->name = malloc(strlen(file) + 1);
+  strcpy(c_info->name, file);
+
+
+
+  return 0;
+}
+
 /* 
  * read one source code(file). and analysis
- * path : source code(file) path
+ * file : source code(file) path
  * return : Analysis result(= code_info)
  */
-struct code_info *read_code(char *path, pthread_mutex_t *mutex)
+struct code_info *read_code_file(char *file, pthread_mutex_t *mutex)
 {/*{{{*/
   struct code_info *c_info = NULL;    // TODO : Analysis and make code info
   struct file_info *tmp_file = NULL;
   char *buf = NULL;
+
+  /* Analysis result data */
+  int line = 0;
 
   // init list and. add key word 
   struct dk_list *list = init_list(); 
@@ -156,7 +173,7 @@ struct code_info *read_code(char *path, pthread_mutex_t *mutex)
   // print_list(list); 
 
   /* exception */
-  if (!path)
+  if (!file)
     return NULL;
 
   /* 
@@ -164,23 +181,26 @@ struct code_info *read_code(char *path, pthread_mutex_t *mutex)
    * TODO : Analysis and make code info
    */
   c_info = (struct code_info*)malloc(sizeof(struct code_info));
+  init_code_info(c_info, file);
 
   /* Init file info */
   tmp_file = (struct file_info*)malloc(sizeof(struct file_info));
 
   pthread_mutex_lock(mutex);
-  init_file_struct(tmp_file, path);
+  init_file_struct(tmp_file, file);
   pthread_mutex_unlock(mutex);
 
   /* CORE, get one line */
   buf = read_split(tmp_file, '\n');
   while (buf) {
 
+    line++;
+
     char *tmp = NULL;
     if (tmp = cheek_code_line(buf, list, KEYWORD_NEXT_PARENTHESES)) {
 
       /* print */
-      // printf("file : %s \n", path);
+      // printf("file : %s \n", file);
       printf("%s \n\n", tmp);
 
     }
@@ -188,6 +208,10 @@ struct code_info *read_code(char *path, pthread_mutex_t *mutex)
     /* get next one line */
     buf = read_split(tmp_file, '\n');
   }
+
+end:
+  strcpy(c_info->name, file);
+  c_info->line = line;
 
   /* close and free file_info and list struct */
   close_file_info(tmp_file);
@@ -228,9 +252,11 @@ void *analysis_code_thread(void *a)
   mutex = arg->mutex;
 
   /* Thread number count */
+  pthread_mutex_lock(mutex);
   thread_num = arg->num;
   // printf("TID : %d\n", thread_num);
   arg->num++;
+  pthread_mutex_unlock(mutex);
 
   /* Pic one file */
   pthread_mutex_lock(mutex);
@@ -242,7 +268,7 @@ void *analysis_code_thread(void *a)
     /* Read file */
     // printf("%2u : %5d : %s \n", thread_num, read_file_count++, f_name);
     read_file_count++;
-    result = read_code(f_name, mutex);
+    result = read_code_file(f_name, mutex);
     // free(result);
 
     /* Next, Pic one file */
