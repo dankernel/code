@@ -216,7 +216,7 @@ void *analysis_code_thread(void *a)
   pthread_mutex_t *mutex;
 
   int thread_num = -1;
-  int thread_count = 0;
+  int read_file_count = 0;
 
   if (!a)
     goto end;
@@ -240,8 +240,8 @@ void *analysis_code_thread(void *a)
   while (f_list && f_name) {
 
     /* Read file */
-    // printf("%2u : %5d : %s \n", thread_num, thread_count++, f_name);
-    thread_count++;
+    // printf("%2u : %5d : %s \n", thread_num, read_file_count++, f_name);
+    read_file_count++;
     result = read_code(f_name, mutex);
     // free(result);
 
@@ -253,7 +253,7 @@ void *analysis_code_thread(void *a)
 
 end:
   // close_file_info(f_list);
-  printf("end! : thread num : %u : %d \n", thread_num, thread_count);
+  printf("end! : read file count : %u : %d \n", thread_num, read_file_count);
   pthread_exit((void *)0);
 
   return (void *)1;
