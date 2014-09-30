@@ -197,6 +197,7 @@ idle_task	test/core.c	/^struct task_struct *idle_task(int cpu)$/;"	f
 idle_task_exit	test/core.c	/^void idle_task_exit(void)$/;"	f
 in_sched_functions	test/core.c	/^int in_sched_functions(unsigned long addr)$/;"	f
 init	test/core.c	/^	sched_domain_init_f init;$/;"	m	struct:sched_domain_topology_level	file:
+init_code_info	dkh/code_analyze.h	/^int init_code_info(struct code_info *c_info, char *file)$/;"	f
 init_defrootdomain	test/core.c	/^static void init_defrootdomain(void)$/;"	f	file:
 init_file_struct	dkh/file_read.h	/^int init_file_struct(struct file_info *info, char *path)$/;"	f
 init_hrtick	test/core.c	/^static __init void init_hrtick(void)$/;"	f	file:
@@ -292,7 +293,7 @@ put_prev_task	test/core.c	/^static void put_prev_task(struct rq *rq, struct task
 quota	test/core.c	/^	u64 period, quota;$/;"	m	struct:cfs_schedulable_data	file:
 r_cache	dkh/dk_list.h	/^  struct dk_lnode *r_cache;$/;"	m	struct:dk_list	typeref:struct:dk_list::dk_lnode
 rd	test/core.c	/^	struct root_domain	*rd;$/;"	m	struct:s_data	typeref:struct:s_data::root_domain	file:
-read_code	dkh/code_analyze.h	/^struct code_info *read_code(char *path)$/;"	f
+read_code_file	dkh/code_analyze.h	/^struct code_info *read_code_file(char *file, pthread_mutex_t *mutex)$/;"	f
 read_file_code	dkh/code_analyze.h	/^int read_file_code(char *path)$/;"	f
 read_split	dkh/file_read.h	/^char *read_split(struct file_info *info, char ch)$/;"	f
 register_sched_domain_sysctl	test/core.c	/^static void register_sched_domain_sysctl(void)$/;"	f	file:

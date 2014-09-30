@@ -145,10 +145,24 @@ int init_code_info(struct code_info *c_info, char *file)
   if (!c_info || !file)
     return EARG_NULL;
 
+  /* name */
   c_info->name = malloc(strlen(file) + 1);
   strcpy(c_info->name, file);
 
+  printf("malloc ok %4d : %s \n",strlen(file) + 1, file);
 
+  /* nomal */
+  c_info->line = 0;
+
+  /* bracket count */
+  c_info->b_l = 0;
+  c_info->b_m = 0;
+  c_info->b_s = 0;
+
+  /* function */
+  c_info->f_count = 0;
+  c_info->f_maxline = 0;
+  c_info->f_minline = 0;
 
   return 0;
 }
@@ -180,13 +194,13 @@ struct code_info *read_code_file(char *file, pthread_mutex_t *mutex)
    * Init code info
    * TODO : Analysis and make code info
    */
+  pthread_mutex_lock(mutex);
   c_info = (struct code_info*)malloc(sizeof(struct code_info));
   init_code_info(c_info, file);
 
   /* Init file info */
   tmp_file = (struct file_info*)malloc(sizeof(struct file_info));
 
-  pthread_mutex_lock(mutex);
   init_file_struct(tmp_file, file);
   pthread_mutex_unlock(mutex);
 
@@ -194,7 +208,9 @@ struct code_info *read_code_file(char *file, pthread_mutex_t *mutex)
   buf = read_split(tmp_file, '\n');
   while (buf) {
 
+    pthread_mutex_lock(mutex);
     line++;
+    pthread_mutex_unlock(mutex);
 
     char *tmp = NULL;
     if (tmp = cheek_code_line(buf, list, KEYWORD_NEXT_PARENTHESES)) {
@@ -210,7 +226,7 @@ struct code_info *read_code_file(char *file, pthread_mutex_t *mutex)
   }
 
 end:
-  strcpy(c_info->name, file);
+  printf("line : %5d : %s\n", line, file);
   c_info->line = line;
 
   /* close and free file_info and list struct */
@@ -269,7 +285,12 @@ void *analysis_code_thread(void *a)
     // printf("%2u : %5d : %s \n", thread_num, read_file_count++, f_name);
     read_file_count++;
     result = read_code_file(f_name, mutex);
-    // free(result);
+
+    printf("result : %d\n", result->line);
+    if (result) {
+      free(result->name);
+      free(result);
+    }
 
     /* Next, Pic one file */
     pthread_mutex_lock(mutex);
