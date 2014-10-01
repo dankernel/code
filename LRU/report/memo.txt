@@ -1,0 +1,45 @@
+
+커널 코드의 코딩 스타일에 관한 연구이다.
+
+1. if (a < 10) { ... 형태에서 각 워드마다의 띄어쓰기 여부
+2. 주석 스타일
+
+
+커널 코드의 *.c, *.h 파일은 17136236(약 1700만) 라인이다.
+
+if    9482    1202813   17136236
+for   1284    390942    17136236
+while 1494    41567     17136236
+
+if    0.05%   7%  100%
+for   0.07%   2%  100%
+while 0.08%   2%  100% 
+
+if    0.7%    100%
+for   0.3%    100%
+while 3%      100%
+
+커널 코드 디렉토리 목록
+virt
+sound
+net
+ipc
+firmware
+block
+usr
+security
+mm
+init
+arch         
+tools
+scripts
+lib
+include
+drivers 
+samples
+kernel
+fs        *
+crypto    
+
+
+
