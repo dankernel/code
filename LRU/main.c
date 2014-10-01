@@ -30,7 +30,7 @@ int main(int argc, char* argv[])
   /* printf("line : %d \n", line); */
 
   /* read file, Thus file is file list */
-  read_file_code("./test/file.list");
+  read_file_code("./test/file2.list");
 
   return 0;
 }

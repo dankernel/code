@@ -206,6 +206,7 @@ struct code_info *read_code_file(char *file, pthread_mutex_t *mutex)
   while (buf) {
 
     line++;
+    printf("BUF : %s \n", buf);
 
     char *tmp = NULL;
     if (tmp = cheek_code_line(buf, list, KEYWORD_NEXT_PARENTHESES)) {
