@@ -32,10 +32,11 @@ int main(int argc, char* argv[])
   /* alloc and init struct */
   struct file_info *dk_file = NULL;
   dk_file = (struct file_info*)malloc(sizeof(struct file_info));
-  init_file_struct(dk_file, "./test/core.c");
+  init_file_struct(dk_file, "/home/dkdk/Downloads/lab/MSR-Cambridge/usr_2.csv.gz");
+
 
   /* CORE */
-  buf = read_split(dk_file, '\n');
+  buf = read_split(dk_file, ',');
   while (buf) {
 
     // cheek //
