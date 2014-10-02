@@ -170,9 +170,8 @@ int init_code_info(struct code_info *c_info, char *file)
  * file : source code(file) path
  * return : Analysis result(= code_info)
  */
-struct code_info *read_code_file(char *file)
+int *read_file(char *file)
 {/*{{{*/
-  struct code_info *c_info = NULL;    // TODO : Analysis and make code info
   struct file_info *tmp_file = NULL;
   char *buf = NULL;
 
@@ -187,8 +186,6 @@ struct code_info *read_code_file(char *file)
    * Init code info
    * TODO : Analysis and make code info
    */
-  c_info = (struct code_info*)malloc(sizeof(struct code_info));
-  init_code_info(c_info, file);
 
   /* Init file info */
   tmp_file = (struct file_info*)malloc(sizeof(struct file_info));
@@ -207,22 +204,11 @@ struct code_info *read_code_file(char *file)
 
 end:
   printf("%5d : %s \n", line, file);
-  c_info->line = line;
 
   close_file_info(tmp_file);
 
-  return c_info;
+  return 0;
 }/*}}}*/
-
-
-/*
- * XXX : Just test. KILL ME!
- */
-void *test_thread(void *a)
-{
-  if (a)
-    printf("TID : %5u : %5d \n", gettid(), a);
-}
 
 void *analysis_code_thread(void *a)
 {
@@ -262,7 +248,7 @@ void *analysis_code_thread(void *a)
     /* Read file */
     // printf("%2u : %5d : %s \n", thread_num, read_file_count++, f_name);
     read_file_count++;
-    result = read_code_file(f_name);
+    read_file(f_name);
 
     printf("result : %5d : %s \n", result->line, f_name);
     if (result) {

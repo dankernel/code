@@ -32,7 +32,8 @@ int main(int argc, char* argv[])
   /* read file, Thus file is file list */
   /* read_file_code("./test/file2.list"); */
 
-  read_code_file("./test/file2.list");
+  read_file("/home/dkdk/Downloads/lab/MSR-Cambridge/usr_2.csv");
+  /* read_file("/home/dkdk/Downloads/lab/MSR-Cambridge/wdev_3.csv"); */
 
   return 0;
 }
