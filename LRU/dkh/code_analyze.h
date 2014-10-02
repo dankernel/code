@@ -211,7 +211,7 @@ end:
 }/*}}}*/
 
 void *analysis_code_thread(void *a)
-{
+{/*{{{*/
   struct analysis_arg *arg;
 
   char *f_name;
@@ -269,7 +269,7 @@ end:
 
   return (void *)1;
 
-}
+}/*}}}*/
 
 /* 
  * get file line

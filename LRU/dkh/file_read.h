@@ -167,6 +167,8 @@ read:
     info->seek = 0;
     i = 0;
 
+    printf("READ.. \n");
+
     if (read_size <= 0) {
       goto fail;
     }
