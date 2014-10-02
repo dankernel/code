@@ -170,7 +170,7 @@ int init_code_info(struct code_info *c_info, char *file)
  * file : source code(file) path
  * return : Analysis result(= code_info)
  */
-struct code_info *read_code_file(char *file, pthread_mutex_t *mutex)
+struct code_info *read_code_file(char *file)
 {/*{{{*/
   struct code_info *c_info = NULL;    // TODO : Analysis and make code info
   struct file_info *tmp_file = NULL;
@@ -178,11 +178,6 @@ struct code_info *read_code_file(char *file, pthread_mutex_t *mutex)
 
   /* Analysis result data */
   int line = 0;
-
-  // init list and. add key word 
-  struct dk_list *list = init_list(); 
-  add_lnode(list, "while"); 
-  // print_list(list); 
 
   /* exception */
   if (!file)
@@ -192,14 +187,12 @@ struct code_info *read_code_file(char *file, pthread_mutex_t *mutex)
    * Init code info
    * TODO : Analysis and make code info
    */
-  pthread_mutex_lock(mutex);
   c_info = (struct code_info*)malloc(sizeof(struct code_info));
   init_code_info(c_info, file);
 
   /* Init file info */
   tmp_file = (struct file_info*)malloc(sizeof(struct file_info));
   init_file_struct(tmp_file, file);
-  pthread_mutex_unlock(mutex);
 
   /* CORE, get one line */
   buf = read_split(tmp_file, '\n');
@@ -207,15 +200,6 @@ struct code_info *read_code_file(char *file, pthread_mutex_t *mutex)
 
     line++;
     printf("BUF : %s \n", buf);
-
-    char *tmp = NULL;
-    if (tmp = cheek_code_line(buf, list, KEYWORD_NEXT_PARENTHESES)) {
-
-      /* print */
-      // printf("file : %s \n", file);
-      printf("%s \n\n", tmp);
-
-    }
 
     /* get next one line */
     buf = read_split(tmp_file, '\n');
@@ -225,9 +209,7 @@ end:
   printf("%5d : %s \n", line, file);
   c_info->line = line;
 
-  /* close and free file_info and list struct */
   close_file_info(tmp_file);
-  remove_list(list);
 
   return c_info;
 }/*}}}*/
@@ -280,7 +262,7 @@ void *analysis_code_thread(void *a)
     /* Read file */
     // printf("%2u : %5d : %s \n", thread_num, read_file_count++, f_name);
     read_file_count++;
-    result = read_code_file(f_name, mutex);
+    result = read_code_file(f_name);
 
     printf("result : %5d : %s \n", result->line, f_name);
     if (result) {
