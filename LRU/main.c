@@ -24,7 +24,7 @@
 
 int main(int argc, char* argv[])
 {
-  /* read_code_file("/home/dkdk/Downloads/lab/MSR-Cambridge/usr_2.csv"); */
-  read_code_file("test/file.list");
+  read_code_file("/home/dkdk/Downloads/lab/MSR-Cambridge/usr_2.csv");
+  /* read_code_file("test/file.list"); */
   return 0;
 }
