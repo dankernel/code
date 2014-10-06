@@ -53,7 +53,7 @@ struct dk_lnode *init_lnode(void *val)
   nn = malloc(sizeof(struct dk_lnode));
 
   /* init */
-  nn->p = val;
+  nn->p = (int *)strdup(val);
   nn->next = NULL;
   nn->prev = NULL;
 
@@ -175,7 +175,7 @@ int print_list(struct dk_list *list)
  * return : error code
  * */
 int remove_list(struct dk_list *list)
-{
+{/*{{{*/
   int ret = 0;
   struct dk_lnode *root = NULL;
   struct dk_lnode *tmp = NULL;
@@ -192,6 +192,7 @@ int remove_list(struct dk_list *list)
     if ((tmp->prev || tmp->next) && tmp && tmp->p) {
       cur = tmp;
       tmp = tmp->next;
+      free(cur->p);
       free(cur);
     } else
       printf("fail : NULL node or Not string type\n");
@@ -202,7 +203,7 @@ int remove_list(struct dk_list *list)
 }/*}}}*/
 
 int remove_lnode(struct dk_lnode *n)
-{
+{/*{{{*/
   struct dk_lnode *prev = NULL;
   struct dk_lnode *next = NULL;
 
@@ -218,7 +219,7 @@ int remove_lnode(struct dk_lnode *n)
   free(n);
 
   return 0;
-}
+}/*}}}*/
 
 int swap_list(struct dk_lnode *l1, struct dk_lnode *l2)
 {
@@ -235,8 +236,6 @@ int swap_list(struct dk_lnode *l1, struct dk_lnode *l2)
 //   l1->next = l2->next;
 //   l2->next = tmp;
 //
-
-
 
   return 0;
 }

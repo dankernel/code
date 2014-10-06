@@ -190,7 +190,7 @@ int *read_code_file(char *file)
   buf = read_next_line(tmp_file);
   while (buf) {
 
-    add_lnode(list, strdup(buf));
+    add_lnode(list, buf);
 
     /* get next one line */
     buf = read_next_line(tmp_file);
