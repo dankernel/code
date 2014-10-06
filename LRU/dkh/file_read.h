@@ -167,11 +167,8 @@ read:
     info->seek = 0;
     i = 0;
 
-<<<<<<< HEAD
     printf("READ.. \n");
 
-=======
->>>>>>> 4c242acb001bbe634a68170406de25d10cdebe5f
     if (read_size <= 0) {
       goto fail;
     }

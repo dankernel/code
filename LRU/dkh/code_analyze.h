@@ -170,14 +170,9 @@ int init_code_info(struct code_info *c_info, char *file)
  * file : source code(file) path
  * return : Analysis result(= code_info)
  */
-<<<<<<< HEAD
-int *read_file(char *file)
-{/*{{{*/
-=======
 struct code_info *read_code_file(char *file)
 {/*{{{*/
   struct code_info *c_info = NULL;    // TODO : Analysis and make code info
->>>>>>> 4c242acb001bbe634a68170406de25d10cdebe5f
   struct file_info *tmp_file = NULL;
   char *buf = NULL;
 
@@ -192,11 +187,8 @@ struct code_info *read_code_file(char *file)
    * Init code info
    * TODO : Analysis and make code info
    */
-<<<<<<< HEAD
-=======
   c_info = (struct code_info*)malloc(sizeof(struct code_info));
   init_code_info(c_info, file);
->>>>>>> 4c242acb001bbe634a68170406de25d10cdebe5f
 
   /* Init file info */
   tmp_file = (struct file_info*)malloc(sizeof(struct file_info));
@@ -215,36 +207,15 @@ struct code_info *read_code_file(char *file)
 
 end:
   printf("%5d : %s \n", line, file);
-<<<<<<< HEAD
 
   close_file_info(tmp_file);
 
   return 0;
 }/*}}}*/
 
-void *analysis_code_thread(void *a)
-{/*{{{*/
-=======
-  c_info->line = line;
-
-  close_file_info(tmp_file);
-
-  return c_info;
-}/*}}}*/
-
-
-/*
- * XXX : Just test. KILL ME!
- */
-void *test_thread(void *a)
-{
-  if (a)
-    printf("TID : %5u : %5d \n", gettid(), a);
-}
 
 void *analysis_code_thread(void *a)
 {
->>>>>>> 4c242acb001bbe634a68170406de25d10cdebe5f
   struct analysis_arg *arg;
 
   char *f_name;
@@ -281,11 +252,8 @@ void *analysis_code_thread(void *a)
     /* Read file */
     // printf("%2u : %5d : %s \n", thread_num, read_file_count++, f_name);
     read_file_count++;
-<<<<<<< HEAD
-    read_file(f_name);
-=======
+    read_file_code(f_name);
     result = read_code_file(f_name);
->>>>>>> 4c242acb001bbe634a68170406de25d10cdebe5f
 
     printf("result : %5d : %s \n", result->line, f_name);
     if (result) {
@@ -306,11 +274,7 @@ end:
 
   return (void *)1;
 
-<<<<<<< HEAD
 }/*}}}*/
-=======
-}
->>>>>>> 4c242acb001bbe634a68170406de25d10cdebe5f
 
 /* 
  * get file line
