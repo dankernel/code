@@ -190,8 +190,10 @@ int *read_code_file(char *file)
   buf = read_next_line(tmp_file);
   while (buf) {
 
-    lookup_list(list, buf);
-    add_lnode(list, buf);
+    if (!lookup_list(list, buf))
+      add_lnode(list, buf);
+    else
+      printf("HIT : %s \n", buf);
 
     /* get next one line */
     buf = read_next_line(tmp_file);

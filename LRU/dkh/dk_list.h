@@ -174,14 +174,13 @@ int print_list(struct dk_list *list)
  * @list : target list struct
  * return : error code
  * */
-int lookup_list(struct dk_list *list, char *str)
+struct dk_lnode *lookup_list(struct dk_list *list, char *str)
 {/*{{{*/
-  int ret = 0;
   struct dk_lnode *root = NULL;
   struct dk_lnode *tmp = NULL;
 
   if (!list)
-    return -EARG_NULL;
+    return NULL;
 
   root = list->head;
   tmp = root;
@@ -191,11 +190,12 @@ int lookup_list(struct dk_list *list, char *str)
     if ((tmp->prev || tmp->next) && tmp && tmp->p && !strcmp((char *)tmp->p, str)) {
       printf("look up! : %s\n", tmp->p);
       print_node(tmp);
+      return tmp;
     }
 
   } while (tmp = tmp->next);
 
-  return ret;
+  return NULL;
 }/*}}}*/
 
 
