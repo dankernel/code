@@ -36856,6 +36856,7 @@
 ./test/kernel/net/ieee802154/raw.c
 ./test/kernel/net/ieee802154/af802154.h
 ./test/kernel/net/ieee802154/nl_policy.c
+./test/kernel/fs/ntfs/inode.h
 ./test/kernel/net/ieee802154/6lowpan_rtnl.c
 ./test/kernel/net/key/af_key.c
 

@@ -227,6 +227,7 @@ kstat	test/core.c	/^EXPORT_PER_CPU_SYMBOL(kstat);$/;"	v
 line	dkh/code_analyze.h	/^  int line;$/;"	m	struct:code_info
 line	dkh/file_read.h	/^  int line;$/;"	m	struct:file_info
 list_str	dkh/code_analyze.h	/^char *list_str(struct dk_list *list, char *str)$/;"	f
+lookup_list	dkh/dk_list.h	/^int lookup_list(struct dk_list *list, char *str)$/;"	f
 main	main.c	/^int main(int argc, char* argv[])$/;"	f
 mask	test/core.c	/^	sched_domain_mask_f mask;$/;"	m	struct:sched_domain_topology_level	file:
 max_cfs_quota_period	test/core.c	/^const u64 max_cfs_quota_period = 1 * NSEC_PER_SEC; \/* 1s *\/$/;"	v
@@ -292,10 +293,11 @@ put_prev_task	test/core.c	/^static void put_prev_task(struct rq *rq, struct task
 quota	test/core.c	/^	u64 period, quota;$/;"	m	struct:cfs_schedulable_data	file:
 r_cache	dkh/dk_list.h	/^  struct dk_lnode *r_cache;$/;"	m	struct:dk_list	typeref:struct:dk_list::dk_lnode
 rd	test/core.c	/^	struct root_domain	*rd;$/;"	m	struct:s_data	typeref:struct:s_data::root_domain	file:
-read_code_file	dkh/code_analyze.h	/^struct code_info *read_code_file(char *file)$/;"	f
+read_code_file	dkh/code_analyze.h	/^int *read_code_file(char *file)$/;"	f
 read_next_line	dkh/file_read.h	/^char *read_next_line(struct file_info *info)$/;"	f
 register_sched_domain_sysctl	test/core.c	/^static void register_sched_domain_sysctl(void)$/;"	f	file:
 remove_list	dkh/dk_list.h	/^int remove_list(struct dk_list *list)$/;"	f
+remove_lnode	dkh/dk_list.h	/^int remove_lnode(struct dk_lnode *n)$/;"	f
 resched_cpu	test/core.c	/^void resched_cpu(int cpu)$/;"	f
 resched_task	test/core.c	/^void resched_task(struct task_struct *p)$/;"	f
 result	dkh/file_read.h	/^  char *result;$/;"	m	struct:file_info
@@ -440,6 +442,7 @@ src_task	test/core.c	/^	struct task_struct *src_task, *dst_task;$/;"	m	struct:mi
 start_bandwidth_timer	test/core.c	/^void start_bandwidth_timer(struct hrtimer *period_timer, ktime_t period)$/;"	f
 stat_nam	test/core.c	/^static const char stat_nam[] = TASK_STATE_TO_CHAR_STR;$/;"	v	file:
 str_contain	dkh/dk_str.h	/^int str_contain(char *str, char c)$/;"	f
+swap_list	dkh/dk_list.h	/^int swap_list(struct dk_lnode *l1, struct dk_lnode *l2)$/;"	f
 sysctl_numa_balancing	test/core.c	/^int sysctl_numa_balancing(struct ctl_table *table, int write,$/;"	f
 sysctl_sched_features	test/core.c	/^const_debug unsigned int sysctl_sched_features =$/;"	v
 sysctl_sched_nr_migrate	test/core.c	/^const_debug unsigned int sysctl_sched_nr_migrate = 32;$/;"	v

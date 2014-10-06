@@ -190,13 +190,15 @@ int *read_code_file(char *file)
   buf = read_next_line(tmp_file);
   while (buf) {
 
+    lookup_list(list, buf);
     add_lnode(list, buf);
 
     /* get next one line */
     buf = read_next_line(tmp_file);
 
   }
-  print_list(list);
+  // print_list(list);
+  printf("count : %d\n", list->count);
   remove_list(list);
 
 end:

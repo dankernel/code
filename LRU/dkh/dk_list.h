@@ -170,6 +170,37 @@ int print_list(struct dk_list *list)
 }/*}}}*/
 
 /* 
+ * print list. head to tail. only char type 
+ * @list : target list struct
+ * return : error code
+ * */
+int lookup_list(struct dk_list *list, char *str)
+{/*{{{*/
+  int ret = 0;
+  struct dk_lnode *root = NULL;
+  struct dk_lnode *tmp = NULL;
+
+  if (!list)
+    return -EARG_NULL;
+
+  root = list->head;
+  tmp = root;
+
+  /* Print loop */
+  do {
+    if ((tmp->prev || tmp->next) && tmp && tmp->p && !strcmp((char *)tmp->p, str)) {
+      printf("look up! : %s\n", tmp->p);
+      print_node(tmp);
+    }
+
+  } while (tmp = tmp->next);
+
+  return ret;
+}/*}}}*/
+
+
+
+/* 
  * remove list. head to tail.
  * @list : target list struct
  * return : error code
@@ -223,6 +254,7 @@ int remove_lnode(struct dk_lnode *n)
 
 int swap_list(struct dk_lnode *l1, struct dk_lnode *l2)
 {
+
 //   struct dk_lnode *tmp = NULL;
 //
 //   if (!l1 || !l2)
@@ -235,7 +267,6 @@ int swap_list(struct dk_lnode *l1, struct dk_lnode *l2)
 //   tmp = l2->next;
 //   l1->next = l2->next;
 //   l2->next = tmp;
-//
 
   return 0;
 }
