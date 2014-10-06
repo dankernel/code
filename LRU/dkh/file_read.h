@@ -157,7 +157,6 @@ char *read_split(struct file_info *info, char ch)
   int start = -1;
   char tmp = '\0';
 
-
   if (*info->buf == '\0' || i == info->buf_size) {
 
 read:
