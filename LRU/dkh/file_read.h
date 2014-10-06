@@ -185,13 +185,10 @@ loop:
     tmp = *((info->buf) + i);
 
     /* new line count */
-    if (tmp == '\n') {
+    if (tmp == '\n' || tmp == '\0') {
       info->line++;
       goto ret;
     }
-
-    if (tmp == '\0')
-      goto fail;
 
     /* next */
     i++;
@@ -209,11 +206,8 @@ ret :
   strncpy(info->result, info->buf + start, i - start);
   info->result[i - start] = '\0';
 
-  /* prevent re-find */
-  i++;
-
-  /* seek */
-  info->seek = i;
+  /* prevent re-find & Seek */
+  info->seek = ++i;
 
   // printf("ret : %4d [%s] \n", i, info->result);
   return info->result;

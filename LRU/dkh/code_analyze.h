@@ -187,13 +187,10 @@ struct code_info *read_code_file(char *file)
   buf = read_next_line(tmp_file);
   while (buf) {
 
-    printf("BUF : %s \n", buf);
+    printf("%s\n", buf);
 
     /* get next one line */
     buf = read_next_line(tmp_file);
-
-    printf("%s : %s : %s \n", strtok(buf, ","), strtok(buf, ","), strtok(buf, ","));
-
 
   }
 
