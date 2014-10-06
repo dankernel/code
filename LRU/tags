@@ -73,7 +73,6 @@ add_lnode	dkh/dk_list.h	/^struct dk_lnode *add_lnode(struct dk_list *list, void 
 alloc_rootdomain	test/core.c	/^static struct root_domain *alloc_rootdomain(void)$/;"	f	file:
 alloc_sched_domains	test/core.c	/^cpumask_var_t *alloc_sched_domains(unsigned int ndoms)$/;"	f
 analysis_arg	dkh/code_analyze.h	/^struct analysis_arg{$/;"	s
-analysis_code_thread	dkh/code_analyze.h	/^void *analysis_code_thread(void *a)$/;"	f
 arch_sd_sibling_asym_packing	test/core.c	/^int __weak arch_sd_sibling_asym_packing(void)$/;"	f
 arch_update_cpu_topology	test/core.c	/^int __attribute__((weak)) arch_update_cpu_topology(void)$/;"	f
 b_l	dkh/code_analyze.h	/^  int b_l;$/;"	m	struct:code_info
@@ -294,8 +293,7 @@ quota	test/core.c	/^	u64 period, quota;$/;"	m	struct:cfs_schedulable_data	file:
 r_cache	dkh/dk_list.h	/^  struct dk_lnode *r_cache;$/;"	m	struct:dk_list	typeref:struct:dk_list::dk_lnode
 rd	test/core.c	/^	struct root_domain	*rd;$/;"	m	struct:s_data	typeref:struct:s_data::root_domain	file:
 read_code_file	dkh/code_analyze.h	/^struct code_info *read_code_file(char *file)$/;"	f
-read_file_code	dkh/code_analyze.h	/^int read_file_code(char *path)$/;"	f
-read_split	dkh/file_read.h	/^char *read_split(struct file_info *info, char ch)$/;"	f
+read_next_line	dkh/file_read.h	/^char *read_next_line(struct file_info *info)$/;"	f
 register_sched_domain_sysctl	test/core.c	/^static void register_sched_domain_sysctl(void)$/;"	f	file:
 remove_list	dkh/dk_list.h	/^int remove_list(struct dk_list *list)$/;"	f
 resched_cpu	test/core.c	/^void resched_cpu(int cpu)$/;"	f

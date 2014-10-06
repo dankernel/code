@@ -184,13 +184,17 @@ struct code_info *read_code_file(char *file)
   init_file_struct(tmp_file, file);
 
   /* CORE, get one line */
-  buf = read_next_line(tmp_file, '\n');
+  buf = read_next_line(tmp_file);
   while (buf) {
 
     printf("BUF : %s \n", buf);
 
     /* get next one line */
-    buf = read_next_line(tmp_file, '\n');
+    buf = read_next_line(tmp_file);
+
+    printf("%s : %s : %s \n", strtok(buf, ","), strtok(buf, ","), strtok(buf, ","));
+
+
   }
 
 end:
@@ -217,11 +221,11 @@ int get_file_line(char *path)
   file_list = (struct file_info*)malloc(sizeof(struct file_info));
   init_file_struct(file_list, path);
 
-  buf = read_next_line(file_list, '\n');
+  buf = read_next_line(file_list);
   while (buf) {
 
     /* Next */
-    buf = read_next_line(file_list, '\n');
+    buf = read_next_line(file_list);
 
   }
 
