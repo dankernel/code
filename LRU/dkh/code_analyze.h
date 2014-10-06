@@ -170,11 +170,7 @@ int init_code_info(struct code_info *c_info, char *file)
  * file : source code(file) path
  * return : err code
  */
-<<<<<<< HEAD
 int *read_code_file(char *file)
-=======
-struct code_info *read_code_file(char *file)
->>>>>>> db7e83b0040d609ae57358a637584dd50dbfb1f6
 {/*{{{*/
   struct code_info *c_info = NULL;    // TODO : Analysis and make code info
   struct file_info *tmp_file = NULL;
@@ -184,17 +180,7 @@ struct code_info *read_code_file(char *file)
   if (!file)
     return NULL;
 
-<<<<<<< HEAD
-=======
-  /* 
-   * Init code info
-   * TODO : Analysis and make code info
-   */
-  c_info = (struct code_info*)malloc(sizeof(struct code_info));
-  init_code_info(c_info, file);
-
->>>>>>> db7e83b0040d609ae57358a637584dd50dbfb1f6
-  /* Init file info */
+   /* Init file info */
   tmp_file = (struct file_info*)malloc(sizeof(struct file_info));
   init_file_struct(tmp_file, file);
 
@@ -223,70 +209,6 @@ end:
   close_file_info(tmp_file);
   return 0;
 }/*}}}*/
-
-<<<<<<< HEAD
-=======
-
-void *analysis_code_thread(void *a)
-{
-  struct analysis_arg *arg;
-
-  char *f_name;
-  struct file_info *f_list;
-  struct code_info *result;
-  pthread_mutex_t *mutex;
-
-  int thread_num = -1;
-  int read_file_count = 0;
-
-  if (!a)
-    goto end;
-
-  /* get struct node */
-  arg = (struct analysis_arg*)a;
-  f_name = arg->f_name;
-  f_list = arg->f_list;
-  mutex = arg->mutex;
-
-  /* Thread number count */
-  pthread_mutex_lock(mutex);
-  thread_num = arg->num;
-  // printf("TID : %d\n", thread_num);
-  arg->num++;
-  pthread_mutex_unlock(mutex);
-
-  /* Pic one file */
-  pthread_mutex_lock(mutex);
-  f_name = read_split(f_list, '\n');
-  pthread_mutex_unlock(mutex);
-
-  while (f_list && f_name) {
-
-    /* Read file */
-    // printf("%2u : %5d : %s \n", thread_num, read_file_count++, f_name);
-    read_file_count++;
-    read_file_code(f_name);
-    result = read_code_file(f_name);
-
-    printf("result : %5d : %s \n", result->line, f_name);
-    if (result) {
-      free(result->name);
-      free(result);
-    }
-
-    /* Next, Pic one file */
-    pthread_mutex_lock(mutex);
-    f_name = read_split(f_list, '\n');
-    pthread_mutex_unlock(mutex);
-  }
-
-end:
-  // close_file_info(f_list);
-  printf("end! : read file count : %u : %d \n", thread_num, read_file_count);
-  pthread_exit((void *)0);
-
-  return (void *)1;
->>>>>>> db7e83b0040d609ae57358a637584dd50dbfb1f6
 
 /*
  * get file line
