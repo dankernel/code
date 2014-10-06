@@ -293,8 +293,14 @@ put_prev_task	test/core.c	/^static void put_prev_task(struct rq *rq, struct task
 quota	test/core.c	/^	u64 period, quota;$/;"	m	struct:cfs_schedulable_data	file:
 r_cache	dkh/dk_list.h	/^  struct dk_lnode *r_cache;$/;"	m	struct:dk_list	typeref:struct:dk_list::dk_lnode
 rd	test/core.c	/^	struct root_domain	*rd;$/;"	m	struct:s_data	typeref:struct:s_data::root_domain	file:
+<<<<<<< HEAD
 read_code_file	dkh/code_analyze.h	/^int *read_code_file(char *file)$/;"	f
 read_next_line	dkh/file_read.h	/^char *read_next_line(struct file_info *info)$/;"	f
+=======
+read_code_file	dkh/code_analyze.h	/^struct code_info *read_code_file(char *file)$/;"	f
+read_file_code	dkh/code_analyze.h	/^int read_file_code(char *path)$/;"	f
+read_split	dkh/file_read.h	/^char *read_split(struct file_info *info, char ch)$/;"	f
+>>>>>>> db7e83b0040d609ae57358a637584dd50dbfb1f6
 register_sched_domain_sysctl	test/core.c	/^static void register_sched_domain_sysctl(void)$/;"	f	file:
 remove_list	dkh/dk_list.h	/^int remove_list(struct dk_list *list)$/;"	f
 remove_lnode	dkh/dk_list.h	/^int remove_lnode(struct dk_lnode *n)$/;"	f
