@@ -36858,3 +36858,4 @@
 ./test/kernel/net/ieee802154/nl_policy.c
 ./test/kernel/net/ieee802154/6lowpan_rtnl.c
 ./test/kernel/net/key/af_key.c
+

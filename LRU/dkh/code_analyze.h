@@ -183,16 +183,22 @@ int *read_code_file(char *file)
   tmp_file = (struct file_info*)malloc(sizeof(struct file_info));
   init_file_struct(tmp_file, file);
 
+  struct dk_list *list = init_list();
+  struct dk_lnode *node = NULL;
+
+
   /* CORE, get one line */
   buf = read_next_line(tmp_file);
   while (buf) {
 
-    printf("%s\n", buf);
-
     /* get next one line */
     buf = read_next_line(tmp_file);
 
+    add_lnode(list, strdup(buf));
+    printf("%s\n", buf);
+
   }
+  // print_list(list);
 
 end:
   printf("%s \n", file);
