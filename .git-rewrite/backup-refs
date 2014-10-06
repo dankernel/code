@@ -1,0 +1,8 @@
+fb1053952677383b192639c5c41f586196f929e9 commit	refs/heads/master
+56373df0b8307a3e6361c403721b0e536fc2c2b5 commit	refs/heads/testing
+ce141c70ae3812f00049924ad28a756730a605c6 commit	refs/heads/v1.0
+dac48ffe5e04c874989d31bc6fbaa07ac1d284d7 commit	refs/heads/v1.1
+fb1053952677383b192639c5c41f586196f929e9 commit	refs/remotes/origin/master
+56373df0b8307a3e6361c403721b0e536fc2c2b5 commit	refs/remotes/origin/testing
+ab2cef02cdf33a72c7487d0d56385fa0da0caf18 commit	refs/remotes/origin/v1.0
+4c242acb001bbe634a68170406de25d10cdebe5f commit	refs/remotes/origin/v1.1
