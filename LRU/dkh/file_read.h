@@ -166,15 +166,13 @@ read:
     info->seek = 0;
     i = 0;
 
-    if (read_size <= 0) {
+    if (read_size <= 0)
       goto fail;
-    }
 
   } else {
     read_size = info->buf_size;
     i = info->seek;
   }
-
   start = i;
 
 loop:

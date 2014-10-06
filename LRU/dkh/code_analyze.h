@@ -168,9 +168,9 @@ int init_code_info(struct code_info *c_info, char *file)
 /* 
  * read one source code(file). and analysis
  * file : source code(file) path
- * return : Analysis result(= code_info)
+ * return : err code
  */
-struct code_info *read_code_file(char *file)
+int *read_code_file(char *file)
 {/*{{{*/
   struct file_info *tmp_file = NULL;
   char *buf = NULL;
@@ -187,6 +187,8 @@ struct code_info *read_code_file(char *file)
   buf = read_next_line(tmp_file);
   while (buf) {
 
+    printf("%s\n", buf);
+
     /* get next one line */
     buf = read_next_line(tmp_file);
 
@@ -194,9 +196,7 @@ struct code_info *read_code_file(char *file)
 
 end:
   printf("%s \n", file);
-
   close_file_info(tmp_file);
-
   return 0;
 }/*}}}*/
 

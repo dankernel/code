@@ -24,15 +24,13 @@
 
 int main(int argc, char* argv[])
 {
-  /* get file line */
-  /* int line = 0; */
-  /* line = get_file_line("./test/file.list"); */
-  /* printf("line : %d \n", line); */
+  /* read_code_file("/home/dkdk/Downloads/lab/MSR-Cambridge/usr_2.csv"); */
 
-  /* read file, Thus file is file list */
-  /* read_file_code("./test/file2.list"); */
+  struct dk_list *list = init_list();
 
-  read_code_file("/home/dkdk/Downloads/lab/MSR-Cambridge/usr_2.csv");
+  add_lnode(list, "33");
+  print_list(list);
+
 
   return 0;
 }
