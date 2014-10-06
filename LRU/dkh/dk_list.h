@@ -201,4 +201,21 @@ int remove_list(struct dk_list *list)
   return ret;
 }/*}}}*/
 
+int swap_list(struct dk_lnode *l1, struct dk_lnode *l2)
+{
+  struct dk_lnode *tmp = NULL;
+
+  if (!l1 || !l2)
+    return EARG_NULL;
+
+   tmp = l1->next;
+   tmp->prev = tmp;
+
+  
+
+
+  
+
+  return 0;
+}
 
