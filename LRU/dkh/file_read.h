@@ -185,10 +185,13 @@ loop:
     tmp = *((info->buf) + i);
 
     /* new line count */
-    if (tmp == '\n' || tmp == '\0') {
+    if (tmp == '\n') {
       info->line++;
       goto ret;
     }
+
+    if (tmp == '\0')
+      goto fail;
 
     /* next */
     i++;

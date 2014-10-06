@@ -187,8 +187,6 @@ struct code_info *read_code_file(char *file)
   buf = read_next_line(tmp_file);
   while (buf) {
 
-    printf("%s\n", buf);
-
     /* get next one line */
     buf = read_next_line(tmp_file);
 
