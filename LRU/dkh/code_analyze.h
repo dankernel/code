@@ -186,19 +186,18 @@ int *read_code_file(char *file)
   struct dk_list *list = init_list();
   struct dk_lnode *node = NULL;
 
-
   /* CORE, get one line */
   buf = read_next_line(tmp_file);
   while (buf) {
 
+    add_lnode(list, strdup(buf));
+
     /* get next one line */
     buf = read_next_line(tmp_file);
 
-    add_lnode(list, strdup(buf));
-    printf("%s\n", buf);
-
   }
-  // print_list(list);
+  print_list(list);
+  remove_list(list);
 
 end:
   printf("%s \n", file);

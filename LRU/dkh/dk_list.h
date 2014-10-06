@@ -189,7 +189,7 @@ int remove_list(struct dk_list *list)
 
   /* Print loop */
   do {
-    if ((tmp->prev || tmp->next) && !strstr((char *)tmp->p, "\n")) {
+    if ((tmp->prev || tmp->next) && tmp && tmp->p) {
       cur = tmp;
       tmp = tmp->next;
       free(cur);
