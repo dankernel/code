@@ -293,11 +293,7 @@ put_prev_task	test/core.c	/^static void put_prev_task(struct rq *rq, struct task
 quota	test/core.c	/^	u64 period, quota;$/;"	m	struct:cfs_schedulable_data	file:
 r_cache	dkh/dk_list.h	/^  struct dk_lnode *r_cache;$/;"	m	struct:dk_list	typeref:struct:dk_list::dk_lnode
 rd	test/core.c	/^	struct root_domain	*rd;$/;"	m	struct:s_data	typeref:struct:s_data::root_domain	file:
-<<<<<<< HEAD
-read_file	dkh/code_analyze.h	/^int *read_file(char *file)$/;"	f
-=======
-read_code_file	dkh/code_analyze.h	/^struct code_info *read_code_file(char *file, pthread_mutex_t *mutex)$/;"	f
->>>>>>> 4c242acb001bbe634a68170406de25d10cdebe5f
+read_code_file	dkh/code_analyze.h	/^struct code_info *read_code_file(char *file)$/;"	f
 read_file_code	dkh/code_analyze.h	/^int read_file_code(char *path)$/;"	f
 read_split	dkh/file_read.h	/^char *read_split(struct file_info *info, char ch)$/;"	f
 register_sched_domain_sysctl	test/core.c	/^static void register_sched_domain_sysctl(void)$/;"	f	file:
@@ -462,10 +458,6 @@ task_nice	test/core.c	/^EXPORT_SYMBOL(task_nice);$/;"	v
 task_nice	test/core.c	/^int task_nice(const struct task_struct *p)$/;"	f
 task_prio	test/core.c	/^int task_prio(const struct task_struct *p)$/;"	f
 task_sched_runtime	test/core.c	/^unsigned long long task_sched_runtime(struct task_struct *p)$/;"	f
-<<<<<<< HEAD
-=======
-test_thread	dkh/code_analyze.h	/^void *test_thread(void *a)$/;"	f
->>>>>>> 4c242acb001bbe634a68170406de25d10cdebe5f
 tg	test/core.c	/^	struct task_group *tg;$/;"	m	struct:cfs_schedulable_data	typeref:struct:cfs_schedulable_data::task_group	file:
 tg	test/core.c	/^	struct task_group *tg;$/;"	m	struct:rt_schedulable_data	typeref:struct:rt_schedulable_data::task_group	file:
 tg_cfs_schedulable_down	test/core.c	/^static int tg_cfs_schedulable_down(struct task_group *tg, void *data)$/;"	f	file:
