@@ -141,7 +141,7 @@ char *cheek_code_line(char *str, struct dk_list *list, int option)
 
 
 int init_code_info(struct code_info *c_info, char *file)
-{
+{/*{{{*/
   if (!c_info || !file)
     return EARG_NULL;
 
@@ -163,7 +163,7 @@ int init_code_info(struct code_info *c_info, char *file)
   c_info->f_minline = 0;
 
   return 0;
-}
+}/*}}}*/
 
 /* 
  * read one source code(file). and analysis
@@ -172,41 +172,29 @@ int init_code_info(struct code_info *c_info, char *file)
  */
 struct code_info *read_code_file(char *file)
 {/*{{{*/
-  struct code_info *c_info = NULL;    // TODO : Analysis and make code info
   struct file_info *tmp_file = NULL;
   char *buf = NULL;
-
-  /* Analysis result data */
-  int line = 0;
 
   /* exception */
   if (!file)
     return NULL;
-
-  /* 
-   * Init code info
-   * TODO : Analysis and make code info
-   */
-  c_info = (struct code_info*)malloc(sizeof(struct code_info));
-  init_code_info(c_info, file);
 
   /* Init file info */
   tmp_file = (struct file_info*)malloc(sizeof(struct file_info));
   init_file_struct(tmp_file, file);
 
   /* CORE, get one line */
-  buf = read_split(tmp_file, '\n');
+  buf = read_next_line(tmp_file, '\n');
   while (buf) {
 
-    line++;
     printf("BUF : %s \n", buf);
 
     /* get next one line */
-    buf = read_split(tmp_file, '\n');
+    buf = read_next_line(tmp_file, '\n');
   }
 
 end:
-  printf("%5d : %s \n", line, file);
+  printf("%s \n", file);
 
   close_file_info(tmp_file);
 
@@ -214,69 +202,7 @@ end:
 }/*}}}*/
 
 
-void *analysis_code_thread(void *a)
-{
-  struct analysis_arg *arg;
-
-  char *f_name;
-  struct file_info *f_list;
-  struct code_info *result;
-  pthread_mutex_t *mutex;
-
-  int thread_num = -1;
-  int read_file_count = 0;
-
-  if (!a)
-    goto end;
-
-  /* get struct node */
-  arg = (struct analysis_arg*)a;
-  f_name = arg->f_name;
-  f_list = arg->f_list;
-  mutex = arg->mutex;
-
-  /* Thread number count */
-  pthread_mutex_lock(mutex);
-  thread_num = arg->num;
-  // printf("TID : %d\n", thread_num);
-  arg->num++;
-  pthread_mutex_unlock(mutex);
-
-  /* Pic one file */
-  pthread_mutex_lock(mutex);
-  f_name = read_split(f_list, '\n');
-  pthread_mutex_unlock(mutex);
-
-  while (f_list && f_name) {
-
-    /* Read file */
-    // printf("%2u : %5d : %s \n", thread_num, read_file_count++, f_name);
-    read_file_count++;
-    read_file_code(f_name);
-    result = read_code_file(f_name);
-
-    printf("result : %5d : %s \n", result->line, f_name);
-    if (result) {
-      free(result->name);
-      free(result);
-    }
-
-    /* Next, Pic one file */
-    pthread_mutex_lock(mutex);
-    f_name = read_split(f_list, '\n');
-    pthread_mutex_unlock(mutex);
-  }
-
-end:
-  // close_file_info(f_list);
-  printf("end! : read file count : %u : %d \n", thread_num, read_file_count);
-  pthread_exit((void *)0);
-
-  return (void *)1;
-
-}/*}}}*/
-
-/* 
+/*
  * get file line
  * path : target file path
  * return : file line count nuber
@@ -291,11 +217,11 @@ int get_file_line(char *path)
   file_list = (struct file_info*)malloc(sizeof(struct file_info));
   init_file_struct(file_list, path);
 
-  buf = read_split(file_list, '\n');
+  buf = read_next_line(file_list, '\n');
   while (buf) {
 
     /* Next */
-    buf = read_split(file_list, '\n');
+    buf = read_next_line(file_list, '\n');
 
   }
 
@@ -305,53 +231,4 @@ int get_file_line(char *path)
   return ret;
 }/*}}}*/
 
-
-/* 
- * main function.
- * read file list and analysis(분석)
- * @path : file list (file)
- * return : errer code
- */
-int read_file_code(char *path)
-{/*{{{*/
-  int fd = -1;
-  int ret = 0;
-  char *file = NULL;
-
-  // TODO : Analysis and make code info
-  struct code_info *c_info = NULL;    
-
-  /* file list : alloc and init struct */
-  struct file_info *file_list = NULL;
-  file_list = (struct file_info*)malloc(sizeof(struct file_info));
-  init_file_struct(file_list, path);
-
-  /* mutex */
-  pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
-  pthread_t pthread[4];
-
-  struct analysis_arg *arg = NULL;
-  arg = (struct analysis_arg*)malloc(sizeof(struct analysis_arg));
-  arg->f_name = NULL;
-  arg->num = 0;
-  arg->f_list = file_list;
-  arg->mutex = &mutex;
-
-  pthread_mutex_init(arg->mutex, NULL);
-
-  /* create thread */
-  pthread_create(&pthread[0], NULL, analysis_code_thread, (void *)arg);
-  // pthread_create(&pthread[1], NULL, analysis_code_thread, (void *)arg);
-  // pthread_create(&pthread[2], NULL, analysis_code_thread, (void *)arg);
-  // pthread_create(&pthread[3], NULL, analysis_code_thread, (void *)arg);
-  
-  pthread_join(pthread[0], (void *)&ret);
-  // pthread_join(pthread[1], (void *)&ret);
-  // pthread_join(pthread[2], (void *)&ret);
-  // pthread_join(pthread[3], (void *)&ret);
-  
-  // close_file_info(file_list);
-
-  return 0;
-}/*}}}*/
 

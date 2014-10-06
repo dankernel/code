@@ -145,19 +145,19 @@ int close_file_info(struct file_info *s)
 }/*}}}*/
 
 /*
- * read (next) string, split to ch
+ * read (next) string, split to '\n'
  * @info : file_info struct
- * @ch : split char
  * return : result string
  */
-char *read_split(struct file_info *info, char ch)
+char *read_next_line(struct file_info *info)
 {/*{{{*/
   int read_size = 0;
   int i = 0;
   int start = -1;
   char tmp = '\0';
 
-  if (*info->buf == '\0' || i == info->buf_size) {
+  // if (*info->buf == '\0' || 0 == info->buf_size) {
+  if (*info->buf == '\0') {
 
 read:
     /* read and save buf */
@@ -187,12 +187,13 @@ loop:
     tmp = *((info->buf) + i);
 
     /* new line count */
-    if (tmp == '\n')
+    if (tmp == '\n') {
       info->line++;
-
-    /* lookup ch */
-    if (tmp == ch)
       goto ret;
+    }
+
+    if (tmp == '\0')
+      goto fail;
 
     /* next */
     i++;
