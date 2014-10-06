@@ -201,20 +201,42 @@ int remove_list(struct dk_list *list)
   return ret;
 }/*}}}*/
 
+int remove_lnode(struct dk_lnode *n)
+{
+  struct dk_lnode *prev = NULL;
+  struct dk_lnode *next = NULL;
+
+  if (!n)
+    -EARG_NULL;
+
+  prev = n->prev;
+  next = n->next;
+
+  prev->next = next;
+  next->prev = prev;
+
+  free(n);
+
+  return 0;
+}
+
 int swap_list(struct dk_lnode *l1, struct dk_lnode *l2)
 {
-  struct dk_lnode *tmp = NULL;
+//   struct dk_lnode *tmp = NULL;
+//
+//   if (!l1 || !l2)
+//     return EARG_NULL;
+//
+//   tmp = l1->next;
+//   l1->next = l2->next;
+//   l2->next = tmp;
+//
+//   tmp = l2->next;
+//   l1->next = l2->next;
+//   l2->next = tmp;
+//
 
-  if (!l1 || !l2)
-    return EARG_NULL;
 
-   tmp = l1->next;
-   tmp->prev = tmp;
-
-  
-
-
-  
 
   return 0;
 }
