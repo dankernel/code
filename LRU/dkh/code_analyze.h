@@ -196,7 +196,6 @@ int *read_code_file(char *file)
     else
       printf("HIT : %s \n", buf);
 
-
     /* get next one line */
     buf = read_next_line(tmp_file);
 
