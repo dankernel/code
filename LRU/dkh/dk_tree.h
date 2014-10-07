@@ -56,7 +56,7 @@ struct dk_tnode *init_tnode(void *val)
   nn = malloc(sizeof(struct dk_lnode));
 
   /* init */
-  nn->c = (int *)strdup(val);
+  nn->c = (int *)val;
   nn->p = NULL;
   nn->r = NULL;
   nn->l = NULL;
@@ -76,7 +76,7 @@ struct dk_tree *init_tree(void)
 
   /* init first node, new node = head = tail */
   nt->count = 1;
-  nt->root = init_tnode(1234);
+  nt->root = init_tnode(NULL);
   nt->r = nt->root;
   nt->l = nt->root;
 
@@ -96,5 +96,10 @@ inline void print_tnode(struct dk_tnode *n)
     printf("list print : %10p (%10p %10s) %10p : %10p \n", n->p, &n->c, n->c, n->l, n->r);
 }/*}}}*/
 
+struct dk_tnode *add_tnode(struct dk_tree *tree, struct dk_tnode *node)
+{
+
+
+}
 
 
