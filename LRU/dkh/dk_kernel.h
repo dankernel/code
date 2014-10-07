@@ -15,7 +15,10 @@
  *
  * =====================================================================================
  */
+#define offsetof(s,m)   (size_t)&(((s *)0)->m)
 
-#define container_of(ptr, type, member) ({ \
+#define container_of(ptr, type, member) \
+    do { \
     const typeof( ((type *)0)->member ) *__mptr = (ptr); \
-    (type *)( (char *)__mptr - offsetof(type,member) );})
+    (type *)( (char *)__mptr - offsetof(type,member) ); \
+    } while(0);
