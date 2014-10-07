@@ -102,7 +102,7 @@ struct dk_tnode *add_tnode(struct dk_tree *tree, char *c)
   if (!tree || !c)
     return NULL;
   
-  return tree->root->r = init_tnode(c);
+  return (tree->root->r = init_tnode(c));
 
 }
 

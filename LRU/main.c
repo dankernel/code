@@ -36,8 +36,9 @@ int main(int argc, char* argv[])
   node = add_tnode(tree, "add");
   print_tnode(tree->root);
 
-  void *p = container_of(tree->root->c, struct dk_tnode, c);
-  printf("%s : %p \n", tree->root->c, p);
+  /* printf("node : %s \n", node->c); */
+  void *p = container_of(node->c, struct dk_tnode, c);
+  printf("%s : %p \n", tree->root->r->c, p->c);
 
   return 0;
 }
