@@ -76,7 +76,7 @@ struct dk_tree *init_tree(void)
 
   /* init first node, new node = head = tail */
   nt->count = 1;
-  nt->root = init_tnode(NULL);
+  nt->root = init_tnode("INIT");
   nt->r = nt->root;
   nt->l = nt->root;
 
@@ -93,7 +93,7 @@ struct dk_tree *init_tree(void)
  */
 inline void print_tnode(struct dk_tnode *n)
 {/*{{{*/
-    printf("list print : %10p (%10p %10s) %10p : %10p \n", n->p, &n->c, n->c, n->l, n->r);
+    printf("list print : %10p : %10p (%10p %10s) %10p : %10p \n", n, n->p, &n->c, n->c, n->l, n->r);
 }/*}}}*/
 
 struct dk_tnode *add_tnode(struct dk_tree *tree, char *c)
