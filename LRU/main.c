@@ -21,12 +21,16 @@
 #include <fcntl.h>
 
 #include "dkh/code_analyze.h"
+#include "dkh/dk_tree.h"
 
 int main(int argc, char* argv[])
 {
-  read_code_file("/home/dkdk/Downloads/lab/MSR-Cambridge/usr_2.csv");
+  /* read_code_file("/home/dkdk/Downloads/lab/MSR-Cambridge/usr_2.csv"); */
   /* read_code_file("test/file.list"); */
 
+  struct dk_tree *tree = init_tree();
+
+  print_tnode(tree->root);
 
   return 0;
 }
