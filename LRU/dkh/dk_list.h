@@ -226,7 +226,7 @@ int remove_list(struct dk_list *list)
       free(cur->p);
       free(cur);
     } else
-      printf("fail : NULL node or Not string type\n");
+      printf("free fail : NULL node or Not string type\n");
 
   } while (tmp);
 
