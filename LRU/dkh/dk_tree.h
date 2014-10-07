@@ -38,7 +38,7 @@ struct dk_tree
 
 struct dk_tnode
 {/*{{{*/
-  int *c;
+  void *c;
   struct dk_tnode *p;
   struct dk_tnode *r;
   struct dk_tnode *l;
@@ -53,7 +53,7 @@ struct dk_tnode *init_tnode(void *val)
 {/*{{{*/
   /* allocation new node */
   struct dk_tnode *nn = NULL;
-  nn = malloc(sizeof(struct dk_lnode));
+  nn = malloc(sizeof(struct dk_tnode));
 
   /* init */
   nn->c = (int *)val;
@@ -96,14 +96,13 @@ inline void print_tnode(struct dk_tnode *n)
     printf("list print : %10p (%10p %10s) %10p : %10p \n", n->p, &n->c, n->c, n->l, n->r);
 }/*}}}*/
 
-struct dk_tnode *add_tnode(struct dk_tree *tree, struct dk_tnode *node)
+struct dk_tnode *add_tnode(struct dk_tree *tree, char *c)
 {
 
-  if (!tree || !node)
+  if (!tree || !c)
     return NULL;
   
-
-
+  return tree->root->r = init_tnode(c);
 
 }
 
