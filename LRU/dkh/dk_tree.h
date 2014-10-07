@@ -99,6 +99,11 @@ inline void print_tnode(struct dk_tnode *n)
 struct dk_tnode *add_tnode(struct dk_tree *tree, struct dk_tnode *node)
 {
 
+  if (!tree || !node)
+    return NULL;
+  
+
+
 
 }
 

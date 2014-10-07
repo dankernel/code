@@ -23,6 +23,8 @@
 #include "dkh/code_analyze.h"
 #include "dkh/dk_tree.h"
 
+#include "dkh/dk_kernel.h"
+
 int main(int argc, char* argv[])
 {
   /* read_code_file("/home/dkdk/Downloads/lab/MSR-Cambridge/usr_2.csv"); */
