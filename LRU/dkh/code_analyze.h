@@ -170,25 +170,25 @@ int init_code_info(struct code_info *c_info, char *file)
  * file : file path
  * return : err code
  */
-int *read_file(char *file)
+int *read_file(char *path)
 {/*{{{*/
-  struct file_info *tmp_file = NULL;
+  struct file_info *file = NULL;
   char *buf = NULL;
 
   /* exception */
-  if (!file)
+  if (!path)
     return NULL;
 
   /* Init file info */
-  tmp_file = (struct file_info*)malloc(sizeof(struct file_info));
-  init_file_struct(tmp_file, file);
+  file = (struct file_info*)malloc(sizeof(struct file_info));
+  init_file_struct(file, path);
 
   /* Init list */
   struct dk_list *list = init_list();
   struct dk_lnode *node = NULL;
 
   /* CORE, get one line */
-  buf = read_next_line(tmp_file);
+  buf = read_next_line(file);
   while (buf) {
 
     // if (!lookup_list(list, buf))
@@ -200,7 +200,7 @@ int *read_file(char *file)
 
     printf("BUF : %s\n", buf);
 
-    buf = read_next_line(tmp_file);
+    buf = read_next_line(file);
 
   }
   // print_list(list);
@@ -208,8 +208,8 @@ int *read_file(char *file)
   // remove_list(list);
 
 end:
-  printf("%s \n", file);
-  close_file_info(tmp_file);
+  printf("%s \n", path);
+  close_file_info(file);
   return 0;
 }/*}}}*/
 

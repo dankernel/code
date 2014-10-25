@@ -70,7 +70,7 @@ _cond_resched	test/core.c	/^int __sched _cond_resched(void)$/;"	f
 _sched_setscheduler	test/core.c	/^static int _sched_setscheduler(struct task_struct *p, int policy,$/;"	f	file:
 activate_task	test/core.c	/^void activate_task(struct rq *rq, struct task_struct *p, int flags)$/;"	f
 add_lnode	dkh/dk_list.h	/^struct dk_lnode *add_lnode(struct dk_list *list, void *p)$/;"	f
-add_tnode	dkh/dk_tree.h	/^struct dk_tnode *add_tnode(struct dk_tree *tree, struct dk_tnode *node)$/;"	f
+add_tnode	dkh/dk_tree.h	/^struct dk_tnode *add_tnode(struct dk_tree *tree, char *c)$/;"	f
 alloc_rootdomain	test/core.c	/^static struct root_domain *alloc_rootdomain(void)$/;"	f	file:
 alloc_sched_domains	test/core.c	/^cpumask_var_t *alloc_sched_domains(unsigned int ndoms)$/;"	f
 analysis_arg	dkh/code_analyze.h	/^struct analysis_arg{$/;"	s
@@ -86,7 +86,7 @@ build_overlap_sched_groups	test/core.c	/^build_overlap_sched_groups(struct sched
 build_sched_domain	test/core.c	/^struct sched_domain *build_sched_domain(struct sched_domain_topology_level *tl,$/;"	f
 build_sched_domains	test/core.c	/^static int build_sched_domains(const struct cpumask *cpu_map,$/;"	f	file:
 build_sched_groups	test/core.c	/^build_sched_groups(struct sched_domain *sd, int cpu)$/;"	f	file:
-c	dkh/dk_tree.h	/^  int *c;$/;"	m	struct:dk_tnode
+c	dkh/dk_tree.h	/^  void *c;$/;"	m	struct:dk_tnode
 calc_load_migrate	test/core.c	/^static void calc_load_migrate(struct rq *rq)$/;"	f	file:
 can_nice	test/core.c	/^int can_nice(const struct task_struct *p, const int nice)$/;"	f
 cfs_schedulable_data	test/core.c	/^struct cfs_schedulable_data {$/;"	s	file:
@@ -97,7 +97,7 @@ cheek_code_line	dkh/code_analyze.h	/^char *cheek_code_line(char *str, struct dk_
 claim_allocations	test/core.c	/^static void claim_allocations(int cpu, struct sched_domain *sd)$/;"	f	file:
 close_file_info	dkh/file_read.h	/^int close_file_info(struct file_info *s)$/;"	f
 code_info	dkh/code_analyze.h	/^struct code_info$/;"	s
-container_of	dkh/dk_kernel.h	19;"	d
+container_of	dkh/dk_kernel.h	20;"	d
 context_switch	test/core.c	/^context_switch(struct rq *rq, struct task_struct *prev,$/;"	f	file:
 count	dkh/dk_list.h	/^  int count;$/;"	m	struct:dk_list
 count	dkh/dk_tree.h	/^  int count;$/;"	m	struct:dk_tree
@@ -272,6 +272,7 @@ num	dkh/code_analyze.h	/^  int num;$/;"	m	struct:analysis_arg
 num_cpus_frozen	test/core.c	/^static int num_cpus_frozen;	\/* used to mark begin\/end of suspend\/resume *\/$/;"	v	file:
 numa_level	test/core.c	/^	int		    numa_level;$/;"	m	struct:sched_domain_topology_level	file:
 numabalancing_enabled	test/core.c	/^__read_mostly bool numabalancing_enabled;$/;"	v
+offsetof	dkh/dk_kernel.h	18;"	d
 open_file	dkh/file_read.h	/^int open_file(char *path)$/;"	f
 p	dkh/dk_list.h	/^  int *p;$/;"	m	struct:dk_lnode
 p	dkh/dk_tree.h	/^  struct dk_tnode *p;$/;"	m	struct:dk_tnode	typeref:struct:dk_tnode::dk_tnode
@@ -308,7 +309,7 @@ r	dkh/dk_tree.h	/^  struct dk_tnode *r;$/;"	m	struct:dk_tree	typeref:struct:dk_t
 r_cache	dkh/dk_list.h	/^  struct dk_lnode *r_cache;$/;"	m	struct:dk_list	typeref:struct:dk_list::dk_lnode
 r_cache	dkh/dk_tree.h	/^  struct dk_tnode *r_cache;$/;"	m	struct:dk_tree	typeref:struct:dk_tree::dk_tnode
 rd	test/core.c	/^	struct root_domain	*rd;$/;"	m	struct:s_data	typeref:struct:s_data::root_domain	file:
-read_code_file	dkh/code_analyze.h	/^int *read_code_file(char *file)$/;"	f
+read_file	dkh/code_analyze.h	/^int *read_file(char *file)$/;"	f
 read_next_line	dkh/file_read.h	/^char *read_next_line(struct file_info *info)$/;"	f
 register_sched_domain_sysctl	test/core.c	/^static void register_sched_domain_sysctl(void)$/;"	f	file:
 remove_list	dkh/dk_list.h	/^int remove_list(struct dk_list *list)$/;"	f
