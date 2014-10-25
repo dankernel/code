@@ -166,13 +166,12 @@ int init_code_info(struct code_info *c_info, char *file)
 }/*}}}*/
 
 /* 
- * read one source code(file). and analysis
- * file : source code(file) path
+ * read one file. and analysis
+ * file : file path
  * return : err code
  */
-int *read_code_file(char *file)
+int *read_file(char *file)
 {/*{{{*/
-  struct code_info *c_info = NULL;    // TODO : Analysis and make code info
   struct file_info *tmp_file = NULL;
   char *buf = NULL;
 
@@ -180,10 +179,11 @@ int *read_code_file(char *file)
   if (!file)
     return NULL;
 
-   /* Init file info */
+  /* Init file info */
   tmp_file = (struct file_info*)malloc(sizeof(struct file_info));
   init_file_struct(tmp_file, file);
 
+  /* Init list */
   struct dk_list *list = init_list();
   struct dk_lnode *node = NULL;
 
