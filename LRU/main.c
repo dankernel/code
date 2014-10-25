@@ -25,7 +25,9 @@
 
 #include "dkh/dk_kernel.h"
 
-int main(int argc, char* argv[])
+#include "lru_lib/lru.h"
+
+int main(int argc, char *argv[])
 {
 
   read_file("/home/dkdk/Downloads/lab/MSR-Cambridge/usr_2.csv");

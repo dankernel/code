@@ -144,9 +144,11 @@ int close_file_info(struct file_info *s)
   return ret;
 }/*}}}*/
 
+/*
+ * read
+ */
 char *read_token_line(struct file_info *info, int column, char token)
 {
-
 
   return NULL;
 }
