@@ -144,6 +144,13 @@ int close_file_info(struct file_info *s)
   return ret;
 }/*}}}*/
 
+char *read_token_line(struct file_info *info, int column, char token)
+{
+
+
+  return NULL;
+}
+
 /*
  * read (next) string, split to '\n'
  * @info : file_info struct
