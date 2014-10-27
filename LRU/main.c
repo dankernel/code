@@ -20,28 +20,22 @@
 #include <string.h>
 #include <fcntl.h>
 
-#include "dkh/code_analyze.h"
-#include "dkh/dk_tree.h"
-
-#include "dkh/dk_kernel.h"
-
 #include "lru_lib/lru.h"
 
 int main(int argc, char *argv[])
 {
 
-  read_file("/home/dkdk/Downloads/lab/MSR-Cambridge/usr_2.csv");
-  /* read_code_file("test/file.list"); */
+  lru_read("/home/dkdk/Downloads/lab/MSR-Cambridge/usr_2.csv");
 
-  struct dk_tree *tree = init_tree();
-  struct dk_tnode *node = NULL;
+  /* struct dk_tree *tree = init_tree(); */
+  /* struct dk_tnode *node = NULL; */
 
-  node = add_tnode(tree, "add");
-  print_tnode(tree->root);
+  /* node = add_tnode(tree, "add"); */
+  /* print_tnode(tree->root); */
 
   /* printf("node : %s \n", node->c); */
-  struct dk_tnode *p = container_of(&(node->c), struct dk_tnode, c);
-  printf("%s : %s \n", tree->root->r->c, p->c);
+  /* struct dk_tnode *p = container_of(&(node->c), struct dk_tnode, c); */
+  /* printf("%s : %s \n", tree->root->r->c, p->c); */
 
   return 0;
 }
