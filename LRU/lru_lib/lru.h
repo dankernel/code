@@ -17,6 +17,7 @@
  */
 
 #include "../dkh/file_read.h"
+#include "../dkh/dk_list.h"
 #include "../dkh/errno.h"
 
 #define READ  1
@@ -35,19 +36,23 @@ struct LRU
 
 int lru_read(char *path)
 {
-  struct file_info file = NULL;
+  struct file_info *file = NULL;
+
+  struct dk_list *list = init_list();
+  struct dk_lnode *node = NULL;
 
   if (!path)
-    return ERRNUM;
+    return EARG_NULL;
 
+  /* Init file */
   file = (struct file_info*)malloc(sizeof(struct file_info));
   init_file_struct(file, path);
+
+  /* Init list */
+  node = add_lnode(list, "add");
+  print_list(list->head);
 
   return 0;
 
 }
  
-
-
-
-
