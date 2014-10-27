@@ -29,3 +29,7 @@ struct LRU
   long size;
   long respone; //respones time
 }
+
+
+
+
