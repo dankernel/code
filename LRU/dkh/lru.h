@@ -37,25 +37,27 @@ struct workload
 struct workload *read_workload(struct file_info *f, char tok, int c)
 {
   struct workload *tmp = NULL;
-  int start = 0, end = 0;
+  int len = 0;
   char *buf = f->buf;
+  char *start = 0;
 
   if (!f || c < 0)
     return NULL;
 
   tmp = malloc(sizeof(struct workload));
 
-  next_buff_read(f);
-  // printf("%s\n", buf);
+  if (!f->buf)
+    next_buff_read(f);
 
-  start = f->seek;
-  while (*(buf + start) != tok)
-    start++;
 
-  f->seek = start + 1;
+  start = buf + f->seek;
+  while (*(start + len) != tok)
+    len++;
 
-  tmp->time = strndup(buf, start);
-  printf("start : %s \n", strndup(buf, start));
+  tmp->time = strndup(start, len);
+  printf("start : %s \n", strndup(start, len));
+
+  f->seek = f->seek + len + 1;
   printf("%d\n", f->seek);
 
   return tmp;
