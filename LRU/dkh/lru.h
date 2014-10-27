@@ -43,14 +43,22 @@ struct workload *read_workload(struct file_info *f, char tok, int c)
   if (!f || c < 0)
     return NULL;
 
-  printf("%s\n", f->path);
-  printf("%s\n", buf);
+  tmp = malloc(sizeof(struct workload));
+
+  next_buff_read(f);
+  // printf("%s\n", buf);
+
+  start = f->seek;
   while (*(buf + start) != tok)
     start++;
 
-  printf("%d \n", start);
+  f->seek = start + 1;
 
-  return NULL;
+  tmp->time = strndup(buf, start);
+  printf("start : %s \n", strndup(buf, start));
+  printf("%d\n", f->seek);
+
+  return tmp;
 }
 
 int lru_main(char *path)
@@ -72,9 +80,11 @@ int lru_main(char *path)
   while (wl = read_workload(file, ',', 6)) {
 
     /* TODO : LRU LOOKUP ... */
+    printf("%s\n", wl->time);
 
     /* Add list */
     add_lnode(list, wl);
+    printf("adddd\n");
 
   }
 

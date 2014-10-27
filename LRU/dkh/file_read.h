@@ -153,6 +153,19 @@ char *read_token_line(struct file_info *info, int column, char token)
   return NULL;
 }
 
+int next_buff_read(struct file_info *info)
+{
+
+  if (!info)
+    return EARG_NULL;
+
+  if (read(info->fd, info->buf, info->buf_size) < 0)
+    return -1;
+
+  return 0;
+
+}
+
 /*
  * read (next) string, split to '\n'
  * @info : file_info struct
