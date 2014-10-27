@@ -34,6 +34,25 @@ struct workload
   long respone; //respones time
 };
 
+struct workload *read_workload(struct file_info *f, char tok, int c)
+{
+  struct workload *tmp = NULL;
+  int start = 0, end = 0;
+  char *buf = f->buf;
+
+  if (!f || c < 0)
+    return NULL;
+
+  printf("%s\n", f->path);
+  printf("%s\n", buf);
+  while (*(buf + start) != tok)
+    start++;
+
+  printf("%d \n", start);
+
+  return NULL;
+}
+
 int lru_main(char *path)
 {
   struct file_info *file = NULL;
