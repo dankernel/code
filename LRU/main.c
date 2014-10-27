@@ -20,7 +20,7 @@
 #include <string.h>
 #include <fcntl.h>
 
-#include "lru_lib/lru.h"
+#include "dkh/lru.h"
 
 int main(int argc, char *argv[])
 {

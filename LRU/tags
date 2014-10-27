@@ -12,9 +12,9 @@ KEYWORD_NEXT_L_PARENTHESES	dkh/code_analyze.h	37;"	d
 KEYWORD_NEXT_PADDING	dkh/code_analyze.h	35;"	d
 KEYWORD_NEXT_PARENTHESES	dkh/code_analyze.h	36;"	d
 KEYWORD_NEXT_R_PARENTHESES	dkh/code_analyze.h	38;"	d
-LRU	lru_lib/lru.h	/^struct LRU$/;"	s
+LRU	dkh/lru.h	/^struct LRU$/;"	s
 MAX_BUFF_SIZE	dkh/file_read.h	29;"	d
-READ	lru_lib/lru.h	23;"	d
+READ	dkh/lru.h	23;"	d
 SCHED_FEAT	test/core.c	133;"	d	file:
 SCHED_FEAT	test/core.c	140;"	d	file:
 SCHED_FEAT	test/core.c	143;"	d	file:
@@ -38,7 +38,7 @@ SYSCALL_DEFINE3	test/core.c	/^SYSCALL_DEFINE3(sched_setaffinity, pid_t, pid, uns
 SYSCALL_DEFINE3	test/core.c	/^SYSCALL_DEFINE3(sched_setattr, pid_t, pid, struct sched_attr __user *, uattr,$/;"	f
 SYSCALL_DEFINE3	test/core.c	/^SYSCALL_DEFINE3(sched_setscheduler, pid_t, pid, int, policy,$/;"	f
 SYSCALL_DEFINE4	test/core.c	/^SYSCALL_DEFINE4(sched_getattr, pid_t, pid, struct sched_attr __user *, uattr,$/;"	f
-WRITE	lru_lib/lru.h	24;"	d
+WRITE	dkh/lru.h	24;"	d
 __cfs_schedulable	test/core.c	/^static int __cfs_schedulable(struct task_group *tg, u64 period, u64 quota)$/;"	f	file:
 __checkparam_dl	test/core.c	/^__checkparam_dl(const struct sched_attr *attr)$/;"	f	file:
 __cond_resched	test/core.c	/^static void __cond_resched(void)$/;"	f	file:
@@ -148,7 +148,7 @@ dest_cpu	test/core.c	/^	int dest_cpu;$/;"	m	struct:migration_arg	file:
 destroy_sched_domain	test/core.c	/^static void destroy_sched_domain(struct sched_domain *sd, int cpu)$/;"	f	file:
 destroy_sched_domains	test/core.c	/^static void destroy_sched_domains(struct sched_domain *sd, int cpu)$/;"	f	file:
 detach_destroy_domains	test/core.c	/^static void detach_destroy_domains(const struct cpumask *cpu_map)$/;"	f	file:
-disk_num	lru_lib/lru.h	/^  int disk_num;$/;"	m	struct:LRU
+disk_num	dkh/lru.h	/^  int disk_num;$/;"	m	struct:LRU
 dk_list	dkh/dk_list.h	/^struct dk_list $/;"	s
 dk_lnode	dkh/dk_list.h	/^struct dk_lnode$/;"	s
 dk_tnode	dkh/dk_tree.h	/^struct dk_tnode$/;"	s
@@ -196,7 +196,7 @@ gettid	dkh/code_analyze.h	/^static inline pid_t gettid (void)$/;"	f
 got_nohz_idle_kick	test/core.c	/^static inline bool got_nohz_idle_kick(void)$/;"	f	file:
 group_balance_cpu	test/core.c	/^int group_balance_cpu(struct sched_group *sg)$/;"	f
 head	dkh/dk_list.h	/^  struct dk_lnode *head;$/;"	m	struct:dk_list	typeref:struct:dk_list::dk_lnode
-host	lru_lib/lru.h	/^  char *host;$/;"	m	struct:LRU
+host	dkh/lru.h	/^  char *host;$/;"	m	struct:LRU
 hotplug_hrtick	test/core.c	/^hotplug_hrtick(struct notifier_block *nfb, unsigned long action, void *hcpu)$/;"	f	file:
 hrtick	test/core.c	/^static enum hrtimer_restart hrtick(struct hrtimer *timer)$/;"	f	file:
 hrtick_clear	test/core.c	/^static inline void hrtick_clear(struct rq *rq)$/;"	f	file:
@@ -243,7 +243,7 @@ line	dkh/code_analyze.h	/^  int line;$/;"	m	struct:code_info
 line	dkh/file_read.h	/^  int line;$/;"	m	struct:file_info
 list_str	dkh/code_analyze.h	/^char *list_str(struct dk_list *list, char *str)$/;"	f
 lookup_list	dkh/dk_list.h	/^struct dk_lnode *lookup_list(struct dk_list *list, char *str)$/;"	f
-lru_read	lru_lib/lru.h	/^int lru_read(char *path)$/;"	f
+lru_read	dkh/lru.h	/^int lru_read(char *path)$/;"	f
 main	main.c	/^int main(int argc, char *argv[])$/;"	f
 mask	test/core.c	/^	sched_domain_mask_f mask;$/;"	m	struct:sched_domain_topology_level	file:
 max_cfs_quota_period	test/core.c	/^const u64 max_cfs_quota_period = 1 * NSEC_PER_SEC; \/* 1s *\/$/;"	v
@@ -278,7 +278,7 @@ num	dkh/code_analyze.h	/^  int num;$/;"	m	struct:analysis_arg
 num_cpus_frozen	test/core.c	/^static int num_cpus_frozen;	\/* used to mark begin\/end of suspend\/resume *\/$/;"	v	file:
 numa_level	test/core.c	/^	int		    numa_level;$/;"	m	struct:sched_domain_topology_level	file:
 numabalancing_enabled	test/core.c	/^__read_mostly bool numabalancing_enabled;$/;"	v
-offset	lru_lib/lru.h	/^  long offset;$/;"	m	struct:LRU
+offset	dkh/lru.h	/^  long offset;$/;"	m	struct:LRU
 offsetof	dkh/dk_kernel.h	18;"	d
 open_file	dkh/file_read.h	/^int open_file(char *path)$/;"	f
 p	dkh/dk_list.h	/^  int *p;$/;"	m	struct:dk_lnode
@@ -324,7 +324,7 @@ remove_list	dkh/dk_list.h	/^int remove_list(struct dk_list *list)$/;"	f
 remove_lnode	dkh/dk_list.h	/^int remove_lnode(struct dk_lnode *n)$/;"	f
 resched_cpu	test/core.c	/^void resched_cpu(int cpu)$/;"	f
 resched_task	test/core.c	/^void resched_task(struct task_struct *p)$/;"	f
-respone	lru_lib/lru.h	/^  long respone; \/\/respones time$/;"	m	struct:LRU
+respone	dkh/lru.h	/^  long respone; \/\/respones time$/;"	m	struct:LRU
 result	dkh/file_read.h	/^  char *result;$/;"	m	struct:file_info
 root	dkh/dk_tree.h	/^  struct dk_tnode *root;$/;"	m	struct:dk_tree	typeref:struct:dk_tree::dk_tnode
 root_task_group	test/core.c	/^struct task_group root_task_group;$/;"	v	typeref:struct:task_group
@@ -458,7 +458,7 @@ sg	test/core.c	/^	struct sched_group **__percpu sg;$/;"	m	struct:sd_data	typeref
 sgp	test/core.c	/^	struct sched_group_power **__percpu sgp;$/;"	m	struct:sd_data	typeref:struct:sd_data::__percpu	file:
 show_state_filter	test/core.c	/^void show_state_filter(unsigned long state_filter)$/;"	f
 signal_handler	dkh/handler.h	/^int signal_handler(void)$/;"	f
-size	lru_lib/lru.h	/^  long size;$/;"	m	struct:LRU
+size	dkh/lru.h	/^  long size;$/;"	m	struct:LRU
 sleep_on	test/core.c	/^EXPORT_SYMBOL(sleep_on);$/;"	v
 sleep_on	test/core.c	/^void __sched sleep_on(wait_queue_head_t *q)$/;"	f
 sleep_on_common	test/core.c	/^sleep_on_common(wait_queue_head_t *q, int state, long timeout)$/;"	f	file:
@@ -498,7 +498,7 @@ tg_set_cfs_bandwidth	test/core.c	/^static int tg_set_cfs_bandwidth(struct task_g
 tg_set_cfs_period	test/core.c	/^int tg_set_cfs_period(struct task_group *tg, long cfs_period_us)$/;"	f
 tg_set_cfs_quota	test/core.c	/^int tg_set_cfs_quota(struct task_group *tg, long cfs_quota_us)$/;"	f
 tg_set_rt_bandwidth	test/core.c	/^static int tg_set_rt_bandwidth(struct task_group *tg,$/;"	f	file:
-time	lru_lib/lru.h	/^  char *time;$/;"	m	struct:LRU
+time	dkh/lru.h	/^  char *time;$/;"	m	struct:LRU
 to_ratio	test/core.c	/^unsigned long to_ratio(u64 period, u64 runtime)$/;"	f
 try_to_wake_up	test/core.c	/^try_to_wake_up(struct task_struct *p, unsigned int state, int wake_flags)$/;"	f	file:
 try_to_wake_up_local	test/core.c	/^static void try_to_wake_up_local(struct task_struct *p)$/;"	f	file:
@@ -509,7 +509,7 @@ ttwu_queue	test/core.c	/^static void ttwu_queue(struct task_struct *p, int cpu)$
 ttwu_queue_remote	test/core.c	/^static void ttwu_queue_remote(struct task_struct *p, int cpu)$/;"	f	file:
 ttwu_remote	test/core.c	/^static int ttwu_remote(struct task_struct *p, int wake_flags)$/;"	f	file:
 ttwu_stat	test/core.c	/^ttwu_stat(struct task_struct *p, int cpu, int wake_flags)$/;"	f	file:
-type	lru_lib/lru.h	/^  int type;$/;"	m	struct:LRU
+type	dkh/lru.h	/^  int type;$/;"	m	struct:LRU
 unregister_sched_domain_sysctl	test/core.c	/^static void unregister_sched_domain_sysctl(void)$/;"	f	file:
 update_avg	test/core.c	/^static void update_avg(u64 *avg, u64 sample)$/;"	f	file:
 update_rq_clock	test/core.c	/^void update_rq_clock(struct rq *rq)$/;"	f
