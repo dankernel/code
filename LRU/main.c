@@ -24,10 +24,15 @@
 
 int main(int argc, char *argv[])
 {
+<<<<<<< HEAD
 
   /* Main */
   /* lru_main("/home/dkdk/Downloads/lab/MSR-Cambridge/usr_2.csv"); */
   lru_main("test/file");
 
+=======
+  /* read_code_file("/home/dkdk/Downloads/lab/MSR-Cambridge/usr_2.csv"); */
+  read_code_file("test/file.list");
+>>>>>>> b9cf046c4d23f7fe4f460dfbfd88ade5cd978b55
   return 0;
 }

@@ -76,6 +76,7 @@ add_tnode	dkh/dk_tree.h	/^struct dk_tnode *add_tnode(struct dk_tree *tree, char 
 alloc_rootdomain	test/core.c	/^static struct root_domain *alloc_rootdomain(void)$/;"	f	file:
 alloc_sched_domains	test/core.c	/^cpumask_var_t *alloc_sched_domains(unsigned int ndoms)$/;"	f
 analysis_arg	dkh/code_analyze.h	/^struct analysis_arg{$/;"	s
+analysis_code_thread	dkh/code_analyze.h	/^void *analysis_code_thread(void *a)$/;"	f
 arch_sd_sibling_asym_packing	test/core.c	/^int __weak arch_sd_sibling_asym_packing(void)$/;"	f
 arch_update_cpu_topology	test/core.c	/^int __attribute__((weak)) arch_update_cpu_topology(void)$/;"	f
 b_l	dkh/code_analyze.h	/^  int b_l;$/;"	m	struct:code_info
@@ -186,7 +187,6 @@ free_sched_domains	test/core.c	/^void free_sched_domains(cpumask_var_t doms[], u
 free_sched_group	test/core.c	/^static void free_sched_group(struct task_group *tg)$/;"	f	file:
 free_sched_group_rcu	test/core.c	/^static void free_sched_group_rcu(struct rcu_head *rhp)$/;"	f	file:
 free_sched_groups	test/core.c	/^static void free_sched_groups(struct sched_group *sg, int free_sgp)$/;"	f	file:
-get_file_line	dkh/code_analyze.h	/^int get_file_line(char *path)$/;"	f
 get_group	test/core.c	/^static int get_group(int cpu, struct sd_data *sdd, struct sched_group **sg)$/;"	f	file:
 get_nohz_timer_target	test/core.c	/^int get_nohz_timer_target(void)$/;"	f
 get_parent_ip	test/core.c	/^notrace unsigned long get_parent_ip(unsigned long addr)$/;"	f
@@ -242,8 +242,12 @@ line	dkh/code_analyze.h	/^  int line;$/;"	m	struct:code_info
 line	dkh/file_read.h	/^  int line;$/;"	m	struct:file_info
 list_str	dkh/code_analyze.h	/^char *list_str(struct dk_list *list, char *str)$/;"	f
 lookup_list	dkh/dk_list.h	/^struct dk_lnode *lookup_list(struct dk_list *list, char *str)$/;"	f
+<<<<<<< HEAD
 lru_main	dkh/lru.h	/^int lru_main(char *path)$/;"	f
 main	main.c	/^int main(int argc, char *argv[])$/;"	f
+=======
+main	main.c	/^int main(int argc, char* argv[])$/;"	f
+>>>>>>> b9cf046c4d23f7fe4f460dfbfd88ade5cd978b55
 mask	test/core.c	/^	sched_domain_mask_f mask;$/;"	m	struct:sched_domain_topology_level	file:
 max_cfs_quota_period	test/core.c	/^const u64 max_cfs_quota_period = 1 * NSEC_PER_SEC; \/* 1s *\/$/;"	v
 max_load_idx	test/core.c	/^static int max_load_idx = CPU_LOAD_IDX_MAX-1;$/;"	v	file:

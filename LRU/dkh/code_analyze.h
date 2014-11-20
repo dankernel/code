@@ -172,16 +172,27 @@ int init_code_info(struct code_info *c_info, char *file)
  */
 int *read_file(char *path)
 {/*{{{*/
+<<<<<<< HEAD
   struct file_info *file = NULL;
+=======
+  struct code_info *c_info = NULL;    // TODO : Analysis and make code info
+  struct file_info *tmp_file = NULL;
+>>>>>>> b9cf046c4d23f7fe4f460dfbfd88ade5cd978b55
   char *buf = NULL;
 
   /* exception */
   if (!path)
     return NULL;
 
+<<<<<<< HEAD
   /* Init file info */
   file = (struct file_info*)malloc(sizeof(struct file_info));
   init_file_struct(file, path);
+=======
+   /* Init file info */
+  tmp_file = (struct file_info*)malloc(sizeof(struct file_info));
+  init_file_struct(tmp_file, file);
+>>>>>>> b9cf046c4d23f7fe4f460dfbfd88ade5cd978b55
 
   /* Init list */
   struct dk_list *list = init_list();
