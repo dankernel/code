@@ -34,33 +34,63 @@ struct workload
   long respone; //respones time
 };
 
-struct workload *read_workload(struct file_info *f, char tok, int c)
+struct workload *_read_workload(struct file_info *f, char tok, int c)
 {
-  struct workload *tmp = NULL;
+  return NULL;
+}
+
+int read_workload(struct workload *wl, struct file_info *f, char tok, int c)
+{
   int len = 0;
   char *buf = f->buf;
   char *start = 0;
+  int rollback = 0;
 
-  if (!f || c < 0)
-    return NULL;
+  if (!wl || !f || c < 0)
+    return EARG_NULL;
 
-  tmp = malloc(sizeof(struct workload));
-
-  if (!f->buf)
+  if (*f->buf == '\0') {
     next_buff_read(f);
+  }
 
+  rollback = f->buf_size - f->seek;
 
-  start = buf + f->seek;
-  while (*(start + len) != tok)
-    len++;
+  while (c--) {
 
-  tmp->time = strndup(start, len);
-  printf("start : %s \n", strndup(start, len));
+    start = buf + f->seek;
+    len = 0;
+    while (*(start + len) != tok && *(start + len) != '\n')
+      len++;
 
-  f->seek = f->seek + len + 1;
-  printf("%d\n", f->seek);
+    if (*(start + len + 1) == '\0')
+      goto re_read;
 
-  return tmp;
+    switch (c) {
+      case 6: wl->time = strndup(start, len); break;
+      // case 5: wl->host = strndup(start, len); break;
+      // case 4: wl->disk_num = atoi(strndup(start, len)); break;
+      // case 3: wl->type = atoi(strndup(start, len)); break;
+      // case 2: wl->offset = atol(strndup(start, len)); break;
+      // case 1: wl->size = atol(strndup(start, len)); break;
+      // case 0: wl->respone = atol(strndup(start, len)); break;
+    }
+    f->seek = f->seek + len + 1;
+  }
+
+end:
+  return 0;
+
+re_read:
+  printf("ERR! EOF!\n");
+  printf("OLD : %s \n", strndup(f->buf + f->buf_size - 20, 20));
+
+  if (next_buff_read_seek(f, rollback) < 0) 
+    return -1;
+
+  printf("NEW : %s \n", strndup(f->buf, 90));
+
+  return 1;
+
 }
 
 int lru_main(char *path)
@@ -69,24 +99,25 @@ int lru_main(char *path)
   struct dk_list *list = init_list();
   struct workload *wl = NULL;
 
+  int ret = 0;
+
   if (!path)
     return EARG_NULL;
 
   /* Init file */
   file = (struct file_info*)malloc(sizeof(struct file_info));
+  wl = malloc(sizeof(struct workload));
 
   /* Init list */
   init_file_struct(file, path);
 
   /* Read file */
-  while (wl = read_workload(file, ',', 6)) {
-
-    /* TODO : LRU LOOKUP ... */
-    printf("%s\n", wl->time);
+  while (0 <= (ret = read_workload(wl, file, ',', 7))) {
 
     /* Add list */
-    add_lnode(list, wl);
-    printf("adddd\n");
+    // add_lnode(list, wl);
+
+    printf("%s, %d / %d . %d \n", wl->time, file->seek, file->buf_size, file->buf_read);
 
   }
 

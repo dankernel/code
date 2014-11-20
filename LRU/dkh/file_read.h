@@ -41,6 +41,8 @@ struct file_info
   int seek;
   int line;
 
+  int buf_read;
+
   int buf_size;
   char *buf;
   char *result;
@@ -83,6 +85,7 @@ int init_file_struct(struct file_info *info, char *path)
     info->buf_size = MAX_BUFF_SIZE;
 
   /* buffer */
+  info->buf_read = 0;
   info->buf = malloc(info->buf_size);
   info->result = malloc(info->buf_size);
   memset(info->buf, '\0', info->buf_size);
@@ -153,6 +156,30 @@ char *read_token_line(struct file_info *info, int column, char token)
   return NULL;
 }
 
+int next_buff_read_seek(struct file_info *info, int rb)
+{
+  int read_size = 0;
+  if (!info)
+    return EARG_NULL;
+
+  if (strlen(info->buf) < info->buf_size)
+    return -1;
+
+  lseek(info->fd, -rb, SEEK_CUR);
+
+  memset(info->buf, '\0', info->buf_size);
+  read_size = read(info->fd, info->buf, info->buf_size);
+  info->seek = 0;
+  info->buf[info->buf_size] = EOF;
+
+  if (read_size < 0)
+    return read_size;
+
+  /* Count */
+  info->buf_read++;
+  return 0;
+}
+
 int next_buff_read(struct file_info *info)
 {
 
@@ -162,9 +189,13 @@ int next_buff_read(struct file_info *info)
   if (read(info->fd, info->buf, info->buf_size) < 0)
     return -1;
 
+  /* Count */
+  info->buf_read++;
+ 
   return 0;
 
 }
+
 
 /*
  * read (next) string, split to '\n'

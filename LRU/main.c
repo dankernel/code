@@ -26,7 +26,8 @@ int main(int argc, char *argv[])
 {
 
   /* Main */
-  lru_main("/home/dkdk/Downloads/lab/MSR-Cambridge/usr_2.csv");
+  /* lru_main("/home/dkdk/Downloads/lab/MSR-Cambridge/usr_2.csv"); */
+  lru_main("test/file");
 
   return 0;
 }
