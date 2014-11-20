@@ -31,7 +31,7 @@
 
 /* CONFIG */
 #define CACHE_BLOCK_SIZE (4 * KB)
-#define CACHE_SIZE (1 * GB)
+#define CACHE_SIZE (64 * MB)
 #define CACHE_LEN (CACHE_SIZE/ CACHE_BLOCK_SIZE)
 
 #define DEBUG_OPTION 0
@@ -406,7 +406,7 @@ int read_workload(struct workload *wl, FILE *fp)
   if (!wl || !fp)
     printf("arg is NULL\n");
 
-  cm = init_cache_mem(CACHE_LEN * 4);
+  cm = init_cache_mem(CACHE_LEN);
   if (!cm)
     goto end;
 
