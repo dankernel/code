@@ -1,4 +1,4 @@
-\hypertarget{dk__list_8h}{\section{dkh/dk\+\_\+list.h File Reference}
+\hypertarget{dk__list_8h}{\section{dkh/dk\+\_\+list.h 파일 참조}
 \label{dk__list_8h}\index{dkh/dk\+\_\+list.\+h@{dkh/dk\+\_\+list.\+h}}
 }
 {\ttfamily \#include $<$stdlib.\+h$>$}\\*
@@ -6,14 +6,28 @@
 {\ttfamily \#include $<$string.\+h$>$}\\*
 {\ttfamily \#include $<$fcntl.\+h$>$}\\*
 {\ttfamily \#include \char`\"{}errno.\+h\char`\"{}}\\*
-Include dependency graph for dk\+\_\+list.\+h\+:
-This graph shows which files directly or indirectly include this file\+:
-\subsection*{Classes}
+dk\+\_\+list.\+h에 대한 include 의존 그래프
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dk__list_8h__incl}
+\end{center}
+\end{figure}
+이 그래프는 이 파일을 직/간접적으로 include 하는 파일들을 보여줍니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=278pt]{dk__list_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{클래스}
 \begin{DoxyCompactItemize}
 \item 
 struct \hyperlink{structlist__head}{list\+\_\+head}
 \end{DoxyCompactItemize}
-\subsection*{Macros}
+\subsection*{매크로}
 \begin{DoxyCompactItemize}
 \item 
 \#define \hyperlink{dk__list_8h_afd049f7ad59dbe455f460807475c2841}{offsetof}(type, member)~((size\+\_\+t) \&((type $\ast$)0)-\/$>$member)
@@ -22,7 +36,7 @@ struct \hyperlink{structlist__head}{list\+\_\+head}
 \item 
 \#define \hyperlink{dk__list_8h_ab8b24e6660ab3760c923e4b4db3fa502}{list\+\_\+for\+\_\+each}(pos, head)
 \end{DoxyCompactItemize}
-\subsection*{Functions}
+\subsection*{함수}
 \begin{DoxyCompactItemize}
 \item 
 struct \hyperlink{structlist__head}{list\+\_\+head} $\ast$ \hyperlink{dk__list_8h_a3ea33987d84e227c8398958e10a10bbd}{init\+\_\+lnode} ()
@@ -31,7 +45,7 @@ void \hyperlink{dk__list_8h_a742e4907797f8815f3f519518dbfa4cd}{print\+\_\+node} 
 \end{DoxyCompactItemize}
 
 
-\subsection{Macro Definition Documentation}
+\subsection{매크로 문서화}
 \hypertarget{dk__list_8h_af8c317a42292b61c93aae91e59118a46}{\index{dk\+\_\+list.\+h@{dk\+\_\+list.\+h}!container\+\_\+of@{container\+\_\+of}}
 \index{container\+\_\+of@{container\+\_\+of}!dk\+\_\+list.\+h@{dk\+\_\+list.\+h}}
 \subsubsection[{container\+\_\+of}]{\setlength{\rightskip}{0pt plus 5cm}\#define container\+\_\+of(
@@ -41,7 +55,7 @@ void \hyperlink{dk__list_8h_a742e4907797f8815f3f519518dbfa4cd}{print\+\_\+node} 
 \item[{}]{member}
 \end{DoxyParamCaption}
 )}}\label{dk__list_8h_af8c317a42292b61c93aae91e59118a46}
-{\bfseries Value\+:}
+{\bfseries 값\+:}
 \begin{DoxyCode}
 (\{\(\backslash\)
     const typeof( ((\hyperlink{structworkload_aa2845ad1d10cf7ef276771aa7c038c40}{type} *)0)->member ) *\_\_mptr = (ptr);\(\backslash\)
@@ -55,7 +69,7 @@ void \hyperlink{dk__list_8h_a742e4907797f8815f3f519518dbfa4cd}{print\+\_\+node} 
 \item[{}]{head}
 \end{DoxyParamCaption}
 )}}\label{dk__list_8h_ab8b24e6660ab3760c923e4b4db3fa502}
-{\bfseries Value\+:}
+{\bfseries 값\+:}
 \begin{DoxyCode}
 \textcolor{keywordflow}{for} (pos = (head)->next; prefetch(pos->next), pos != (head); \(\backslash\)
       pos = pos->next)
@@ -70,7 +84,7 @@ void \hyperlink{dk__list_8h_a742e4907797f8815f3f519518dbfa4cd}{print\+\_\+node} 
 )~((size\+\_\+t) \&((type $\ast$)0)-\/$>$member)}}\label{dk__list_8h_afd049f7ad59dbe455f460807475c2841}
 
 
-\subsection{Function Documentation}
+\subsection{함수 문서화}
 \hypertarget{dk__list_8h_a3ea33987d84e227c8398958e10a10bbd}{\index{dk\+\_\+list.\+h@{dk\+\_\+list.\+h}!init\+\_\+lnode@{init\+\_\+lnode}}
 \index{init\+\_\+lnode@{init\+\_\+lnode}!dk\+\_\+list.\+h@{dk\+\_\+list.\+h}}
 \subsubsection[{init\+\_\+lnode}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf list\+\_\+head}$\ast$ init\+\_\+lnode (
@@ -80,7 +94,14 @@ void \hyperlink{dk__list_8h_a742e4907797f8815f3f519518dbfa4cd}{print\+\_\+node} 
 )}}\label{dk__list_8h_a3ea33987d84e227c8398958e10a10bbd}
 
 
-Here is the caller graph for this function\+:
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dk__list_8h_a3ea33987d84e227c8398958e10a10bbd_icgraph}
+\end{center}
+\end{figure}
 
 
 \hypertarget{dk__list_8h_a742e4907797f8815f3f519518dbfa4cd}{\index{dk\+\_\+list.\+h@{dk\+\_\+list.\+h}!print\+\_\+node@{print\+\_\+node}}

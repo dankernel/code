@@ -1,11 +1,25 @@
-\hypertarget{lru_8h}{\section{dkh/lru.h File Reference}
+\hypertarget{lru_8h}{\section{dkh/lru.h 파일 참조}
 \label{lru_8h}\index{dkh/lru.\+h@{dkh/lru.\+h}}
 }
 {\ttfamily \#include \char`\"{}hash.\+h\char`\"{}}\\*
 {\ttfamily \#include $<$math.\+h$>$}\\*
-Include dependency graph for lru.\+h\+:
-This graph shows which files directly or indirectly include this file\+:
-\subsection*{Classes}
+lru.\+h에 대한 include 의존 그래프
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lru_8h__incl}
+\end{center}
+\end{figure}
+이 그래프는 이 파일을 직/간접적으로 include 하는 파일들을 보여줍니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=136pt]{lru_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{클래스}
 \begin{DoxyCompactItemize}
 \item 
 struct \hyperlink{structworkload}{workload}
@@ -14,7 +28,7 @@ struct \hyperlink{structcache__line}{cache\+\_\+line}
 \item 
 struct \hyperlink{structcache__mem}{cache\+\_\+mem}
 \end{DoxyCompactItemize}
-\subsection*{Macros}
+\subsection*{매크로}
 \begin{DoxyCompactItemize}
 \item 
 \#define \hyperlink{lru_8h_ada74e7db007a68e763f20c17f2985356}{R\+E\+A\+D}~1
@@ -35,7 +49,7 @@ struct \hyperlink{structcache__mem}{cache\+\_\+mem}
 \item 
 \#define \hyperlink{lru_8h_ae596a4581aaa87caa5cfc716730adaa1}{D\+E\+B\+U\+G\+\_\+\+O\+P\+T\+I\+O\+N}~0
 \end{DoxyCompactItemize}
-\subsection*{Functions}
+\subsection*{함수}
 \begin{DoxyCompactItemize}
 \item 
 struct \hyperlink{structcache__mem}{cache\+\_\+mem} $\ast$ \hyperlink{lru_8h_a97ee2a27cdbe15463e52c1b0606cbd1a}{init\+\_\+cache\+\_\+mem} (long m)
@@ -55,10 +69,10 @@ F\+I\+L\+E $\ast$ \hyperlink{lru_8h_a18d6e93c1f872081867eee56e7d943f7}{open\+\_\
 int \hyperlink{lru_8h_a30c6287565ac5b2d5161a0642c59888a}{read\+\_\+column} (struct \hyperlink{structworkload}{workload} $\ast$wl, char $\ast$buf)
 \item 
 int \hyperlink{lru_8h_a23bbdc4f3ff2ccbf5aaf6a2cc5a584b8}{read\+\_\+workload} (struct \hyperlink{structworkload}{workload} $\ast$wl, F\+I\+L\+E $\ast$fp)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em read worklosd and analysis..  workload  file pointer \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
+\subsection{상세한 설명}
 ===================================================================================== \begin{DoxyVerb}  Filename:  lru.h
 
   @date    2004/11/21
@@ -75,7 +89,7 @@ author\+: Jun-\/hyung Park organization\+: Dankook U\+N\+I\+V.
 
 
 
-\subsection{Macro Definition Documentation}
+\subsection{매크로 문서화}
 \hypertarget{lru_8h_a9e92828e1e7a7cc03003c00282384f96}{\index{lru.\+h@{lru.\+h}!C\+A\+C\+H\+E\+\_\+\+B\+L\+O\+C\+K\+\_\+\+S\+I\+Z\+E@{C\+A\+C\+H\+E\+\_\+\+B\+L\+O\+C\+K\+\_\+\+S\+I\+Z\+E}}
 \index{C\+A\+C\+H\+E\+\_\+\+B\+L\+O\+C\+K\+\_\+\+S\+I\+Z\+E@{C\+A\+C\+H\+E\+\_\+\+B\+L\+O\+C\+K\+\_\+\+S\+I\+Z\+E}!lru.\+h@{lru.\+h}}
 \subsubsection[{C\+A\+C\+H\+E\+\_\+\+B\+L\+O\+C\+K\+\_\+\+S\+I\+Z\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+A\+C\+H\+E\+\_\+\+B\+L\+O\+C\+K\+\_\+\+S\+I\+Z\+E~(4 $\ast$ {\bf K\+B})}}\label{lru_8h_a9e92828e1e7a7cc03003c00282384f96}
@@ -105,7 +119,7 @@ author\+: Jun-\/hyung Park organization\+: Dankook U\+N\+I\+V.
 \subsubsection[{W\+R\+I\+T\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define W\+R\+I\+T\+E~2}}\label{lru_8h_aa10f470e996d0f51210d24f442d25e1e}
 
 
-\subsection{Function Documentation}
+\subsection{함수 문서화}
 \hypertarget{lru_8h_a97ee2a27cdbe15463e52c1b0606cbd1a}{\index{lru.\+h@{lru.\+h}!init\+\_\+cache\+\_\+mem@{init\+\_\+cache\+\_\+mem}}
 \index{init\+\_\+cache\+\_\+mem@{init\+\_\+cache\+\_\+mem}!lru.\+h@{lru.\+h}}
 \subsubsection[{init\+\_\+cache\+\_\+mem}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf cache\+\_\+mem}$\ast$ init\+\_\+cache\+\_\+mem (
@@ -115,12 +129,26 @@ author\+: Jun-\/hyung Park organization\+: Dankook U\+N\+I\+V.
 )}}\label{lru_8h_a97ee2a27cdbe15463e52c1b0606cbd1a}
 
 
-Here is the call graph for this function\+:
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=271pt]{lru_8h_a97ee2a27cdbe15463e52c1b0606cbd1a_cgraph}
+\end{center}
+\end{figure}
 
 
 
 
-Here is the caller graph for this function\+:
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lru_8h_a97ee2a27cdbe15463e52c1b0606cbd1a_icgraph}
+\end{center}
+\end{figure}
 
 
 \hypertarget{lru_8h_a66199de61dbaaf537f67a7308c0d89d6}{\index{lru.\+h@{lru.\+h}!L\+R\+U\+\_\+read@{L\+R\+U\+\_\+read}}
@@ -141,12 +169,26 @@ Here is the caller graph for this function\+:
 )}}\label{lru_8h_a40eb25ee3a00dd9d6371a9f96ba7568b}
 
 
-Here is the call graph for this function\+:
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=239pt]{lru_8h_a40eb25ee3a00dd9d6371a9f96ba7568b_cgraph}
+\end{center}
+\end{figure}
 
 
 
 
-Here is the caller graph for this function\+:
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lru_8h_a40eb25ee3a00dd9d6371a9f96ba7568b_icgraph}
+\end{center}
+\end{figure}
 
 
 \hypertarget{lru_8h_a18d6e93c1f872081867eee56e7d943f7}{\index{lru.\+h@{lru.\+h}!open\+\_\+workload@{open\+\_\+workload}}
@@ -158,7 +200,14 @@ Here is the caller graph for this function\+:
 )}}\label{lru_8h_a18d6e93c1f872081867eee56e7d943f7}
 
 
-Here is the caller graph for this function\+:
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=244pt]{lru_8h_a18d6e93c1f872081867eee56e7d943f7_icgraph}
+\end{center}
+\end{figure}
 
 
 \hypertarget{lru_8h_a8cc95bde93b57fde8f83927b3fd8cca4}{\index{lru.\+h@{lru.\+h}!print\+\_\+cm@{print\+\_\+cm}}
@@ -170,7 +219,14 @@ Here is the caller graph for this function\+:
 )}}\label{lru_8h_a8cc95bde93b57fde8f83927b3fd8cca4}
 
 
-Here is the caller graph for this function\+:
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lru_8h_a8cc95bde93b57fde8f83927b3fd8cca4_icgraph}
+\end{center}
+\end{figure}
 
 
 \hypertarget{lru_8h_a30c6287565ac5b2d5161a0642c59888a}{\index{lru.\+h@{lru.\+h}!read\+\_\+column@{read\+\_\+column}}
@@ -183,7 +239,14 @@ Here is the caller graph for this function\+:
 )}}\label{lru_8h_a30c6287565ac5b2d5161a0642c59888a}
 
 
-Here is the caller graph for this function\+:
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lru_8h_a30c6287565ac5b2d5161a0642c59888a_icgraph}
+\end{center}
+\end{figure}
 
 
 \hypertarget{lru_8h_a23bbdc4f3ff2ccbf5aaf6a2cc5a584b8}{\index{lru.\+h@{lru.\+h}!read\+\_\+workload@{read\+\_\+workload}}
@@ -196,12 +259,33 @@ Here is the caller graph for this function\+:
 )}}\label{lru_8h_a23bbdc4f3ff2ccbf5aaf6a2cc5a584b8}
 
 
-Here is the call graph for this function\+:
+read worklosd and analysis..  workload  file pointer 
+
+\begin{DoxyReturn}{반환값}
+error code 
+\end{DoxyReturn}
+
+
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lru_8h_a23bbdc4f3ff2ccbf5aaf6a2cc5a584b8_cgraph}
+\end{center}
+\end{figure}
 
 
 
 
-Here is the caller graph for this function\+:
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=242pt]{lru_8h_a23bbdc4f3ff2ccbf5aaf6a2cc5a584b8_icgraph}
+\end{center}
+\end{figure}
 
 
 \hypertarget{lru_8h_a987168b3169b138b36aad5903e5ce4ee}{\index{lru.\+h@{lru.\+h}!report\+\_\+cm@{report\+\_\+cm}}
@@ -213,7 +297,14 @@ Here is the caller graph for this function\+:
 )}}\label{lru_8h_a987168b3169b138b36aad5903e5ce4ee}
 
 
-Here is the caller graph for this function\+:
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=343pt]{lru_8h_a987168b3169b138b36aad5903e5ce4ee_icgraph}
+\end{center}
+\end{figure}
 
 
 \hypertarget{lru_8h_a3d667614dda729b6e0491823d5e8b3d1}{\index{lru.\+h@{lru.\+h}!run\+\_\+cache@{run\+\_\+cache}}
@@ -226,11 +317,25 @@ Here is the caller graph for this function\+:
 )}}\label{lru_8h_a3d667614dda729b6e0491823d5e8b3d1}
 
 
-Here is the call graph for this function\+:
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=341pt]{lru_8h_a3d667614dda729b6e0491823d5e8b3d1_cgraph}
+\end{center}
+\end{figure}
 
 
 
 
-Here is the caller graph for this function\+:
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=344pt]{lru_8h_a3d667614dda729b6e0491823d5e8b3d1_icgraph}
+\end{center}
+\end{figure}
 
 

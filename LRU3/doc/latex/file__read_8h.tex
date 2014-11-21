@@ -1,4 +1,4 @@
-\hypertarget{file__read_8h}{\section{dkh/file\+\_\+read.h File Reference}
+\hypertarget{file__read_8h}{\section{dkh/file\+\_\+read.h 파일 참조}
 \label{file__read_8h}\index{dkh/file\+\_\+read.\+h@{dkh/file\+\_\+read.\+h}}
 }
 {\ttfamily \#include $<$stdlib.\+h$>$}\\*
@@ -9,19 +9,33 @@
 {\ttfamily \#include $<$unistd.\+h$>$}\\*
 {\ttfamily \#include \char`\"{}errno.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}print\+\_\+msg.\+h\char`\"{}}\\*
-Include dependency graph for file\+\_\+read.\+h\+:
-This graph shows which files directly or indirectly include this file\+:
-\subsection*{Classes}
+file\+\_\+read.\+h에 대한 include 의존 그래프
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{file__read_8h__incl}
+\end{center}
+\end{figure}
+이 그래프는 이 파일을 직/간접적으로 include 하는 파일들을 보여줍니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=191pt]{file__read_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{클래스}
 \begin{DoxyCompactItemize}
 \item 
 struct \hyperlink{structfile__info}{file\+\_\+info}
 \end{DoxyCompactItemize}
-\subsection*{Macros}
+\subsection*{매크로}
 \begin{DoxyCompactItemize}
 \item 
 \#define \hyperlink{file__read_8h_a212979f5fc9dcf0a420e90b9b21d780a}{M\+A\+X\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+Z\+E}~1024 $\ast$ 1024 $\ast$ 4
 \end{DoxyCompactItemize}
-\subsection*{Functions}
+\subsection*{함수}
 \begin{DoxyCompactItemize}
 \item 
 int \hyperlink{file__read_8h_ad36ccbba17c95e2853bf8bd7a6346eaa}{init\+\_\+file\+\_\+struct} (struct \hyperlink{structfile__info}{file\+\_\+info} $\ast$info, char $\ast$path)
@@ -40,13 +54,13 @@ char $\ast$ \hyperlink{file__read_8h_a744a461bab4a6c47c93cc697a3464761}{read\+\_
 \end{DoxyCompactItemize}
 
 
-\subsection{Macro Definition Documentation}
+\subsection{매크로 문서화}
 \hypertarget{file__read_8h_a212979f5fc9dcf0a420e90b9b21d780a}{\index{file\+\_\+read.\+h@{file\+\_\+read.\+h}!M\+A\+X\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+Z\+E@{M\+A\+X\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+Z\+E}}
 \index{M\+A\+X\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+Z\+E@{M\+A\+X\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+Z\+E}!file\+\_\+read.\+h@{file\+\_\+read.\+h}}
 \subsubsection[{M\+A\+X\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+Z\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+X\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+Z\+E~1024 $\ast$ 1024 $\ast$ 4}}\label{file__read_8h_a212979f5fc9dcf0a420e90b9b21d780a}
 
 
-\subsection{Function Documentation}
+\subsection{함수 문서화}
 \hypertarget{file__read_8h_ae31df81b043dc729e24b00b2797fd601}{\index{file\+\_\+read.\+h@{file\+\_\+read.\+h}!close\+\_\+file\+\_\+info@{close\+\_\+file\+\_\+info}}
 \index{close\+\_\+file\+\_\+info@{close\+\_\+file\+\_\+info}!file\+\_\+read.\+h@{file\+\_\+read.\+h}}
 \subsubsection[{close\+\_\+file\+\_\+info}]{\setlength{\rightskip}{0pt plus 5cm}int close\+\_\+file\+\_\+info (
@@ -56,7 +70,14 @@ char $\ast$ \hyperlink{file__read_8h_a744a461bab4a6c47c93cc697a3464761}{read\+\_
 )}}\label{file__read_8h_ae31df81b043dc729e24b00b2797fd601}
 
 
-Here is the caller graph for this function\+:
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=274pt]{file__read_8h_ae31df81b043dc729e24b00b2797fd601_icgraph}
+\end{center}
+\end{figure}
 
 
 \hypertarget{file__read_8h_ad36ccbba17c95e2853bf8bd7a6346eaa}{\index{file\+\_\+read.\+h@{file\+\_\+read.\+h}!init\+\_\+file\+\_\+struct@{init\+\_\+file\+\_\+struct}}
@@ -69,12 +90,26 @@ Here is the caller graph for this function\+:
 )}}\label{file__read_8h_ad36ccbba17c95e2853bf8bd7a6346eaa}
 
 
-Here is the call graph for this function\+:
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=257pt]{file__read_8h_ad36ccbba17c95e2853bf8bd7a6346eaa_cgraph}
+\end{center}
+\end{figure}
 
 
 
 
-Here is the caller graph for this function\+:
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=271pt]{file__read_8h_ad36ccbba17c95e2853bf8bd7a6346eaa_icgraph}
+\end{center}
+\end{figure}
 
 
 \hypertarget{file__read_8h_a8f0aa9ed68fd12c76459bd21b090cf44}{\index{file\+\_\+read.\+h@{file\+\_\+read.\+h}!next\+\_\+buff\+\_\+read@{next\+\_\+buff\+\_\+read}}
@@ -101,7 +136,14 @@ Here is the caller graph for this function\+:
 )}}\label{file__read_8h_ae84bfdae0ec7b73cf580228efa76178e}
 
 
-Here is the caller graph for this function\+:
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{file__read_8h_ae84bfdae0ec7b73cf580228efa76178e_icgraph}
+\end{center}
+\end{figure}
 
 
 \hypertarget{file__read_8h_a744a461bab4a6c47c93cc697a3464761}{\index{file\+\_\+read.\+h@{file\+\_\+read.\+h}!read\+\_\+next\+\_\+line@{read\+\_\+next\+\_\+line}}
@@ -113,7 +155,14 @@ Here is the caller graph for this function\+:
 )}}\label{file__read_8h_a744a461bab4a6c47c93cc697a3464761}
 
 
-Here is the caller graph for this function\+:
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=277pt]{file__read_8h_a744a461bab4a6c47c93cc697a3464761_icgraph}
+\end{center}
+\end{figure}
 
 
 \hypertarget{file__read_8h_a6ca2c59b960803be2495125fd8ad9ee9}{\index{file\+\_\+read.\+h@{file\+\_\+read.\+h}!read\+\_\+token\+\_\+line@{read\+\_\+token\+\_\+line}}

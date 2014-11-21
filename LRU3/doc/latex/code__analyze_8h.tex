@@ -1,4 +1,4 @@
-\hypertarget{code__analyze_8h}{\section{dkh/code\+\_\+analyze.h File Reference}
+\hypertarget{code__analyze_8h}{\section{dkh/code\+\_\+analyze.h 파일 참조}
 \label{code__analyze_8h}\index{dkh/code\+\_\+analyze.\+h@{dkh/code\+\_\+analyze.\+h}}
 }
 {\ttfamily \#include $<$pthread.\+h$>$}\\*
@@ -12,15 +12,22 @@
 {\ttfamily \#include \char`\"{}print\+\_\+msg.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}dk\+\_\+str.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}dk\+\_\+list.\+h\char`\"{}}\\*
-Include dependency graph for code\+\_\+analyze.\+h\+:
-\subsection*{Classes}
+code\+\_\+analyze.\+h에 대한 include 의존 그래프
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{code__analyze_8h__incl}
+\end{center}
+\end{figure}
+\subsection*{클래스}
 \begin{DoxyCompactItemize}
 \item 
 struct \hyperlink{structcode__info}{code\+\_\+info}
 \item 
 struct \hyperlink{structanalysis__arg}{analysis\+\_\+arg}
 \end{DoxyCompactItemize}
-\subsection*{Macros}
+\subsection*{매크로}
 \begin{DoxyCompactItemize}
 \item 
 \#define \hyperlink{code__analyze_8h_a505e6854b27524988af2985839f53918}{C\+P\+U\+\_\+\+C\+O\+U\+N\+T}~4
@@ -33,7 +40,7 @@ struct \hyperlink{structanalysis__arg}{analysis\+\_\+arg}
 \item 
 \#define \hyperlink{code__analyze_8h_a8c219bbdeb00651c73fe1ce53f67d10c}{K\+E\+Y\+W\+O\+R\+D\+\_\+\+N\+E\+X\+T\+\_\+\+R\+\_\+\+P\+A\+R\+E\+N\+T\+H\+E\+S\+E\+S}~0\+X00000008     /$\ast$ parentheses = ')' $\ast$/
 \end{DoxyCompactItemize}
-\subsection*{Functions}
+\subsection*{함수}
 \begin{DoxyCompactItemize}
 \item 
 char $\ast$ \hyperlink{code__analyze_8h_a8bd8f2b51bb6544019267bd9e3ced08d}{list\+\_\+str} (struct dk\+\_\+list $\ast$list, char $\ast$str)
@@ -48,7 +55,7 @@ int \hyperlink{code__analyze_8h_a88d8ed4c2b9673c9fc9f285f09cb3cad}{get\+\_\+file
 \end{DoxyCompactItemize}
 
 
-\subsection{Macro Definition Documentation}
+\subsection{매크로 문서화}
 \hypertarget{code__analyze_8h_a505e6854b27524988af2985839f53918}{\index{code\+\_\+analyze.\+h@{code\+\_\+analyze.\+h}!C\+P\+U\+\_\+\+C\+O\+U\+N\+T@{C\+P\+U\+\_\+\+C\+O\+U\+N\+T}}
 \index{C\+P\+U\+\_\+\+C\+O\+U\+N\+T@{C\+P\+U\+\_\+\+C\+O\+U\+N\+T}!code\+\_\+analyze.\+h@{code\+\_\+analyze.\+h}}
 \subsubsection[{C\+P\+U\+\_\+\+C\+O\+U\+N\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+P\+U\+\_\+\+C\+O\+U\+N\+T~4}}\label{code__analyze_8h_a505e6854b27524988af2985839f53918}
@@ -66,7 +73,7 @@ int \hyperlink{code__analyze_8h_a88d8ed4c2b9673c9fc9f285f09cb3cad}{get\+\_\+file
 \subsubsection[{K\+E\+Y\+W\+O\+R\+D\+\_\+\+N\+E\+X\+T\+\_\+\+R\+\_\+\+P\+A\+R\+E\+N\+T\+H\+E\+S\+E\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define K\+E\+Y\+W\+O\+R\+D\+\_\+\+N\+E\+X\+T\+\_\+\+R\+\_\+\+P\+A\+R\+E\+N\+T\+H\+E\+S\+E\+S~0\+X00000008     /$\ast$ parentheses = ')' $\ast$/}}\label{code__analyze_8h_a8c219bbdeb00651c73fe1ce53f67d10c}
 
 
-\subsection{Function Documentation}
+\subsection{함수 문서화}
 \hypertarget{code__analyze_8h_ad95127e99785c3217d95e00f8783b444}{\index{code\+\_\+analyze.\+h@{code\+\_\+analyze.\+h}!cheek\+\_\+code\+\_\+line@{cheek\+\_\+code\+\_\+line}}
 \index{cheek\+\_\+code\+\_\+line@{cheek\+\_\+code\+\_\+line}!code\+\_\+analyze.\+h@{code\+\_\+analyze.\+h}}
 \subsubsection[{cheek\+\_\+code\+\_\+line}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ cheek\+\_\+code\+\_\+line (
@@ -85,7 +92,14 @@ int \hyperlink{code__analyze_8h_a88d8ed4c2b9673c9fc9f285f09cb3cad}{get\+\_\+file
 )}}\label{code__analyze_8h_a88d8ed4c2b9673c9fc9f285f09cb3cad}
 
 
-Here is the call graph for this function\+:
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{code__analyze_8h_a88d8ed4c2b9673c9fc9f285f09cb3cad_cgraph}
+\end{center}
+\end{figure}
 
 
 \hypertarget{code__analyze_8h_ab121b00ea24f1ab4d78ccae7a343893f}{\index{code\+\_\+analyze.\+h@{code\+\_\+analyze.\+h}!init\+\_\+code\+\_\+info@{init\+\_\+code\+\_\+info}}
@@ -113,6 +127,13 @@ Here is the call graph for this function\+:
 )}}\label{code__analyze_8h_a40c5275f63bcc1394af4771780714285}
 
 
-Here is the call graph for this function\+:
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{code__analyze_8h_a40c5275f63bcc1394af4771780714285_cgraph}
+\end{center}
+\end{figure}
 
 

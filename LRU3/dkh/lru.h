@@ -392,11 +392,11 @@ int read_column(struct workload *wl, char *buf)
   return 0;
 }/*}}}*/
 
-/*
- * read worklosd  and analysis..
- * @wl : workload
- * @fp : file pointer
- * return : error code
+/**
+ * @brief read worklosd  and analysis..
+ * @wl  workload
+ * @fp  file pointer
+ * @return  error code
  */
 int read_workload(struct workload *wl, FILE *fp)
 {/*{{{*/
