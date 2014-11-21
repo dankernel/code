@@ -21,6 +21,9 @@ set yrange [0:100]
 
 set xtic rotate by 0 scale 1
 
-#plot 'result.dat' using 2:xtic(1) pt 3 title columnheader 10
-plot 'result.dat' using 3:xtic(1) title columnheader 10
+#1 plot 'result.dat' using 2:xtic(1) pt 3 title columnheader 10
+#2 plot 'result.dat' using 3:xtic(1) title columnheader 10
+
+plot 'result.dat' using 2:xtic(1) title columnheader(10) , \
+       for [i=3:3] '' using i:xtic(1) title columnheader(i)
 set output
