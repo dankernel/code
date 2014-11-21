@@ -34,7 +34,7 @@
 
 /* CONFIG */
 #define CACHE_BLOCK_SIZE (4 * KB)
-#define CACHE_SIZE (64 * MB)
+#define CACHE_SIZE (32 * MB)
 #define CACHE_LEN (CACHE_SIZE/ CACHE_BLOCK_SIZE)
 
 #define DEBUG_OPTION 0
