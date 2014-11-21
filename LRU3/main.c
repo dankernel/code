@@ -1,4 +1,4 @@
-/*
+/**
  * =====================================================================================
  *
  *       Filename:  main.c
@@ -22,6 +22,10 @@
 
 #include "./dkh/lru.h"
 
+/**
+ * @brief Main function
+ * @return error code
+ */
 int main(int argc, char *argv[]){
 
   FILE *fp;

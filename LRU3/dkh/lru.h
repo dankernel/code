@@ -1,4 +1,4 @@
-/*
+/**
  * =====================================================================================
  *
  *       Filename:  lru.h
@@ -323,10 +323,10 @@ int run_cache(struct cache_mem *cm, struct workload *wl)
    return 0;
 }/*}}}*/
 
-/*
- * Just open file and return.
+/**
+ * @brief Just open file and return.
  * @file : target file path
- * return : file pointer
+ * @return  file pointer
  */
 FILE *open_workload(char *file)
 {/*{{{*/
