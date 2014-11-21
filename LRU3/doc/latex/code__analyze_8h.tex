@@ -1,0 +1,118 @@
+\hypertarget{code__analyze_8h}{\section{dkh/code\+\_\+analyze.h File Reference}
+\label{code__analyze_8h}\index{dkh/code\+\_\+analyze.\+h@{dkh/code\+\_\+analyze.\+h}}
+}
+{\ttfamily \#include $<$pthread.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$fcntl.\+h$>$}\\*
+{\ttfamily \#include $<$sys/syscall.\+h$>$}\\*
+{\ttfamily \#include $<$sys/types.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}file\+\_\+read.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}print\+\_\+msg.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}dk\+\_\+str.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}dk\+\_\+list.\+h\char`\"{}}\\*
+Include dependency graph for code\+\_\+analyze.\+h\+:
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structcode__info}{code\+\_\+info}
+\item 
+struct \hyperlink{structanalysis__arg}{analysis\+\_\+arg}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{code__analyze_8h_a505e6854b27524988af2985839f53918}{C\+P\+U\+\_\+\+C\+O\+U\+N\+T}~4
+\item 
+\#define \hyperlink{code__analyze_8h_a98b32c745c3b9c60f87a8e0941a2d934}{K\+E\+Y\+W\+O\+R\+D\+\_\+\+N\+E\+X\+T\+\_\+\+P\+A\+D\+D\+I\+N\+G}~0\+X00000001
+\item 
+\#define \hyperlink{code__analyze_8h_aaa0a3659a4aca6f6af8fa3a9f91420d4}{K\+E\+Y\+W\+O\+R\+D\+\_\+\+N\+E\+X\+T\+\_\+\+P\+A\+R\+E\+N\+T\+H\+E\+S\+E\+S}~0\+X00000002       /$\ast$ parentheses = '(' or ')' $\ast$/
+\item 
+\#define \hyperlink{code__analyze_8h_af5c9311183519392f9c326d16c23cc13}{K\+E\+Y\+W\+O\+R\+D\+\_\+\+N\+E\+X\+T\+\_\+\+L\+\_\+\+P\+A\+R\+E\+N\+T\+H\+E\+S\+E\+S}~0\+X00000004     /$\ast$ parentheses = '(' $\ast$/
+\item 
+\#define \hyperlink{code__analyze_8h_a8c219bbdeb00651c73fe1ce53f67d10c}{K\+E\+Y\+W\+O\+R\+D\+\_\+\+N\+E\+X\+T\+\_\+\+R\+\_\+\+P\+A\+R\+E\+N\+T\+H\+E\+S\+E\+S}~0\+X00000008     /$\ast$ parentheses = ')' $\ast$/
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \hyperlink{code__analyze_8h_a8bd8f2b51bb6544019267bd9e3ced08d}{list\+\_\+str} (struct dk\+\_\+list $\ast$list, char $\ast$str)
+\item 
+char $\ast$ \hyperlink{code__analyze_8h_ad95127e99785c3217d95e00f8783b444}{cheek\+\_\+code\+\_\+line} (char $\ast$str, struct dk\+\_\+list $\ast$list, int option)
+\item 
+int \hyperlink{code__analyze_8h_ab121b00ea24f1ab4d78ccae7a343893f}{init\+\_\+code\+\_\+info} (struct \hyperlink{structcode__info}{code\+\_\+info} $\ast$c\+\_\+info, char $\ast$file)
+\item 
+int $\ast$ \hyperlink{code__analyze_8h_a40c5275f63bcc1394af4771780714285}{read\+\_\+file} (char $\ast$path)
+\item 
+int \hyperlink{code__analyze_8h_a88d8ed4c2b9673c9fc9f285f09cb3cad}{get\+\_\+file\+\_\+line} (char $\ast$path)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{code__analyze_8h_a505e6854b27524988af2985839f53918}{\index{code\+\_\+analyze.\+h@{code\+\_\+analyze.\+h}!C\+P\+U\+\_\+\+C\+O\+U\+N\+T@{C\+P\+U\+\_\+\+C\+O\+U\+N\+T}}
+\index{C\+P\+U\+\_\+\+C\+O\+U\+N\+T@{C\+P\+U\+\_\+\+C\+O\+U\+N\+T}!code\+\_\+analyze.\+h@{code\+\_\+analyze.\+h}}
+\subsubsection[{C\+P\+U\+\_\+\+C\+O\+U\+N\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+P\+U\+\_\+\+C\+O\+U\+N\+T~4}}\label{code__analyze_8h_a505e6854b27524988af2985839f53918}
+\hypertarget{code__analyze_8h_af5c9311183519392f9c326d16c23cc13}{\index{code\+\_\+analyze.\+h@{code\+\_\+analyze.\+h}!K\+E\+Y\+W\+O\+R\+D\+\_\+\+N\+E\+X\+T\+\_\+\+L\+\_\+\+P\+A\+R\+E\+N\+T\+H\+E\+S\+E\+S@{K\+E\+Y\+W\+O\+R\+D\+\_\+\+N\+E\+X\+T\+\_\+\+L\+\_\+\+P\+A\+R\+E\+N\+T\+H\+E\+S\+E\+S}}
+\index{K\+E\+Y\+W\+O\+R\+D\+\_\+\+N\+E\+X\+T\+\_\+\+L\+\_\+\+P\+A\+R\+E\+N\+T\+H\+E\+S\+E\+S@{K\+E\+Y\+W\+O\+R\+D\+\_\+\+N\+E\+X\+T\+\_\+\+L\+\_\+\+P\+A\+R\+E\+N\+T\+H\+E\+S\+E\+S}!code\+\_\+analyze.\+h@{code\+\_\+analyze.\+h}}
+\subsubsection[{K\+E\+Y\+W\+O\+R\+D\+\_\+\+N\+E\+X\+T\+\_\+\+L\+\_\+\+P\+A\+R\+E\+N\+T\+H\+E\+S\+E\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define K\+E\+Y\+W\+O\+R\+D\+\_\+\+N\+E\+X\+T\+\_\+\+L\+\_\+\+P\+A\+R\+E\+N\+T\+H\+E\+S\+E\+S~0\+X00000004     /$\ast$ parentheses = '(' $\ast$/}}\label{code__analyze_8h_af5c9311183519392f9c326d16c23cc13}
+\hypertarget{code__analyze_8h_a98b32c745c3b9c60f87a8e0941a2d934}{\index{code\+\_\+analyze.\+h@{code\+\_\+analyze.\+h}!K\+E\+Y\+W\+O\+R\+D\+\_\+\+N\+E\+X\+T\+\_\+\+P\+A\+D\+D\+I\+N\+G@{K\+E\+Y\+W\+O\+R\+D\+\_\+\+N\+E\+X\+T\+\_\+\+P\+A\+D\+D\+I\+N\+G}}
+\index{K\+E\+Y\+W\+O\+R\+D\+\_\+\+N\+E\+X\+T\+\_\+\+P\+A\+D\+D\+I\+N\+G@{K\+E\+Y\+W\+O\+R\+D\+\_\+\+N\+E\+X\+T\+\_\+\+P\+A\+D\+D\+I\+N\+G}!code\+\_\+analyze.\+h@{code\+\_\+analyze.\+h}}
+\subsubsection[{K\+E\+Y\+W\+O\+R\+D\+\_\+\+N\+E\+X\+T\+\_\+\+P\+A\+D\+D\+I\+N\+G}]{\setlength{\rightskip}{0pt plus 5cm}\#define K\+E\+Y\+W\+O\+R\+D\+\_\+\+N\+E\+X\+T\+\_\+\+P\+A\+D\+D\+I\+N\+G~0\+X00000001}}\label{code__analyze_8h_a98b32c745c3b9c60f87a8e0941a2d934}
+\hypertarget{code__analyze_8h_aaa0a3659a4aca6f6af8fa3a9f91420d4}{\index{code\+\_\+analyze.\+h@{code\+\_\+analyze.\+h}!K\+E\+Y\+W\+O\+R\+D\+\_\+\+N\+E\+X\+T\+\_\+\+P\+A\+R\+E\+N\+T\+H\+E\+S\+E\+S@{K\+E\+Y\+W\+O\+R\+D\+\_\+\+N\+E\+X\+T\+\_\+\+P\+A\+R\+E\+N\+T\+H\+E\+S\+E\+S}}
+\index{K\+E\+Y\+W\+O\+R\+D\+\_\+\+N\+E\+X\+T\+\_\+\+P\+A\+R\+E\+N\+T\+H\+E\+S\+E\+S@{K\+E\+Y\+W\+O\+R\+D\+\_\+\+N\+E\+X\+T\+\_\+\+P\+A\+R\+E\+N\+T\+H\+E\+S\+E\+S}!code\+\_\+analyze.\+h@{code\+\_\+analyze.\+h}}
+\subsubsection[{K\+E\+Y\+W\+O\+R\+D\+\_\+\+N\+E\+X\+T\+\_\+\+P\+A\+R\+E\+N\+T\+H\+E\+S\+E\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define K\+E\+Y\+W\+O\+R\+D\+\_\+\+N\+E\+X\+T\+\_\+\+P\+A\+R\+E\+N\+T\+H\+E\+S\+E\+S~0\+X00000002       /$\ast$ parentheses = '(' or ')' $\ast$/}}\label{code__analyze_8h_aaa0a3659a4aca6f6af8fa3a9f91420d4}
+\hypertarget{code__analyze_8h_a8c219bbdeb00651c73fe1ce53f67d10c}{\index{code\+\_\+analyze.\+h@{code\+\_\+analyze.\+h}!K\+E\+Y\+W\+O\+R\+D\+\_\+\+N\+E\+X\+T\+\_\+\+R\+\_\+\+P\+A\+R\+E\+N\+T\+H\+E\+S\+E\+S@{K\+E\+Y\+W\+O\+R\+D\+\_\+\+N\+E\+X\+T\+\_\+\+R\+\_\+\+P\+A\+R\+E\+N\+T\+H\+E\+S\+E\+S}}
+\index{K\+E\+Y\+W\+O\+R\+D\+\_\+\+N\+E\+X\+T\+\_\+\+R\+\_\+\+P\+A\+R\+E\+N\+T\+H\+E\+S\+E\+S@{K\+E\+Y\+W\+O\+R\+D\+\_\+\+N\+E\+X\+T\+\_\+\+R\+\_\+\+P\+A\+R\+E\+N\+T\+H\+E\+S\+E\+S}!code\+\_\+analyze.\+h@{code\+\_\+analyze.\+h}}
+\subsubsection[{K\+E\+Y\+W\+O\+R\+D\+\_\+\+N\+E\+X\+T\+\_\+\+R\+\_\+\+P\+A\+R\+E\+N\+T\+H\+E\+S\+E\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define K\+E\+Y\+W\+O\+R\+D\+\_\+\+N\+E\+X\+T\+\_\+\+R\+\_\+\+P\+A\+R\+E\+N\+T\+H\+E\+S\+E\+S~0\+X00000008     /$\ast$ parentheses = ')' $\ast$/}}\label{code__analyze_8h_a8c219bbdeb00651c73fe1ce53f67d10c}
+
+
+\subsection{Function Documentation}
+\hypertarget{code__analyze_8h_ad95127e99785c3217d95e00f8783b444}{\index{code\+\_\+analyze.\+h@{code\+\_\+analyze.\+h}!cheek\+\_\+code\+\_\+line@{cheek\+\_\+code\+\_\+line}}
+\index{cheek\+\_\+code\+\_\+line@{cheek\+\_\+code\+\_\+line}!code\+\_\+analyze.\+h@{code\+\_\+analyze.\+h}}
+\subsubsection[{cheek\+\_\+code\+\_\+line}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ cheek\+\_\+code\+\_\+line (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{str, }
+\item[{struct dk\+\_\+list $\ast$}]{list, }
+\item[{int}]{option}
+\end{DoxyParamCaption}
+)}}\label{code__analyze_8h_ad95127e99785c3217d95e00f8783b444}
+\hypertarget{code__analyze_8h_a88d8ed4c2b9673c9fc9f285f09cb3cad}{\index{code\+\_\+analyze.\+h@{code\+\_\+analyze.\+h}!get\+\_\+file\+\_\+line@{get\+\_\+file\+\_\+line}}
+\index{get\+\_\+file\+\_\+line@{get\+\_\+file\+\_\+line}!code\+\_\+analyze.\+h@{code\+\_\+analyze.\+h}}
+\subsubsection[{get\+\_\+file\+\_\+line}]{\setlength{\rightskip}{0pt plus 5cm}int get\+\_\+file\+\_\+line (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{path}
+\end{DoxyParamCaption}
+)}}\label{code__analyze_8h_a88d8ed4c2b9673c9fc9f285f09cb3cad}
+
+
+Here is the call graph for this function\+:
+
+
+\hypertarget{code__analyze_8h_ab121b00ea24f1ab4d78ccae7a343893f}{\index{code\+\_\+analyze.\+h@{code\+\_\+analyze.\+h}!init\+\_\+code\+\_\+info@{init\+\_\+code\+\_\+info}}
+\index{init\+\_\+code\+\_\+info@{init\+\_\+code\+\_\+info}!code\+\_\+analyze.\+h@{code\+\_\+analyze.\+h}}
+\subsubsection[{init\+\_\+code\+\_\+info}]{\setlength{\rightskip}{0pt plus 5cm}int init\+\_\+code\+\_\+info (
+\begin{DoxyParamCaption}
+\item[{struct {\bf code\+\_\+info} $\ast$}]{c\+\_\+info, }
+\item[{char $\ast$}]{file}
+\end{DoxyParamCaption}
+)}}\label{code__analyze_8h_ab121b00ea24f1ab4d78ccae7a343893f}
+\hypertarget{code__analyze_8h_a8bd8f2b51bb6544019267bd9e3ced08d}{\index{code\+\_\+analyze.\+h@{code\+\_\+analyze.\+h}!list\+\_\+str@{list\+\_\+str}}
+\index{list\+\_\+str@{list\+\_\+str}!code\+\_\+analyze.\+h@{code\+\_\+analyze.\+h}}
+\subsubsection[{list\+\_\+str}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ list\+\_\+str (
+\begin{DoxyParamCaption}
+\item[{struct dk\+\_\+list $\ast$}]{list, }
+\item[{char $\ast$}]{str}
+\end{DoxyParamCaption}
+)}}\label{code__analyze_8h_a8bd8f2b51bb6544019267bd9e3ced08d}
+\hypertarget{code__analyze_8h_a40c5275f63bcc1394af4771780714285}{\index{code\+\_\+analyze.\+h@{code\+\_\+analyze.\+h}!read\+\_\+file@{read\+\_\+file}}
+\index{read\+\_\+file@{read\+\_\+file}!code\+\_\+analyze.\+h@{code\+\_\+analyze.\+h}}
+\subsubsection[{read\+\_\+file}]{\setlength{\rightskip}{0pt plus 5cm}int$\ast$ read\+\_\+file (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{path}
+\end{DoxyParamCaption}
+)}}\label{code__analyze_8h_a40c5275f63bcc1394af4771780714285}
+
+
+Here is the call graph for this function\+:
+
+

@@ -1,0 +1,127 @@
+\hypertarget{file__read_8h}{\section{dkh/file\+\_\+read.h File Reference}
+\label{file__read_8h}\index{dkh/file\+\_\+read.\+h@{dkh/file\+\_\+read.\+h}}
+}
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$fcntl.\+h$>$}\\*
+{\ttfamily \#include $<$sys/types.\+h$>$}\\*
+{\ttfamily \#include $<$unistd.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}errno.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}print\+\_\+msg.\+h\char`\"{}}\\*
+Include dependency graph for file\+\_\+read.\+h\+:
+This graph shows which files directly or indirectly include this file\+:
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structfile__info}{file\+\_\+info}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{file__read_8h_a212979f5fc9dcf0a420e90b9b21d780a}{M\+A\+X\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+Z\+E}~1024 $\ast$ 1024 $\ast$ 4
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{file__read_8h_ad36ccbba17c95e2853bf8bd7a6346eaa}{init\+\_\+file\+\_\+struct} (struct \hyperlink{structfile__info}{file\+\_\+info} $\ast$info, char $\ast$path)
+\item 
+int \hyperlink{file__read_8h_ae84bfdae0ec7b73cf580228efa76178e}{open\+\_\+file} (char $\ast$path)
+\item 
+int \hyperlink{file__read_8h_ae31df81b043dc729e24b00b2797fd601}{close\+\_\+file\+\_\+info} (struct \hyperlink{structfile__info}{file\+\_\+info} $\ast$s)
+\item 
+char $\ast$ \hyperlink{file__read_8h_a6ca2c59b960803be2495125fd8ad9ee9}{read\+\_\+token\+\_\+line} (struct \hyperlink{structfile__info}{file\+\_\+info} $\ast$info, int column, char token)
+\item 
+int \hyperlink{file__read_8h_ac7079eec938e493fb76cd68e9b86b176}{next\+\_\+buff\+\_\+read\+\_\+seek} (struct \hyperlink{structfile__info}{file\+\_\+info} $\ast$info, int rb)
+\item 
+int \hyperlink{file__read_8h_a8f0aa9ed68fd12c76459bd21b090cf44}{next\+\_\+buff\+\_\+read} (struct \hyperlink{structfile__info}{file\+\_\+info} $\ast$info)
+\item 
+char $\ast$ \hyperlink{file__read_8h_a744a461bab4a6c47c93cc697a3464761}{read\+\_\+next\+\_\+line} (struct \hyperlink{structfile__info}{file\+\_\+info} $\ast$info)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{file__read_8h_a212979f5fc9dcf0a420e90b9b21d780a}{\index{file\+\_\+read.\+h@{file\+\_\+read.\+h}!M\+A\+X\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+Z\+E@{M\+A\+X\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+Z\+E}}
+\index{M\+A\+X\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+Z\+E@{M\+A\+X\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+Z\+E}!file\+\_\+read.\+h@{file\+\_\+read.\+h}}
+\subsubsection[{M\+A\+X\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+Z\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+X\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+Z\+E~1024 $\ast$ 1024 $\ast$ 4}}\label{file__read_8h_a212979f5fc9dcf0a420e90b9b21d780a}
+
+
+\subsection{Function Documentation}
+\hypertarget{file__read_8h_ae31df81b043dc729e24b00b2797fd601}{\index{file\+\_\+read.\+h@{file\+\_\+read.\+h}!close\+\_\+file\+\_\+info@{close\+\_\+file\+\_\+info}}
+\index{close\+\_\+file\+\_\+info@{close\+\_\+file\+\_\+info}!file\+\_\+read.\+h@{file\+\_\+read.\+h}}
+\subsubsection[{close\+\_\+file\+\_\+info}]{\setlength{\rightskip}{0pt plus 5cm}int close\+\_\+file\+\_\+info (
+\begin{DoxyParamCaption}
+\item[{struct {\bf file\+\_\+info} $\ast$}]{s}
+\end{DoxyParamCaption}
+)}}\label{file__read_8h_ae31df81b043dc729e24b00b2797fd601}
+
+
+Here is the caller graph for this function\+:
+
+
+\hypertarget{file__read_8h_ad36ccbba17c95e2853bf8bd7a6346eaa}{\index{file\+\_\+read.\+h@{file\+\_\+read.\+h}!init\+\_\+file\+\_\+struct@{init\+\_\+file\+\_\+struct}}
+\index{init\+\_\+file\+\_\+struct@{init\+\_\+file\+\_\+struct}!file\+\_\+read.\+h@{file\+\_\+read.\+h}}
+\subsubsection[{init\+\_\+file\+\_\+struct}]{\setlength{\rightskip}{0pt plus 5cm}int init\+\_\+file\+\_\+struct (
+\begin{DoxyParamCaption}
+\item[{struct {\bf file\+\_\+info} $\ast$}]{info, }
+\item[{char $\ast$}]{path}
+\end{DoxyParamCaption}
+)}}\label{file__read_8h_ad36ccbba17c95e2853bf8bd7a6346eaa}
+
+
+Here is the call graph for this function\+:
+
+
+
+
+Here is the caller graph for this function\+:
+
+
+\hypertarget{file__read_8h_a8f0aa9ed68fd12c76459bd21b090cf44}{\index{file\+\_\+read.\+h@{file\+\_\+read.\+h}!next\+\_\+buff\+\_\+read@{next\+\_\+buff\+\_\+read}}
+\index{next\+\_\+buff\+\_\+read@{next\+\_\+buff\+\_\+read}!file\+\_\+read.\+h@{file\+\_\+read.\+h}}
+\subsubsection[{next\+\_\+buff\+\_\+read}]{\setlength{\rightskip}{0pt plus 5cm}int next\+\_\+buff\+\_\+read (
+\begin{DoxyParamCaption}
+\item[{struct {\bf file\+\_\+info} $\ast$}]{info}
+\end{DoxyParamCaption}
+)}}\label{file__read_8h_a8f0aa9ed68fd12c76459bd21b090cf44}
+\hypertarget{file__read_8h_ac7079eec938e493fb76cd68e9b86b176}{\index{file\+\_\+read.\+h@{file\+\_\+read.\+h}!next\+\_\+buff\+\_\+read\+\_\+seek@{next\+\_\+buff\+\_\+read\+\_\+seek}}
+\index{next\+\_\+buff\+\_\+read\+\_\+seek@{next\+\_\+buff\+\_\+read\+\_\+seek}!file\+\_\+read.\+h@{file\+\_\+read.\+h}}
+\subsubsection[{next\+\_\+buff\+\_\+read\+\_\+seek}]{\setlength{\rightskip}{0pt plus 5cm}int next\+\_\+buff\+\_\+read\+\_\+seek (
+\begin{DoxyParamCaption}
+\item[{struct {\bf file\+\_\+info} $\ast$}]{info, }
+\item[{int}]{rb}
+\end{DoxyParamCaption}
+)}}\label{file__read_8h_ac7079eec938e493fb76cd68e9b86b176}
+\hypertarget{file__read_8h_ae84bfdae0ec7b73cf580228efa76178e}{\index{file\+\_\+read.\+h@{file\+\_\+read.\+h}!open\+\_\+file@{open\+\_\+file}}
+\index{open\+\_\+file@{open\+\_\+file}!file\+\_\+read.\+h@{file\+\_\+read.\+h}}
+\subsubsection[{open\+\_\+file}]{\setlength{\rightskip}{0pt plus 5cm}int open\+\_\+file (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{path}
+\end{DoxyParamCaption}
+)}}\label{file__read_8h_ae84bfdae0ec7b73cf580228efa76178e}
+
+
+Here is the caller graph for this function\+:
+
+
+\hypertarget{file__read_8h_a744a461bab4a6c47c93cc697a3464761}{\index{file\+\_\+read.\+h@{file\+\_\+read.\+h}!read\+\_\+next\+\_\+line@{read\+\_\+next\+\_\+line}}
+\index{read\+\_\+next\+\_\+line@{read\+\_\+next\+\_\+line}!file\+\_\+read.\+h@{file\+\_\+read.\+h}}
+\subsubsection[{read\+\_\+next\+\_\+line}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ read\+\_\+next\+\_\+line (
+\begin{DoxyParamCaption}
+\item[{struct {\bf file\+\_\+info} $\ast$}]{info}
+\end{DoxyParamCaption}
+)}}\label{file__read_8h_a744a461bab4a6c47c93cc697a3464761}
+
+
+Here is the caller graph for this function\+:
+
+
+\hypertarget{file__read_8h_a6ca2c59b960803be2495125fd8ad9ee9}{\index{file\+\_\+read.\+h@{file\+\_\+read.\+h}!read\+\_\+token\+\_\+line@{read\+\_\+token\+\_\+line}}
+\index{read\+\_\+token\+\_\+line@{read\+\_\+token\+\_\+line}!file\+\_\+read.\+h@{file\+\_\+read.\+h}}
+\subsubsection[{read\+\_\+token\+\_\+line}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ read\+\_\+token\+\_\+line (
+\begin{DoxyParamCaption}
+\item[{struct {\bf file\+\_\+info} $\ast$}]{info, }
+\item[{int}]{column, }
+\item[{char}]{token}
+\end{DoxyParamCaption}
+)}}\label{file__read_8h_a6ca2c59b960803be2495125fd8ad9ee9}

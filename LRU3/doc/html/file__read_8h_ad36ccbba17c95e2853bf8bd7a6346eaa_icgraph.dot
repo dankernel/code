@@ -1,0 +1,11 @@
+digraph "init_file_struct"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="init_file_struct",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="read_file",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$code__analyze_8h.html#a40c5275f63bcc1394af4771780714285"];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="get_file_line",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$code__analyze_8h.html#a88d8ed4c2b9673c9fc9f285f09cb3cad"];
+}

@@ -38,6 +38,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -68,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -89,7 +90,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
 <code>#include &lt;fcntl.h&gt;</code><br />
-<code>#include &quot;./dkh/lru.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="lru_8h_source.html">./dkh/lru.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for main.c:</div>
 <div class="dyncontent">
@@ -104,7 +105,16 @@ Functions</h2></td></tr>
 <tr class="memdesc:a0ddf1224851353fc92bfbff6f499fa97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main function.  <a href="#a0ddf1224851353fc92bfbff6f499fa97">More...</a><br /></td></tr>
 <tr class="separator:a0ddf1224851353fc92bfbff6f499fa97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>===================================================================================== </p><pre class="fragment">  Filename:  main.c
+
+  @date    2004/11/21
+  @author  dkdk
+</pre><p>Description: : </p><pre class="fragment">Version:  1.0
+Created:  2014년 10월 30일 19시 48분 57초
+</pre><p> Revision: none Compiler: gcc</p>
+<p>author: Jun-Hyung Park (), <a href="#" onclick="location.href='mai'+'lto:'+'goo'+'gl'+'e@d'+'an'+'koo'+'k.'+'ac.'+'kr'; return false;">googl<span style="display: none;">.nosp@m.</span>e@da<span style="display: none;">.nosp@m.</span>nkook<span style="display: none;">.nosp@m.</span>.ac.<span style="display: none;">.nosp@m.</span>kr</a> organization: Dankook Univ. </p><hr/>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a class="anchor" id="a0ddf1224851353fc92bfbff6f499fa97"></a>
 <div class="memitem">
 <div class="memproto">
@@ -130,19 +140,23 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Main function. </p>
-<p>===================================================================================== </p><pre class="fragment">  Filename:  main.c
-</pre><p>Description: : </p><pre class="fragment">Version:  1.0
-Created:  2014년 10월 30일 19시 48분 57초
-</pre><p> Revision: none Compiler: gcc</p>
-<p>author: Jun-Hyung Park (), <a href="#" onclick="location.href='mai'+'lto:'+'goo'+'gl'+'e@d'+'an'+'koo'+'k.'+'ac.'+'kr'; return false;">googl<span style="display: none;">.nosp@m.</span>e@da<span style="display: none;">.nosp@m.</span>nkook<span style="display: none;">.nosp@m.</span>.ac.<span style="display: none;">.nosp@m.</span>kr</a> organization: Dankook Univ. </p><hr/>
 <dl class="section return"><dt>Returns</dt><dd>error code </dd></dl>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="main_8c_a0ddf1224851353fc92bfbff6f499fa97_cgraph.png" border="0" usemap="#main_8c_a0ddf1224851353fc92bfbff6f499fa97_cgraph" alt=""/></div>
+<map name="main_8c_a0ddf1224851353fc92bfbff6f499fa97_cgraph" id="main_8c_a0ddf1224851353fc92bfbff6f499fa97_cgraph">
+</map>
+</div>
+</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Nov 22 2014 04:49:52 for LRU cache simulator by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Nov 22 2014 04:56:30 for LRU cache simulator by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
