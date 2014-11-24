@@ -1,6 +1,0 @@
-<map id="read_file" name="read_file">
-<area shape="rect" id="node2" href="$file__read_8h.html#ad36ccbba17c95e2853bf8bd7a6346eaa" title="init_file_struct" alt="" coords="135,5,243,32"/>
-<area shape="rect" id="node4" href="$file__read_8h.html#a744a461bab4a6c47c93cc697a3464761" title="read_next_line" alt="" coords="131,56,247,83"/>
-<area shape="rect" id="node5" href="$file__read_8h.html#ae31df81b043dc729e24b00b2797fd601" title="close_file_info" alt="" coords="133,107,245,133"/>
-<area shape="rect" id="node3" href="$file__read_8h.html#ae84bfdae0ec7b73cf580228efa76178e" title="open_file" alt="" coords="295,5,375,32"/>
-</map>
