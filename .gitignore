@@ -5,5 +5,8 @@ out.*
 
 */out/
 
+#Tar
+*.tar.*
 
+#Data
 *.csv
