@@ -1,7 +1,7 @@
 
 set terminal postscript enhanced mono
 set term post font ",20"
-set output "gnuplot.eps"
+set output "gnuplot.gif"
 
 #Style
 set style data linespoints
@@ -14,7 +14,7 @@ set key bottom
 
 #Lable
 set ylabel "Hit rato(%)"
-set xlabel "Cache size(2^n)"
+set xlabel "Cache size(Mb)"
 
 #yrange
 set yrange [0:100]
@@ -23,5 +23,5 @@ set yrange [0:100]
 set xtic rotate by 0 scale 1
 
 #Print (2 to 3)
-plot for [i=2:3] 'result.dat' using i:xtic(i) title columnheader(i)
+plot for [i=2:3] 'result.dat' using i:xtic(1) title columnheader(i)
 set output
